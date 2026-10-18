@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.env
+*.pyc
+latest_report.md
+latest_report.json
+telemetry_cache.json
