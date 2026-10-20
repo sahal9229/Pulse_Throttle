@@ -13,7 +13,7 @@ resilient_client = ResilientAgentClient()
 def run_silicon_pulse(user_query: str) -> SiliconPulseReport:
     """Runs autonomous hardware research with automatic API key failover."""
     system_instructions = (
-        "You are SiliconPulse, a Senior Mobile Hardware & Gaming Telemetry Engineer. "
+        "You are PulseThrottle, a Senior Mobile Hardware & Gaming Telemetry Engineer. "
         "Use `search_hardware_telemetry` efficiently: make AT MOST 2 to 3 comprehensive searches total "
         "(e.g., 1 combined search per phone covering SoC chipset, UFS storage, 3DMark stability %, peak temp °C, PWM Hz, and BGMI FPS). "
         "Find the exact commercial SoC model without combining variants with slashes. "
@@ -26,6 +26,10 @@ def run_silicon_pulse(user_query: str) -> SiliconPulseReport:
         system_instructions=system_instructions,
         user_query=user_query,
     )
+
+
+# Safe alias for backwards compatibility and renamed codebase usage
+run_pulse_throttle = run_silicon_pulse
 
 
 def format_markdown_output(report: SiliconPulseReport) -> str:
@@ -45,7 +49,7 @@ def format_markdown_output(report: SiliconPulseReport) -> str:
             f"| **{g.game_name}** | {g.max_unlocked_setting} | {g.sustained_avg_fps} | {g.thermal_and_frame_drop_notes} |"
             for g in p1.game_benchmarks
         ])
-        return f"""# 🔬 SiliconPulse Telemetry Report: {p1.device_name}
+        return f"""# 🔬 PulseThrottle Telemetry Report: {p1.device_name}
 **Target Evaluation:** {report.target_workload}
 
 ### 1. Hardware & Thermal Architecture
@@ -72,7 +76,7 @@ def format_markdown_output(report: SiliconPulseReport) -> str:
     p1_games = "; ".join([f"{g.game_name}: {g.sustained_avg_fps}" for g in p1.game_benchmarks])
     p2_games = "; ".join([f"{g.game_name}: {g.sustained_avg_fps}" for g in p2.game_benchmarks])
 
-    return f"""# ⚡ SiliconPulse Head-to-Head: {p1.device_name} vs. {p2.device_name}
+    return f"""# ⚡ PulseThrottle Head-to-Head: {p1.device_name} vs. {p2.device_name}
 **Target Evaluation:** {report.target_workload}
 
 | Telemetry Metric | {p1.device_name} | {p2.device_name} |

@@ -43,7 +43,7 @@ def process_query(query: str, force_refresh: bool = False) -> None:
 
 def main():
     console.print(Panel.fit(
-        "[bold cyan]⚡ SiliconPulse Telemetry Agent[/bold cyan]\n"
+        "[bold cyan]⚡ PulseThrottle Telemetry Agent[/bold cyan]\n"
         "[dim]Autonomous Mobile Hardware & Gaming Performance Research Engine[/dim]\n"
         "[dim]Commands: Type 'exit' to quit | Add '--refresh' to bypass local cache[/dim]"
     ))
@@ -65,14 +65,14 @@ def main():
     while True:
         try:
             user_input = console.input(
-                "\n[bold green]SiliconPulse > Enter phone or comparison query (or 'exit'):[/bold green] "
+                "\n[bold green]PulseThrottle > Enter phone or comparison query (or 'exit'):[/bold green] "
             ).strip()
 
             if not user_input:
                 continue
 
             if user_input.lower() in ["exit", "quit", "q"]:
-                console.print("[cyan]Shutting down SiliconPulse. Goodbye![/cyan]")
+                console.print("[cyan]Shutting down PulseThrottle. Goodbye![/cyan]")
                 break
 
             force_refresh = "--refresh" in user_input
@@ -81,7 +81,7 @@ def main():
             process_query(query, force_refresh=force_refresh)
 
         except KeyboardInterrupt:
-            console.print("\n[cyan]Shutting down SiliconPulse. Goodbye![/cyan]")
+            console.print("\n[cyan]Shutting down PulseThrottle. Goodbye![/cyan]")
             break
 
 

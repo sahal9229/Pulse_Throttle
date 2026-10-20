@@ -78,7 +78,7 @@ class ResilientAgentClient:
                 secondary_device=None,
                 engineering_verdict=(
                     f"Query Rejected: '{user_query}' does not specify a recognizable smartphone model or SoC chipset. "
-                    "SiliconPulse requires at least one concrete device model to pull hardware telemetry.\n\n"
+                    "PulseThrottle requires at least one concrete device model to pull hardware telemetry.\n\n"
                     "Try queries like:\n"
                     "• 'Motorola Edge 60 Fusion BGMI FPS and thermals'\n"
                     "• 'Compare Poco F6 vs iQOO Neo 9 Pro for sustained 90fps gaming and PWM dimming'"

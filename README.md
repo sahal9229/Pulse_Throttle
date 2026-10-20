@@ -1,16 +1,16 @@
-# ⚡ SiliconPulse
+# ⚡ PulseThrottle
 
-**SiliconPulse** is an autonomous mobile hardware and gaming telemetry agent. It bridges the gap between raw hardware data (SoC architectures, GPU benchmarks, UFS storage tiers, 3DMark stress stability, thermal behavior, and display PWM dimming) and structured, production-ready engineering reports. 
+**PulseThrottle** is an autonomous mobile hardware and gaming telemetry agent. It bridges the gap between raw hardware data (SoC architectures, GPU benchmarks, UFS storage tiers, 3DMark stress stability, thermal behavior, and display PWM dimming) and structured, production-ready engineering reports. 
 
-Designed for developers, tech enthusiasts, and data engineers, SiliconPulse operates either as an interactive command-line REPL tool or via a resilient multi-key AI agent backend, featuring local SHA-256 query caching, strict Pydantic v2 validation, and multi-key failover capabilities.
+Designed for developers, tech enthusiasts, and data engineers, PulseThrottle operates either as an interactive command-line REPL tool or via a resilient multi-key AI agent backend, featuring local SHA-256 query caching, strict Pydantic v2 validation, and multi-key failover capabilities.
 
 ---
 
 ## 🏗️ Architecture & Core Components
 
-SiliconPulse is built with a modular, clean-code architecture:
+PulseThrottle is built with a modular, clean-code architecture:
 
-* **`schemas.py`**: Defines the rigorous Pydantic v2 models (`SiliconPulseReport`, `DeviceTelemetry`, `GameBenchmark`) supporting both single-device deep dives and dual-device head-to-head comparisons, complete with intent guardrails (`INVALID_QUERY` handling).
+* **`schemas.py`**: Defines the rigorous Pydantic v2 models (`PulseThrottleReport` / `SiliconPulseReport`, `DeviceTelemetry`, `GameBenchmark`) supporting both single-device deep dives and dual-device head-to-head comparisons, complete with intent guardrails (`INVALID_QUERY` handling).
 * **`tools.py`**: A robust Tavily Search API wrapper tailored specifically to unearth real-world hardware benchmarks, sustained FPS figures, and thermal metrics.
 * **`client_manager.py`**: A resilient multi-key orchestrator implementing automatic failover (**Primary Gemini Key ➔ Secondary Gemini Key ➔ OpenRouter Backup Gateway** with token safety caps).
 * **`cache.py`**: A local SHA-256 query caching layer (`telemetry_cache.json`) that stores verified reports to save API tokens and reduce execution time to milliseconds.
@@ -45,8 +45,8 @@ SiliconPulse is built with a modular, clean-code architecture:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/silicon_pulse.git
-   cd silicon_pulse
+   git clone https://github.com/your-username/pulse_throttle.git
+   cd pulse_throttle
    ```
 
 2. **Create and activate a virtual environment:**
@@ -81,7 +81,7 @@ Launch the interactive CLI session:
 ```bash
 python main.py
 ```
-*At the `SiliconPulse >` prompt, type any single-device query or head-to-head comparison:*
+*At the `PulseThrottle >` prompt, type any single-device query or head-to-head comparison:*
 * `How does the Motorola Edge 60 Fusion perform in BGMI, and what are its thermals?`
 * `Compare Motorola Edge 60 Pro vs Poco F6 for sustained 90fps gaming and PWM dimming`
 

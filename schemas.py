@@ -42,6 +42,7 @@ class DeviceTelemetry(BaseModel):
     )
 
 class SiliconPulseReport(BaseModel):
+    """PulseThrottle hardware telemetry and comparison report schema."""
     mode: Literal["SINGLE_DEVICE", "DUAL_COMPARISON", "INVALID_QUERY"] = Field(
         description=(
             "Use SINGLE_DEVICE if analyzing one specific phone model, "
@@ -67,10 +68,13 @@ class SiliconPulseReport(BaseModel):
         )
     )
 
+# Safe alias for backwards compatibility and renamed codebase usage
+PulseThrottleReport = SiliconPulseReport
+
 
 # Quick standalone test to verify Pydantic validation works
 if __name__ == "__main__":
-    sample_report = SiliconPulseReport(
+    sample_report = PulseThrottleReport(
         mode="SINGLE_DEVICE",
         target_workload="BGMI Sustained FPS & Thermals",
         primary_device=DeviceTelemetry(
