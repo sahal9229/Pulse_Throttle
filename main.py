@@ -41,11 +41,17 @@ def handle_db_command(cmd: str) -> bool:
             console.print("[red]Usage: /db cool <max_temp_celsius> [optional_chipset_keyword][/red]")
         return True
 
+    if sub == "top":
+        min_idx = float(parts[2]) if len(parts) >= 3 else 0.0
+        render_telemetry_history(min_index=min_idx, sort_by_index=True, limit=15)
+        return True
+
     console.print(
         "[yellow]Available DB Commands:[/yellow]\n"
         "  • [bold]/db[/bold]                          (Show last 10 tested devices)\n"
         "  • [bold]/db chip <name>[/bold]              (e.g., /db chip dimensity)\n"
-        "  • [bold]/db cool <temp> [chip][/bold]       (e.g., /db cool 42.5 dimensity)"
+        "  • [bold]/db cool <temp> [chip][/bold]       (e.g., /db cool 42.5 dimensity)\n"
+        "  • [bold]/db top [min_score][/bold]          (e.g., /db top 75)"
     )
     return True
 

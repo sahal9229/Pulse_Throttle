@@ -39,31 +39,40 @@ class ResilientAgentClient:
         self.openrouter_key = os.environ.get("OPENROUTER_API_KEY")
 
     def _gather_web_telemetry(self, user_query: str) -> str:
-        """Runs both Tavily searches IN PARALLEL using ThreadPoolExecutor to cut wait time in half."""
-        q_lower = user_query.lower()
-        region_hint = "India variant" if "bgmi" in q_lower else ""
+        """
+        Runs focused, non-stuffed Tavily searches IN PARALLEL using 4 worker threads.
+        Separates (1) Specs/AnTuTu/Geekbench/PWM from (2) 3DMark/Thermals/BGMI FPS
+        so search engines return high-signal benchmark tables instead of failing on 20-word queries.
+        """
         vs_split = re.split(r"\b(?:vs\.?|versus)\b", user_query, flags=re.IGNORECASE)
 
         if len(vs_split) == 2:
-            phone_a = re.sub(r"(?i)\b(compare|for|sustained|gaming|bgmi|genshin|pwm|dimming|90fps|and)\b", "", vs_split[0]).strip()
-            phone_b = re.sub(r"(?i)\b(compare|for|sustained|gaming|bgmi|genshin|pwm|dimming|90fps|and)\b", "", vs_split[1]).strip()
+            # Extract clean phone names
+            clean_pattern = r"(?i)\b(compare|for|sustained|gaming|bgmi|genshin|pwm|dimming|90fps|60fps|120fps|and|with|in|performance|thermals)\b"
+            phone_a = re.sub(clean_pattern, "", vs_split[0]).strip()
+            phone_b = re.sub(clean_pattern, "", vs_split[1]).strip()
 
-            q1 = f"{phone_a} {region_hint} official specs processor SoC UFS storage PWM dimming Hz 3DMark stability peak temp BGMI FPS"
-            q2 = f"{phone_b} {region_hint} official specs processor SoC UFS storage PWM dimming Hz 3DMark stability peak temp BGMI FPS"
-            labels = (f"=== TELEMETRY FOR DEVICE A ({phone_a}) ===", f"=== TELEMETRY FOR DEVICE B ({phone_b}) ===")
+            queries = [
+                (f"DEVICE A ({phone_a}) SPECS & BENCHMARKS", f"{phone_a} India specs processor UFS AnTuTu v10 Geekbench 6 PWM dimming Hz"),
+                (f"DEVICE A ({phone_a}) THERMALS & GAMING", f"{phone_a} 3DMark Wild Life Extreme stability temperature Celsius BGMI FPS test"),
+                (f"DEVICE B ({phone_b}) SPECS & BENCHMARKS", f"{phone_b} India specs processor UFS AnTuTu v10 Geekbench 6 PWM dimming Hz"),
+                (f"DEVICE B ({phone_b}) THERMALS & GAMING", f"{phone_b} 3DMark Wild Life Extreme stability temperature Celsius BGMI FPS test"),
+            ]
         else:
-            q1 = f"{user_query} {region_hint} specs processor SoC UFS storage PWM dimming 3DMark stability peak temp"
-            q2 = f"{user_query} {region_hint} real world gaming test BGMI sustained FPS thermal throttling"
-            labels = ("=== HARDWARE & THERMAL TELEMETRY ===", "=== GAMING FPS TELEMETRY ===")
+            clean_pattern = r"(?i)\b(how|does|the|perform|in|for|sustained|gaming|bgmi|genshin|pwm|dimming|90fps|and|what|are|its|thermals|performance)\b"
+            phone = re.sub(clean_pattern, "", user_query).strip() or user_query
+            queries = [
+                (f"SPECS & SYNTHETIC BENCHMARKS ({phone})", f"{phone} India specs processor UFS storage AnTuTu v10 Geekbench 6 score PWM dimming Hz"),
+                (f"THERMALS, 3DMARK & GAMING FPS ({phone})", f"{phone} 3DMark Wild Life stability peak temperature Celsius BGMI sustained FPS test"),
+            ]
 
-        # Execute both web searches concurrently in ~1 second total
-        with ThreadPoolExecutor(max_workers=2) as executor:
-            future_a = executor.submit(search_hardware_telemetry, q1)
-            future_b = executor.submit(search_hardware_telemetry, q2)
-            res_a = future_a.result()
-            res_b = future_b.result()
+        # Fire all searches simultaneously in parallel!
+        with ThreadPoolExecutor(max_workers=len(queries)) as executor:
+            futures = [executor.submit(search_hardware_telemetry, q) for _, q in queries]
+            results = [f.result() for f in futures]
 
-        return f"{labels[0]}\n{res_a}\n\n===\n\n{labels[1]}\n{res_b}"
+        chunks = [f"=== {label} ===\n{res}" for (label, _), res in zip(queries, results)]
+        return "\n\n".join(chunks)
 
     def run_chat_with_fallback(
         self, model_id: str, system_instructions: str, user_query: str
@@ -101,11 +110,7 @@ class ResilientAgentClient:
                 continue
             try:
                 console.print(f"  [dim]🤖 Synthesizing telemetry via {label}...[/dim]")
-                # 20,000ms (20s) HTTP timeout prevents hanging on throttled keys
-                client = genai.Client(
-                    api_key=key,
-                    http_options=types.HttpOptions(timeout=20000),
-                )
+                client = genai.Client(api_key=key)
                 response = client.models.generate_content(
                     model=model_id,
                     contents=combined_prompt,

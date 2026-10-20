@@ -1,6 +1,7 @@
 from typing import List, Optional, Literal
 from pydantic import BaseModel, Field
 
+
 class GameBenchmark(BaseModel):
     game_name: str = Field(
         description="Game title (e.g., BGMI / PUBG Mobile, Genshin Impact, COD Mobile)."
@@ -9,11 +10,12 @@ class GameBenchmark(BaseModel):
         description="Highest graphics/FPS setting officially unlocked (e.g., 'Smooth + 90 FPS', 'Smooth + Extreme 60 FPS')."
     )
     sustained_avg_fps: str = Field(
-        description="Real-world average FPS maintained after 20-30 mins of play. State 'Unverified' if only marketing claims exist."
+        description="Real-world average FPS maintained after 20-30 mins of play (e.g., '58-60 FPS', '86.4 FPS'). State 'Unverified' if unknown."
     )
     thermal_and_frame_drop_notes: str = Field(
         description="Notes on frame drops, jitter, or thermal throttling during gameplay."
     )
+
 
 class DeviceTelemetry(BaseModel):
     device_name: str = Field(description="Official smartphone name.")
@@ -22,6 +24,18 @@ class DeviceTelemetry(BaseModel):
     )
     gpu_and_storage: str = Field(
         description="GPU model, RAM type (LPDDR4X/5X), and storage type (UFS 2.2/3.1/4.0)."
+    )
+    antutu_v10_score: Optional[int] = Field(
+        default=None,
+        description="AnTuTu v10 total benchmark score as an integer (e.g., 720000, 1450000). Null if not found."
+    )
+    geekbench_6_single: Optional[int] = Field(
+        default=None,
+        description="Geekbench 6 Single-Core score as an integer (e.g., 1050, 2100). Null if not found."
+    )
+    geekbench_6_multi: Optional[int] = Field(
+        default=None,
+        description="Geekbench 6 Multi-Core score as an integer (e.g., 3100, 6500). Null if not found."
     )
     wildlife_stability_pct: Optional[float] = Field(
         default=None,
@@ -34,15 +48,23 @@ class DeviceTelemetry(BaseModel):
     pwm_dimming_hz: str = Field(
         description="Display PWM dimming frequency in Hz (e.g., '720Hz', '2160Hz', or 'Not Reported')."
     )
+    pulse_throttle_index: Optional[float] = Field(
+        default=None,
+        description="Calculated 0-100 PulseThrottle Index (computed deterministically by scoring.py)."
+    )
+    score_breakdown: Optional[str] = Field(
+        default=None,
+        description="Summary of sub-scores (TSS, FPE, Compute, Storage) computed by scoring.py."
+    )
     game_benchmarks: List[GameBenchmark] = Field(
         description="Breakdown of specific games requested by the user."
     )
     sources: List[str] = Field(
-        description="Domains/publications where data was verified (e.g., GSMArena, NotebookCheck)."
+        description="Domains/publications where data was verified (e.g., GSMArena, NotebookCheck, NanoReview)."
     )
 
+
 class SiliconPulseReport(BaseModel):
-    """PulseThrottle hardware telemetry and comparison report schema."""
     mode: Literal["SINGLE_DEVICE", "DUAL_COMPARISON", "INVALID_QUERY"] = Field(
         description=(
             "Use SINGLE_DEVICE if analyzing one specific phone model, "
@@ -67,34 +89,3 @@ class SiliconPulseReport(BaseModel):
             "was rejected and give 2 examples of valid smartphone queries."
         )
     )
-
-# Safe alias for backwards compatibility and renamed codebase usage
-PulseThrottleReport = SiliconPulseReport
-
-
-# Quick standalone test to verify Pydantic validation works
-if __name__ == "__main__":
-    sample_report = PulseThrottleReport(
-        mode="SINGLE_DEVICE",
-        target_workload="BGMI Sustained FPS & Thermals",
-        primary_device=DeviceTelemetry(
-            device_name="Motorola Edge 60 Pro",
-            soc_chipset="MediaTek Dimensity 8350 Extreme (4nm)",
-            gpu_and_storage="Mali-G615 MC6, LPDDR5X, UFS 4.0",
-            wildlife_stability_pct=74.5,
-            peak_temp_celsius=42.8,
-            pwm_dimming_hz="720Hz",
-            game_benchmarks=[
-                GameBenchmark(
-                    game_name="BGMI",
-                    max_unlocked_setting="Smooth + 90 FPS",
-                    sustained_avg_fps="86.4 FPS",
-                    thermal_and_frame_drop_notes="Stable frame pacing with minor drops in hot-drops."
-                )
-            ],
-            sources=["gsmarena.com"]
-        ),
-        engineering_verdict="Strong mid-high tier gaming performer with UFS 4.0 storage."
-    )
-    print("Schema validation passed successfully!")
-    print(sample_report.model_dump_json(indent=2))

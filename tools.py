@@ -22,11 +22,11 @@ def search_hardware_telemetry(query: str) -> str:
     try:
         response = tavily_client.search(
             query=query,
-            search_depth="basic",  # 4x faster than 'advanced' (~0.8s vs ~5s)
-            max_results=5,
+            search_depth="advanced",  # Needed to pull full benchmark tables from NanoReview/GSMArena
+            max_results=4,
         )
         results = [
-            f"Source: {r.get('url')}\nTitle: {r.get('title')}\nContent: {str(r.get('content', ''))[:800]}"
+            f"Source: {r.get('url')}\nTitle: {r.get('title')}\nContent: {str(r.get('content', ''))[:1500]}"
             for r in response.get("results", [])
         ]
         return "\n\n---\n\n".join(results) if results else "No relevant benchmark data found."
