@@ -1,5 +1,6 @@
-import os
+from concurrent.futures import ThreadPoolExecutor
 import re
+import os
 import json
 from dotenv import load_dotenv
 from google import genai
@@ -13,7 +14,6 @@ from tools import search_hardware_telemetry
 load_dotenv()
 console = Console()
 
-# Known smartphone brands, series, and chip keywords
 KNOWN_HARDWARE_KEYWORDS = {
     "moto", "motorola", "edge", "samsung", "galaxy", "s23", "s24", "s25", "iphone", "apple",
     "xiaomi", "redmi", "poco", "oneplus", "nord", "iqoo", "vivo", "oppo", "realme", "gt",
@@ -22,15 +22,11 @@ KNOWN_HARDWARE_KEYWORDS = {
     "exynos", "bionic", "tensor", "helio", "unisoc"
 }
 
+
 def is_specific_hardware_query(query: str) -> bool:
-    """
-    Fast 0-token guardrail: Checks if the query mentions at least one recognizable
-    smartphone brand, model series, or chipset keyword (or model number like 'f6', '15 pro').
-    """
     words = set(re.findall(r"[a-z0-9]+", query.lower()))
     if words.intersection(KNOWN_HARDWARE_KEYWORDS):
         return True
-    # Also allow queries with alphanumeric model numbers like "x100", "f6", "z9", "16 pro"
     if re.search(r"\b([a-z]{1,3}\d{1,3}|\d{1,2}\s*(pro|ultra|plus|max|fe|fusion|neo|gt))\b", query.lower()):
         return True
     return False
@@ -43,33 +39,35 @@ class ResilientAgentClient:
         self.openrouter_key = os.environ.get("OPENROUTER_API_KEY")
 
     def _gather_web_telemetry(self, user_query: str) -> str:
-        """
-        Deterministically runs targeted Tavily web searches in Python FIRST.
-        This uses 0 LLM requests for tool-looping, saving 80% of your Gemini RPM quota!
-        """
+        """Runs both Tavily searches IN PARALLEL using ThreadPoolExecutor to cut wait time in half."""
         q_lower = user_query.lower()
-        chunks = []
+        region_hint = "India variant" if "bgmi" in q_lower else ""
+        vs_split = re.split(r"\b(?:vs\.?|versus)\b", user_query, flags=re.IGNORECASE)
 
-        # If comparing two phones (contains 'vs' or 'compare'), run 2 targeted searches
-        if " vs " in q_lower or "compare" in q_lower:
-            chunks.append(search_hardware_telemetry(f"{user_query} specifications chipset UFS storage PWM dimming Hz"))
-            chunks.append(search_hardware_telemetry(f"{user_query} 3DMark Wild Life Extreme stability temperature BGMI FPS test"))
+        if len(vs_split) == 2:
+            phone_a = re.sub(r"(?i)\b(compare|for|sustained|gaming|bgmi|genshin|pwm|dimming|90fps|and)\b", "", vs_split[0]).strip()
+            phone_b = re.sub(r"(?i)\b(compare|for|sustained|gaming|bgmi|genshin|pwm|dimming|90fps|and)\b", "", vs_split[1]).strip()
+
+            q1 = f"{phone_a} {region_hint} official specs processor SoC UFS storage PWM dimming Hz 3DMark stability peak temp BGMI FPS"
+            q2 = f"{phone_b} {region_hint} official specs processor SoC UFS storage PWM dimming Hz 3DMark stability peak temp BGMI FPS"
+            labels = (f"=== TELEMETRY FOR DEVICE A ({phone_a}) ===", f"=== TELEMETRY FOR DEVICE B ({phone_b}) ===")
         else:
-            # Single phone deep dive
-            chunks.append(search_hardware_telemetry(f"{user_query} specifications chipset UFS storage PWM dimming 3DMark stability temperature"))
-            chunks.append(search_hardware_telemetry(f"{user_query} real world gaming test sustained FPS thermal throttling"))
+            q1 = f"{user_query} {region_hint} specs processor SoC UFS storage PWM dimming 3DMark stability peak temp"
+            q2 = f"{user_query} {region_hint} real world gaming test BGMI sustained FPS thermal throttling"
+            labels = ("=== HARDWARE & THERMAL TELEMETRY ===", "=== GAMING FPS TELEMETRY ===")
 
-        return "\n\n===\n\n".join(chunks)
+        # Execute both web searches concurrently in ~1 second total
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            future_a = executor.submit(search_hardware_telemetry, q1)
+            future_b = executor.submit(search_hardware_telemetry, q2)
+            res_a = future_a.result()
+            res_b = future_b.result()
+
+        return f"{labels[0]}\n{res_a}\n\n===\n\n{labels[1]}\n{res_b}"
 
     def run_chat_with_fallback(
         self, model_id: str, system_instructions: str, user_query: str
     ) -> SiliconPulseReport:
-        """
-        1. Gathers live web telemetry via Tavily (0 LLM calls).
-        2. Makes exactly 1 structured JSON call to Primary Gemini Key.
-        3. Fails over to Secondary Gemini Key -> OpenRouter if needed.
-        """
-        # GUARDRAIL: Reject vague/non-device queries in 0.001s before spending Tavily or Gemini tokens!
         if not is_specific_hardware_query(user_query):
             return SiliconPulseReport(
                 mode="INVALID_QUERY",
@@ -102,7 +100,12 @@ class ResilientAgentClient:
             if not key:
                 continue
             try:
-                client = genai.Client(api_key=key)
+                console.print(f"  [dim]🤖 Synthesizing telemetry via {label}...[/dim]")
+                # 20,000ms (20s) HTTP timeout prevents hanging on throttled keys
+                client = genai.Client(
+                    api_key=key,
+                    http_options=types.HttpOptions(timeout=20000),
+                )
                 response = client.models.generate_content(
                     model=model_id,
                     contents=combined_prompt,
@@ -124,10 +127,9 @@ class ResilientAgentClient:
                 console.print(f"[yellow]⚠️ API Error on {label} ({e.code}). Switching to backup key...[/yellow]")
                 continue
             except Exception as e:
-                console.print(f"[yellow]⚠️ Error on {label}: {str(e)}. Trying next key...[/yellow]")
+                console.print(f"[yellow]⚠️ Timeout/Error on {label}: {str(e)}. Trying next key...[/yellow]")
                 continue
 
-        # 3. Ultimate Fallback: OpenRouter (Strictly capped at 2000 max_tokens)
         if self.openrouter_key:
             console.print("[bold magenta]🔄 Switching to OpenRouter Backup Gateway...[/bold magenta]")
             return self._run_openrouter_fallback(system_instructions, combined_prompt)
@@ -140,6 +142,7 @@ class ResilientAgentClient:
         or_client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
             api_key=self.openrouter_key,
+            timeout=25.0,
         )
 
         or_prompt = (

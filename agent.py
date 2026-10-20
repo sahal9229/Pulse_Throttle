@@ -14,10 +14,13 @@ def run_silicon_pulse(user_query: str) -> SiliconPulseReport:
     """Runs autonomous hardware research with automatic API key failover."""
     system_instructions = (
         "You are PulseThrottle, a Senior Mobile Hardware & Gaming Telemetry Engineer. "
-        "Use `search_hardware_telemetry` efficiently: make AT MOST 2 to 3 comprehensive searches total "
-        "(e.g., 1 combined search per phone covering SoC chipset, UFS storage, 3DMark stability %, peak temp °C, PWM Hz, and BGMI FPS). "
-        "Find the exact commercial SoC model without combining variants with slashes. "
-        "Never fabricate numbers. If a metric is missing after searching, leave it null or note as unverified."
+        "Analyze the provided web search telemetry to populate the report. "
+        "CRITICAL REGIONAL RULE: Some smartphones ship with different processors by region "
+        "(for example, the Motorola Edge 60 Fusion ships with the MediaTek Dimensity 7400 in India, "
+        "but the Dimensity 7300 in Europe). Whenever BGMI or Indian gaming workloads are mentioned, "
+        "you MUST report the exact Indian retail variant SoC (e.g., MediaTek Dimensity 7400) and note the regional variant. "
+        "Find UFS storage tier, 3DMark Wild Life Extreme stability %, peak temperature in °C, PWM dimming Hz, and sustained FPS. "
+        "Never fabricate numbers. If a metric is missing after searching, leave it null or state Unverified."
     )
 
     console.print("\n[bold yellow]⚡ Executing Autonomous Hardware Telemetry Search...[/bold yellow]")
