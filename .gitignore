@@ -5,3 +5,4 @@ __pycache__/
 latest_report.md
 latest_report.json
 telemetry_cache.json
+*.db
