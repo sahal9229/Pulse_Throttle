@@ -1,32 +1,64 @@
 # ⚡ PulseThrottle
 
-**PulseThrottle** is an autonomous mobile hardware and gaming telemetry agent. It bridges the gap between raw hardware data (SoC architectures, GPU benchmarks, UFS storage tiers, 3DMark stress stability, thermal behavior, and display PWM dimming) and structured, production-ready engineering reports. 
+**PulseThrottle** is an autonomous mobile hardware intelligence and gaming telemetry agent. It bridges the gap between raw hardware data (SoC architectures, GPU benchmarks, UFS storage tiers, 3DMark stress stability, thermal dissipation, and display PWM dimming) and structured, production-ready engineering reports.
 
-Designed for developers, tech enthusiasts, and data engineers, PulseThrottle operates either as an interactive command-line REPL tool or via a resilient multi-key AI agent backend, featuring local SHA-256 query caching, strict Pydantic v2 validation, and multi-key failover capabilities.
+Designed for developers, tech enthusiasts, and mobile engineers, PulseThrottle operates either as an interactive command-line REPL or via a resilient multi-key AI agent backend, featuring local SHA-256 caching, persistent SQLite telemetry analytics, quantitative index scoring, and multi-key failover capabilities.
+
+---
+
+## 🚀 Key Features in Current Version
+
+* **⚡ PulseThrottle Index (PTI) Scoring Engine:**
+  A quantitative mathematical scoring model (0–100) that objectively rates overall device performance:
+  * **30% Thermal Stability Score (TSS):** Evaluates sustained performance and penalizes thermal runaway based on 3DMark Wild Life Extreme stress stability and peak surface temperatures.
+  * **30% FPS Pacing Efficiency (FPE):** Real-world sustained frame rate versus unlocked graphics limits in demanding titles (e.g., BGMI / PUBG Mobile, Genshin Impact).
+  * **25% Normalized Compute Score:** Synthetic raw computing capacity derived from AnTuTu v10 and Geekbench 6 (single/multi-core) benchmarks.
+  * **15% Storage Speed Tier:** High-speed I/O bandwidth evaluation based on storage generation (e.g., UFS 4.0 vs UFS 3.1 vs UFS 2.2).
+
+* **🏎️ Targeted 4-Way Parallel Telemetry Search:**
+  * Multi-threaded `ThreadPoolExecutor` search architecture.
+  * Fires focused, concurrent queries per device: separates **Specs & Synthetic Benchmarks** (AnTuTu, Geekbench, UFS, PWM) from **Thermals & Gaming FPS** (3DMark stability, peak Celsius, sustained FPS) to prevent keyword dilution.
+  * Deep search ingestion with 1,500-character snippet windows preserving complete benchmark tables from sources like NanoReview and GSMArena.
+
+* **🗄️ Relational SQLite Telemetry Store & Leaderboard:**
+  * Persistent storage in `pulsethrottle.db` tracking all telemetry runs, benchmarks, and verdicts.
+  * Dynamic schema auto-migration across updates.
+  * Built-in interactive CLI analytics commands (`/db`, `/db chip`, `/db cool`, `/db top`).
+
+* **🛡️ Resilient Multi-Tier API Fallback:**
+  * Failover architecture: **Primary Gemini Key ➔ Secondary Gemini Key ➔ OpenRouter Gateway**.
+  * Handles rate-limits (`429`) and server load without disrupting active sessions.
+
+* **🎯 Strict Pydantic v2 Schema Validation:**
+  * Zero-hallucination structured JSON extraction with validated typing.
+  * Full support for single-device deep dives and dual-device head-to-head comparisons.
+
+* **⚡ Smart Local SHA-256 Query Cache:**
+  * Content-addressed caching layer (`telemetry_cache.json`) delivers sub-millisecond responses for repeated queries, saving API quota.
+
+* **📊 Multi-Format Reporting:**
+  * Terminal-rendered tables and styling via Rich.
+  * Automatic dual export on every query: `latest_report.md` (human-readable Markdown) and `latest_report.json` (machine-readable structured data).
+
+* **🛑 Zero-Token Input Guardrails:**
+  * Pre-execution regex guardrails reject vague or off-topic queries immediately without wasting API tokens.
 
 ---
 
 ## 🏗️ Architecture & Core Components
 
-PulseThrottle is built with a modular, clean-code architecture:
-
-* **`schemas.py`**: Defines the rigorous Pydantic v2 models (`PulseThrottleReport` / `SiliconPulseReport`, `DeviceTelemetry`, `GameBenchmark`) supporting both single-device deep dives and dual-device head-to-head comparisons, complete with intent guardrails (`INVALID_QUERY` handling).
-* **`tools.py`**: A robust Tavily Search API wrapper tailored specifically to unearth real-world hardware benchmarks, sustained FPS figures, and thermal metrics.
-* **`client_manager.py`**: A resilient multi-key orchestrator implementing automatic failover (**Primary Gemini Key ➔ Secondary Gemini Key ➔ OpenRouter Backup Gateway** with token safety caps).
-* **`cache.py`**: A local SHA-256 query caching layer (`telemetry_cache.json`) that stores verified reports to save API tokens and reduce execution time to milliseconds.
-* **`agent.py`**: The core orchestration layer uniting Tavily RAG data with structured Pydantic schema extraction.
-* **`main.py`**: The interactive CLI REPL session manager supporting continuous queries and dual-export functionality (`latest_report.md` and `latest_report.json`).
-
----
-
-## 🚀 Key Features
-
-* **Autonomous Hardware RAG:** Searches live web telemetry for exact chipsets, storage speeds, and stress-test data.
-* **Strict Schema Validation:** Eliminates LLM hallucinations by enforcing strict Pydantic typing and structured JSON schemas.
-* **Resilient Multi-Key Failover:** Automatically switches accounts on rate-limit (`429`) errors to ensure high availability.
-* **Smart Local Caching:** SHA-256 normalization prevents redundant API calls for identical or similarly phrased queries.
-* **Dual Output Export:** Generates human-readable Markdown reports (`latest_report.md`) and machine-readable data payloads (`latest_report.json`) instantly.
-* **Input Guardrails:** Zero-token regex pre-check blocks vague or non-device queries instantly.
+```
+silicon_pulse/
+├── agent.py            # Orchestrator uniting RAG telemetry, scoring, and markdown formatting
+├── scoring.py          # Quantitative PulseThrottle Index (PTI) mathematical engine
+├── client_manager.py   # Multi-threaded parallel Tavily search & resilient multi-key LLM client
+├── engine_db.py        # SQLite relational persistence, auto-migration, and leaderboard analytics
+├── schemas.py          # Pydantic v2 models (DeviceTelemetry, GameBenchmark, SiliconPulseReport)
+├── tools.py            # Advanced Tavily Search API wrapper with high-capacity snippet extraction
+├── cache.py            # SHA-256 content-addressable query cache
+├── main.py             # Interactive CLI REPL session manager & database query dispatcher
+└── requirements.txt    # Production dependencies
+```
 
 ---
 
@@ -34,10 +66,11 @@ PulseThrottle is built with a modular, clean-code architecture:
 
 * **Python 3.10+**
 * **Google GenAI SDK** (`gemini-3.8-flash`)
-* **Tavily Search API**
-* **Pydantic v2**
-* **Rich UI** (Terminal styling and markdown rendering)
-* **OpenAI SDK** (For OpenRouter gateway fallback)
+* **Tavily Search API** (Advanced Hardware RAG)
+* **Pydantic v2** (Strict schema enforcement)
+* **SQLite3** (Relational telemetry logging and leaderboard analytics)
+* **Rich UI** (Terminal formatting, tables, and Markdown rendering)
+* **OpenAI SDK** (OpenRouter gateway failover)
 
 ---
 
@@ -45,15 +78,17 @@ PulseThrottle is built with a modular, clean-code architecture:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/pulse_throttle.git
-   cd pulse_throttle
+   git clone https://github.com/sahal9229/Pulse_Throttle.git
+   cd Pulse_Throttle
    ```
 
 2. **Create and activate a virtual environment:**
    ```bash
    python -m venv .venv
+
    # On Windows (PowerShell):
    .venv\Scripts\Activate
+
    # On macOS/Linux:
    source .venv/bin/activate
    ```
@@ -63,8 +98,8 @@ PulseThrottle is built with a modular, clean-code architecture:
    pip install -r requirements.txt
    ```
 
-4. **Configure your environment variables:**
-   Create a `.env` file in the root directory and add your credentials:
+4. **Configure environment variables:**
+   Create a `.env` file in the root directory:
    ```env
    GEMINI_API_KEY_PRIMARY="your_primary_gemini_key"
    GEMINI_API_KEY_SECONDARY="your_secondary_gemini_key"
@@ -77,25 +112,51 @@ PulseThrottle is built with a modular, clean-code architecture:
 ## 💡 Usage
 
 ### 1. Interactive REPL Mode
-Launch the interactive CLI session:
+Launch the interactive terminal session:
 ```bash
 python main.py
 ```
-*At the `PulseThrottle >` prompt, type any single-device query or head-to-head comparison:*
-* `How does the Motorola Edge 60 Fusion perform in BGMI, and what are its thermals?`
-* `Compare Motorola Edge 60 Pro vs Poco F6 for sustained 90fps gaming and PWM dimming`
+
+#### Running Telemetry Queries
+At the `PulseThrottle >` prompt, enter any smartphone model or comparison:
+* **Single Device:** `How does the Motorola Edge 60 Fusion perform in BGMI, and what are its thermals?`
+* **Head-to-Head Comparison:** `Compare Poco F6 vs iQOO Neo 9 Pro for sustained 90fps gaming and PWM dimming`
+* **Cache Bypass:** Append `--refresh` to bypass the local cache and fetch fresh live telemetry:
+  ```
+  PulseThrottle > iQOO 12 BGMI FPS and thermals --refresh
+  ```
+
+#### Database & Leaderboard Commands (`/db`)
+Inspect historical telemetry and query rankings directly from the REPL prompt:
+* `/db` — Show the 10 most recent telemetry runs.
+* `/db top` — View leaderboard ranked by PulseThrottle Index (e.g., `/db top 70` for scores ≥ 70).
+* `/db chip <keyword>` — Filter runs by chipset (e.g., `/db chip snapdragon` or `/db chip dimensity`).
+* `/db cool <temp_celsius>` — Filter runs by peak temperature (e.g., `/db cool 42.0`).
+* `/db cool <temp_celsius> <chip>` — Combined thermal and SoC filter (e.g., `/db cool 41.5 dimensity`).
 
 ### 2. Direct CLI Argument Mode
-Run a query directly from your terminal:
+Run queries directly from the shell without entering the REPL:
 ```bash
 python main.py "Motorola Edge 60 Pro BGMI 90fps stability"
 ```
-*(Add `--refresh` to bypass the local cache and fetch fresh live data)*
 
 ---
 
-## 📄 Example Output
+## 📊 PulseThrottle Index (PTI) Formula
 
-Each run automatically exports two files to your project workspace:
-* **`latest_report.md`**: Formatted engineering markdown report with tables, specifications, and verdicts.
-* **`latest_report.json`**: Structured JSON payload ready for database ingestion, dashboards, or web frontends.
+$$\text{PTI} = 0.30 \times \text{TSS} + 0.30 \times \text{FPE} + 0.25 \times \text{Compute} + 0.15 \times \text{Storage}$$
+
+| Sub-Score | Weight | Metric Base | Details |
+| :--- | :---: | :--- | :--- |
+| **Thermal Stability Score (TSS)** | 30% | 3DMark Wild Life Stability % & Peak Temp | Scaled from 3DMark stress loops; penalizes thermal runaway exceeding 42°C. |
+| **FPS Pacing Efficiency (FPE)** | 30% | Sustained Average FPS vs Target | Measures real-world 30-minute gaming stability without micro-stutters. |
+| **Normalized Compute Score** | 25% | AnTuTu v10 & Geekbench 6 | Evaluates raw synthetic CPU & GPU silicon headroom. |
+| **Storage Speed Tier** | 15% | UFS Generation (UFS 4.0 / 3.1 / 2.2) | Bandwidth benchmark score for asset loading and background caching. |
+
+---
+
+## 📄 Output Artifacts
+
+Every completed analysis automatically generates two persistent artifacts in your workspace:
+* **`latest_report.md`**: Clean, formatted Markdown technical report featuring specification comparison tables, benchmark matrices, thermal evaluations, PulseThrottle Index breakdowns, and an engineering verdict.
+* **`latest_report.json`**: Machine-readable JSON structured strictly against the `SiliconPulseReport` Pydantic schema, ready for dashboards, APIs, or database pipelines.
