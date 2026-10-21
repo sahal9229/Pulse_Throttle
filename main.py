@@ -3,7 +3,6 @@ from rich.console import Console
 from rich.markdown import Markdown
 from rich.panel import Panel
 from agent import run_silicon_pulse, format_markdown_output
-from cache import load_from_cache, save_to_cache
 from engine_db import init_db, log_report_to_db, load_report_from_db, render_telemetry_history
 
 console = Console()
@@ -57,27 +56,12 @@ def handle_db_command(cmd: str) -> bool:
 
 
 def process_query(query: str, force_refresh: bool = False) -> None:
-    """
-    Executes the query with 3-tier lookup:
-      1. SQLite Database (`pulsethrottle.db`) — matches stored device(s) even across different query phrasings!
-      2. SHA-256 JSON Cache (`telemetry_cache.json`)
-      3. Live Autonomous Scraper + Regex Engine (only logs to DB when fresh data is fetched)
-    """
     try:
-        report_data = None
+        report_data = None if force_refresh else load_report_from_db(query)
 
-        if not force_refresh:
-            # 1. Check SQLite Database first (by device name)
-            report_data = load_report_from_db(query)
-            # 2. Fallback to exact-query SHA-256 JSON cache
-            if report_data is None:
-                report_data = load_from_cache(query)
-
-        # 3. Only scrape the web & insert/update DB if not found in SQLite/Cache (or if --refresh was used)
         if report_data is None:
             report_data = run_silicon_pulse(query)
             if report_data.mode != "INVALID_QUERY":
-                save_to_cache(query, report_data)
                 log_report_to_db(report_data)
 
         markdown_report = format_markdown_output(report_data)
