@@ -17,7 +17,7 @@ User Query ("Poco F6 vs iQOO Neo 9 Pro BGMI 90fps thermals")
   │
   ├── 1. Zero-Token Regex Guardrail (<1ms) ────────── Block vague/off-topic queries instantly
   │
-  ├── 2. Keyless Parallel Web Scraper (tools.py) ───── ddgs + BeautifulSoup4 concurrent deep scrape
+  ├── 2. Keyless Parallel Web Scraper (tools.py) ───── DuckDuckGo + BeautifulSoup4 concurrent deep scrape
   │
   ├── 3. Bounded Regex & Reference Engine (regex_parser.py) 
   │      └── Extracts AnTuTu v10, Geekbench 6, 3DMark, UFS, PWM & Peak Temp in 0.01s (0 tokens)
@@ -36,7 +36,7 @@ User Query ("Poco F6 vs iQOO Neo 9 Pro BGMI 90fps thermals")
 ## 🚀 Core Pillars & Current Features
 
 ### 1. 🌐 Keyless Parallel Web Scraper (`tools.py`)
-* **100% Keyless Primary Search:** Executes concurrent queries via `ddgs` (DuckDuckGo Search) without requiring any search API keys or subscriptions.
+* **100% Keyless Primary Search:** Executes concurrent queries via DuckDuckGo Search without requiring any search API keys or subscriptions.
 * **Deep Page Text Extraction:** Automatically fetches and cleans HTML content from top benchmark URLs in parallel using `BeautifulSoup4` (up to 3,000 characters per page).
 * **Hybrid Fallback:** Gracefully supplements with Tavily advanced search only if keyless snippets lack benchmark depth and `TAVILY_API_KEY` is present.
 
@@ -84,7 +84,7 @@ silicon_pulse/
 ├── client_manager.py   # Multi-threaded parallel scraper & resilient fallback client
 ├── engine_db.py        # SQLite relational store, auto-migration, and leaderboard analytics
 ├── schemas.py          # Pydantic v2 models (DeviceTelemetry, GameBenchmark, SiliconPulseReport)
-├── tools.py            # Keyless DDGS + BeautifulSoup4 web scraper with Tavily backup
+├── tools.py            # Keyless DuckDuckGo + BeautifulSoup4 web scraper with Tavily backup
 ├── cache.py            # SHA-256 content-addressable local query cache
 ├── main.py             # Interactive CLI REPL session manager & database query dispatcher
 └── requirements.txt    # Production dependencies
@@ -95,7 +95,7 @@ silicon_pulse/
 ## 🛠️ Tech Stack
 
 * **Language:** Python 3.10+
-* **Keyless Web Scraping:** `ddgs` (DuckDuckGo Search) + `BeautifulSoup4` + `requests`
+* **Keyless Web Scraping:** DuckDuckGo Search (`ddgs`) + `BeautifulSoup4` + `requests`
 * **Schema Validation:** Pydantic v2
 * **Database & Analytics:** SQLite3 + `contextlib.closing`
 * **Terminal UI:** Rich (Styled tables, panels, and Markdown rendering)
