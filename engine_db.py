@@ -1,5 +1,6 @@
 import sqlite3
 import json
+from contextlib import closing
 from pathlib import Path
 from typing import Optional
 from rich.console import Console
@@ -20,7 +21,7 @@ def get_connection() -> sqlite3.Connection:
 
 def init_db() -> None:
     """Initializes relational tables and safely migrates new benchmark/index columns."""
-    with get_connection() as conn:
+    with closing(get_connection()) as conn:
         conn.executescript(
             """
             CREATE TABLE IF NOT EXISTS devices (
@@ -135,7 +136,7 @@ def log_report_to_db(report: SiliconPulseReport) -> None:
 
     enrich_report_with_scores(report)
     init_db()
-    with get_connection() as conn:
+    with closing(get_connection()) as conn:
         _store_single_device(conn, report.primary_device, report.target_workload)
         if report.mode == "DUAL_COMPARISON" and report.secondary_device is not None:
             _store_single_device(conn, report.secondary_device, report.target_workload)
@@ -182,12 +183,24 @@ def render_telemetry_history(
         params.append(min_index)
 
     if sort_by_index or min_index is not None:
-        query += " ORDER BY r.pulse_throttle_index DESC, r.recorded_at DESC LIMIT ?;"
+        # Deduplicate leaderboard: pick the best/latest run per unique device_id
+        query += """
+            AND r.id IN (
+                SELECT id FROM (
+                    SELECT id, ROW_NUMBER() OVER (
+                        PARTITION BY device_id 
+                        ORDER BY (antutu_v10_score IS NOT NULL) DESC, pulse_throttle_index DESC, recorded_at DESC
+                    ) AS rn
+                    FROM telemetry_runs
+                ) WHERE rn = 1
+            )
+            ORDER BY r.pulse_throttle_index DESC, r.recorded_at DESC LIMIT ?;
+        """
     else:
         query += " ORDER BY r.recorded_at DESC LIMIT ?;"
     params.append(limit)
 
-    with get_connection() as conn:
+    with closing(get_connection()) as conn:
         rows = conn.execute(query, params).fetchall()
 
     if not rows:

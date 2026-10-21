@@ -2,14 +2,14 @@ from concurrent.futures import ThreadPoolExecutor
 import re
 import os
 import json
+from typing import Tuple, Optional
 from dotenv import load_dotenv
-from google import genai
-from google.genai import types
-from google.genai.errors import ClientError
 from openai import OpenAI
 from rich.console import Console
 from schemas import SiliconPulseReport
 from tools import search_hardware_telemetry
+from regex_parser import parse_device_from_text, build_deterministic_verdict
+from scoring import enrich_report_with_scores
 
 load_dotenv()
 console = Console()
@@ -34,49 +34,81 @@ def is_specific_hardware_query(query: str) -> bool:
 
 class ResilientAgentClient:
     def __init__(self):
-        self.primary_key = os.environ.get("GEMINI_API_KEY_PRIMARY") or os.environ.get("GEMINI_API_KEY")
-        self.secondary_key = os.environ.get("GEMINI_API_KEY_SECONDARY")
         self.openrouter_key = os.environ.get("OPENROUTER_API_KEY")
 
-    def _gather_web_telemetry(self, user_query: str) -> str:
+    def _scrape_and_preparse(
+        self, user_query: str
+    ) -> Tuple[SiliconPulseReport, str]:
         """
-        Runs focused, non-stuffed Tavily searches IN PARALLEL using 4 worker threads.
-        Separates (1) Specs/AnTuTu/Geekbench/PWM from (2) 3DMark/Thermals/BGMI FPS
-        so search engines return high-signal benchmark tables instead of failing on 20-word queries.
+        Stage 1 & 2: Scrapes telemetry in parallel with concise queries and populates
+        the preset deterministically using bounded regex (`regex_parser.py`).
         """
         vs_split = re.split(r"\b(?:vs\.?|versus)\b", user_query, flags=re.IGNORECASE)
+        clean_pattern = r"(?i)\b(compare|how|does|the|perform|in|for|sustained|gaming|bgmi|genshin|pwm|dimming|90fps|60fps|120fps|and|with|what|are|its|thermals|performance)\b"
 
         if len(vs_split) == 2:
-            # Extract clean phone names
-            clean_pattern = r"(?i)\b(compare|for|sustained|gaming|bgmi|genshin|pwm|dimming|90fps|60fps|120fps|and|with|in|performance|thermals)\b"
-            phone_a = re.sub(clean_pattern, "", vs_split[0]).strip()
-            phone_b = re.sub(clean_pattern, "", vs_split[1]).strip()
+            phone_a = re.sub(clean_pattern, "", vs_split[0]).strip() or vs_split[0].strip()
+            phone_b = re.sub(clean_pattern, "", vs_split[1]).strip() or vs_split[1].strip()
 
             queries = [
-                (f"DEVICE A ({phone_a}) SPECS & BENCHMARKS", f"{phone_a} India specs processor UFS AnTuTu v10 Geekbench 6 PWM dimming Hz"),
-                (f"DEVICE A ({phone_a}) THERMALS & GAMING", f"{phone_a} 3DMark Wild Life Extreme stability temperature Celsius BGMI FPS test"),
-                (f"DEVICE B ({phone_b}) SPECS & BENCHMARKS", f"{phone_b} India specs processor UFS AnTuTu v10 Geekbench 6 PWM dimming Hz"),
-                (f"DEVICE B ({phone_b}) THERMALS & GAMING", f"{phone_b} 3DMark Wild Life Extreme stability temperature Celsius BGMI FPS test"),
+                f"{phone_a} AnTuTu v10 Geekbench 6 UFS specs",
+                f"{phone_a} 3DMark Wild Life stability temp BGMI FPS",
+                f"{phone_b} AnTuTu v10 Geekbench 6 UFS specs",
+                f"{phone_b} 3DMark Wild Life stability temp BGMI FPS",
             ]
+            with ThreadPoolExecutor(max_workers=4) as executor:
+                results = list(executor.map(search_hardware_telemetry, queries))
+
+            text_a = f"{results[0]}\n\n{results[1]}"
+            text_b = f"{results[2]}\n\n{results[3]}"
+
+            dev_a = parse_device_from_text(phone_a, text_a)
+            dev_b = parse_device_from_text(phone_b, text_b)
+
+            preset = SiliconPulseReport(
+                mode="DUAL_COMPARISON",
+                target_workload=user_query,
+                primary_device=dev_a,
+                secondary_device=dev_b,
+                engineering_verdict="",
+            )
+            enrich_report_with_scores(preset)
+            preset.engineering_verdict = build_deterministic_verdict("DUAL_COMPARISON", dev_a, dev_b)
+
+            raw_summary = (
+                f"=== DEVICE A ({phone_a}) ===\n{text_a[:2500]}\n\n"
+                f"=== DEVICE B ({phone_b}) ===\n{text_b[:2500]}"
+            )
+            return preset, raw_summary
+
         else:
-            clean_pattern = r"(?i)\b(how|does|the|perform|in|for|sustained|gaming|bgmi|genshin|pwm|dimming|90fps|and|what|are|its|thermals|performance)\b"
-            phone = re.sub(clean_pattern, "", user_query).strip() or user_query
+            phone = re.sub(clean_pattern, "", user_query).strip() or user_query.strip()
             queries = [
-                (f"SPECS & SYNTHETIC BENCHMARKS ({phone})", f"{phone} India specs processor UFS storage AnTuTu v10 Geekbench 6 score PWM dimming Hz"),
-                (f"THERMALS, 3DMARK & GAMING FPS ({phone})", f"{phone} 3DMark Wild Life stability peak temperature Celsius BGMI sustained FPS test"),
+                f"{phone} AnTuTu v10 Geekbench 6 UFS specs",
+                f"{phone} 3DMark Wild Life stability temp BGMI FPS",
             ]
+            with ThreadPoolExecutor(max_workers=2) as executor:
+                results = list(executor.map(search_hardware_telemetry, queries))
 
-        # Fire all searches simultaneously in parallel!
-        with ThreadPoolExecutor(max_workers=len(queries)) as executor:
-            futures = [executor.submit(search_hardware_telemetry, q) for _, q in queries]
-            results = [f.result() for f in futures]
+            text_single = f"{results[0]}\n\n{results[1]}"
+            dev_1 = parse_device_from_text(phone, text_single)
 
-        chunks = [f"=== {label} ===\n{res}" for (label, _), res in zip(queries, results)]
-        return "\n\n".join(chunks)
+            preset = SiliconPulseReport(
+                mode="SINGLE_DEVICE",
+                target_workload=user_query,
+                primary_device=dev_1,
+                secondary_device=None,
+                engineering_verdict="",
+            )
+            enrich_report_with_scores(preset)
+            preset.engineering_verdict = build_deterministic_verdict("SINGLE_DEVICE", dev_1, None)
+
+            return preset, text_single[:3500]
 
     def run_chat_with_fallback(
         self, model_id: str, system_instructions: str, user_query: str
     ) -> SiliconPulseReport:
+        # Step 0: Instant Zero-Token Input Guardrail
         if not is_specific_hardware_query(user_query):
             return SiliconPulseReport(
                 mode="INVALID_QUERY",
@@ -92,67 +124,50 @@ class ResilientAgentClient:
                 ),
             )
 
-        raw_telemetry = self._gather_web_telemetry(user_query)
-
-        combined_prompt = (
-            f"User Query: {user_query}\n\n"
-            f"Verified Web Search Telemetry:\n{raw_telemetry}\n\n"
-            "Analyze the telemetry above and populate the SiliconPulseReport JSON schema."
-        )
-
-        gemini_keys = [
-            ("Primary Gemini Key", self.primary_key),
-            ("Secondary Gemini Key", self.secondary_key),
-        ]
-
-        for label, key in gemini_keys:
-            if not key:
-                continue
-            try:
-                console.print(f"  [dim]🤖 Synthesizing telemetry via {label}...[/dim]")
-                client = genai.Client(api_key=key)
-                response = client.models.generate_content(
-                    model=model_id,
-                    contents=combined_prompt,
-                    config=types.GenerateContentConfig(
-                        system_instruction=system_instructions,
-                        response_mime_type="application/json",
-                        response_schema=SiliconPulseReport,
-                        temperature=0.0,
-                    ),
-                )
-                if not response.text:
-                    raise ValueError("Empty response text from model.")
-                return SiliconPulseReport.model_validate_json(response.text)
-
-            except ClientError as e:
-                if e.code == 429:
-                    console.print(f"[yellow]⚠️ [Rate Limit 429] {label} quota reached. Switching to backup key...[/yellow]")
-                    continue
-                console.print(f"[yellow]⚠️ API Error on {label} ({e.code}). Switching to backup key...[/yellow]")
-                continue
-            except Exception as e:
-                console.print(f"[yellow]⚠️ Timeout/Error on {label}: {str(e)}. Trying next key...[/yellow]")
-                continue
+        # Stage 1 & 2: Keyless Web Scrape + Deterministic Regex Preset Extraction
+        console.print("  [green]⚙️ Building deterministic hardware preset via Regex Engine...[/green]")
+        regex_preset, raw_snippets = self._scrape_and_preparse(user_query)
 
         if self.openrouter_key:
-            console.print("[bold magenta]🔄 Switching to OpenRouter Backup Gateway...[/bold magenta]")
-            return self._run_openrouter_fallback(system_instructions, combined_prompt)
+            try:
+                console.print("  [magenta]✨ Polishing gaming telemetry & verdict via OpenRouter...[/magenta]")
+                return self._run_openrouter_polish(system_instructions, regex_preset, raw_snippets)
+            except Exception as e:
+                console.print(
+                    f"[yellow]⚠️ OpenRouter unavailable ({str(e)}). Using 100% Keyless Deterministic Preset![/yellow]"
+                )
 
-        raise RuntimeError("❌ All configured API keys (Primary, Secondary, OpenRouter) failed or exhausted their quotas!")
+        # Populate deterministic verdict only when falling back or running keyless
+        regex_preset.engineering_verdict = build_deterministic_verdict(
+            regex_preset.mode, regex_preset.primary_device, regex_preset.secondary_device
+        )
+        return regex_preset
 
-    def _run_openrouter_fallback(self, system_instructions: str, combined_prompt: str) -> SiliconPulseReport:
+    def _run_openrouter_polish(
+        self, system_instructions: str, preset: SiliconPulseReport, raw_snippets: str
+    ) -> SiliconPulseReport:
+        """
+        Sends the regex pre-filled preset to OpenRouter so the LLM only fills missing nulls,
+        normalizes BGMI FPS strings, and writes a crisp Engineering Verdict.
+        Protects verified regex numbers from being overwritten with nulls.
+        """
         schema_json = json.dumps(SiliconPulseReport.model_json_schema(), indent=2)
+        preset_json = preset.model_dump_json(indent=2)
 
         or_client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
             api_key=self.openrouter_key,
-            timeout=25.0,
+            timeout=18.0,
         )
 
         or_prompt = (
-            f"{combined_prompt}\n\n"
-            f"CRITICAL: Return ONLY valid JSON matching this exact Pydantic schema:\n{schema_json}"
+            f"Pre-Extracted Deterministic Preset JSON (DO NOT delete verified numbers):\n{preset_json}\n\n"
+            f"Raw Web Telemetry Snippets:\n{raw_snippets}\n\n"
+            "INSTRUCTIONS:\n"
+            "1. Keep all non-null numbers already extracted in the Preset JSON unless the snippet shows a clearer verified figure.\n"
+            "2. Fill in any null/missing benchmark fields (AnTuTu v10, Geekbench 6, 3DMark stability %, Peak Temp °C, PWM Hz, BGMI FPS) if present in the snippets.\n"
+            "3. Write a concise, technical 4-sentence `engineering_verdict` comparing the hardware and gaming capability.\n"
+            f"4. Return ONLY valid JSON matching this schema:\n{schema_json}"
         )
 
         completion = or_client.chat.completions.create(
@@ -162,8 +177,50 @@ class ResilientAgentClient:
                 {"role": "user", "content": or_prompt},
             ],
             response_format={"type": "json_object"},
-            max_tokens=2000,
+            max_tokens=1500,
             temperature=0.0,
         )
+        if not completion or not getattr(completion, "choices", None):
+            raise ValueError("Empty choices returned from OpenRouter.")
+
         content = completion.choices[0].message.content
-        return SiliconPulseReport.model_validate_json(content)
+        if not content:
+            raise ValueError("Empty message content from OpenRouter.")
+
+        polished = SiliconPulseReport.model_validate_json(content)
+
+        self._preserve_regex_metrics(preset.primary_device, polished.primary_device)
+        if preset.secondary_device and polished.secondary_device:
+            self._preserve_regex_metrics(preset.secondary_device, polished.secondary_device)
+
+        polished = enrich_report_with_scores(polished)
+        if polished.mode == "DUAL_COMPARISON" and polished.primary_device and polished.secondary_device:
+            p1, p2 = polished.primary_device, polished.secondary_device
+            diff = round(abs((p1.pulse_throttle_index or 0) - (p2.pulse_throttle_index or 0)), 1)
+            lead = p1 if (p1.pulse_throttle_index or 0) >= (p2.pulse_throttle_index or 0) else p2
+            trail = p2 if lead == p1 else p1
+            header = (
+                f"**{lead.device_name}** leads with a PulseThrottle Index of "
+                f"**{lead.pulse_throttle_index}/100** vs **{trail.device_name}** at "
+                f"**{trail.pulse_throttle_index}/100** (+{diff} pts). "
+            )
+            # Strip any stale score sentence from the LLM and prepend the exact calculated header
+            cleaned_verdict = re.sub(r"^[^.]*PulseThrottle Index[^.]*\.\s*", "", polished.engineering_verdict)
+            polished.engineering_verdict = header + cleaned_verdict
+        return polished
+
+    @staticmethod
+    def _preserve_regex_metrics(regex_dev, llm_dev) -> None:
+        if not regex_dev or not llm_dev:
+            return
+        for field in [
+            "antutu_v10_score",
+            "geekbench_6_single",
+            "geekbench_6_multi",
+            "wildlife_stability_pct",
+            "peak_temp_celsius",
+        ]:
+            if getattr(llm_dev, field) is None and getattr(regex_dev, field) is not None:
+                setattr(llm_dev, field, getattr(regex_dev, field))
+        if llm_dev.pwm_dimming_hz in ("Not Reported", "Unverified", "") and regex_dev.pwm_dimming_hz != "Not Reported":
+            llm_dev.pwm_dimming_hz = regex_dev.pwm_dimming_hz
