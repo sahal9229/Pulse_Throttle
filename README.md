@@ -85,7 +85,6 @@ silicon_pulse/
 ├── engine_db.py        # SQLite relational store, auto-migration, and leaderboard analytics
 ├── schemas.py          # Pydantic v2 models (DeviceTelemetry, GameBenchmark, SiliconPulseReport)
 ├── tools.py            # Keyless DuckDuckGo + BeautifulSoup4 web scraper with Tavily backup
-├── cache.py            # SHA-256 content-addressable local query cache
 ├── main.py             # Interactive CLI REPL session manager & database query dispatcher
 └── requirements.txt    # Production dependencies
 ```
