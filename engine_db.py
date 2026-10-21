@@ -1,12 +1,14 @@
 import sqlite3
 import json
+import re
 from contextlib import closing
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List
 from rich.console import Console
 from rich.table import Table
-from schemas import SiliconPulseReport, DeviceTelemetry
+from schemas import SiliconPulseReport, DeviceTelemetry, GameBenchmark
 from scoring import enrich_report_with_scores
+from regex_parser import build_deterministic_verdict
 
 console = Console()
 DB_PATH = Path("pulsethrottle.db")
@@ -20,7 +22,7 @@ def get_connection() -> sqlite3.Connection:
 
 
 def init_db() -> None:
-    """Initializes relational tables and safely migrates new benchmark/index columns."""
+    """Initializes relational tables, migrates columns, and purges stale duplicate runs."""
     with closing(get_connection()) as conn:
         conn.executescript(
             """
@@ -51,7 +53,6 @@ def init_db() -> None:
             );
             """
         )
-        # Safe auto-migration if `telemetry_runs` was created in an earlier version
         existing_cols = {
             row["name"] for row in conn.execute("PRAGMA table_info(telemetry_runs);").fetchall()
         }
@@ -66,6 +67,24 @@ def init_db() -> None:
             if col_name not in existing_cols:
                 conn.execute(f"ALTER TABLE telemetry_runs ADD COLUMN {col_name} {col_type};")
 
+        # Automatically deduplicate historical runs: keep only the single best/latest row per device_id
+        conn.execute(
+            """
+            DELETE FROM telemetry_runs
+            WHERE id NOT IN (
+                SELECT id FROM (
+                    SELECT id, ROW_NUMBER() OVER (
+                        PARTITION BY device_id
+                        ORDER BY (antutu_v10_score IS NOT NULL) DESC,
+                                 pulse_throttle_index DESC,
+                                 recorded_at DESC
+                    ) AS rn
+                    FROM telemetry_runs
+                ) WHERE rn = 1
+            );
+            """
+        )
+
         conn.executescript(
             """
             CREATE INDEX IF NOT EXISTS idx_devices_soc ON devices(soc_chipset);
@@ -73,11 +92,123 @@ def init_db() -> None:
             CREATE INDEX IF NOT EXISTS idx_runs_pti ON telemetry_runs(pulse_throttle_index);
             """
         )
+        conn.commit()
+
+
+def _extract_query_device_names(user_query: str) -> List[str]:
+    """Splits a user query into 1 or 2 clean target smartphone names for DB lookup."""
+    vs_split = re.split(r"\b(?:vs\.?|versus)\b", user_query, flags=re.IGNORECASE)
+    clean_pattern = (
+        r"(?i)\b(compare|how|does|the|perform|in|for|sustained|gaming|bgmi|genshin|"
+        r"pwm|dimming|90fps|60fps|120fps|and|with|what|are|its|thermals|performance|fps|test)\b"
+    )
+    names = []
+    for part in vs_split[:2]:
+        cleaned = re.sub(clean_pattern, "", part)
+        cleaned = re.sub(r"\s+", " ", cleaned).strip(" ,.-?!")
+        if cleaned:
+            names.append(cleaned)
+    return names
+
+
+def _fetch_device_from_db(conn: sqlite3.Connection, name_query: str) -> Optional[DeviceTelemetry]:
+    """Looks up a device in SQLite by flexible name matching and reconstructs DeviceTelemetry."""
+    if not name_query or len(name_query) < 3:
+        return None
+
+    row = conn.execute(
+        """
+        SELECT 
+            d.device_name, d.soc_chipset, d.gpu_and_storage, d.pwm_dimming_hz,
+            r.antutu_v10_score, r.geekbench_6_single, r.geekbench_6_multi,
+            r.wildlife_stability_pct, r.peak_temp_celsius, r.pulse_throttle_index,
+            r.score_breakdown, r.game_benchmarks_json, r.sources_json
+        FROM devices d
+        JOIN telemetry_runs r ON r.device_id = d.id
+        WHERE LOWER(d.device_name) LIKE ?
+           OR ? LIKE '%' || LOWER(d.device_name) || '%'
+        ORDER BY (r.antutu_v10_score IS NOT NULL) DESC, r.pulse_throttle_index DESC, r.recorded_at DESC
+        LIMIT 1;
+        """,
+        (f"%{name_query.lower()}%", name_query.lower()),
+    ).fetchone()
+
+    if not row or row["antutu_v10_score"] is None:
+        return None
+
+    games = [GameBenchmark(**g) for g in json.loads(row["game_benchmarks_json"])]
+    sources = json.loads(row["sources_json"])
+
+    return DeviceTelemetry(
+        device_name=row["device_name"],
+        soc_chipset=row["soc_chipset"],
+        gpu_and_storage=row["gpu_and_storage"],
+        antutu_v10_score=row["antutu_v10_score"],
+        geekbench_6_single=row["geekbench_6_single"],
+        geekbench_6_multi=row["geekbench_6_multi"],
+        wildlife_stability_pct=row["wildlife_stability_pct"],
+        peak_temp_celsius=row["peak_temp_celsius"],
+        pwm_dimming_hz=row["pwm_dimming_hz"],
+        pulse_throttle_index=row["pulse_throttle_index"],
+        score_breakdown=row["score_breakdown"],
+        game_benchmarks=games,
+        sources=sources,
+    )
+
+
+def load_report_from_db(user_query: str) -> Optional[SiliconPulseReport]:
+    """
+    Checks if the requested phone(s) already exist in `pulsethrottle.db`.
+    If found, builds and returns the report directly from SQLite without scraping again!
+    """
+    init_db()
+    target_names = _extract_query_device_names(user_query)
+    if not target_names:
+        return None
+
+    with closing(get_connection()) as conn:
+        if len(target_names) == 2:
+            dev_a = _fetch_device_from_db(conn, target_names[0])
+            dev_b = _fetch_device_from_db(conn, target_names[1])
+            if dev_a and dev_b:
+                console.print(
+                    f"\n[bold green]🗄️ SQLite DB Hit![/bold green] [dim]Loaded '{dev_a.device_name}' vs '{dev_b.device_name}' directly from pulsethrottle.db (0 web calls).[/dim]"
+                )
+                report = SiliconPulseReport(
+                    mode="DUAL_COMPARISON",
+                    target_workload=user_query,
+                    primary_device=dev_a,
+                    secondary_device=dev_b,
+                    engineering_verdict="",
+                )
+                enrich_report_with_scores(report)
+                report.engineering_verdict = build_deterministic_verdict("DUAL_COMPARISON", dev_a, dev_b)
+                return report
+
+        elif len(target_names) == 1:
+            dev_1 = _fetch_device_from_db(conn, target_names[0])
+            if dev_1:
+                console.print(
+                    f"\n[bold green]🗄️ SQLite DB Hit![/bold green] [dim]Loaded '{dev_1.device_name}' directly from pulsethrottle.db (0 web calls).[/dim]"
+                )
+                report = SiliconPulseReport(
+                    mode="SINGLE_DEVICE",
+                    target_workload=user_query,
+                    primary_device=dev_1,
+                    secondary_device=None,
+                    engineering_verdict="",
+                )
+                enrich_report_with_scores(report)
+                report.engineering_verdict = build_deterministic_verdict("SINGLE_DEVICE", dev_1, None)
+                return report
+
+    return None
 
 
 def _store_single_device(
     conn: sqlite3.Connection, device: DeviceTelemetry, workload: str
 ) -> None:
+    """Upserts device and replaces its latest telemetry run so duplicates never pile up."""
     cursor = conn.cursor()
 
     cursor.execute(
@@ -102,6 +233,9 @@ def _store_single_device(
         "SELECT id FROM devices WHERE device_name = ?;", (device.device_name.strip(),)
     )
     device_id = cursor.fetchone()["id"]
+
+    # Remove older run for this device_id before inserting the newly refreshed run
+    cursor.execute("DELETE FROM telemetry_runs WHERE device_id = ?;", (device_id,))
 
     games_json = json.dumps([g.model_dump() for g in device.game_benchmarks])
     sources_json = json.dumps(device.sources)
@@ -150,7 +284,7 @@ def render_telemetry_history(
     sort_by_index: bool = False,
     limit: int = 10,
 ) -> None:
-    """Queries normalized SQLite tables and prints a Rich analytics/leaderboard table."""
+    """Queries normalized SQLite tables (deduplicated per device) and prints a Rich table."""
     init_db()
     query = """
         SELECT 
@@ -183,19 +317,7 @@ def render_telemetry_history(
         params.append(min_index)
 
     if sort_by_index or min_index is not None:
-        # Deduplicate leaderboard: pick the best/latest run per unique device_id
-        query += """
-            AND r.id IN (
-                SELECT id FROM (
-                    SELECT id, ROW_NUMBER() OVER (
-                        PARTITION BY device_id 
-                        ORDER BY (antutu_v10_score IS NOT NULL) DESC, pulse_throttle_index DESC, recorded_at DESC
-                    ) AS rn
-                    FROM telemetry_runs
-                ) WHERE rn = 1
-            )
-            ORDER BY r.pulse_throttle_index DESC, r.recorded_at DESC LIMIT ?;
-        """
+        query += " ORDER BY r.pulse_throttle_index DESC, r.recorded_at DESC LIMIT ?;"
     else:
         query += " ORDER BY r.recorded_at DESC LIMIT ?;"
     params.append(limit)
