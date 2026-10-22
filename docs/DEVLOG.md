@@ -7,3 +7,7 @@
 - Researched fabrication nodes and transistor density scaling across major foundries.
 - Defined scope for AnTuTu v10 and Geekbench 6 multi-core metrics.
 
+## October 22, 2026
+- Modeled thermal dissipation curves for mobile smartphones under extended gaming workloads.
+- Examined package heat thresholds and clock frequency throttling curves.
+
