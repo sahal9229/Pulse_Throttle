@@ -11,3 +11,6 @@
 - Modeled thermal dissipation curves for mobile smartphones under extended gaming workloads.
 - Examined package heat thresholds and clock frequency throttling curves.
 
+- Documented 3DMark Wild Life 20-minute stability stress test calculations.
+- Formulated correlation between sustained stability percentage and peak case thermals.
+
