@@ -18,3 +18,6 @@
 - Documented display PWM dimming frequency standards for eye comfort and reduced flicker strain.
 - Categorized DC dimming vs high-frequency PWM (>1440Hz / >1920Hz).
 
+- Updated hardware specification parser mapping for display modulation frequencies.
+- Added eye-safety filter thresholds to telemetry criteria.
+
