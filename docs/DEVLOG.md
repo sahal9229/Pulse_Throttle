@@ -14,3 +14,7 @@
 - Documented 3DMark Wild Life 20-minute stability stress test calculations.
 - Formulated correlation between sustained stability percentage and peak case thermals.
 
+## October 23, 2026
+- Documented display PWM dimming frequency standards for eye comfort and reduced flicker strain.
+- Categorized DC dimming vs high-frequency PWM (>1440Hz / >1920Hz).
+
