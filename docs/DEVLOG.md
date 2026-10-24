@@ -21,3 +21,7 @@
 - Updated hardware specification parser mapping for display modulation frequencies.
 - Added eye-safety filter thresholds to telemetry criteria.
 
+## October 24, 2026
+- Evaluated storage bus protocols: UFS 4.0, UFS 3.1, UFS 2.2, and Apple NVMe.
+- Calculated comparative sequential/random read and write bandwidths.
+
