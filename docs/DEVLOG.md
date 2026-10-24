@@ -25,3 +25,6 @@
 - Evaluated storage bus protocols: UFS 4.0, UFS 3.1, UFS 2.2, and Apple NVMe.
 - Calculated comparative sequential/random read and write bandwidths.
 
+- Assigned 20% weighting to storage and memory bus speed in overall device evaluation.
+- Documented asset loading time impacts in large open-world games.
+
