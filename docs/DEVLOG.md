@@ -28,3 +28,7 @@
 - Assigned 20% weighting to storage and memory bus speed in overall device evaluation.
 - Documented asset loading time impacts in large open-world games.
 
+## October 25, 2026
+- Investigated synthetic benchmark cross-platform parity between iOS and Android.
+- Formulated normalization factors for Geekbench 6 Single/Multi and AnTuTu v10.
+
