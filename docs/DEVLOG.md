@@ -32,3 +32,6 @@
 - Investigated synthetic benchmark cross-platform parity between iOS and Android.
 - Formulated normalization factors for Geekbench 6 Single/Multi and AnTuTu v10.
 
+- Established Compute Index weighting at 30% of total index.
+- Mapped raw compute performance brackets from entry-level to flagship.
+
