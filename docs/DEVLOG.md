@@ -39,3 +39,6 @@
 - Outlined real-world gaming workloads: BGMI / PUBG Mobile, Genshin Impact, CODM, and Wuthering Waves.
 - Defined target frame rates: 60 FPS, 90 FPS, and 120 FPS high-refresh rate tiers.
 
+- Modeled 99th percentile frame-time consistency (FPS Pacing Efficiency - FPE).
+- Established sustained average FPS reporting format.
+
