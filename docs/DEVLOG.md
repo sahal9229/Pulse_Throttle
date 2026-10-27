@@ -46,3 +46,6 @@
 - Structured relational schema for local and cloud telemetry caching.
 - Added device ID, canonical name, benchmark scores, thermals, and specs columns.
 
+- Added B-tree indexes for fast canonical device name lookups.
+- Documented duplicate prevention and upsert strategies.
+
