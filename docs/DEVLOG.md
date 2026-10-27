@@ -42,3 +42,7 @@
 - Modeled 99th percentile frame-time consistency (FPS Pacing Efficiency - FPE).
 - Established sustained average FPS reporting format.
 
+## October 27, 2026
+- Structured relational schema for local and cloud telemetry caching.
+- Added device ID, canonical name, benchmark scores, thermals, and specs columns.
+
