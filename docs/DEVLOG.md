@@ -49,3 +49,7 @@
 - Added B-tree indexes for fast canonical device name lookups.
 - Documented duplicate prevention and upsert strategies.
 
+## October 28, 2026
+- Documented resilient web extraction pipeline without paid API key requirements.
+- Configured DuckDuckGo and GSMArena fallback parsing timeouts and rate-limit backoff.
+
