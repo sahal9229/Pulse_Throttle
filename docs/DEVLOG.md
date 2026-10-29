@@ -56,3 +56,7 @@
 - Documented parallel asynchronous search query execution.
 - Reduced average device search latency from 4.8s to 1.2s.
 
+## October 29, 2026
+- Designed deterministic SoC fallback tables to eliminate metric hallucination on unindexed models.
+- Mapped Apple A-series (A7-A18 Pro), Snapdragon 8 series, Dimensity, and Exynos families.
+
