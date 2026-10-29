@@ -60,3 +60,6 @@
 - Designed deterministic SoC fallback tables to eliminate metric hallucination on unindexed models.
 - Mapped Apple A-series (A7-A18 Pro), Snapdragon 8 series, Dimensity, and Exynos families.
 
+- Implemented regular expressions to accurately extract node fabrication and GPU configurations.
+- Anchored device release years to ground physics simulations.
+
