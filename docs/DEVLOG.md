@@ -67,3 +67,6 @@
 - Outlined React dashboard architecture: Navbar, ControlPanel, PhoneCard, EngineeringVerdict, Leaderboard.
 - Designed state management for dual-device comparison and single-device telemetry inspection.
 
+- Specified high-contrast Ice Lab design system tokens.
+- Designed interactive 3D mouse parallax effect for phone cards.
+
