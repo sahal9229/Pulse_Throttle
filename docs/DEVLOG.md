@@ -74,3 +74,6 @@
 - Defined RESTful endpoints: /api/health, /api/catalog, /api/catalog/search, and /api/extract.
 - Documented Supabase connection pooling and PostgreSQL fallback modes.
 
+- Implemented Pydantic models for structured telemetry responses.
+- Added background task handling for long-running extraction queries.
+
