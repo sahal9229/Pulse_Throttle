@@ -70,3 +70,7 @@
 - Specified high-contrast Ice Lab design system tokens.
 - Designed interactive 3D mouse parallax effect for phone cards.
 
+## October 31, 2026
+- Defined RESTful endpoints: /api/health, /api/catalog, /api/catalog/search, and /api/extract.
+- Documented Supabase connection pooling and PostgreSQL fallback modes.
+
