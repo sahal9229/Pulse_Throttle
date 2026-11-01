@@ -19,6 +19,10 @@ class GameBenchmark(BaseModel):
 
 class DeviceTelemetry(BaseModel):
     device_name: str = Field(description="Official smartphone name.")
+    image_url: Optional[str] = Field(
+        default=None,
+        description="Direct URL to the official high-resolution product render."
+    )
     soc_chipset: str = Field(
         description="Processor name, fabrication node (nm), and CPU core config."
     )

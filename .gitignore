@@ -1,8 +1,30 @@
-.venv/
-__pycache__/
+# Environment & Secrets
 .env
-*.pyc
-latest_report.md
-latest_report.json
-telemetry_cache.json
-*.db
+*.env
+Backend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+pulsethrottle.db
+*.sqlite3
+
+# Node / Frontend
+Frontend/node_modules/
+node_modules/
+Frontend/dist/
+.npm
+npm-debug.log*
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

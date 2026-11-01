@@ -4,6 +4,7 @@ from rich.markdown import Markdown
 from schemas import SiliconPulseReport, DeviceTelemetry
 from client_manager import ResilientAgentClient
 from scoring import enrich_report_with_scores
+from image_scraper import get_high_res_phone_image
 
 console = Console()
 MODEL_ID = "gemini-3.8-flash"
@@ -30,6 +31,11 @@ def run_silicon_pulse(user_query: str) -> SiliconPulseReport:
         system_instructions=system_instructions,
         user_query=user_query,
     )
+    if raw_report.primary_device and not raw_report.primary_device.image_url:
+        raw_report.primary_device.image_url = get_high_res_phone_image(raw_report.primary_device.device_name)
+    if raw_report.secondary_device and not raw_report.secondary_device.image_url:
+        raw_report.secondary_device.image_url = get_high_res_phone_image(raw_report.secondary_device.device_name)
+
     return enrich_report_with_scores(raw_report)
 
 
@@ -58,16 +64,21 @@ def format_markdown_output(report: SiliconPulseReport) -> str:
         enrich_report_with_scores(report)
 
     p1 = report.primary_device
+    if not p1.image_url:
+        p1.image_url = get_high_res_phone_image(p1.device_name)
+
     s1 = f"{p1.wildlife_stability_pct}%" if p1.wildlife_stability_pct is not None else "Not Reported"
     t1 = f"{p1.peak_temp_celsius}°C" if p1.peak_temp_celsius is not None else "Not Reported"
     antutu1, gb1, pti1 = _fmt_benchmarks(p1)
 
     if report.mode == "SINGLE_DEVICE" or report.secondary_device is None:
+        img_markdown = f'<img src="{p1.image_url}" width="220" align="right" alt="{p1.device_name}">' if p1.image_url else ""
         games_rows = "\n".join([
             f"| **{g.game_name}** | {g.max_unlocked_setting} | {g.sustained_avg_fps} | {g.thermal_and_frame_drop_notes} |"
             for g in p1.game_benchmarks
         ])
         return f"""# 🔬 PulseThrottle Telemetry Report: {p1.device_name}
+{img_markdown}
 **Target Evaluation:** {report.target_workload}  
 🏆 **PulseThrottle Index:** {pti1}
 

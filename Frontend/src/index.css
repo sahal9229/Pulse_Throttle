@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: light;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #E2E8F0; /* Ice Silver bg-slate-200 */
+    color: #0F172A; /* text-slate-900 */
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Accessible High-Contrast Focus Ring */
+  :focus-visible {
+    outline: 2px solid #F59E0B;
+    outline-offset: 2px;
+  }
+
+  /* Custom Scrollbar for Smooth Navigation */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #E2E8F0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #94A3B8;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #64748B;
+  }
+}
+
+@layer components {
+  /* High-Contrast Ice Silver Surfaces (Solid White with Crisp Slate Borders) */
+  .tactile-card {
+    background-color: #FFFFFF;
+    border: 1px solid #CBD5E1; /* border-slate-300 */
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    border-radius: 1.25rem;
+  }
+
+  .tactile-card-sm {
+    background-color: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    border-radius: 0.875rem;
+  }
+
+  /* Recessed Input Boxes / Wells */
+  .tactile-well {
+    background-color: #F1F5F9; /* bg-slate-100 */
+    border: 1px solid #CBD5E1; /* border-slate-300 */
+    border-radius: 0.875rem;
+  }
+
+  .tactile-well-sm {
+    background-color: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.625rem;
+  }
+
+  /* Solid Crisp Action Buttons */
+  .tactile-btn {
+    background-color: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    color: #0F172A;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tactile-btn:hover {
+    background-color: #F8FAFC;
+    border-color: #94A3B8;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .tactile-btn:active,
+  .tactile-btn-pressed {
+    background-color: #E2E8F0;
+    border-color: #94A3B8;
+    transform: translateY(1px);
+  }
+
+  /* High-Contrast Dark Card for Focal / Pro Features */
+  .tactile-card-dark {
+    background-color: #140B21;
+    color: #F8FAFC;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 30px rgba(20, 11, 33, 0.35);
+    border-radius: 1.25rem;
+  }
+
+  /* Primary Action Gradient (Marigold -> Orange) with Solid Contrast */
+  .btn-gradient-marigold {
+    background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%);
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+    color: #FFFFFF;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+
+  .btn-gradient-marigold:hover {
+    background: linear-gradient(135deg, #D97706 0%, #C2410C 100%);
+    box-shadow: 0 6px 18px rgba(234, 88, 12, 0.45);
+    transform: translateY(-1px);
+  }
+
+  .btn-gradient-marigold:active {
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.4);
+    transform: translateY(1px);
+  }
+
+  /* Text Gradients */
+  .text-gradient-marigold {
+    background: linear-gradient(135deg, #D97706 0%, #EA580C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-marigold {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+  }
+
+  .glow-marigold-intense {
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.5), 0 0 50px rgba(234, 88, 12, 0.25);
+  }
+
+  /* Perspective for 3D card tilt */
+  .phone-perspective {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  /* Shimmer effect for skeleton loading */
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animate-shimmer::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.45) 20%,
+      rgba(255, 255, 255, 0.7) 60%,
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 1.8s infinite;
+    content: '';
+  }
+}
+

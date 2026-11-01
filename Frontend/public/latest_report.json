@@ -1,0 +1,85 @@
+{
+  "mode": "DUAL_COMPARISON",
+  "target_workload": "Compare Motorola Edge 60 Pro vs Motorola Edge 60 Fusion for BGMI, Genshin Impact and Call of Duty Mobile",
+  "primary_device": {
+    "device_name": "Motorola Edge 60 Pro",
+    "soc_chipset": "MediaTek Dimensity 8350 Extreme (4nm TSMC, 1x 3.35 GHz + 3x 3.20 GHz Cortex-A715 + 4x 2.20 GHz Cortex-A510)",
+    "gpu_and_storage": "ARM Mali-G615 MC6, LPDDR5X RAM, UFS 4.0",
+    "antutu_v10_score": 1385000,
+    "geekbench_6_single": 1083,
+    "geekbench_6_multi": 3062,
+    "wildlife_stability_pct": 84.5,
+    "peak_temp_celsius": 43.2,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 85.6,
+    "score_breakdown": "TSS: 70.6 • FPE: 87.8% • Compute: 92.3 • Storage: 100",
+    "game_benchmarks": [
+      {
+        "game_name": "Genshin Impact",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "54-59 FPS",
+        "thermal_and_frame_drop_notes": "Heavy shader load governed by MediaTek Dimensity 8350 Extreme (4nm TSMC, 1x 3.35 GHz + 3x 3.20 GHz Cortex-A715 + 4x 2.20 GHz Cortex-A510)."
+      },
+      {
+        "game_name": "Call of Duty: Mobile",
+        "max_unlocked_setting": "Medium + Ultra (120 FPS)",
+        "sustained_avg_fps": "95-116 FPS",
+        "thermal_and_frame_drop_notes": "Sustained competitive frame pacing on MediaTek Dimensity 8350 Extreme (4nm TSMC, 1x 3.35 GHz + 3x 3.20 GHz Cortex-A715 + 4x 2.20 GHz Cortex-A510)."
+      },
+      {
+        "game_name": "BGMI / PUBG Mobile",
+        "max_unlocked_setting": "Smooth + 90 FPS (120 FPS in select modes)",
+        "sustained_avg_fps": "84-88 FPS",
+        "thermal_and_frame_drop_notes": "Sustains near-90 FPS in TDM/Erangel with minor thermal throttling after 25 mins."
+      }
+    ],
+    "sources": [
+      "browser.geekbench.com",
+      "gsmarena.com",
+      "91mobiles.com",
+      "kimovil.com",
+      "youtube.com"
+    ]
+  },
+  "secondary_device": {
+    "device_name": "Motorola Edge 60 Fusion",
+    "soc_chipset": "MediaTek Dimensity 7400 (4nm TSMC, 4x 2.6 GHz Cortex-A78 + 4x 2.0 GHz Cortex-A55)",
+    "gpu_and_storage": "ARM Mali-G615 MC2, LPDDR4X RAM, UFS 2.2",
+    "antutu_v10_score": 655000,
+    "geekbench_6_single": 2026,
+    "geekbench_6_multi": 3180,
+    "wildlife_stability_pct": 65.0,
+    "peak_temp_celsius": 42.4,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 61.5,
+    "score_breakdown": "TSS: 55.4 • FPE: 83.3% • Compute: 43.7 • Storage: 60",
+    "game_benchmarks": [
+      {
+        "game_name": "Genshin Impact",
+        "max_unlocked_setting": "High / 60 FPS",
+        "sustained_avg_fps": "60 FPS",
+        "thermal_and_frame_drop_notes": "Extracted from Genshin Impact telemetry logs."
+      },
+      {
+        "game_name": "Call of Duty: Mobile",
+        "max_unlocked_setting": "High + Max (60 FPS)",
+        "sustained_avg_fps": "57-60 FPS",
+        "thermal_and_frame_drop_notes": "Sustained competitive frame pacing on MediaTek Dimensity 7400 (4nm TSMC, 4x 2.6 GHz Cortex-A78 + 4x 2.0 GHz Cortex-A55)."
+      },
+      {
+        "game_name": "BGMI / PUBG Mobile",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "56-60 FPS",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS marathon performance with low thermal buildup; lacks native 90 FPS GPU headroom."
+      }
+    ],
+    "sources": [
+      "browser.geekbench.com",
+      "gsmarena.com",
+      "nanoreview.net",
+      "en-us.support.motorola.com",
+      "youtube.com"
+    ]
+  },
+  "engineering_verdict": "**Motorola Edge 60 Pro** decisively wins this head-to-head evaluation with a PulseThrottle Index of **85.6/100** vs **Motorola Edge 60 Fusion** at **61.5/100** (+24.1 point advantage). Powered by MediaTek Dimensity 8350 Extreme (4nm TSMC, 1x 3.35 GHz + 3x 3.20 GHz Cortex-A715 + 4x 2.20 GHz Cortex-A510) (ARM Mali-G615 MC6, LPDDR5X RAM, UFS 4.0, AnTuTu v10: 1,385,000 vs 655,000), Motorola Edge 60 Pro provides over 2x the raw GPU shader throughput and faster storage bandwidth for sustained 90fps BGMI workloads. While Motorola Edge 60 Fusion exhibits excellent 3DMark thermal stability (65.0% at 42.4°C), its mid-tier Cortex-A78/UFS 2.2 pipeline caps sustained gaming at 60 FPS. Both panels utilize 720Hz PWM dimming for eye comfort."
+}

@@ -1,0 +1,42 @@
+# ==============================================================================
+# PulseThrottle v2 — Render Blueprint Specification
+# ==============================================================================
+services:
+  - type: web
+    name: pulsethrottle
+    runtime: python
+    region: singapore
+    plan: free
+    buildCommand: "pip install -r requirements.txt && cd Frontend && npm install && npm run build && cd .."
+    startCommand: "uvicorn api_server:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: NODE_VERSION
+        value: 20.11.0
+      # Cloud Database Credentials (set in Render Dashboard or sync)
+      - key: SUPABASE_PROJECT_ID
+        sync: false
+      - key: SUPABASE_DB_PASSWORD
+        sync: false
+      - key: SUPABASE_HOST
+        value: "aws-0-ap-southeast-1.pooler.supabase.com"
+      - key: SUPABASE_PORT
+        value: "6543"
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_USER
+        sync: false
+      - key: MONGODB_PASSWORD
+        sync: false
+      # AI & Scraping Keys
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY_PRIMARY
+        sync: false
+      - key: GEMINI_API_KEY_SECONDARY
+        sync: false
