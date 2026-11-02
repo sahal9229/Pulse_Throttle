@@ -998,12 +998,16 @@ export async function syncCatalogWithBackend() {
         }
 
         // New device found from past CLI search or database
+        const isIos = (apiDev.os === 'iOS') || (apiDev.name?.toLowerCase().includes('iphone')) || (apiDev.name?.toLowerCase().includes('apple'));
+        const safeFallback = isIos 
+          ? 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg' 
+          : 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g-sm-s921.jpg';
         return {
           id,
           device_name: apiDev.name,
-          brand: apiDev.brand || 'Other',
-          os: apiDev.os || 'Android',
-          image_url: apiDev.image || 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80',
+          brand: apiDev.brand || (isIos ? 'Apple' : 'Other'),
+          os: isIos ? 'iOS' : (apiDev.os || 'Android'),
+          image_url: (apiDev.image && !apiDev.image.includes('unsplash')) ? apiDev.image : safeFallback,
           soc_chipset: apiDev.soc || 'High-Performance Silicon',
           soc_detail: 'Relational SQLite Hardware Entry',
           gpu: 'Integrated GPU',
@@ -1148,7 +1152,9 @@ export async function extractCustomPhoneTelemetry(deviceName) {
           device_name: pd.device_name || clean,
           brand: pd.device_name?.split(' ')[0] || existing?.brand || 'Custom',
           os: (pd.device_name?.toLowerCase().includes('iphone') || pd.device_name?.toLowerCase().includes('apple')) ? 'iOS' : 'Android',
-          image_url: pd.image_url || existing?.image_url || 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80',
+          image_url: (existing?.image_url && !existing.image_url.includes('unsplash')) 
+            ? existing.image_url 
+            : (pd.image_url || existing?.image_url || ((pd.device_name?.toLowerCase().includes('iphone') || pd.device_name?.toLowerCase().includes('apple')) ? 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg' : 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g-sm-s921.jpg')),
           soc_chipset: pd.soc_chipset || existing?.soc_chipset || 'Extracted Silicon',
           soc_detail: 'Live Web Scraping & Telemetry Extraction',
           gpu: pd.gpu_and_storage || 'High-Power GPU',

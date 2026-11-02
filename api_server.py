@@ -239,7 +239,7 @@ def get_catalog(q: Optional[str] = None, brand: Optional[str] = None, os_filter:
         # Also sync any phones from the CLI `devices` + `telemetry_runs` table into `device_catalog`
         cli_rows = conn.execute(
             """
-            SELECT d.device_name, d.soc_chipset, d.gpu_and_storage, d.pwm_dimming_hz,
+            SELECT d.device_name, d.soc_chipset, d.gpu_and_storage, d.pwm_dimming_hz, d.image_url,
                    t.antutu_v10_score, t.geekbench_6_single, t.geekbench_6_multi,
                    t.wildlife_stability_pct, t.peak_temp_celsius,
                    t.pulse_throttle_index, t.score_breakdown
@@ -255,6 +255,23 @@ def get_catalog(q: Optional[str] = None, brand: Optional[str] = None, os_filter:
             slug = re.sub(r"[^a-z0-9]+", "_", dname.lower()).strip("_")
             brand_guess = dname.split()[0].capitalize()
             os_guess = "iOS" if "iphone" in dname.lower() or "apple" in dname.lower() else "Android"
+
+            soc = r["soc_chipset"]
+            if not soc or soc == "Unverified SoC Architecture" or (os_guess == "iOS" and not soc.lower().startswith("apple")):
+                try:
+                    from regex_parser import _lookup_catalog_soc, extract_soc
+                    soc = _lookup_catalog_soc(dname) or extract_soc("", dname)
+                except Exception:
+                    pass
+
+            img = r["image_url"] if "image_url" in r.keys() and r["image_url"] else None
+            if not img or "unsplash" in img:
+                try:
+                    from image_scraper import get_high_res_phone_image
+                    img = get_high_res_phone_image(dname)
+                except Exception:
+                    img = None
+
             sb = {}
             if r["score_breakdown"]:
                 try:
@@ -270,21 +287,23 @@ def get_catalog(q: Optional[str] = None, brand: Optional[str] = None, os_filter:
                 """
                 INSERT INTO device_catalog (
                     id, name, brand, os, soc, gpu_storage, antutu, gb_single, gb_multi,
-                    stability, temp, pwm, score, tss, fpe, compute, storage_score, is_past_search
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+                    stability, temp, pwm, score, tss, fpe, compute, storage_score, image, is_past_search
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
                 ON CONFLICT(id) DO UPDATE SET
                     is_past_search = 1,
+                    soc = excluded.soc,
+                    image = COALESCE(excluded.image, device_catalog.image),
                     score = COALESCE(excluded.score, device_catalog.score),
                     antutu = COALESCE(excluded.antutu, device_catalog.antutu)
                 """,
                 (
-                    slug, dname, brand_guess, os_guess, r["soc_chipset"], r["gpu_and_storage"],
+                    slug, dname, brand_guess, os_guess, soc, r["gpu_and_storage"],
                     r["antutu_v10_score"] or 800000, r["geekbench_6_single"] or 1200,
                     r["geekbench_6_multi"] or 3500, r["wildlife_stability_pct"] or 85.0,
                     r["peak_temp_celsius"] or 43.0, r["pwm_dimming_hz"] or "720Hz",
                     r["pulse_throttle_index"] or 78.0, tss,
                     fpe, comp,
-                    storage,
+                    storage, img,
                 ),
             )
         conn.commit()
@@ -448,6 +467,13 @@ def extract_custom_phone(device_name: str = Query(..., description="Phone name t
     dev = report.primary_device
     if not dev:
         raise HTTPException(status_code=400, detail="Could not extract telemetry for device.")
+
+    if not dev.image_url:
+        try:
+            from image_scraper import get_high_res_phone_image
+            dev.image_url = get_high_res_phone_image(dev.device_name)
+        except Exception:
+            pass
 
     return {"status": "ok", "report": report.model_dump()}
 

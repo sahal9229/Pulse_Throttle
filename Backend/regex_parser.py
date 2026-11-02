@@ -54,15 +54,110 @@ def extract_sources(raw_text: str) -> List[str]:
     return domains[:5] if domains else ["GSMArena", "NanoReview", "NotebookCheck"]
 
 
+def _lookup_catalog_soc(device_name: str) -> Optional[str]:
+    """Queries the Supabase master devices_catalog for the ground-truth base_soc."""
+    try:
+        import os
+        import psycopg2
+        from dotenv import load_dotenv
+
+        backend_dir = os.path.dirname(__file__)
+        env_path = os.path.join(backend_dir, ".env")
+        if os.path.exists(env_path):
+            load_dotenv(env_path)
+
+        pwd = os.getenv("SUPABASE_DB_PASSWORD")
+        proj = os.getenv("SUPABASE_PROJECT_ID", "dkwkzoztkyklztqzmhis")
+        host = os.getenv("SUPABASE_HOST", "aws-0-ap-southeast-1.pooler.supabase.com")
+        port = int(os.getenv("SUPABASE_PORT", "6543"))
+
+        if not pwd or not proj:
+            return None
+
+        conn = psycopg2.connect(
+            host=host,
+            port=port,
+            user=f"postgres.{proj}",
+            password=pwd,
+            database="postgres",
+            connect_timeout=2,
+        )
+        clean = device_name.strip()
+        with conn.cursor() as cur:
+            # 1. Exact canonical match
+            cur.execute(
+                "SELECT base_soc FROM devices_catalog WHERE LOWER(canonical_name) = LOWER(%s) AND base_soc IS NOT NULL LIMIT 1;",
+                (clean,),
+            )
+            row = cur.fetchone()
+            if row and row[0]:
+                conn.close()
+                return row[0]
+
+            # 2. Normalized match (e.g., 'iphone 7s' -> 'iphone 7')
+            norm_name = re.sub(r"(\d+)s\b", r"\1", clean, flags=re.IGNORECASE)
+            cur.execute(
+                "SELECT base_soc FROM devices_catalog WHERE canonical_name ILIKE %s AND base_soc IS NOT NULL ORDER BY release_year DESC LIMIT 1;",
+                (f"%{norm_name}%",),
+            )
+            row = cur.fetchone()
+            if row and row[0]:
+                conn.close()
+                return row[0]
+        conn.close()
+    except Exception:
+        pass
+    return None
+
+
 def extract_soc(raw_text: str, device_name: str) -> str:
+    # 1. Check reference profile anchors
     ref = _get_reference_profile(device_name)
     if ref:
         return ref["soc"]
 
+    # 2. Check master Supabase devices_catalog
+    cat_soc = _lookup_catalog_soc(device_name)
+    if cat_soc:
+        return cat_soc
+
+    d_lower = device_name.lower()
+    is_apple = "iphone" in d_lower or "apple" in d_lower or "ipad" in d_lower
+
+    # 3. For Apple devices, strictly match Apple Silicon (never Snapdragon or Dimensity)
+    if is_apple:
+        apple_pat = r"((?:Apple\s+)?(?:A[4-9]|A1[0-9]|M[1-4])\s*(?:Pro|Bionic|Fusion|Max|Ultra)?(?:\s*\(\d+\s*nm\))?)"
+        match = re.search(apple_pat, raw_text, re.IGNORECASE)
+        if match:
+            val = match.group(1).strip()
+            if not val.lower().startswith("apple"):
+                val = f"Apple {val}"
+            return val
+
+        # Fallback heuristic for known numbered iPhone releases
+        num_m = re.search(r"iphone\s*(\d+)", d_lower)
+        if num_m:
+            n = int(num_m.group(1))
+            mapping = {
+                5: "Apple A6",
+                6: "Apple A8",
+                7: "Apple A10 Fusion (16nm)",
+                8: "Apple A11 Bionic (10nm)",
+                11: "Apple A13 Bionic (7nm+)",
+                12: "Apple A14 Bionic (5nm)",
+                13: "Apple A15 Bionic (5nm)",
+                14: "Apple A16 Bionic (4nm)",
+                15: "Apple A16 Bionic (4nm)",
+                16: "Apple A18 (3nm)",
+            }
+            if n in mapping:
+                return mapping[n]
+        return "Apple Bionic Silicon"
+
+    # 4. Standard patterns for Android / others
     patterns = [
         r"((?:Qualcomm\s+)?Snapdragon\s+\d+\s*(?:s?\s*Gen\s*\d+|Elite|Plus|\+)?(?:\s*\(\d+\s*nm\))?)",
         r"((?:MediaTek\s+)?Dimensity\s+\d{4}(?:\s*(?:Ultra|Extreme|Pro|Plus|Max))?(?:\s*\(\d+\s*nm\))?)",
-        r"((?:Apple\s+)?A1[5-9]\s*(?:Pro|Bionic)?(?:\s*\(\d+\s*nm\))?)",
         r"((?:Samsung\s+)?Exynos\s+\d{4}(?:\s*\(\d+\s*nm\))?)",
         r"((?:Google\s+)?Tensor\s+G[2-5](?:\s*\(\d+\s*nm\))?)",
     ]

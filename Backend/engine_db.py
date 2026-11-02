@@ -153,9 +153,9 @@ def _fetch_device_from_db(conn: sqlite3.Connection, name_query: str) -> Optional
     games = [GameBenchmark(**g) for g in json.loads(row["game_benchmarks_json"])]
     sources = json.loads(row["sources_json"])
 
-    return DeviceTelemetry(
+    dev = DeviceTelemetry(
         device_name=row["device_name"],
-        image_url=row["image_url"] if "image_url" in row.keys() else None,
+        image_url=row["image_url"] if "image_url" in row.keys() and row["image_url"] else None,
         soc_chipset=row["soc_chipset"],
         gpu_and_storage=row["gpu_and_storage"],
         antutu_v10_score=row["antutu_v10_score"],
@@ -170,6 +170,29 @@ def _fetch_device_from_db(conn: sqlite3.Connection, name_query: str) -> Optional
         sources=sources,
     )
 
+    try:
+        from image_scraper import _lookup_catalog_image
+        cat_img = _lookup_catalog_image(dev.device_name)
+        if cat_img:
+            dev.image_url = cat_img
+    except Exception:
+        pass
+
+    if not dev.image_url:
+        try:
+            from image_scraper import get_high_res_phone_image
+            dev.image_url = get_high_res_phone_image(dev.device_name)
+            if dev.image_url:
+                conn.execute(
+                    "UPDATE devices SET image_url = ? WHERE device_name = ?;",
+                    (dev.image_url, dev.device_name),
+                )
+                conn.commit()
+        except Exception:
+            pass
+
+    return dev
+
 
 def _mongo_doc_to_device(doc: dict) -> Optional[DeviceTelemetry]:
     """Reconstructs a DeviceTelemetry object from a MongoDB telemetry document."""
@@ -180,7 +203,7 @@ def _mongo_doc_to_device(doc: dict) -> Optional[DeviceTelemetry]:
             GameBenchmark(**g) if isinstance(g, dict) else g
             for g in (doc.get("game_benchmarks") or [])
         ]
-        return DeviceTelemetry(
+        dev = DeviceTelemetry(
             device_name=doc.get("device_name") or "Unknown",
             image_url=doc.get("image_url"),
             soc_chipset=doc.get("soc_chipset") or "Unknown",
@@ -196,6 +219,22 @@ def _mongo_doc_to_device(doc: dict) -> Optional[DeviceTelemetry]:
             game_benchmarks=games,
             sources=doc.get("sources") or [],
         )
+
+        try:
+            from image_scraper import _lookup_catalog_image
+            cat_img = _lookup_catalog_image(dev.device_name)
+            if cat_img:
+                dev.image_url = cat_img
+        except Exception:
+            pass
+
+        if not dev.image_url:
+            try:
+                from image_scraper import get_high_res_phone_image
+                dev.image_url = get_high_res_phone_image(dev.device_name)
+            except Exception:
+                pass
+        return dev
     except Exception as e:
         console.print(f"  [dim yellow][MongoDB] Could not reconstruct device: {e}[/dim yellow]")
         return None
