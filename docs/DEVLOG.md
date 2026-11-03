@@ -77,3 +77,7 @@
 - Implemented Pydantic models for structured telemetry responses.
 - Added background task handling for long-running extraction queries.
 
+## November 03, 2026
+- Documented leaderboard sorting rules across PTI, AnTuTu, Geekbench, and peak temperature.
+- Designed platform filter pills (All Platforms, iOS, Android).
+
