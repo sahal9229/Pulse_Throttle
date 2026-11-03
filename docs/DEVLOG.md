@@ -81,3 +81,6 @@
 - Documented leaderboard sorting rules across PTI, AnTuTu, Geekbench, and peak temperature.
 - Designed platform filter pills (All Platforms, iOS, Android).
 
+- Implemented segmented switcher between top searched phones and master device catalog.
+- Designed gold, silver, and bronze rank badges.
+
