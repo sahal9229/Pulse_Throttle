@@ -88,3 +88,6 @@
 - Documented Slot A and Slot B mutual exclusion and device swap animation.
 - Integrated real-time autocomplete combobox with debounce.
 
+- Implemented catalog subscription pub/sub for instant UI re-renders upon background extraction completion.
+- Tested edge-case transitions for rapid search queries.
+
