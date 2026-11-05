@@ -91,3 +91,7 @@
 - Implemented catalog subscription pub/sub for instant UI re-renders upon background extraction completion.
 - Tested edge-case transitions for rapid search queries.
 
+## November 05, 2026
+- Documented hardware playability floor for legacy devices (iPhone 5s, iPhone 6, older budget phones).
+- Flagged games as incompatible and clamped PTI under 18.0 when RAM < 4GB.
+
