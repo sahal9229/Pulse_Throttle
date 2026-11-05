@@ -95,3 +95,6 @@
 - Documented hardware playability floor for legacy devices (iPhone 5s, iPhone 6, older budget phones).
 - Flagged games as incompatible and clamped PTI under 18.0 when RAM < 4GB.
 
+- Verified deterministic score outputs: iPhone 5s (13.0 PTI) vs iPhone 7 (29.8 PTI) vs modern flagships (92+ PTI).
+- Confirmed correct storage detection (eMMC 4.5 vs NVMe Gen 1 vs UFS 4.0).
+
