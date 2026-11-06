@@ -2,8 +2,7 @@ import { useState, useMemo, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar.jsx';
 import ControlPanel from './components/ControlPanel.jsx';
-import PhoneCard from './components/PhoneCard.jsx';
-import EngineeringVerdict from './components/EngineeringVerdict.jsx';
+import HeadToHeadComparison from './components/HeadToHeadComparison.jsx';
 import Leaderboard from './components/Leaderboard.jsx';
 import {
   extractPwmHz,
@@ -94,29 +93,26 @@ export default function App() {
               >
                 {/* Hero Header */}
                 <motion.div
-                  initial={{ opacity: 0, y: 14 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="flex flex-col sm:flex-row sm:items-end justify-between gap-3"
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2"
                 >
                   <div>
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-                      Smartphone Gaming Telemetry{' '}
-                      <span className="text-[#D97706]">Lab</span>
+                    <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                      Pulse<span className="text-[#D97706]">Throttle</span>
                     </h1>
-                    <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-medium max-w-2xl">
-                      Real-world sustained gaming performance with thermal throttling curves & hardware pacing diagnostics.
+                    <p className="text-slate-500 text-xs sm:text-sm mt-0.5 font-normal">
+                      Deterministic hardware telemetry & sustained gaming benchmark analysis.
                     </p>
                   </div>
 
-                  <div className="hidden sm:flex items-center gap-2 text-xs font-mono font-bold text-slate-600">
-                    <span className="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200/90 shadow-[0_4px_12px_-2px_rgba(15,23,42,0.04)] text-slate-700">
-                      {isDualMode ? 'Mode: Dual Comparison (A vs B)' : 'Mode: Single Device Telemetry'}
-                    </span>
+                  <div className="hidden sm:block text-xs font-mono text-slate-400">
+                    <span>Hardware Telemetry Lab • 2026 Physics Calibrated</span>
                   </div>
                 </motion.div>
 
-                {/* Interactive Control Panel */}
+                {/* Streamlined Interactive Control Panel */}
                 <ControlPanel
                   phoneA={phoneA}
                   phoneB={phoneB}
@@ -135,97 +131,38 @@ export default function App() {
                   onRunAnalysis={() => setAnalysisRun((n) => n + 1)}
                 />
 
-                {/* Phone Cards Grid */}
-                <div
-                  className={`grid gap-7 items-stretch ${
-                    isDualMode ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 max-w-2xl mx-auto'
-                  }`}
-                >
-                  <AnimatePresence mode="wait">
-                    {deviceA && deviceAVisible && (
-                      <PhoneCard
-                        key={`${deviceA.id}-${analysisRun}`}
-                        device={deviceA}
-                        rank={winner === 'A' ? 1 : 2}
-                        isWinner={isDualMode ? winner === 'A' : true}
-                        selectedGame={selectedGame}
-                        comparisonDevice={isDualMode ? deviceB : null}
-                      />
-                    )}
-                    {!deviceAVisible && deviceA && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="bg-white border border-slate-200/90 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_12px_32px_-4px_rgba(15,23,42,0.06)]"
-                      >
-                        <p className="text-slate-900 text-sm font-extrabold">
-                          {deviceA.device_name} is hidden by active filters
-                        </p>
-                        <p className="text-slate-500 text-xs mt-1.5 font-medium max-w-md">
-                          This smartphone exceeds your thermal ceiling, falls below the selected storage tier, or does not meet the PWM flicker safety minimum.
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setStorageTier('All');
-                            setMaxTemp(48);
-                            setPwmFilter(0);
-                          }}
-                          className="mt-4 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#F1F5F9] text-slate-800 border border-slate-200 hover:bg-slate-200/80 transition-all cursor-pointer"
-                        >
-                          Reset Hardware Filters
-                        </button>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  <AnimatePresence mode="wait">
-                    {isDualMode && deviceB && deviceBVisible && (
-                      <PhoneCard
-                        key={`${deviceB.id}-${analysisRun}`}
-                        device={deviceB}
-                        rank={winner === 'B' ? 1 : 2}
-                        isWinner={winner === 'B'}
-                        selectedGame={selectedGame}
-                        comparisonDevice={deviceA}
-                      />
-                    )}
-                    {isDualMode && !deviceBVisible && deviceB && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="bg-white border border-slate-200/90 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_12px_32px_-4px_rgba(15,23,42,0.06)]"
-                      >
-                        <p className="text-slate-900 text-sm font-extrabold">
-                          {deviceB.device_name} is hidden by active filters
-                        </p>
-                        <p className="text-slate-500 text-xs mt-1.5 font-medium max-w-md">
-                          This smartphone exceeds your thermal ceiling, falls below the selected storage tier, or does not meet the PWM flicker safety minimum.
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setStorageTier('All');
-                            setMaxTemp(48);
-                            setPwmFilter(0);
-                          }}
-                          className="mt-4 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#F1F5F9] text-slate-800 border border-slate-200 hover:bg-slate-200/80 transition-all cursor-pointer"
-                        >
-                          Reset Hardware Filters
-                        </button>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                {/* Engineering Verdict (Bento Diagnostic Grid) */}
+                {/* Unified Head-to-Head Comparison View */}
                 {deviceA && deviceAVisible && (!isDualMode || (deviceB && deviceBVisible)) && (
-                  <EngineeringVerdict
+                  <HeadToHeadComparison
+                    key={`${deviceA.id}-${deviceB?.id || 'single'}-${analysisRun}`}
                     deviceA={deviceA}
                     deviceB={isDualMode ? deviceB : null}
                     selectedGame={selectedGame}
                     isDualMode={isDualMode}
                   />
+                )}
+
+                {/* Filter Recovery Card */}
+                {((deviceA && !deviceAVisible) || (isDualMode && deviceB && !deviceBVisible)) && (
+                  <div className="bg-white border border-slate-200/90 rounded-2xl p-8 flex flex-col items-center justify-center text-center shadow-2xs space-y-3">
+                    <p className="text-slate-900 text-sm font-bold">
+                      {(!deviceAVisible ? deviceA?.device_name : deviceB?.device_name)} is hidden by active hardware filters
+                    </p>
+                    <p className="text-slate-500 text-xs max-w-md font-normal">
+                      Relax your storage tier, thermal ceiling, or PWM dimming filter in Advanced Hardware Filters above to view this device.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setStorageTier('All');
+                        setMaxTemp(48);
+                        setPwmFilter(0);
+                      }}
+                      className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 transition-colors cursor-pointer"
+                    >
+                      Reset Filters
+                    </button>
+                  </div>
                 )}
               </motion.div>
             )}

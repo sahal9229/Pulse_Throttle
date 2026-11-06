@@ -133,48 +133,45 @@ export default function Leaderboard({ onSelectDevice }) {
   }, [catalog]);
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-[0_12px_32px_-4px_rgba(15,23,42,0.06),0_4px_12px_-2px_rgba(15,23,42,0.03)] p-6 sm:p-7 space-y-6">
+    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] p-6 sm:p-8 space-y-6">
       {/* Top Header & View Mode Switch */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-200/90">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
         <div>
-          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-            <Trophy className="w-6 h-6 text-[#D97706]" />
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+            <Trophy className="w-5 h-5 text-slate-800" />
             Hardware Benchmark Leaderboard
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
-            Precision sustained performance rankings, thermal retention & efficiency metrics
-          </p>
         </div>
 
-        {/* Toggle Mode: Past Searches Toppers vs Complete Hardware Database */}
-        <div className="flex items-center p-1 bg-[#F1F5F9] border border-slate-200 rounded-xl self-start sm:self-auto">
+        {/* Toggle Mode: Past Searches vs Complete Database */}
+        <div className="flex items-center p-1 bg-slate-100 rounded-xl self-start sm:self-auto">
           <button
             type="button"
             onClick={() => setActiveCatalogMode('past_searches')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
               activeCatalogMode === 'past_searches'
-                ? 'bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white shadow-xs font-extrabold'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-white text-slate-900 shadow-2xs font-bold'
+                : 'text-slate-500 hover:text-slate-800'
             }`}
           >
-            <Flame className="w-3.5 h-3.5" />
-            <span>🔥 Top Searched Phones</span>
-            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-white/25">
+            <Flame className="w-3.5 h-3.5 text-amber-500" />
+            <span>Top Searches</span>
+            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
               {pastSearchesCount}
             </span>
           </button>
           <button
             type="button"
             onClick={() => setActiveCatalogMode('all')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
               activeCatalogMode === 'all'
-                ? 'bg-slate-900 text-white shadow-xs font-extrabold'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-white text-slate-900 shadow-2xs font-bold'
+                : 'text-slate-500 hover:text-slate-800'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>📚 Full Phone Database</span>
-            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-white/20">
+            <BookOpen className="w-3.5 h-3.5 text-slate-600" />
+            <span>Complete Database</span>
+            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
               {catalog.length}
             </span>
           </button>
