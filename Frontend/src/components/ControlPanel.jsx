@@ -39,10 +39,10 @@ const PWM_FILTERS = [
 ];
 
 const GAME_OPTIONS = [
-  { key: 'BGMI', label: 'BGMI / PUBG Mobile', subtitle: '90/120 FPS Target', emoji: '🎯' },
-  { key: 'GENSHIN', label: 'Genshin Impact', subtitle: 'Open-World Max Load', emoji: '🌍' },
-  { key: 'CODM', label: 'Call of Duty: Mobile', subtitle: 'Ultra Frame Rate', emoji: '🔫' },
-  { key: 'WUTHERING', label: 'Wuthering Waves', subtitle: 'Heavy Shader Pipeline', emoji: '⚔️' },
+  { key: 'BGMI', label: 'BGMI / PUBG Mobile', subtitle: 'Esports 90/120 FPS high refresh test', emoji: '🎯' },
+  { key: 'GENSHIN', label: 'Genshin Impact', subtitle: 'Heavy open-world 3D rendering load', emoji: '🌍' },
+  { key: 'CODM', label: 'Call of Duty: Mobile', subtitle: 'High frame-rate multiplayer pacing', emoji: '🔫' },
+  { key: 'WUTHERING', label: 'Wuthering Waves', subtitle: 'Intense shaders & ray-tracing pipeline', emoji: '⚔️' },
 ];
 
 const BRAND_BADGE_STYLES = {
@@ -131,14 +131,19 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
 
     // 1. Filter local loaded devices
     const localFiltered = catalog.filter((d) => {
-      if (selectedBrand !== 'All' && d.brand.toLowerCase() !== selectedBrand.toLowerCase()) {
-        return false;
+      if (selectedBrand !== 'All') {
+        const dBrand = (d.brand || '').toLowerCase();
+        if (selectedBrand === 'Poco/Xiaomi') {
+          if (dBrand !== 'xiaomi' && dBrand !== 'poco') return false;
+        } else if (dBrand !== selectedBrand.toLowerCase()) {
+          return false;
+        }
       }
       if (!q) return true;
       return (
         d.device_name.toLowerCase().includes(q) ||
         d.soc_chipset.toLowerCase().includes(q) ||
-        d.brand.toLowerCase().includes(q) ||
+        (d.brand && d.brand.toLowerCase().includes(q)) ||
         (d.gpu && d.gpu.toLowerCase().includes(q))
       );
     });
@@ -248,12 +253,12 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
           }
         }}
         className={`w-full bg-white border ${
-          isOpen ? 'border-amber-500 ring-2 ring-amber-500/20' : 'border-slate-300'
-        } hover:border-slate-400 px-3.5 py-3 flex items-center justify-between gap-3 rounded-xl transition-all shadow-[0_2px_8px_rgba(15,23,42,0.06)] text-left cursor-pointer`}
+          isOpen ? 'border-amber-500 ring-2 ring-amber-500/20' : 'border-slate-200/90'
+        } hover:border-slate-300 px-3.5 py-3 flex items-center justify-between gap-3 rounded-xl transition-all shadow-[0_4px_16px_-2px_rgba(15,23,42,0.04)] text-left cursor-pointer`}
       >
         <div className="flex items-center gap-3 min-w-0">
           {/* Thumbnail or Icon with fallback */}
-          <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex-shrink-0 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-100 border border-slate-200/90 flex-shrink-0 flex items-center justify-center shadow-2xs">
             <DeviceThumbnail
               src={selectedDevice?.image_url}
               alt={selectedDevice?.device_name || 'Smartphone'}
@@ -267,17 +272,6 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
               <span className="font-extrabold text-sm text-slate-900 truncate">
                 {selectedDevice ? selectedDevice.device_name : 'Select or Search Phone...'}
               </span>
-              {selectedDevice?.brand && (
-                <span
-                  className={`text-[9px] font-black uppercase tracking-wider px-1.5 py-0.2 rounded border shadow-2xs ${
-                    getBrandBadge(selectedDevice.brand).bg
-                  } ${getBrandBadge(selectedDevice.brand).text} ${
-                    getBrandBadge(selectedDevice.brand).border
-                  }`}
-                >
-                  {selectedDevice.brand}
-                </span>
-              )}
               {selectedDevice?.os && (
                 <span className="text-[10px] font-bold text-slate-600 px-1.5 py-0.2 rounded bg-slate-100 border border-slate-200 flex-shrink-0">
                   {selectedDevice.os === 'iOS' ? '🍎 iOS' : '🤖 Android'}
@@ -307,10 +301,10 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.15 }}
-            className="absolute z-50 mt-2 w-full bg-white border border-slate-300 shadow-[0_16px_36px_rgba(15,23,42,0.16)] rounded-2xl overflow-hidden flex flex-col"
+            className="absolute z-50 mt-2 w-full bg-white border border-slate-200/90 shadow-[0_16px_36px_rgba(15,23,42,0.14)] rounded-2xl overflow-hidden flex flex-col"
           >
             {/* Search Input Box with Live Autocomplete feedback */}
-            <div className="p-3 border-b border-slate-200 bg-slate-50 flex items-center gap-2">
+            <div className="p-3 border-b border-slate-200/90 bg-[#F1F5F9] flex items-center gap-2">
               {isSearchingApi ? (
                 <Loader2 className="w-4 h-4 text-amber-500 animate-spin flex-shrink-0" />
               ) : (
@@ -337,7 +331,7 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
             </div>
 
             {/* Brand Filter Pills */}
-            <div className="px-3 py-2 border-b border-slate-200 bg-white flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+            <div className="px-3 py-2 border-b border-slate-200/90 bg-white flex items-center gap-1.5 overflow-x-auto no-scrollbar">
               {BRANDS.map((brand) => {
                 const isSelected = selectedBrand === brand;
                 return (
@@ -347,8 +341,8 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
                     onClick={() => setSelectedBrand(brand)}
                     className={`px-2.5 py-1 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
                       isSelected
-                        ? 'bg-amber-500 text-white border-amber-600 shadow-sm'
-                        : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                        ? 'bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white border-transparent shadow-xs'
+                        : 'bg-[#F1F5F9] text-slate-700 border-slate-200 hover:bg-slate-200'
                     }`}
                   >
                     {brand === 'All' ? 'All Brands' : brand}
@@ -377,11 +371,11 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
                     <div className="min-w-0">
                       <p className="text-xs font-extrabold text-slate-900 truncate">
                         {isExtractingLive
-                          ? `Extracting live telemetry for "${searchQuery.trim()}"...`
-                          : `⚡ Extract Live Telemetry for "${searchQuery.trim()}"`}
+                          ? `Fetching specifications & benchmarks for "${searchQuery.trim()}"...`
+                          : `⚡ Fetch Live Telemetry for "${searchQuery.trim()}"`}
                       </p>
                       <p className="text-[10px] text-slate-600 font-medium">
-                        Runs targeted web extraction + parses hardware benchmarks
+                        Searches hardware databases & calculates deterministic benchmark scores
                       </p>
                     </div>
                   </div>
@@ -495,10 +489,10 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
 
             {/* Footer indicator showing 3 items visible with smooth scroll for additional variants */}
             {displayDevices.length > 3 && (
-              <div className="px-3 py-1.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-semibold">
+              <div className="px-3 py-1.5 bg-slate-50 border-t border-slate-200/90 flex items-center justify-between text-[11px] text-slate-500 font-semibold">
                 <span>Showing 3 visible of {displayDevices.length} variants</span>
-                <span className="flex items-center gap-1 text-amber-700 font-bold">
-                  Scroll for more <ChevronDown className="w-3 h-3 animate-bounce" />
+                <span className="flex items-center gap-1 text-[#D97706] font-bold">
+                  Scroll for more <ChevronDown className="w-3 h-3 text-[#D97706]" />
                 </span>
               </div>
             )}
@@ -537,41 +531,41 @@ export default function ControlPanel({
   };
 
   return (
-    <div className="tactile-card p-5 sm:p-6 space-y-6">
+    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-[0_12px_32px_-4px_rgba(15,23,42,0.06),0_4px_12px_-2px_rgba(15,23,42,0.03)] p-6 sm:p-7 space-y-6">
       {/* Top Header: Comparison Mode Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200/90">
         <div>
-          <h2 className="text-base sm:text-lg font-extrabold text-slate-900">
-            Interactive Telemetry Configuration
+          <h2 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
+            Hardware Telemetry & Testing Setup
           </h2>
-          <p className="text-xs text-slate-600 font-semibold mt-0.5">
-            Select test targets, esports gaming workload & hardware filters
+          <p className="text-xs text-slate-500 font-medium mt-0.5">
+            Select test devices, target gaming workload & hardware quality thresholds
           </p>
         </div>
 
         {/* Dual vs Single Mode Buttons */}
-        <div className="flex items-center p-1 bg-slate-100 border border-slate-300 rounded-xl self-start sm:self-auto">
+        <div className="flex items-center p-1 bg-[#F1F5F9] border border-slate-200 rounded-xl self-start sm:self-auto">
           <button
             type="button"
             onClick={() => setIsDualMode(true)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               isDualMode
-                ? 'bg-white text-slate-900 shadow-sm border border-slate-300'
+                ? 'bg-white text-slate-900 shadow-xs border border-slate-200/80 font-extrabold'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Dual Comparison (A vs B)
+            Compare 2 Phones (A vs B)
           </button>
           <button
             type="button"
             onClick={() => setIsDualMode(false)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               !isDualMode
-                ? 'bg-white text-slate-900 shadow-sm border border-slate-300'
+                ? 'bg-white text-slate-900 shadow-xs border border-slate-200/80 font-extrabold'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Single Device Inspection
+            Inspect Single Phone
           </button>
         </div>
       </div>
@@ -579,7 +573,7 @@ export default function ControlPanel({
       {/* Device Selectors Row */}
       <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4">
         <SearchableDeviceSelector
-          label="Primary Device (Slot A)"
+          label="Primary Smartphone (Slot A)"
           selectedDevice={deviceA}
           onSelect={setPhoneA}
           otherSelectedId={isDualMode ? phoneB : null}
@@ -591,7 +585,7 @@ export default function ControlPanel({
             <button
               type="button"
               onClick={handleSwap}
-              className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 hover:text-slate-900 transition-all shadow-sm"
+              className="p-3 rounded-xl bg-[#F1F5F9] hover:bg-slate-200/80 border border-slate-200 text-slate-700 hover:text-slate-900 transition-all shadow-2xs cursor-pointer"
               title="Swap Slot A and Slot B"
             >
               <ArrowLeftRight className="w-4 h-4" />
@@ -601,7 +595,7 @@ export default function ControlPanel({
 
         {isDualMode && (
           <SearchableDeviceSelector
-            label="Secondary Device (Slot B)"
+            label="Secondary Smartphone (Slot B)"
             selectedDevice={deviceB}
             onSelect={setPhoneB}
             otherSelectedId={phoneA}
@@ -612,9 +606,14 @@ export default function ControlPanel({
 
       {/* Game Selection Row */}
       <div className="space-y-2">
-        <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider">
-          Gaming Workload Target
-        </label>
+        <div className="flex items-center justify-between">
+          <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider">
+            Gaming Workload Target
+          </label>
+          <span className="text-[11px] text-slate-500 font-semibold">
+            Simulates sustained 3D load, shader pipelines & heat generation
+          </span>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           {GAME_OPTIONS.map((game) => {
             const isSelected = selectedGame === game.key;
@@ -623,17 +622,17 @@ export default function ControlPanel({
                 key={game.key}
                 type="button"
                 onClick={() => setSelectedGame(game.key)}
-                className={`p-3 rounded-xl border text-left transition-all ${
+                className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                   isSelected
-                    ? 'bg-amber-50 border-amber-500 ring-2 ring-amber-500/20 shadow-sm'
-                    : 'bg-white border-slate-300 hover:border-slate-400 hover:bg-slate-50'
+                    ? 'bg-amber-50/80 border-amber-500 ring-2 ring-amber-500/20 shadow-xs'
+                    : 'bg-[#F1F5F9] border-slate-200 hover:border-slate-300 hover:bg-white'
                 }`}
               >
                 <div className="flex items-center gap-2">
                   <span className="text-base">{game.emoji}</span>
                   <span className="font-extrabold text-xs text-slate-900">{game.label}</span>
                 </div>
-                <p className="text-[11px] text-slate-600 font-semibold mt-1">
+                <p className="text-[11px] text-slate-500 font-semibold mt-1">
                   {game.subtitle}
                 </p>
               </button>
@@ -643,11 +642,11 @@ export default function ControlPanel({
       </div>
 
       {/* Hardware Telemetry Filters */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-200">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-200/90">
         {/* Storage Tier Filter */}
         <div className="space-y-1.5">
-          <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-            <HardDrive className="w-3.5 h-3.5 text-slate-500" /> Storage Tier
+          <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+            <HardDrive className="w-3.5 h-3.5 text-slate-500" /> Minimum Storage Speed
           </label>
           <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
             {STORAGE_TIERS.map((tier) => (
@@ -655,26 +654,27 @@ export default function ControlPanel({
                 key={tier}
                 type="button"
                 onClick={() => setStorageTier(tier)}
-                className={`px-2.5 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border cursor-pointer ${
                   storageTier === tier
-                    ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                    : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                    ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
+                    : 'bg-[#F1F5F9] text-slate-700 border-slate-200 hover:bg-slate-200/80'
                 }`}
               >
                 {tier}
               </button>
             ))}
           </div>
+          <p className="text-[10px] text-slate-500 font-medium">Hides devices with slower flash memory tiers</p>
         </div>
 
         {/* Max Temperature Ceiling */}
         <div className="space-y-1.5">
           <div className="flex items-center justify-between text-xs">
-            <label className="text-slate-600 font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <Thermometer className="w-3.5 h-3.5 text-slate-500" /> Max Peak Temp
+            <label className="text-slate-500 font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <Thermometer className="w-3.5 h-3.5 text-slate-500" /> Thermal Throttling Ceiling
             </label>
-            <span className="font-mono font-extrabold text-slate-900">
-              {maxTemp >= 48 ? 'No Limit' : `≤ ${maxTemp}°C`}
+            <span className="font-mono font-bold text-slate-900 tabular-nums">
+              {maxTemp >= 48 ? 'No Thermal Limit' : `Max ${maxTemp}°C`}
             </span>
           </div>
           <input
@@ -686,12 +686,13 @@ export default function ControlPanel({
             onChange={(e) => setMaxTemp(parseFloat(e.target.value))}
             className="w-full accent-amber-500 cursor-pointer"
           />
+          <p className="text-[10px] text-slate-500 font-medium">Hides phones that exceed this temperature under load</p>
         </div>
 
         {/* Eye Safety PWM Dimming */}
         <div className="space-y-1.5">
-          <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-            <Eye className="w-3.5 h-3.5 text-slate-500" /> Eye Safety (PWM Dimming)
+          <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+            <Eye className="w-3.5 h-3.5 text-slate-500" /> Display Flicker Safety (PWM)
           </label>
           <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
             {PWM_FILTERS.map((f) => (
@@ -699,16 +700,17 @@ export default function ControlPanel({
                 key={f.label}
                 type="button"
                 onClick={() => setPwmFilter(f.minHz)}
-                className={`px-2.5 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border cursor-pointer ${
                   pwmFilter === f.minHz
-                    ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                    : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                    ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
+                    : 'bg-[#F1F5F9] text-slate-700 border-slate-200 hover:bg-slate-200/80'
                 }`}
               >
                 {f.label}
               </button>
             ))}
           </div>
+          <p className="text-[10px] text-slate-500 font-medium">Higher Hz reduces eye strain and headaches in dim lighting</p>
         </div>
       </div>
     </div>

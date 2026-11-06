@@ -7,28 +7,281 @@ from scoring import enrich_report_with_scores
 # Verified Hardware Telemetry Reference DB for Indian Retail Variants & Common SoCs
 # Acts as a ground-truth anchor when web snippets omit a specific table cell
 DEVICE_AND_SOC_REFERENCE = {
+    # ── Apple A7 (iPhone 5s - 2013) ──────────────────────────────────────────
+    "iphone 5s": {
+        "soc": "Apple A7 (28nm Samsung, Dual-Core 1.30 GHz Cyclone, 64-bit)",
+        "gpu_storage": "PowerVR G6430 (4-core), 1GB LPDDR3 RAM, eMMC 4.5",
+        "antutu": 65000,
+        "gb_single": 255,
+        "gb_multi": 470,
+        "stability": 65.0,
+        "temp": 43.8,
+        "pwm": "DC Dimming (LCD)",
+        "year": 2013,
+        "ram_gb": 1,
+        "bgmi_max": "INCOMPATIBLE / UNSUPPORTED",
+        "bgmi_sustained": "0 FPS",
+        "bgmi_notes": "Unsupported: 2013 Apple A7 with 1GB RAM fails minimum memory floor and 3D instruction requirements.",
+    },
+    "apple a7": {
+        "soc": "Apple A7 (28nm Samsung, Dual-Core 1.30 GHz Cyclone, 64-bit)",
+        "gpu_storage": "PowerVR G6430 (4-core), 1GB LPDDR3 RAM, eMMC 4.5",
+        "antutu": 65000,
+        "gb_single": 255,
+        "gb_multi": 470,
+        "stability": 65.0,
+        "temp": 43.8,
+        "pwm": "DC Dimming (LCD)",
+        "year": 2013,
+        "ram_gb": 1,
+        "bgmi_max": "INCOMPATIBLE / UNSUPPORTED",
+        "bgmi_sustained": "0 FPS",
+        "bgmi_notes": "Unsupported: 2013 Apple A7 with 1GB RAM fails minimum memory floor and 3D instruction requirements.",
+    },
+    # ── Apple A10 Fusion (iPhone 7 - 2016) ───────────────────────────────────
+    "iphone 7": {
+        "soc": "Apple A10 Fusion (16nm TSMC, 4-Core 2.34 GHz)",
+        "gpu_storage": "PowerVR Series7XT Plus (6-core), 2GB LPDDR4 RAM, NVMe (Gen 1)",
+        "antutu": 285000,
+        "gb_single": 780,
+        "gb_multi": 1410,
+        "stability": 68.0,
+        "temp": 43.5,
+        "pwm": "DC Dimming (LCD)",
+        "year": 2016,
+        "ram_gb": 2,
+        "bgmi_max": "INCOMPATIBLE / UNSUPPORTED",
+        "bgmi_sustained": "0 FPS",
+        "bgmi_notes": "Unsupported: 16nm planar node and 2GB RAM lacks shader allocation headroom for modern BGMI pipelines.",
+    },
+    "apple a10": {
+        "soc": "Apple A10 Fusion (16nm TSMC, 4-Core 2.34 GHz)",
+        "gpu_storage": "PowerVR Series7XT Plus (6-core), 2GB LPDDR4 RAM, NVMe (Gen 1)",
+        "antutu": 285000,
+        "gb_single": 780,
+        "gb_multi": 1410,
+        "stability": 68.0,
+        "temp": 43.5,
+        "pwm": "DC Dimming (LCD)",
+        "year": 2016,
+        "ram_gb": 2,
+        "bgmi_max": "INCOMPATIBLE / UNSUPPORTED",
+        "bgmi_sustained": "0 FPS",
+        "bgmi_notes": "Unsupported: 16nm planar node and 2GB RAM lacks shader allocation headroom for modern BGMI pipelines.",
+    },
+    # ── Apple A12 Bionic (iPhone XS - 2018) ──────────────────────────────────
+    "iphone xs": {
+        "soc": "Apple A12 Bionic (7nm TSMC, 2x 2.50 GHz Vortex + 4x 1.60 GHz Tempest)",
+        "gpu_storage": "Apple 4-Core GPU, 4GB LPDDR4X RAM, NVMe",
+        "antutu": 615000,
+        "gb_single": 1315,
+        "gb_multi": 2950,
+        "stability": 68.0,
+        "temp": 44.8,
+        "pwm": "240Hz",
+        "year": 2018,
+        "ram_gb": 4,
+        "bgmi_max": "Smooth + Ultra (45 FPS)",
+        "bgmi_sustained": "42-45 FPS",
+        "bgmi_notes": "Playable with minor thermal throttling; compact dual-layer motherboard warms up in extended sessions.",
+    },
+    "apple a12": {
+        "soc": "Apple A12 Bionic (7nm TSMC, 2x 2.50 GHz Vortex + 4x 1.60 GHz Tempest)",
+        "gpu_storage": "Apple 4-Core GPU, 4GB LPDDR4X RAM, NVMe",
+        "antutu": 615000,
+        "gb_single": 1315,
+        "gb_multi": 2950,
+        "stability": 68.0,
+        "temp": 44.8,
+        "pwm": "240Hz",
+        "year": 2018,
+        "ram_gb": 4,
+        "bgmi_max": "Smooth + Ultra (45 FPS)",
+        "bgmi_sustained": "42-45 FPS",
+        "bgmi_notes": "Playable with minor thermal throttling; compact dual-layer motherboard warms up in extended sessions.",
+    },
+    # ── Apple A15 Bionic (iPhone 13 - 2021) ──────────────────────────────────
+    "iphone 13": {
+        "soc": "Apple A15 Bionic (5nm TSMC, 2x 3.23 GHz Avalanche + 4x 1.82 GHz Blizzard)",
+        "gpu_storage": "Apple 4-Core GPU, 4GB LPDDR4X RAM, NVMe",
+        "antutu": 1250000,
+        "gb_single": 2380,
+        "gb_multi": 5950,
+        "stability": 79.0,
+        "temp": 42.9,
+        "pwm": "610Hz",
+        "year": 2021,
+        "ram_gb": 4,
+        "bgmi_max": "Smooth + Extreme (60 FPS)",
+        "bgmi_sustained": "58-60 FPS",
+        "bgmi_notes": "Rock-solid 60 FPS pacing; efficient TSMC 5nm node minimizes sustained thermal dissipation.",
+    },
+    "apple a15": {
+        "soc": "Apple A15 Bionic (5nm TSMC, 2x 3.23 GHz Avalanche + 4x 1.82 GHz Blizzard)",
+        "gpu_storage": "Apple 4-Core GPU, 4GB LPDDR4X RAM, NVMe",
+        "antutu": 1250000,
+        "gb_single": 2380,
+        "gb_multi": 5950,
+        "stability": 79.0,
+        "temp": 42.9,
+        "pwm": "610Hz",
+        "year": 2021,
+        "ram_gb": 4,
+        "bgmi_max": "Smooth + Extreme (60 FPS)",
+        "bgmi_sustained": "58-60 FPS",
+        "bgmi_notes": "Rock-solid 60 FPS pacing; efficient TSMC 5nm node minimizes sustained thermal dissipation.",
+    },
+    # ── Apple A18 Pro (iPhone 16 Pro Max - 2024) ──────────────────────────────
+    "iphone 16 pro max": {
+        "soc": "Apple A18 Pro (3nm TSMC, 2x 4.04 GHz + 4x 2.20 GHz, NPU 16-Core)",
+        "gpu_storage": "Apple 6-Core GPU, 8GB LPDDR5X RAM, NVMe Fast",
+        "antutu": 1820000,
+        "gb_single": 3420,
+        "gb_multi": 8650,
+        "stability": 82.5,
+        "temp": 43.5,
+        "pwm": "480Hz",
+        "year": 2024,
+        "ram_gb": 8,
+        "bgmi_max": "Ultra HDR + 120 FPS",
+        "bgmi_sustained": "119-120 FPS",
+        "bgmi_notes": "Flawless 120 FPS pacing with graphite graphene heat dissipation; TSMC 3nm leading-edge silicon.",
+    },
+    "apple a18 pro": {
+        "soc": "Apple A18 Pro (3nm TSMC, 2x 4.04 GHz + 4x 2.20 GHz, NPU 16-Core)",
+        "gpu_storage": "Apple 6-Core GPU, 8GB LPDDR5X RAM, NVMe Fast",
+        "antutu": 1820000,
+        "gb_single": 3420,
+        "gb_multi": 8650,
+        "stability": 82.5,
+        "temp": 43.5,
+        "pwm": "480Hz",
+        "year": 2024,
+        "ram_gb": 8,
+        "bgmi_max": "Ultra HDR + 120 FPS",
+        "bgmi_sustained": "119-120 FPS",
+        "bgmi_notes": "Flawless 120 FPS pacing with graphite graphene heat dissipation; TSMC 3nm leading-edge silicon.",
+    },
+    # ── Snapdragon 8 Gen 3 (2023-2024 Flagship) ──────────────────────────────
+    "iqoo 12": {
+        "soc": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC, 1x 3.3 GHz Cortex-X4 + 5x 3.2 GHz + 2x 2.3 GHz)",
+        "gpu_storage": "Adreno 750, 16GB LPDDR5X RAM, UFS 4.0",
+        "antutu": 2050000,
+        "gb_single": 2240,
+        "gb_multi": 6890,
+        "stability": 86.0,
+        "temp": 44.0,
+        "pwm": "2160Hz",
+        "year": 2023,
+        "ram_gb": 16,
+        "bgmi_max": "Smooth + 90/120 FPS",
+        "bgmi_sustained": "118-120 FPS",
+        "bgmi_notes": "Class-leading sustained 120 FPS output backed by 6K large vapor chamber cooling.",
+    },
+    "s24 ultra": {
+        "soc": "Qualcomm Snapdragon 8 Gen 3 for Galaxy (4nm TSMC, 1x 3.39 GHz Cortex-X4 + 5x 3.1 GHz + 2x 2.2 GHz)",
+        "gpu_storage": "Adreno 750, 12GB LPDDR5X RAM, UFS 4.0",
+        "antutu": 2050000,
+        "gb_single": 2240,
+        "gb_multi": 6890,
+        "stability": 68.5,
+        "temp": 45.1,
+        "pwm": "492Hz",
+        "year": 2024,
+        "ram_gb": 12,
+        "bgmi_max": "Smooth + 90 FPS",
+        "bgmi_sustained": "88-90 FPS",
+        "bgmi_notes": "Titanium chassis retains heat slightly longer; high sustained compute with minor thermal throttling.",
+    },
+    "snapdragon 8 gen 3": {
+        "soc": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC, 1x 3.3 GHz + 5x 3.2 GHz + 2x 2.3 GHz)",
+        "gpu_storage": "Adreno 750, 12GB LPDDR5X RAM, UFS 4.0",
+        "antutu": 2050000,
+        "gb_single": 2240,
+        "gb_multi": 6890,
+        "stability": 86.0,
+        "temp": 44.0,
+        "pwm": "2160Hz",
+        "year": 2023,
+        "ram_gb": 12,
+        "bgmi_max": "Smooth + 120 FPS",
+        "bgmi_sustained": "118-120 FPS",
+        "bgmi_notes": "Sustained flagship pacing on TSMC 4nm node.",
+    },
+    # ── MediaTek Dimensity 8350 (Moto Edge 60 Pro - 2025) ─────────────────────
     "edge 60 pro": {
         "soc": "MediaTek Dimensity 8350 Extreme (4nm TSMC, 1x 3.35 GHz + 3x 3.20 GHz Cortex-A715 + 4x 2.20 GHz Cortex-A510)",
-        "gpu_storage": "ARM Mali-G615 MC6, LPDDR5X RAM, UFS 4.0",
+        "gpu_storage": "ARM Mali-G615 MC6, 12GB LPDDR5X RAM, UFS 4.0",
         "antutu": 1385000,
-        "gb_single": 1425,
-        "gb_multi": 4580,
+        "gb_single": 1429,
+        "gb_multi": 4476,
         "stability": 84.5,
         "temp": 43.2,
         "pwm": "720Hz",
+        "year": 2025,
+        "ram_gb": 12,
         "bgmi_max": "Smooth + 90 FPS (120 FPS in select modes)",
         "bgmi_sustained": "84-88 FPS",
         "bgmi_notes": "Sustains near-90 FPS in TDM/Erangel with minor thermal throttling after 25 mins.",
     },
+    "dimensity 8350": {
+        "soc": "MediaTek Dimensity 8350 Extreme (4nm TSMC, 1x 3.35 GHz + 3x 3.20 GHz + 4x 2.20 GHz)",
+        "gpu_storage": "ARM Mali-G615 MC6, 12GB LPDDR5X RAM, UFS 4.0",
+        "antutu": 1385000,
+        "gb_single": 1429,
+        "gb_multi": 4476,
+        "stability": 84.5,
+        "temp": 43.2,
+        "pwm": "720Hz",
+        "year": 2025,
+        "ram_gb": 12,
+        "bgmi_max": "Smooth + 90 FPS",
+        "bgmi_sustained": "84-88 FPS",
+        "bgmi_notes": "Sustained high efficiency gaming on MediaTek 4nm TSMC silicon.",
+    },
+    # ── Samsung Exynos 2200 (Galaxy S22 - 2022) ──────────────────────────────
+    "exynos 2200": {
+        "soc": "Samsung Exynos 2200 (4nm Samsung, 1x 2.8 GHz Cortex-X2 + 3x 2.5 GHz Cortex-A710 + 4x 1.8 GHz Cortex-A510)",
+        "gpu_storage": "Samsung Xclipse 920 (AMD RDNA 2), 8GB LPDDR5 RAM, UFS 3.1",
+        "antutu": 980000,
+        "gb_single": 1510,
+        "gb_multi": 3780,
+        "stability": 58.5,
+        "temp": 45.4,
+        "pwm": "240Hz",
+        "year": 2022,
+        "ram_gb": 8,
+        "bgmi_max": "Smooth + Extreme (60 FPS)",
+        "bgmi_sustained": "52-56 FPS",
+        "bgmi_notes": "Heavy thermal throttling and leakage current on Samsung 4nm node; drops frames after 15 mins as temps exceed 45°C.",
+    },
+    "s22 exynos": {
+        "soc": "Samsung Exynos 2200 (4nm Samsung, 1x 2.8 GHz Cortex-X2 + 3x 2.5 GHz Cortex-A710 + 4x 1.8 GHz Cortex-A510)",
+        "gpu_storage": "Samsung Xclipse 920 (AMD RDNA 2), 8GB LPDDR5 RAM, UFS 3.1",
+        "antutu": 980000,
+        "gb_single": 1510,
+        "gb_multi": 3780,
+        "stability": 58.5,
+        "temp": 45.4,
+        "pwm": "240Hz",
+        "year": 2022,
+        "ram_gb": 8,
+        "bgmi_max": "Smooth + Extreme (60 FPS)",
+        "bgmi_sustained": "52-56 FPS",
+        "bgmi_notes": "Heavy thermal throttling and leakage current on Samsung 4nm node; drops frames after 15 mins as temps exceed 45°C.",
+    },
+    # ── MediaTek Dimensity 7400 (Moto Edge 60 Fusion - 2025) ─────────────────
     "edge 60 fusion": {
         "soc": "MediaTek Dimensity 7400 (4nm TSMC, 4x 2.6 GHz Cortex-A78 + 4x 2.0 GHz Cortex-A55)",
         "gpu_storage": "ARM Mali-G615 MC2, LPDDR4X RAM, UFS 2.2",
         "antutu": 655000,
-        "gb_single": 1065,
+        "gb_single": 1050,
         "gb_multi": 2980,
         "stability": 97.6,
         "temp": 42.4,
         "pwm": "720Hz",
+        "year": 2025,
+        "ram_gb": 8,
         "bgmi_max": "Smooth + Extreme (60 FPS)",
         "bgmi_sustained": "56-60 FPS",
         "bgmi_notes": "Stable 60 FPS marathon performance with low thermal buildup; lacks native 90 FPS GPU headroom.",
@@ -37,7 +290,13 @@ DEVICE_AND_SOC_REFERENCE = {
 
 
 def _get_reference_profile(device_name: str) -> Optional[dict]:
-    name_lower = device_name.lower()
+    name_lower = device_name.lower().strip()
+    # 1. Exact or regex-bounded match
+    for key, profile in DEVICE_AND_SOC_REFERENCE.items():
+        if re.search(rf"\b{re.escape(key)}\b", name_lower):
+            return profile
+
+    # 2. Substring match fallback
     for key, profile in DEVICE_AND_SOC_REFERENCE.items():
         if key in name_lower:
             return profile
@@ -330,9 +589,26 @@ def extract_game_benchmarks(
         k in soc_upper
         for k in ["8 ELITE", "8 GEN 3", "8 GEN 2", "8S GEN 3", "9400", "9300", "8350", "8300", "A18", "A17"]
     )
+    is_legacy_floor = False
+    if ref and (ref.get("year", 2024) < 2018 or ref.get("ram_gb", 8) < 4):
+        is_legacy_floor = True
+    elif any(k in device_name.lower() for k in ["iphone 5s", "iphone 6", "galaxy s5", "galaxy s4"]):
+        is_legacy_floor = True
 
     benchmarks: List[GameBenchmark] = []
     for game in detected_games:
+        # Hardware Playability Floor check for demanding games (genshin, wuthering, bgmi)
+        if is_legacy_floor and any(dg in game.lower() for dg in ["genshin", "wuthering", "bgmi", "pubg"]):
+            benchmarks.append(
+                GameBenchmark(
+                    game_name=game,
+                    max_unlocked_setting="INCOMPATIBLE / UNSUPPORTED",
+                    sustained_avg_fps="0 FPS",
+                    thermal_and_frame_drop_notes="Unsupported: Hardware older than 2018 with < 4GB RAM lacks memory floor and modern 3D shader pipeline.",
+                )
+            )
+            continue
+
         if game == "BGMI / PUBG Mobile" and ref:
             benchmarks.append(
                 GameBenchmark(
@@ -386,6 +662,7 @@ def extract_game_benchmarks(
 def parse_device_from_text(
     device_name: str, raw_text: str, user_query: str = ""
 ) -> DeviceTelemetry:
+    ref = _get_reference_profile(device_name)
     soc = extract_soc(raw_text, device_name)
     gpu_storage = extract_gpu_and_storage(raw_text, device_name)
     antutu = extract_antutu(raw_text, device_name)
@@ -395,6 +672,7 @@ def parse_device_from_text(
     pwm = extract_pwm_dimming(raw_text, device_name)
     games = extract_game_benchmarks(raw_text, user_query or device_name, soc, device_name)
     sources = extract_sources(raw_text)
+    year = ref.get("year") if ref else None
 
     return DeviceTelemetry(
         device_name=device_name.strip(),
@@ -408,6 +686,7 @@ def parse_device_from_text(
         pwm_dimming_hz=pwm,
         game_benchmarks=games,
         sources=sources,
+        release_year=year,
     )
 
 

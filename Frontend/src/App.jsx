@@ -77,7 +77,7 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-200 text-slate-900 relative selection:bg-amber-500/25 selection:text-slate-900">
+    <div className="min-h-screen bg-[#EAF0F6] text-slate-900 relative selection:bg-amber-500/25 selection:text-slate-900">
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
@@ -100,17 +100,17 @@ export default function App() {
                   className="flex flex-col sm:flex-row sm:items-end justify-between gap-3"
                 >
                   <div>
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
                       Smartphone Gaming Telemetry{' '}
-                      <span className="text-amber-600">Lab</span>
+                      <span className="text-[#D97706]">Lab</span>
                     </h1>
-                    <p className="text-slate-700 text-xs sm:text-sm mt-1.5 font-semibold max-w-2xl">
+                    <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-medium max-w-2xl">
                       Real-world sustained gaming performance with thermal throttling curves & hardware pacing diagnostics.
                     </p>
                   </div>
 
                   <div className="hidden sm:flex items-center gap-2 text-xs font-mono font-bold text-slate-600">
-                    <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-300 shadow-sm">
+                    <span className="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200/90 shadow-[0_4px_12px_-2px_rgba(15,23,42,0.04)] text-slate-700">
                       {isDualMode ? 'Mode: Dual Comparison (A vs B)' : 'Mode: Single Device Telemetry'}
                     </span>
                   </div>
@@ -156,14 +156,25 @@ export default function App() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="bg-white border border-slate-300 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-sm"
+                        className="bg-white border border-slate-200/90 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_12px_32px_-4px_rgba(15,23,42,0.06)]"
                       >
                         <p className="text-slate-900 text-sm font-extrabold">
-                          {deviceA.device_name} is filtered out
+                          {deviceA.device_name} is hidden by active filters
                         </p>
-                        <p className="text-slate-600 text-xs mt-1 font-semibold">
-                          Relax storage tier, temperature ceiling, or PWM dimming filter.
+                        <p className="text-slate-500 text-xs mt-1.5 font-medium max-w-md">
+                          This smartphone exceeds your thermal ceiling, falls below the selected storage tier, or does not meet the PWM flicker safety minimum.
                         </p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setStorageTier('All');
+                            setMaxTemp(48);
+                            setPwmFilter(0);
+                          }}
+                          className="mt-4 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#F1F5F9] text-slate-800 border border-slate-200 hover:bg-slate-200/80 transition-all cursor-pointer"
+                        >
+                          Reset Hardware Filters
+                        </button>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -183,14 +194,25 @@ export default function App() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="bg-white border border-slate-300 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-sm"
+                        className="bg-white border border-slate-200/90 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_12px_32px_-4px_rgba(15,23,42,0.06)]"
                       >
                         <p className="text-slate-900 text-sm font-extrabold">
-                          {deviceB.device_name} is filtered out
+                          {deviceB.device_name} is hidden by active filters
                         </p>
-                        <p className="text-slate-600 text-xs mt-1 font-semibold">
-                          Relax storage tier, temperature ceiling, or PWM dimming filter.
+                        <p className="text-slate-500 text-xs mt-1.5 font-medium max-w-md">
+                          This smartphone exceeds your thermal ceiling, falls below the selected storage tier, or does not meet the PWM flicker safety minimum.
                         </p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setStorageTier('All');
+                            setMaxTemp(48);
+                            setPwmFilter(0);
+                          }}
+                          className="mt-4 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#F1F5F9] text-slate-800 border border-slate-200 hover:bg-slate-200/80 transition-all cursor-pointer"
+                        >
+                          Reset Hardware Filters
+                        </button>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -222,14 +244,14 @@ export default function App() {
           </AnimatePresence>
         </main>
 
-        {/* High-Contrast Footer */}
-        <footer className="border-t border-slate-300 bg-white/70 backdrop-blur-sm mt-14">
+        {/* High-Contrast Ice Lab Footer */}
+        <footer className="border-t border-slate-200/90 bg-white/80 backdrop-blur-sm mt-14">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-700">
-            <p className="text-xs font-mono font-bold">
-              © PulseThrottle — Mobile Hardware & Gaming Telemetry Engine
+            <p className="text-xs font-mono font-bold text-slate-800">
+              © PulseThrottle — Hardware Telemetry Lab Engine
             </p>
-            <p className="text-[11px] font-mono font-semibold text-slate-500">
-              Connected to local FastAPI SQLite bridge • Direct Telemetry Evaluation
+            <p className="text-[11px] font-mono font-medium text-slate-500">
+              Deterministic Silicon Calibration • Grounded Hardware Generation Physics
             </p>
           </div>
         </footer>

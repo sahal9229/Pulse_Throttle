@@ -19,7 +19,7 @@ export const BRANDS = [
   'Samsung',
   'Motorola',
   'iQOO',
-  'Xiaomi',
+  'Poco/Xiaomi',
   'OnePlus',
 ];
 
@@ -361,6 +361,62 @@ const INITIAL_DEVICES = [
       GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Lowest (30 FPS)', sustained_avg_fps: '30-34 FPS', thermal_and_frame_drop_notes: '3GB RAM causes background app reloads.' },
       CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Medium (60 FPS)', sustained_avg_fps: '55-60 FPS', thermal_and_frame_drop_notes: 'Reliable 60Hz casual shooter experience.' },
       WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Lowest (30 FPS)', sustained_avg_fps: '25-28 FPS', thermal_and_frame_drop_notes: 'Memory pressure causes occasional hitching.' },
+    },
+  },
+  {
+    id: 'apple-iphone-7',
+    device_name: 'iPhone 7',
+    brand: 'Apple',
+    os: 'iOS',
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-7r.jpg',
+    soc_chipset: 'Apple A10 Fusion (16nm TSMC)',
+    soc_detail: '2x 2.34 GHz Hurricane + 2x Zephyr, 16nm FinFET TSMC',
+    gpu: 'PowerVR Series7XT Plus',
+    ram: '2GB LPDDR4',
+    storage_tier: 'NVMe (Gen 1)',
+    gpu_and_storage: 'PowerVR Series7XT Plus, 2GB LPDDR4, NVMe (Gen 1)',
+    antutu_v10_score: 285000,
+    geekbench_6_single: 780,
+    geekbench_6_multi: 1410,
+    wildlife_stability_pct: 68.0,
+    peak_temp_celsius: 43.5,
+    pwm_dimming_hz: 'DC Dimming (LCD)',
+    pulse_throttle_index: 29.8,
+    score_breakdown: { tss: 36.4, fpe: 25.0, compute: 22.0, storage: 75.0 },
+    is_past_search: false,
+    game_benchmarks: {
+      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Hardware older than 2018 with < 4GB RAM is unsupported for modern 3D title pipelines.' },
+      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Shader pipeline and memory requirements cause immediate application exit.' },
+      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Low (30 FPS)', sustained_avg_fps: '22-26 FPS', thermal_and_frame_drop_notes: 'Severe frame drops and high thermal throttling after 10 mins.' },
+      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Unsupported memory floor.' },
+    },
+  },
+  {
+    id: 'apple-iphone-5s',
+    device_name: 'iPhone 5s',
+    brand: 'Apple',
+    os: 'iOS',
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-5s-ofic.jpg',
+    soc_chipset: 'Apple A7 (28nm Samsung, 64-bit)',
+    soc_detail: '2x 1.30 GHz Cyclone (64-bit ARMv8-A), 28nm Samsung HKMG',
+    gpu: 'PowerVR G6430',
+    ram: '1GB LPDDR3',
+    storage_tier: 'eMMC 4.5',
+    gpu_and_storage: 'PowerVR G6430, 1GB LPDDR3, eMMC 4.5',
+    antutu_v10_score: 65000,
+    geekbench_6_single: 255,
+    geekbench_6_multi: 470,
+    wildlife_stability_pct: 65.0,
+    peak_temp_celsius: 43.8,
+    pwm_dimming_hz: 'DC Dimming (LCD)',
+    pulse_throttle_index: 13.0,
+    score_breakdown: { tss: 25.0, fpe: 0.0, compute: 8.5, storage: 20.0 },
+    is_past_search: false,
+    game_benchmarks: {
+      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Incompatible: 2013 Apple A7 with 1GB RAM fails minimum memory floor and 3D instruction requirements.' },
+      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Unsupported: Game requires 64-bit Metal with >= 4GB RAM ceiling.' },
+      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'App crashes during shader load due to 1GB physical memory limit.' },
+      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Incompatible graphics pipeline.' },
     },
   },
 
@@ -824,6 +880,268 @@ export function getAllDevices() {
 }
 
 /**
+ * Deterministic SoC and hardware reference anchors
+ * Matches unknown/custom-typed devices to their true silicon family
+ */
+export const DETERMINISTIC_SOC_RESOLVER = [
+  {
+    regex: /(iphone\s*(5s|5\s*s)\b|apple\s*a7\b)/i,
+    device_name: 'Apple iPhone 5s',
+    brand: 'Apple',
+    os: 'iOS',
+    release_year: 2013,
+    soc_chipset: 'Apple A7 (28nm Samsung)',
+    gpu: 'PowerVR G6430 (4-core)',
+    ram: '1GB LPDDR3',
+    storage_tier: 'eMMC 4.5',
+    gpu_and_storage: 'PowerVR G6430 (4-core), 1GB LPDDR3, eMMC 4.5',
+    antutu_v10_score: 65000,
+    geekbench_6_single: 255,
+    geekbench_6_multi: 470,
+    wildlife_stability_pct: 65.0,
+    peak_temp_celsius: 43.8,
+    pwm_dimming_hz: 'DC Dimming (LCD)',
+    pulse_throttle_index: 13.0,
+    score_breakdown: { tss: 33.6, fpe: 25.0, compute: 8.0, storage: 22.0 },
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-5s-ofic.jpg',
+    demanding_games_unsupported: true,
+  },
+  {
+    regex: /(iphone\s*7\b|iphone\s*7\s*plus\b|apple\s*a10\b)/i,
+    device_name: 'Apple iPhone 7',
+    brand: 'Apple',
+    os: 'iOS',
+    release_year: 2016,
+    soc_chipset: 'Apple A10 Fusion (16nm TSMC)',
+    gpu: 'PowerVR Series7XT Plus (6-core)',
+    ram: '2GB LPDDR4',
+    storage_tier: 'NVMe (Gen 1)',
+    gpu_and_storage: 'PowerVR Series7XT Plus, 2GB LPDDR4, NVMe (Gen 1)',
+    antutu_v10_score: 285000,
+    geekbench_6_single: 780,
+    geekbench_6_multi: 1410,
+    wildlife_stability_pct: 71.0,
+    peak_temp_celsius: 42.0,
+    pwm_dimming_hz: 'DC Dimming (LCD)',
+    pulse_throttle_index: 29.8,
+    score_breakdown: { tss: 50.0, fpe: 45.0, compute: 22.0, storage: 82.5 },
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-7-r1.jpg',
+    demanding_games_unsupported: true,
+  },
+  {
+    regex: /(iphone\s*(xs|xs\s*max|xr)\b|apple\s*a12\b)/i,
+    device_name: 'Apple iPhone XS',
+    brand: 'Apple',
+    os: 'iOS',
+    release_year: 2018,
+    soc_chipset: 'Apple A12 Bionic (7nm TSMC)',
+    gpu: 'Apple 4-core GPU',
+    ram: '4GB LPDDR4X',
+    storage_tier: 'NVMe',
+    gpu_and_storage: 'Apple 4-core GPU, 4GB LPDDR4X, NVMe',
+    antutu_v10_score: 615000,
+    geekbench_6_single: 1315,
+    geekbench_6_multi: 2950,
+    wildlife_stability_pct: 68.0,
+    peak_temp_celsius: 44.5,
+    pwm_dimming_hz: '240Hz',
+    pulse_throttle_index: 58.2,
+    score_breakdown: { tss: 59.0, fpe: 70.0, compute: 45.0, storage: 70.0 },
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-new.jpg',
+    demanding_games_unsupported: false,
+  },
+  {
+    regex: /(iphone\s*13\b|iphone\s*13\s*pro|iphone\s*13\s*mini|apple\s*a15\b)/i,
+    device_name: 'Apple iPhone 13',
+    brand: 'Apple',
+    os: 'iOS',
+    release_year: 2021,
+    soc_chipset: 'Apple A15 Bionic (5nm TSMC)',
+    gpu: 'Apple 4-core GPU',
+    ram: '4GB LPDDR4X',
+    storage_tier: 'NVMe',
+    gpu_and_storage: 'Apple 4-core GPU, 4GB LPDDR4X, NVMe',
+    antutu_v10_score: 1250000,
+    geekbench_6_single: 2380,
+    geekbench_6_multi: 5950,
+    wildlife_stability_pct: 79.0,
+    peak_temp_celsius: 42.8,
+    pwm_dimming_hz: '610Hz',
+    pulse_throttle_index: 81.5,
+    score_breakdown: { tss: 74.0, fpe: 86.0, compute: 79.0, storage: 85.0 },
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg',
+    demanding_games_unsupported: false,
+  },
+  {
+    regex: /(iphone\s*16\s*pro|iphone\s*16\s*pro\s*max|apple\s*a18\s*pro)/i,
+    device_name: 'Apple iPhone 16 Pro Max',
+    brand: 'Apple',
+    os: 'iOS',
+    release_year: 2024,
+    soc_chipset: 'Apple A18 Pro (3nm TSMC)',
+    gpu: 'Apple 6-core GPU',
+    ram: '8GB LPDDR5X',
+    storage_tier: 'NVMe Fast',
+    gpu_and_storage: 'Apple 6-core GPU, 8GB LPDDR5X, NVMe Fast',
+    antutu_v10_score: 1820000,
+    geekbench_6_single: 3420,
+    geekbench_6_multi: 8650,
+    wildlife_stability_pct: 82.5,
+    peak_temp_celsius: 43.8,
+    pwm_dimming_hz: '480Hz',
+    pulse_throttle_index: 93.8,
+    score_breakdown: { tss: 74.0, fpe: 98.5, compute: 98.0, storage: 100.0 },
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg',
+    demanding_games_unsupported: false,
+  },
+  {
+    regex: /(snapdragon\s*8\s*gen\s*3|iqoo\s*12|s24\s*ultra|galaxy\s*s24\s*ultra)/i,
+    device_name: 'iQOO 12',
+    brand: 'iQOO',
+    os: 'Android',
+    release_year: 2023,
+    soc_chipset: 'Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)',
+    gpu: 'Adreno 750',
+    ram: '16GB LPDDR5X',
+    storage_tier: 'UFS 4.0',
+    gpu_and_storage: 'Adreno 750, 16GB LPDDR5X, UFS 4.0',
+    antutu_v10_score: 2050000,
+    geekbench_6_single: 2240,
+    geekbench_6_multi: 6890,
+    wildlife_stability_pct: 86.0,
+    peak_temp_celsius: 44.0,
+    pwm_dimming_hz: '2160Hz',
+    pulse_throttle_index: 94.1,
+    score_breakdown: { tss: 81.0, fpe: 99.0, compute: 99.0, storage: 100.0 },
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-12.jpg',
+    demanding_games_unsupported: false,
+  },
+  {
+    regex: /(dimensity\s*8350|moto.*edge\s*60\s*pro|motorola\s*edge\s*60\s*pro)/i,
+    device_name: 'Motorola Edge 60 Pro',
+    brand: 'Motorola',
+    os: 'Android',
+    release_year: 2025,
+    soc_chipset: 'MediaTek Dimensity 8350 Extreme (4nm TSMC)',
+    gpu: 'ARM Mali-G615 MC6',
+    ram: '12GB LPDDR5X',
+    storage_tier: 'UFS 4.0',
+    gpu_and_storage: 'ARM Mali-G615 MC6, 12GB LPDDR5X, UFS 4.0',
+    antutu_v10_score: 1385000,
+    geekbench_6_single: 1429,
+    geekbench_6_multi: 4476,
+    wildlife_stability_pct: 84.5,
+    peak_temp_celsius: 43.2,
+    pwm_dimming_hz: '720Hz',
+    pulse_throttle_index: 87.5,
+    score_breakdown: { tss: 70.6, fpe: 95.6, compute: 90.4, storage: 100.0 },
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-60-pro.jpg',
+    demanding_games_unsupported: false,
+  },
+  {
+    regex: /(exynos\s*2200|s22.*exynos|galaxy\s*s22.*exynos)/i,
+    device_name: 'Samsung Galaxy S22 (Exynos)',
+    brand: 'Samsung',
+    os: 'Android',
+    release_year: 2022,
+    soc_chipset: 'Samsung Exynos 2200 (4nm Samsung)',
+    gpu: 'Samsung Xclipse 920',
+    ram: '8GB LPDDR5',
+    storage_tier: 'UFS 3.1',
+    gpu_and_storage: 'Samsung Xclipse 920, 8GB LPDDR5, UFS 3.1',
+    antutu_v10_score: 980000,
+    geekbench_6_single: 1510,
+    geekbench_6_multi: 3780,
+    wildlife_stability_pct: 58.5,
+    peak_temp_celsius: 45.8,
+    pwm_dimming_hz: '240Hz',
+    pulse_throttle_index: 70.0,
+    score_breakdown: { tss: 56.0, fpe: 82.0, compute: 68.0, storage: 80.0 },
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg',
+    demanding_games_unsupported: false,
+  },
+];
+
+export function resolveSiliconAnchor(name) {
+  if (!name) return null;
+  const clean = name.trim();
+  for (const anchor of DETERMINISTIC_SOC_RESOLVER) {
+    if (anchor.regex.test(clean)) {
+      return anchor;
+    }
+  }
+  return null;
+}
+
+export function parseScoreBreakdown(sb) {
+  if (!sb) return { tss: 75.0, fpe: 85.0, compute: 75.0, storage: 80.0 };
+  if (typeof sb === 'object') return sb;
+  const tss = parseFloat((sb.match(/TSS:\s*([\d.]+)/i) || [])[1] || '75.0');
+  const fpe = parseFloat((sb.match(/FPE:\s*([\d.]+)/i) || [])[1] || '85.0');
+  const compute = parseFloat((sb.match(/Compute:\s*([\d.]+)/i) || [])[1] || '75.0');
+  const storage = parseFloat((sb.match(/Storage:\s*([\d.]+)/i) || [])[1] || '80.0');
+  return { tss, fpe, compute, storage };
+}
+
+function generateGameBenchmarks(cleanName, isUnsupported, isFlagship) {
+  if (isUnsupported) {
+    return {
+      BGMI: {
+        game_name: GAMES.BGMI,
+        max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED',
+        sustained_avg_fps: '0 FPS',
+        thermal_and_frame_drop_notes: 'Unsupported: Hardware older than 2018 with < 4GB RAM lacks memory floor and modern 3D shader pipeline.',
+      },
+      GENSHIN: {
+        game_name: GAMES.GENSHIN,
+        max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED',
+        sustained_avg_fps: '0 FPS',
+        thermal_and_frame_drop_notes: 'Shader model incompatible: App crashes on launch due to lack of unified memory floor.',
+      },
+      CODM: {
+        game_name: GAMES.CODM,
+        max_unlocked_setting: 'Low (30 FPS)',
+        sustained_avg_fps: '18-24 FPS',
+        thermal_and_frame_drop_notes: 'Severe throttling and frame stuttering on legacy instruction set.',
+      },
+      WUTHERING: {
+        game_name: GAMES.WUTHERING,
+        max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED',
+        sustained_avg_fps: '0 FPS',
+        thermal_and_frame_drop_notes: 'Unsupported: Hardware lacks required Vulkan / Metal low-overhead memory mapping.',
+      },
+    };
+  }
+
+  return {
+    BGMI: {
+      game_name: GAMES.BGMI,
+      max_unlocked_setting: isFlagship ? 'Ultra HDR + 120 FPS' : 'Smooth + 90 FPS',
+      sustained_avg_fps: isFlagship ? '115-120 FPS' : '86-90 FPS',
+      thermal_and_frame_drop_notes: `Generated telemetry for ${cleanName}. Tested with gaming load pacing.`,
+    },
+    GENSHIN: {
+      game_name: GAMES.GENSHIN,
+      max_unlocked_setting: isFlagship ? 'Highest (60 FPS)' : 'Medium (60 FPS)',
+      sustained_avg_fps: isFlagship ? '58-60 FPS' : '52-56 FPS',
+      thermal_and_frame_drop_notes: 'Smooth rendering of complex open-world geometry.',
+    },
+    CODM: {
+      game_name: GAMES.CODM,
+      max_unlocked_setting: isFlagship ? 'Ultra (120 FPS)' : 'High (60 FPS)',
+      sustained_avg_fps: isFlagship ? '120 FPS Locked' : '60 FPS Locked',
+      thermal_and_frame_drop_notes: 'Responsive input frame pacing for competitive gameplay.',
+    },
+    WUTHERING: {
+      game_name: GAMES.WUTHERING,
+      max_unlocked_setting: isFlagship ? 'Highest (60 FPS)' : 'Medium (45 FPS)',
+      sustained_avg_fps: isFlagship ? '54-58 FPS' : '42-48 FPS',
+      thermal_and_frame_drop_notes: 'Consistent shader execution curve.',
+    },
+  };
+}
+
+/**
  * Creates deterministic telemetry for any custom phone typed by the user
  */
 export function createCustomDevice(rawInput) {
@@ -836,6 +1154,41 @@ export function createCustomDevice(rawInput) {
 
   const existing = deviceDatabase.find((d) => d.id === id || d.device_name.toLowerCase() === cleanName.toLowerCase());
   if (existing) return existing;
+
+  const anchor = resolveSiliconAnchor(cleanName);
+  if (anchor) {
+    const customDevice = {
+      id,
+      device_name: cleanName,
+      brand: anchor.brand,
+      os: anchor.os,
+      release_year: anchor.release_year,
+      is_custom: true,
+      is_past_search: true,
+      image_url: anchor.image_url,
+      soc_chipset: anchor.soc_chipset,
+      soc_detail: 'Silicon Reference Anchor Preserved',
+      gpu: anchor.gpu,
+      ram: anchor.ram,
+      storage_tier: anchor.storage_tier,
+      gpu_and_storage: anchor.gpu_and_storage,
+      antutu_v10_score: anchor.antutu_v10_score,
+      geekbench_6_single: anchor.geekbench_6_single,
+      geekbench_6_multi: anchor.geekbench_6_multi,
+      wildlife_stability_pct: anchor.wildlife_stability_pct,
+      peak_temp_celsius: anchor.peak_temp_celsius,
+      pwm_dimming_hz: anchor.pwm_dimming_hz,
+      pulse_throttle_index: anchor.pulse_throttle_index,
+      score_breakdown: anchor.score_breakdown,
+      game_benchmarks: generateGameBenchmarks(cleanName, anchor.demanding_games_unsupported, false),
+    };
+    customDeviceCache.set(id, customDevice);
+    if (!deviceDatabase.some((d) => d.id === id)) {
+      deviceDatabase = [customDevice, ...deviceDatabase];
+      notifyListeners();
+    }
+    return customDevice;
+  }
 
   const nameLower = cleanName.toLowerCase();
   let brand = 'Custom';
@@ -863,48 +1216,81 @@ export function createCustomDevice(rawInput) {
     fallbackImage = 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg';
   }
 
-  // Deterministic seed based on name length
-  const seed = cleanName.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+  // Deduce release year from device name
+  let releaseYear = 2024;
+  const yearMatch = cleanName.match(/\b(201[0-9]|202[0-6])\b/);
+  if (yearMatch) {
+    releaseYear = parseInt(yearMatch[1], 10);
+  } else if (nameLower.includes('iphone 4') || nameLower.includes('iphone 5')) {
+    releaseYear = 2013;
+  } else if (nameLower.includes('iphone 6')) {
+    releaseYear = 2014;
+  } else if (nameLower.includes('iphone 7')) {
+    releaseYear = 2016;
+  } else if (nameLower.includes('iphone 8') || nameLower.includes('iphone x')) {
+    releaseYear = 2017;
+  } else if (nameLower.includes('iphone 11')) {
+    releaseYear = 2019;
+  } else if (nameLower.includes('iphone 12')) {
+    releaseYear = 2020;
+  } else if (nameLower.includes('iphone 13')) {
+    releaseYear = 2021;
+  } else if (nameLower.includes('iphone 14')) {
+    releaseYear = 2022;
+  } else if (nameLower.includes('iphone 15')) {
+    releaseYear = 2023;
+  } else if (nameLower.includes('iphone 16')) {
+    releaseYear = 2024;
+  }
+
+  // Generational Decay Factor (gamma)
+  const gamma = Math.max(0.12, 1.0 - (2026 - releaseYear) * 0.075);
   const isFlagship = nameLower.includes('pro') || nameLower.includes('ultra') || nameLower.includes('max') || nameLower.includes('plus');
-  const isLegacy = nameLower.includes('xs') || nameLower.includes('xr') || nameLower.includes('11') || nameLower.includes('12');
+  const isLegacy = releaseYear < 2018;
 
-  let antutu = 1350000 + (seed % 350000);
-  let geekSingle = 1850 + (seed % 350);
-  let geekMulti = 4800 + (seed % 1200);
-  let stability = 82.0 + (seed % 12);
-  let peakTemp = 42.0 + (seed % 30) / 10;
-  let pti = 84.0 + (seed % 9);
-  let defaultChipset = os === 'iOS' ? 'Apple A-Series Bionic Silicon' : 'Snapdragon / Dimensity Flagship Silicon';
-  let storageTier = 'UFS 4.0';
+  let antutu = 1350000;
+  let geekSingle = 1850;
+  let geekMulti = 4800;
+  let stability = 82.0;
+  let peakTemp = 42.5;
+  let storageTier = releaseYear >= 2023 ? 'UFS 4.0' : (releaseYear >= 2020 ? 'UFS 3.1' : (releaseYear >= 2017 ? 'UFS 2.2' : 'eMMC 4.5'));
+  let storageScore = releaseYear >= 2023 ? 95.0 : (releaseYear >= 2020 ? 80.0 : (releaseYear >= 2017 ? 60.0 : 20.0));
   let tss = 76.0;
-  let fpe = 92.0;
-  let compute = 88.0;
-  let storageScore = 95.0;
+  let fpe = 90.0;
+  let compute = 85.0;
 
-  if (isFlagship) {
-    antutu = 1850000 + (seed % 280000);
-    geekSingle = 2200 + (seed % 400);
-    geekMulti = 6800 + (seed % 1000);
-    stability = 80.0 + (seed % 10);
-    peakTemp = 43.5 + (seed % 18) / 10;
-    pti = 91.5 + (seed % 5);
+  if (isLegacy) {
+    antutu = 95000;
+    geekSingle = 320;
+    geekMulti = 650;
+    stability = 64.0;
+    peakTemp = 43.5;
+    storageTier = 'eMMC 4.5';
+    storageScore = 20.0;
+    tss = 35.0;
+    fpe = 20.0;
+    compute = 15.0;
+  } else if (isFlagship) {
+    antutu = 1850000;
+    geekSingle = 2200;
+    geekMulti = 6800;
+    stability = 82.0;
+    peakTemp = 43.5;
     storageTier = os === 'iOS' ? 'NVMe Fast' : 'UFS 4.0';
+    storageScore = 100.0;
     tss = 82.0;
     fpe = 97.0;
     compute = 96.0;
-    storageScore = 100.0;
-  } else if (isLegacy) {
-    antutu = 680000 + (seed % 180000);
-    geekSingle = 1200 + (seed % 250);
-    geekMulti = 3100 + (seed % 600);
-    stability = 74.0 + (seed % 14);
-    peakTemp = 43.8 + (seed % 15) / 10;
-    pti = 68.0 + (seed % 10);
-    storageTier = os === 'iOS' ? 'NVMe Fast' : 'UFS 3.1';
-    tss = 68.0;
-    fpe = 78.0;
-    compute = 58.0;
-    storageScore = 75.0;
+  }
+
+  // PulseThrottle Index (PTI) formula:
+  // [(Compute * 0.30) + (Thermal Stability * 0.35) + (Storage & Bus * 0.20) + (OS Runtime * 0.15)] * gamma
+  const osMultiplier = os === 'iOS' ? 1.10 : (isFlagship ? 1.04 : 0.85);
+  const osRuntimeScore = 80.0 * osMultiplier;
+  let pti = ((compute * 0.30) + (tss * 0.35) + (storageScore * 0.20) + (osRuntimeScore * 0.15)) * gamma;
+
+  if (isLegacy) {
+    pti = Math.min(17.9, Math.max(12.0, pti));
   }
 
   const customDevice = {
@@ -912,13 +1298,14 @@ export function createCustomDevice(rawInput) {
     device_name: cleanName,
     brand,
     os,
+    release_year: releaseYear,
     is_custom: true,
     is_past_search: true,
     image_url: fallbackImage,
-    soc_chipset: defaultChipset,
+    soc_chipset: os === 'iOS' ? 'Apple Silicon' : 'Snapdragon / Dimensity Silicon',
     soc_detail: 'Multi-Core Compute Silicon',
     gpu: os === 'iOS' ? 'Apple GPU' : 'Adreno / Mali GPU',
-    ram: isFlagship ? '16GB LPDDR5X' : '8GB RAM',
+    ram: isLegacy ? '1GB LPDDR3' : (isFlagship ? '16GB LPDDR5X' : '8GB RAM'),
     storage_tier: storageTier,
     gpu_and_storage: `${os === 'iOS' ? 'Apple GPU' : 'Adreno GPU'}, ${storageTier}`,
     antutu_v10_score: antutu,
@@ -926,15 +1313,10 @@ export function createCustomDevice(rawInput) {
     geekbench_6_multi: geekMulti,
     wildlife_stability_pct: parseFloat(stability.toFixed(1)),
     peak_temp_celsius: parseFloat(peakTemp.toFixed(1)),
-    pwm_dimming_hz: '1440Hz',
+    pwm_dimming_hz: isLegacy ? 'DC Dimming (LCD)' : '1440Hz',
     pulse_throttle_index: parseFloat(pti.toFixed(1)),
     score_breakdown: { tss, fpe, compute, storage: storageScore },
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: isFlagship ? 'Ultra HDR + 120 FPS' : 'Smooth + 90 FPS', sustained_avg_fps: isFlagship ? '115-120 FPS' : '86-90 FPS', thermal_and_frame_drop_notes: `Generated telemetry for ${cleanName}. Tested with gaming load pacing.` },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: isFlagship ? 'Highest (60 FPS)' : 'Medium (60 FPS)', sustained_avg_fps: isFlagship ? '58-60 FPS' : '52-56 FPS', thermal_and_frame_drop_notes: 'Smooth rendering of complex open-world geometry.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: isFlagship ? 'Ultra (120 FPS)' : 'High (60 FPS)', sustained_avg_fps: isFlagship ? '120 FPS Locked' : '60 FPS Locked', thermal_and_frame_drop_notes: 'Responsive input frame pacing for competitive gameplay.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: isFlagship ? 'Highest (60 FPS)' : 'Medium (45 FPS)', sustained_avg_fps: isFlagship ? '54-58 FPS' : '42-48 FPS', thermal_and_frame_drop_notes: 'Consistent shader execution curve.' },
-    },
+    game_benchmarks: generateGameBenchmarks(cleanName, isLegacy, isFlagship),
   };
 
   customDeviceCache.set(id, customDevice);
@@ -967,7 +1349,7 @@ export function getDeviceByIdOrName(query) {
 }
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
+  (typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_API_BASE_URL : null) ||
   (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     ? 'http://localhost:8000'
     : '');
@@ -1147,31 +1529,69 @@ export async function extractCustomPhoneTelemetry(deviceName) {
       const data = await res.json();
       if (data?.report?.primary_device) {
         const pd = data.report.primary_device;
+        const refAnchor = resolveSiliconAnchor(pd.device_name || clean);
+        const releaseYear = pd.release_year || refAnchor?.release_year || (clean.toLowerCase().includes('iphone 5') ? 2013 : 2024);
+        const isUnsupported = releaseYear < 2018 || refAnchor?.demanding_games_unsupported;
+
+        let storageTier = pd.storage_tier;
+        if (!storageTier) {
+          const gStr = (pd.gpu_and_storage || '').toLowerCase();
+          if (gStr.includes('emmc 4.5')) storageTier = 'eMMC 4.5';
+          else if (gStr.includes('emmc 5.1')) storageTier = 'eMMC 5.1';
+          else if (gStr.includes('emmc')) storageTier = 'eMMC 4.5';
+          else if (gStr.includes('nvme (gen 1)')) storageTier = 'NVMe (Gen 1)';
+          else if (gStr.includes('nvme fast')) storageTier = 'NVMe Fast';
+          else if (gStr.includes('nvme')) storageTier = 'NVMe';
+          else if (gStr.includes('ufs 4.0')) storageTier = 'UFS 4.0';
+          else if (gStr.includes('ufs 3.1')) storageTier = 'UFS 3.1';
+          else if (gStr.includes('ufs 2.2')) storageTier = 'UFS 2.2';
+          else if (refAnchor) storageTier = refAnchor.storage_tier;
+          else if (releaseYear < 2016) storageTier = 'eMMC 4.5';
+          else if (releaseYear < 2020) storageTier = 'eMMC 5.1 / UFS 2.1';
+          else storageTier = 'UFS 3.1';
+        }
+
+        const antutu = pd.antutu_v10_score || refAnchor?.antutu_v10_score || (releaseYear < 2015 ? 65000 : (releaseYear < 2018 ? 285000 : 750000));
+        const gbSingle = pd.geekbench_6_single || refAnchor?.geekbench_6_single || (releaseYear < 2015 ? 255 : (releaseYear < 2018 ? 780 : 1200));
+        const gbMulti = pd.geekbench_6_multi || refAnchor?.geekbench_6_multi || (releaseYear < 2015 ? 470 : (releaseYear < 2018 ? 1410 : 3500));
+        const stability = pd.wildlife_stability_pct || refAnchor?.wildlife_stability_pct || 80.0;
+        const temp = pd.peak_temp_celsius || refAnchor?.peak_temp_celsius || 43.0;
+        const pti = pd.pulse_throttle_index || refAnchor?.pulse_throttle_index || (isUnsupported ? 13.0 : 70.0);
+        const parsedBreakdown = parseScoreBreakdown(pd.score_breakdown || refAnchor?.score_breakdown);
+
+        let gameBenchmarks;
+        if (pd.game_benchmarks && Array.isArray(pd.game_benchmarks) && pd.game_benchmarks.length > 0) {
+          gameBenchmarks = Object.fromEntries(pd.game_benchmarks.map((g) => [g.game_name, g]));
+        } else {
+          gameBenchmarks = generateGameBenchmarks(clean, isUnsupported, false);
+        }
+
         const extracted = {
           id,
           device_name: pd.device_name || clean,
-          brand: pd.device_name?.split(' ')[0] || existing?.brand || 'Custom',
+          brand: pd.device_name?.split(' ')[0] || existing?.brand || (refAnchor?.brand || 'Custom'),
           os: (pd.device_name?.toLowerCase().includes('iphone') || pd.device_name?.toLowerCase().includes('apple')) ? 'iOS' : 'Android',
+          release_year: releaseYear,
           image_url: (existing?.image_url && !existing.image_url.includes('unsplash')) 
             ? existing.image_url 
-            : (pd.image_url || existing?.image_url || ((pd.device_name?.toLowerCase().includes('iphone') || pd.device_name?.toLowerCase().includes('apple')) ? 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg' : 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g-sm-s921.jpg')),
-          soc_chipset: pd.soc_chipset || existing?.soc_chipset || 'Extracted Silicon',
+            : (pd.image_url || refAnchor?.image_url || existing?.image_url || ((pd.device_name?.toLowerCase().includes('iphone') || pd.device_name?.toLowerCase().includes('apple')) ? 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg' : 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g-sm-s921.jpg')),
+          soc_chipset: pd.soc_chipset || refAnchor?.soc_chipset || existing?.soc_chipset || 'Extracted Silicon',
           soc_detail: 'Live Web Scraping & Telemetry Extraction',
-          gpu: pd.gpu_and_storage || 'High-Power GPU',
-          ram: '12GB LPDDR5X',
-          storage_tier: 'UFS 4.0',
-          gpu_and_storage: pd.gpu_and_storage || 'GPU & Fast Storage',
-          antutu_v10_score: pd.antutu_v10_score || 1550000,
-          geekbench_6_single: pd.geekbench_6_single || 2050,
-          geekbench_6_multi: pd.geekbench_6_multi || 5800,
-          wildlife_stability_pct: pd.wildlife_stability_pct || 86.0,
-          peak_temp_celsius: pd.peak_temp_celsius || 43.2,
-          pwm_dimming_hz: pd.pwm_dimming_hz || '1440Hz',
-          pulse_throttle_index: pd.pulse_throttle_index || 88.5,
-          score_breakdown: pd.score_breakdown || { tss: 80.0, fpe: 92.0, compute: 88.0, storage: 90.0 },
+          gpu: refAnchor?.gpu || pd.gpu_and_storage || 'Integrated GPU',
+          ram: refAnchor?.ram || (isUnsupported ? '1GB RAM' : '8GB RAM'),
+          storage_tier: storageTier,
+          gpu_and_storage: pd.gpu_and_storage || refAnchor?.gpu_and_storage || `${storageTier}`,
+          antutu_v10_score: antutu,
+          geekbench_6_single: gbSingle,
+          geekbench_6_multi: gbMulti,
+          wildlife_stability_pct: stability,
+          peak_temp_celsius: temp,
+          pwm_dimming_hz: pd.pwm_dimming_hz || refAnchor?.pwm_dimming_hz || '1440Hz',
+          pulse_throttle_index: pti,
+          score_breakdown: parsedBreakdown,
           is_past_search: true,
           is_extracting: false,
-          game_benchmarks: pd.game_benchmarks ? Object.fromEntries(pd.game_benchmarks.map((g) => [g.game_name, g])) : createCustomDevice(clean).game_benchmarks,
+          game_benchmarks: gameBenchmarks,
         };
 
         // Add or replace in active database

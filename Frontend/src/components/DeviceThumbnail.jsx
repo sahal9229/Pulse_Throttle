@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react';
 import { Smartphone } from 'lucide-react';
 
 const BRAND_GRADIENTS = {
-  apple: 'from-slate-800 to-slate-900 text-slate-200',
-  samsung: 'from-blue-600 to-indigo-700 text-white',
-  xiaomi: 'from-orange-500 to-amber-600 text-white',
-  poco: 'from-amber-500 to-yellow-600 text-slate-900',
-  oneplus: 'from-red-600 to-rose-700 text-white',
-  motorola: 'from-teal-600 to-emerald-700 text-white',
-  iqoo: 'from-indigo-600 to-blue-700 text-white',
-  vivo: 'from-sky-500 to-blue-600 text-white',
-  google: 'from-emerald-600 to-teal-700 text-white',
-  sony: 'from-slate-700 to-slate-900 text-white',
-  asus: 'from-red-700 to-slate-900 text-white',
-  realme: 'from-amber-400 to-yellow-500 text-slate-900',
+  apple: 'from-slate-800 to-slate-950 text-slate-200',
+  samsung: 'from-slate-700 to-slate-900 text-sky-400',
+  xiaomi: 'from-amber-600 to-amber-700 text-white',
+  poco: 'from-amber-500 to-amber-600 text-slate-950',
+  oneplus: 'from-rose-600 to-rose-700 text-white',
+  motorola: 'from-teal-700 to-slate-900 text-teal-300',
+  iqoo: 'from-slate-800 to-slate-950 text-amber-400',
+  vivo: 'from-sky-700 to-slate-900 text-sky-300',
+  google: 'from-slate-700 to-slate-900 text-emerald-400',
+  sony: 'from-slate-800 to-slate-950 text-white',
+  asus: 'from-slate-800 to-slate-950 text-rose-400',
+  realme: 'from-amber-500 to-amber-600 text-slate-950',
   nothing: 'from-neutral-800 to-neutral-950 text-white',
 };
 

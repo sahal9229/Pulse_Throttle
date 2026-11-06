@@ -12,7 +12,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="sticky top-0 z-50 bg-[#140B21] border-b border-white/10 shadow-lg text-[#F8FAFC]"
+      className="sticky top-0 z-50 bg-[#140C22] border-b border-white/10 shadow-lg text-white"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -24,7 +24,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
             onClick={() => setActiveTab('dashboard')}
           >
             <div className="relative">
-              <div className="w-10 h-10 rounded-xl btn-gradient-marigold flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#F59E0B] to-[#D97706] flex items-center justify-center shadow-md">
                 <Zap className="w-5 h-5 text-white" strokeWidth={2.8} />
               </div>
               <motion.div
@@ -34,8 +34,8 @@ export default function Navbar({ activeTab, setActiveTab }) {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-[#F8FAFC] font-extrabold text-lg leading-tight tracking-tight">
-                Pulse<span className="text-amber-400">Throttle</span>
+              <span className="text-[#FFFFFF] font-extrabold text-lg leading-tight tracking-tight">
+                Pulse<span className="text-[#F59E0B]">Throttle</span>
               </span>
               <span className="text-slate-400 text-[10px] font-mono tracking-wider uppercase font-semibold leading-none">
                 Hardware Telemetry Lab
@@ -76,9 +76,11 @@ export default function Navbar({ activeTab, setActiveTab }) {
 
           {/* Right Status / Links */}
           <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] border border-white/15">
-              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-emerald-300 text-xs font-mono font-bold">FastAPI Bridge 8000</span>
+            <div className="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/12">
+              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
+              <span className="text-emerald-400 text-xs font-mono font-bold tracking-tight">
+                ● Lab Engine Active
+              </span>
             </div>
             <motion.a
               href="https://github.com"

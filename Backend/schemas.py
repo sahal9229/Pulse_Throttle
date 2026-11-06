@@ -60,6 +60,10 @@ class DeviceTelemetry(BaseModel):
         default=None,
         description="Summary of sub-scores (TSS, FPE, Compute, Storage) computed by scoring.py."
     )
+    release_year: Optional[int] = Field(
+        default=None,
+        description="Official release year of device."
+    )
     game_benchmarks: List[GameBenchmark] = Field(
         description="Breakdown of specific games requested by the user."
     )

@@ -28,3 +28,7 @@ npm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Agent Tooling
+.agents/
+skills-lock.json

@@ -87,6 +87,8 @@ MASTER_SEED_CATALOG: List[Dict[str, Any]] = [
     {"id": "iphone_xs_max", "name": "iPhone XS Max", "brand": "Apple", "os": "iOS", "soc": "Apple A12 Bionic (7nm TSMC)", "gpuStorage": "Apple 4-core GPU, NVMe", "antutu": 615000, "gbSingle": 1320, "gbMulti": 2980, "stability": 69.5, "temp": 44.5, "pwm": "240Hz", "score": 59.8, "tss": 61.0, "fpe": 72.0, "compute": 46.0, "storageScore": 70, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-max-new1.jpg"},
     {"id": "iphone_xs", "name": "iPhone XS", "brand": "Apple", "os": "iOS", "soc": "Apple A12 Bionic (7nm TSMC)", "gpuStorage": "Apple 4-core GPU, NVMe", "antutu": 595000, "gbSingle": 1310, "gbMulti": 2890, "stability": 68.0, "temp": 44.8, "pwm": "240Hz", "score": 58.2, "tss": 59.0, "fpe": 70.0, "compute": 44.5, "storageScore": 70, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-new.jpg"},
     {"id": "iphone_xr", "name": "iPhone XR", "brand": "Apple", "os": "iOS", "soc": "Apple A12 Bionic (7nm TSMC)", "gpuStorage": "Apple 4-core GPU, NVMe", "antutu": 580000, "gbSingle": 1295, "gbMulti": 2820, "stability": 73.0, "temp": 43.4, "pwm": "DC Dimming (LCD)", "score": 59.0, "tss": 65.0, "fpe": 72.0, "compute": 43.5, "storageScore": 70, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xr-new.jpg"},
+    {"id": "iphone_7", "name": "iPhone 7", "brand": "Apple", "os": "iOS", "soc": "Apple A10 Fusion (16nm TSMC)", "gpuStorage": "PowerVR Series7XT Plus, NVMe (Gen 1)", "antutu": 285000, "gbSingle": 780, "gbMulti": 1410, "stability": 71.0, "temp": 42.0, "pwm": "DC Dimming (LCD)", "score": 29.8, "tss": 50.0, "fpe": 45.0, "compute": 22.0, "storageScore": 82.5, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-7-r1.jpg"},
+    {"id": "iphone_5s", "name": "iPhone 5s", "brand": "Apple", "os": "iOS", "soc": "Apple A7 (28nm Samsung)", "gpuStorage": "PowerVR G6430, eMMC 4.5", "antutu": 65000, "gbSingle": 255, "gbMulti": 470, "stability": 65.0, "temp": 39.5, "pwm": "DC Dimming (LCD)", "score": 13.0, "tss": 33.6, "fpe": 25.0, "compute": 8.0, "storageScore": 22.0, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-5s-ofic.jpg"},
     # Motorola (Android)
     {"id": "motorola_edge_60_pro", "name": "Motorola Edge 60 Pro", "brand": "Motorola", "os": "Android", "soc": "MediaTek Dimensity 8350 Extreme (4nm TSMC)", "gpuStorage": "ARM Mali-G615 MC6, LPDDR5X, UFS 4.0", "antutu": 1385000, "gbSingle": 1429, "gbMulti": 4476, "stability": 84.5, "temp": 43.2, "pwm": "720Hz", "score": 87.5, "tss": 70.6, "fpe": 95.6, "compute": 90.4, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-60-pro.jpg"},
     {"id": "motorola_edge_60_fusion", "name": "Motorola Edge 60 Fusion", "brand": "Motorola", "os": "Android", "soc": "MediaTek Dimensity 7400 (4nm TSMC)", "gpuStorage": "ARM Mali-G615 MC2, LPDDR4X, UFS 2.2", "antutu": 655000, "gbSingle": 1050, "gbMulti": 2980, "stability": 97.6, "temp": 42.4, "pwm": "720Hz", "score": 73.9, "tss": 83.2, "fpe": 96.7, "compute": 43.7, "storageScore": 60, "image": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-60-fusion.jpg"},
@@ -98,6 +100,7 @@ MASTER_SEED_CATALOG: List[Dict[str, Any]] = [
     {"id": "poco_x6_pro", "name": "Poco X6 Pro", "brand": "Xiaomi", "os": "Android", "soc": "MediaTek Dimensity 8300 Ultra (4nm TSMC)", "gpuStorage": "Mali-G615 MC6, LPDDR5X, UFS 4.0", "antutu": 1396000, "gbSingle": 1415, "gbMulti": 4420, "stability": 83.0, "temp": 43.9, "pwm": "1920Hz", "score": 86.5, "tss": 72.0, "fpe": 93.5, "compute": 90.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg"},
     # Samsung (Android)
     {"id": "samsung_s24_ultra", "name": "Samsung Galaxy S24 Ultra", "brand": "Samsung", "os": "Android", "soc": "Snapdragon 8 Gen 3 for Galaxy (4nm TSMC)", "gpuStorage": "Adreno 750, LPDDR5X, UFS 4.0", "antutu": 1950000, "gbSingle": 2280, "gbMulti": 7100, "stability": 68.5, "temp": 45.1, "pwm": "492Hz", "score": 86.4, "tss": 62.0, "fpe": 94.0, "compute": 98.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g-sm-s928-stylus.jpg"},
+    {"id": "samsung_s22_exynos", "name": "Samsung Galaxy S22 (Exynos)", "brand": "Samsung", "os": "Android", "soc": "Samsung Exynos 2200 (4nm Samsung)", "gpuStorage": "Samsung Xclipse 920, UFS 3.1", "antutu": 980000, "gbSingle": 1510, "gbMulti": 3780, "stability": 58.5, "temp": 45.8, "pwm": "240Hz", "score": 70.0, "tss": 56.0, "fpe": 82.0, "compute": 68.0, "storageScore": 80.0, "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg"},
     {"id": "samsung_a55", "name": "Samsung Galaxy A55 5G", "brand": "Samsung", "os": "Android", "soc": "Exynos 1480 (4nm Samsung)", "gpuStorage": "Xclipse 530 GPU, LPDDR5, UFS 3.1", "antutu": 725000, "gbSingle": 1150, "gbMulti": 3450, "stability": 91.5, "temp": 41.2, "pwm": "240Hz", "score": 74.8, "tss": 86.0, "fpe": 88.0, "compute": 52.0, "storageScore": 80, "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a55.jpg"},
     # OnePlus (Android)
     {"id": "oneplus_12", "name": "OnePlus 12", "brand": "OnePlus", "os": "Android", "soc": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)", "gpuStorage": "Adreno 750, LPDDR5X, UFS 4.0", "antutu": 2040000, "gbSingle": 2210, "gbMulti": 6720, "stability": 88.5, "temp": 43.4, "pwm": "2160Hz", "score": 93.8, "tss": 84.0, "fpe": 98.0, "compute": 98.5, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg"},
@@ -152,7 +155,24 @@ def ensure_catalog_tables() -> None:
                         id, name, brand, os, soc, gpu_storage, antutu, gb_single, gb_multi,
                         stability, temp, pwm, score, tss, fpe, compute, storage_score, image
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    ON CONFLICT(id) DO NOTHING
+                    ON CONFLICT(id) DO UPDATE SET
+                        name = excluded.name,
+                        brand = excluded.brand,
+                        os = excluded.os,
+                        soc = excluded.soc,
+                        gpu_storage = excluded.gpu_storage,
+                        antutu = excluded.antutu,
+                        gb_single = excluded.gb_single,
+                        gb_multi = excluded.gb_multi,
+                        stability = excluded.stability,
+                        temp = excluded.temp,
+                        pwm = excluded.pwm,
+                        score = excluded.score,
+                        tss = excluded.tss,
+                        fpe = excluded.fpe,
+                        compute = excluded.compute,
+                        storage_score = excluded.storage_score,
+                        image = excluded.image
                     """,
                     (
                         p["id"], p["name"], p["brand"], p["os"], p["soc"], p["gpuStorage"],
@@ -283,6 +303,33 @@ def get_catalog(q: Optional[str] = None, brand: Optional[str] = None, os_filter:
             comp = sb.get("compute_index", 75.0)
             storage = sb.get("storage_bandwidth_score", 80.0)
 
+            from regex_parser import _get_reference_profile
+            ref = _get_reference_profile(dname)
+            fb_antutu = ref.get("antutu") if ref else 750000
+            fb_gb_single = ref.get("geekbench_single") if ref else 1200
+            fb_gb_multi = ref.get("geekbench_multi") if ref else 3500
+            fb_stability = ref.get("stability") if ref else 80.0
+            fb_temp = ref.get("temp") if ref else 43.0
+            fb_score = ref.get("target_pti") if ref else 65.0
+
+            final_score = r["pulse_throttle_index"]
+            if ref and "target_pti" in ref:
+                if final_score is None or abs(final_score - ref["target_pti"]) > 18:
+                    final_score = ref["target_pti"]
+            elif final_score is None:
+                final_score = fb_score
+
+            final_antutu = r["antutu_v10_score"]
+            if ref and "antutu" in ref:
+                if final_antutu is None or abs(final_antutu - ref["antutu"]) > 350000:
+                    final_antutu = ref["antutu"]
+            elif final_antutu is None:
+                final_antutu = fb_antutu
+
+            gpu_storage_val = r["gpu_and_storage"]
+            if ref and (not gpu_storage_val or "Standard GPU" in gpu_storage_val or "Unverified" in gpu_storage_val):
+                gpu_storage_val = f"{ref.get('gpu', 'Integrated GPU')}, {ref.get('storage', 'UFS')}"
+
             conn.execute(
                 """
                 INSERT INTO device_catalog (
@@ -293,15 +340,16 @@ def get_catalog(q: Optional[str] = None, brand: Optional[str] = None, os_filter:
                     is_past_search = 1,
                     soc = excluded.soc,
                     image = COALESCE(excluded.image, device_catalog.image),
-                    score = COALESCE(excluded.score, device_catalog.score),
-                    antutu = COALESCE(excluded.antutu, device_catalog.antutu)
+                    score = excluded.score,
+                    antutu = excluded.antutu,
+                    gpu_storage = excluded.gpu_storage
                 """,
                 (
-                    slug, dname, brand_guess, os_guess, soc, r["gpu_and_storage"],
-                    r["antutu_v10_score"] or 800000, r["geekbench_6_single"] or 1200,
-                    r["geekbench_6_multi"] or 3500, r["wildlife_stability_pct"] or 85.0,
-                    r["peak_temp_celsius"] or 43.0, r["pwm_dimming_hz"] or "720Hz",
-                    r["pulse_throttle_index"] or 78.0, tss,
+                    slug, dname, brand_guess, os_guess, soc, gpu_storage_val,
+                    final_antutu, r["geekbench_6_single"] or fb_gb_single,
+                    r["geekbench_6_multi"] or fb_gb_multi, r["wildlife_stability_pct"] or fb_stability,
+                    r["peak_temp_celsius"] or fb_temp, r["pwm_dimming_hz"] or "720Hz",
+                    final_score, tss,
                     fpe, comp,
                     storage, img,
                 ),
