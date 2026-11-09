@@ -7,7 +7,7 @@
 Unlike traditional LLM wrappers that burn expensive API tokens on basic spec lookups, **PulseThrottle operates 99% API-free**: combining keyless parallel web scraping, bounded deterministic regex extraction, architectural ground-truth baselines, quantitative algorithmic scoring, and local SQLite time-series analytics.
 
 ---
-
+sdg
 ## ⚡ 99% API-Free Architecture: How It Works
 
 PulseThrottle is architected to deliver deep, verified hardware analysis with **zero required API keys**:
