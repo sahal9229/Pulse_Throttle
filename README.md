@@ -2,7 +2,7 @@
 
 > **99% API-Free Autonomous Mobile Hardware & Gaming Telemetry Engine**
 
-**PulseThrottle** is an autonomous mobile hardware intelligence and gaming telemetry agent. It bridges the gap between raw hardware data (SoC architectures, GPU benchmarks, UFS storage tiers, 3DMark stress stability, thermal dissipation, and display PWM dimming) and structured, production-ready engineerisdjhng reports.
+**PulseThrottle** is an autonomous mobile hardware intelligence and gaming telemetry agent. It bridges the gap between raw hardware data (SoC architectures, GPU benchmarks, UFS storage tiers, 3DMark stress stability, thermal dissipation, and display PWM dimming) and structured, production-ready engineering reports.
 
 Unlike traditional LLM wrappers that burn expensive API tokens on basic spec lookups, **PulseThrottle operates 99% API-free**: combining keyless parallel web scraping, bounded deterministic regex extraction, architectural ground-truth baselines, quantitative algorithmic scoring, and local SQLite time-series analytics.
 
