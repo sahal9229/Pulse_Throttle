@@ -85,10 +85,10 @@ export default function App() {
             {activeTab === 'dashboard' && (
               <motion.div
                 key="dashboard"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ type: 'spring', stiffness: 360, damping: 30 }}
                 className="space-y-7"
               >
                 {/* Hero Header */}
@@ -170,10 +170,10 @@ export default function App() {
             {activeTab === 'leaderboard' && (
               <motion.div
                 key="leaderboard"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ type: 'spring', stiffness: 360, damping: 30 }}
               >
                 <Leaderboard onSelectDevice={handleLeaderboardSelect} />
               </motion.div>

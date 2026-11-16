@@ -23,6 +23,7 @@ import {
   registerPendingExtractionDevice,
 } from '../data/deviceData.js';
 import DeviceThumbnail from './DeviceThumbnail.jsx';
+import { AnimatedBackground, TextShimmer } from './motion/index.js';
 
 const STORAGE_TIERS = ['All', 'UFS 4.0', 'UFS 3.1', 'UFS 2.2', 'NVMe Fast'];
 const PWM_FILTERS = [
@@ -307,9 +308,15 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
                   <div className="flex items-center gap-2 min-w-0">
                     <Sparkles className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
                     <div className="min-w-0">
-                      <p className="text-xs font-semibold text-slate-900 truncate">
-                        Fetch telemetry for "{searchQuery.trim()}"
-                      </p>
+                      {isExtractingLive ? (
+                        <TextShimmer className="text-xs font-semibold">
+                          {`Fetching telemetry for "${searchQuery.trim()}"...`}
+                        </TextShimmer>
+                      ) : (
+                        <p className="text-xs font-semibold text-slate-900 truncate">
+                          Fetch telemetry for "{searchQuery.trim()}"
+                        </p>
+                      )}
                       <p className="text-[10px] text-slate-500 font-normal">
                         Queries GSMArena + benchmarks
                       </p>
@@ -441,30 +448,39 @@ export default function ControlPanel({
           </h2>
         </div>
 
-        {/* Minimal Mode Toggle */}
+        {/* Minimal Mode Toggle with AnimatedBackground */}
         <div className="flex items-center p-1 bg-slate-100 rounded-xl self-start sm:self-auto">
-          <button
-            type="button"
-            onClick={() => setIsDualMode(true)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              isDualMode
-                ? 'bg-white text-slate-900 shadow-2xs font-bold'
-                : 'text-slate-500 hover:text-slate-800'
-            }`}
+          <AnimatedBackground
+            defaultValue={isDualMode ? 'compare' : 'single'}
+            className="bg-white rounded-lg shadow-2xs"
+            transition={{ type: 'spring', stiffness: 420, damping: 30 }}
+            onValueChange={(id) => {
+              if (id) setIsDualMode(id === 'compare');
+            }}
           >
-            Head-to-Head Compare
-          </button>
-          <button
-            type="button"
-            onClick={() => setIsDualMode(false)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              !isDualMode
-                ? 'bg-white text-slate-900 shadow-2xs font-bold'
-                : 'text-slate-500 hover:text-slate-800'
-            }`}
-          >
-            Single Device
-          </button>
+            <button
+              data-id="compare"
+              type="button"
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+                isDualMode
+                  ? 'text-slate-900 font-bold'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              Head-to-Head Compare
+            </button>
+            <button
+              data-id="single"
+              type="button"
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+                !isDualMode
+                  ? 'text-slate-900 font-bold'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              Single Device
+            </button>
+          </AnimatedBackground>
         </div>
       </div>
 
@@ -483,7 +499,7 @@ export default function ControlPanel({
             <button
               type="button"
               onClick={handleSwap}
-              className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 text-slate-600 hover:text-slate-900 transition-colors shadow-2xs cursor-pointer"
+              className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 text-slate-600 hover:text-slate-900 transition-colors shadow-2xs cursor-pointer active:scale-95 duration-150"
               title="Swap Device A and Device B"
             >
               <ArrowLeftRight className="w-4 h-4" />
@@ -502,30 +518,39 @@ export default function ControlPanel({
         )}
       </div>
 
-      {/* 3. Compact Segment Control: Gaming Workload Target */}
+      {/* 3. Compact Segment Control with AnimatedBackground: Gaming Workload Target */}
       <div className="space-y-1.5">
         <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">
           Gaming Workload Target
         </label>
-        <div className="flex items-center gap-1 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar">
-          {GAME_OPTIONS.map((game) => {
-            const isSelected = selectedGame === game.key;
-            return (
-              <button
-                key={game.key}
-                type="button"
-                onClick={() => setSelectedGame(game.key)}
-                className={`flex-1 min-w-[140px] px-3 py-2 rounded-lg text-xs transition-all text-center cursor-pointer ${
-                  isSelected
-                    ? 'bg-white text-slate-900 shadow-2xs font-bold'
-                    : 'text-slate-500 hover:text-slate-800 font-medium'
-                }`}
-              >
-                <span>{game.label}</span>
-                <span className="ml-1 text-[10px] text-slate-400 font-normal">({game.tag})</span>
-              </button>
-            );
-          })}
+        <div className="flex items-center p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar">
+          <AnimatedBackground
+            defaultValue={selectedGame}
+            className="bg-white rounded-lg shadow-2xs"
+            transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+            onValueChange={(id) => {
+              if (id) setSelectedGame(id);
+            }}
+          >
+            {GAME_OPTIONS.map((game) => {
+              const isSelected = selectedGame === game.key;
+              return (
+                <button
+                  key={game.key}
+                  data-id={game.key}
+                  type="button"
+                  className={`flex-1 min-w-[140px] px-3 py-2 rounded-lg text-xs transition-colors text-center cursor-pointer ${
+                    isSelected
+                      ? 'text-slate-900 font-bold'
+                      : 'text-slate-500 hover:text-slate-800 font-medium'
+                  }`}
+                >
+                  <span>{game.label}</span>
+                  <span className="ml-1 text-[10px] text-slate-400 font-normal">({game.tag})</span>
+                </button>
+              );
+            })}
+          </AnimatedBackground>
         </div>
       </div>
 
@@ -567,21 +592,30 @@ export default function ControlPanel({
                   <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
                     <HardDrive className="w-3.5 h-3.5 text-slate-400" /> Minimum Storage Speed
                   </label>
-                  <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
-                    {STORAGE_TIERS.map((tier) => (
-                      <button
-                        key={tier}
-                        type="button"
-                        onClick={() => setStorageTier(tier)}
-                        className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                          storageTier === tier
-                            ? 'bg-slate-900 text-white'
-                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                      >
-                        {tier}
-                      </button>
-                    ))}
+                  <div className="flex items-center p-0.5 bg-slate-100 rounded-lg overflow-x-auto no-scrollbar">
+                    <AnimatedBackground
+                      defaultValue={storageTier}
+                      className="bg-slate-900 rounded-md shadow-2xs"
+                      transition={{ type: 'spring', stiffness: 450, damping: 30 }}
+                      onValueChange={(id) => {
+                        if (id) setStorageTier(id);
+                      }}
+                    >
+                      {STORAGE_TIERS.map((tier) => (
+                        <button
+                          key={tier}
+                          data-id={tier}
+                          type="button"
+                          className={`px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                            storageTier === tier
+                              ? 'text-white'
+                              : 'text-slate-600 hover:text-slate-900'
+                          }`}
+                        >
+                          {tier}
+                        </button>
+                      ))}
+                    </AnimatedBackground>
                   </div>
                 </div>
 

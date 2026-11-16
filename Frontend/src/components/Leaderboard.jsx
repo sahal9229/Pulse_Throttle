@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { BRANDS, getAllDevices, subscribeCatalog } from '../data/deviceData.js';
 import DeviceThumbnail from './DeviceThumbnail.jsx';
+import { AnimatedBackground } from './motion/index.js';
 
 const SORT_OPTIONS = [
   { key: 'pulse_throttle_index', label: 'PulseThrottle Index (High → Low)', asc: false },
@@ -143,38 +144,47 @@ export default function Leaderboard({ onSelectDevice }) {
           </h2>
         </div>
 
-        {/* Toggle Mode: Past Searches vs Complete Database */}
+        {/* Toggle Mode: Past Searches vs Complete Database with AnimatedBackground */}
         <div className="flex items-center p-1 bg-slate-100 rounded-xl self-start sm:self-auto">
-          <button
-            type="button"
-            onClick={() => setActiveCatalogMode('past_searches')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-              activeCatalogMode === 'past_searches'
-                ? 'bg-white text-slate-900 shadow-2xs font-bold'
-                : 'text-slate-500 hover:text-slate-800'
-            }`}
+          <AnimatedBackground
+            defaultValue={activeCatalogMode}
+            className="bg-white rounded-lg shadow-2xs"
+            transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+            onValueChange={(id) => {
+              if (id) setActiveCatalogMode(id);
+            }}
           >
-            <Flame className="w-3.5 h-3.5 text-amber-500" />
-            <span>Top Searches</span>
-            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
-              {pastSearchesCount}
-            </span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveCatalogMode('all')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-              activeCatalogMode === 'all'
-                ? 'bg-white text-slate-900 shadow-2xs font-bold'
-                : 'text-slate-500 hover:text-slate-800'
-            }`}
-          >
-            <BookOpen className="w-3.5 h-3.5 text-slate-600" />
-            <span>Complete Database</span>
-            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
-              {catalog.length}
-            </span>
-          </button>
+            <button
+              data-id="past_searches"
+              type="button"
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer ${
+                activeCatalogMode === 'past_searches'
+                  ? 'text-slate-900 font-bold'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <Flame className="w-3.5 h-3.5 text-amber-500" />
+              <span>Top Searches</span>
+              <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
+                {pastSearchesCount}
+              </span>
+            </button>
+            <button
+              data-id="all"
+              type="button"
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer ${
+                activeCatalogMode === 'all'
+                  ? 'text-slate-900 font-bold'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5 text-slate-600" />
+              <span>Complete Database</span>
+              <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
+                {catalog.length}
+              </span>
+            </button>
+          </AnimatedBackground>
         </div>
       </div>
 
@@ -222,48 +232,66 @@ export default function Leaderboard({ onSelectDevice }) {
           </div>
         </div>
 
-        {/* Row 2: Platform Pills & Brand Pills */}
+        {/* Row 2: Platform Pills & Brand Pills with AnimatedBackground */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
           {/* Platform Pills */}
-          <div className="flex items-center gap-1.5">
-            {PLATFORMS.map((p) => {
-              const isSelected = platformFilter === p.id;
-              return (
-                <button
-                  key={p.id}
-                  type="button"
-                  onClick={() => setPlatformFilter(p.id)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border cursor-pointer ${
-                    isSelected
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
-                      : 'bg-[#F1F5F9] text-slate-700 border-slate-200 hover:bg-slate-200/80'
-                  }`}
-                >
-                  {p.label}
-                </button>
-              );
-            })}
+          <div className="flex items-center p-0.5 bg-slate-100 rounded-lg">
+            <AnimatedBackground
+              defaultValue={platformFilter}
+              className="bg-slate-900 rounded-md shadow-2xs"
+              transition={{ type: 'spring', stiffness: 420, damping: 30 }}
+              onValueChange={(id) => {
+                if (id) setPlatformFilter(id);
+              }}
+            >
+              {PLATFORMS.map((p) => {
+                const isSelected = platformFilter === p.id;
+                return (
+                  <button
+                    key={p.id}
+                    data-id={p.id}
+                    type="button"
+                    className={`px-3 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                      isSelected
+                        ? 'text-white'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    {p.label}
+                  </button>
+                );
+              })}
+            </AnimatedBackground>
           </div>
 
           {/* Brand Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-            {BRANDS.map((brand) => {
-              const isSelected = brandFilter === brand;
-              return (
-                <button
-                  key={brand}
-                  type="button"
-                  onClick={() => setBrandFilter(brand)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-bold whitespace-nowrap transition-all border cursor-pointer ${
-                    isSelected
-                      ? 'bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white border-transparent shadow-xs'
-                      : 'bg-[#F1F5F9] text-slate-700 border-slate-200 hover:bg-slate-200/80'
-                  }`}
-                >
-                  {brand === 'All' ? 'All Brands' : brand}
-                </button>
-              );
-            })}
+          <div className="flex items-center p-0.5 bg-slate-100 rounded-lg overflow-x-auto no-scrollbar">
+            <AnimatedBackground
+              defaultValue={brandFilter}
+              className="bg-slate-900 rounded-md shadow-2xs"
+              transition={{ type: 'spring', stiffness: 420, damping: 30 }}
+              onValueChange={(id) => {
+                if (id) setBrandFilter(id);
+              }}
+            >
+              {BRANDS.map((brand) => {
+                const isSelected = brandFilter === brand;
+                return (
+                  <button
+                    key={brand}
+                    data-id={brand}
+                    type="button"
+                    className={`px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                      isSelected
+                        ? 'text-white'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    {brand === 'All' ? 'All Brands' : brand}
+                  </button>
+                );
+              })}
+            </AnimatedBackground>
           </div>
         </div>
       </div>

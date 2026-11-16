@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Zap, BarChart3, Trophy, Github, Cpu, Database } from 'lucide-react';
+import { Zap, BarChart3, Trophy, Github } from 'lucide-react';
+import { AnimatedBackground } from './motion/index.js';
 
 const navItems = [
   { id: 'dashboard', label: 'Hardware Telemetry', icon: BarChart3 },
@@ -43,35 +44,40 @@ export default function Navbar({ activeTab, setActiveTab }) {
             </div>
           </motion.div>
 
-          {/* Navigation Tabs with High-Contrast Marigold-Orange Active Pill */}
-          <div className="flex items-center gap-1.5 p-1 bg-white/[0.08] border border-white/10 rounded-xl">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeTab === item.id;
-              return (
-                <motion.button
-                  key={item.id}
-                  onClick={() => setActiveTab(item.id)}
-                  className={`relative px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 flex items-center gap-2 ${
-                    isActive
-                      ? 'btn-gradient-marigold text-white shadow-md'
-                      : 'text-slate-300 hover:text-white hover:bg-white/[0.08]'
-                  }`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`} />
-                  <span className="hidden sm:inline font-bold">{item.label}</span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavPill"
-                      className="w-1.5 h-1.5 rounded-full bg-white ml-1"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </motion.button>
-              );
-            })}
+          {/* Navigation Tabs with AnimatedBackground from motion-primitives */}
+          <div className="flex items-center p-1 bg-white/[0.08] border border-white/10 rounded-xl">
+            <AnimatedBackground
+              defaultValue={activeTab}
+              className="btn-gradient-marigold rounded-lg shadow-md"
+              transition={{
+                type: 'spring',
+                stiffness: 400,
+                damping: 32,
+              }}
+              onValueChange={(id) => {
+                if (id) setActiveTab(id);
+              }}
+            >
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = activeTab === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    data-id={item.id}
+                    type="button"
+                    className={`relative px-4 py-2 rounded-lg text-xs font-bold transition-colors duration-200 flex items-center gap-2 cursor-pointer ${
+                      isActive
+                        ? 'text-white'
+                        : 'text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                    <span className="hidden sm:inline font-bold">{item.label}</span>
+                  </button>
+                );
+              })}
+            </AnimatedBackground>
           </div>
 
           {/* Right Status / Links */}

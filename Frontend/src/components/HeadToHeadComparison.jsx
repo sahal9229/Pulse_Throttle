@@ -15,6 +15,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import DeviceThumbnail from './DeviceThumbnail.jsx';
+import { AnimatedNumber, Tilt, Spotlight } from './motion/index.js';
 
 /**
  * Head-to-Head Comparison View
@@ -59,22 +60,27 @@ export default function HeadToHeadComparison({
   const bB = deviceB?.score_breakdown || { tss: 75, fpe: 85, compute: 80, storage: 85 };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] overflow-hidden transition-all">
+    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] overflow-hidden transition-all relative">
+      {/* Motion Primitive: Ambient Spotlight */}
+      <Spotlight size={380} className="from-amber-400/8 via-amber-200/4 to-transparent" />
+
       {/* 1. TOP HEADER: Clean Device A vs Device B Matchup with Prominent Scores */}
-      <div className="p-6 sm:p-8 lg:p-10 border-b border-slate-100 bg-white">
+      <div className="p-6 sm:p-8 lg:p-10 border-b border-slate-100 bg-white relative z-10">
         {isDualMode && deviceB ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             {/* Device A Identity & Score */}
             <div className="lg:col-span-5 flex items-center justify-between gap-4">
               <div className="flex items-center gap-4 min-w-0">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/90 flex-shrink-0 flex items-center justify-center p-1 shadow-2xs">
-                  <DeviceThumbnail
-                    src={deviceA.image_url}
-                    alt={deviceA.device_name}
-                    brand={deviceA.brand}
-                    iconSize="w-6 h-6"
-                  />
-                </div>
+                <Tilt rotationFactor={8} className="flex-shrink-0">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/90 flex items-center justify-center p-1 shadow-2xs">
+                    <DeviceThumbnail
+                      src={deviceA.image_url}
+                      alt={deviceA.device_name}
+                      brand={deviceA.brand}
+                      iconSize="w-6 h-6"
+                    />
+                  </div>
+                </Tilt>
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 truncate">
@@ -97,7 +103,7 @@ export default function HeadToHeadComparison({
 
               <div className="text-right flex-shrink-0 pl-2">
                 <span className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-900 tracking-tight tabular-nums">
-                  {scoreA.toFixed(1)}
+                  <AnimatedNumber value={scoreA} decimals={1} />
                 </span>
                 <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-wider">
                   PTI Score
@@ -107,9 +113,9 @@ export default function HeadToHeadComparison({
 
             {/* Matchup Center Delta Badge */}
             <div className="lg:col-span-2 flex flex-col items-center justify-center py-2 lg:py-0 border-y lg:border-y-0 lg:border-x border-slate-100">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-700 font-mono text-xs font-bold shadow-2xs">
-                <span>+{scoreDelta}</span>
-                <span className="text-[10px] uppercase font-sans font-semibold text-amber-800">
+              <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-700 font-mono text-xs font-bold shadow-2xs">
+                <AnimatedNumber value={parseFloat(scoreDelta)} decimals={1} prefix="+" />
+                <span className="text-[10px] uppercase font-sans font-semibold text-amber-800 ml-1">
                   Advantage
                 </span>
               </div>
@@ -122,7 +128,7 @@ export default function HeadToHeadComparison({
             <div className="lg:col-span-5 flex items-center justify-between gap-4">
               <div className="text-left lg:text-left flex-shrink-0 pr-2 order-2 lg:order-1">
                 <span className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-900 tracking-tight tabular-nums">
-                  {scoreB.toFixed(1)}
+                  <AnimatedNumber value={scoreB} decimals={1} />
                 </span>
                 <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-wider">
                   PTI Score
@@ -148,14 +154,16 @@ export default function HeadToHeadComparison({
                     {deviceB.os || 'Mobile OS'} • {deviceB.release_year || 'Current'}
                   </p>
                 </div>
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/90 flex-shrink-0 flex items-center justify-center p-1 shadow-2xs">
-                  <DeviceThumbnail
-                    src={deviceB.image_url}
-                    alt={deviceB.device_name}
-                    brand={deviceB.brand}
-                    iconSize="w-6 h-6"
-                  />
-                </div>
+                <Tilt rotationFactor={8} className="flex-shrink-0">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/90 flex items-center justify-center p-1 shadow-2xs">
+                    <DeviceThumbnail
+                      src={deviceB.image_url}
+                      alt={deviceB.device_name}
+                      brand={deviceB.brand}
+                      iconSize="w-6 h-6"
+                    />
+                  </div>
+                </Tilt>
               </div>
             </div>
           </div>
@@ -163,14 +171,16 @@ export default function HeadToHeadComparison({
           /* Single Device Header */
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/90 flex-shrink-0 flex items-center justify-center p-1">
-                <DeviceThumbnail
-                  src={deviceA.image_url}
-                  alt={deviceA.device_name}
-                  brand={deviceA.brand}
-                  iconSize="w-7 h-7"
-                />
-              </div>
+              <Tilt rotationFactor={8} className="flex-shrink-0">
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/90 flex items-center justify-center p-1">
+                  <DeviceThumbnail
+                    src={deviceA.image_url}
+                    alt={deviceA.device_name}
+                    brand={deviceA.brand}
+                    iconSize="w-7 h-7"
+                  />
+                </div>
+              </Tilt>
               <div>
                 <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
                   {deviceA.device_name}
@@ -184,7 +194,7 @@ export default function HeadToHeadComparison({
             <div className="flex items-center gap-3">
               <div className="text-right">
                 <span className="text-4xl font-extrabold font-mono text-slate-900 tabular-nums">
-                  {scoreA.toFixed(1)}
+                  <AnimatedNumber value={scoreA} decimals={1} />
                 </span>
                 <span className="text-xs text-slate-400 font-mono ml-1">/ 100</span>
                 <span className="block text-[10px] text-slate-500 font-semibold uppercase tracking-wider">
@@ -197,10 +207,10 @@ export default function HeadToHeadComparison({
       </div>
 
       {/* 2. MIDDLE: KEY HERO METRICS (3-Column Comparative Summary) */}
-      <div className="p-6 sm:p-8 lg:p-10 bg-slate-50/50">
+      <div className="p-6 sm:p-8 lg:p-10 bg-slate-50/50 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Hero 1: Sustained Gaming FPS */}
-          <div className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs">
+          <div className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-colors">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-slate-600 flex items-center gap-1.5">
                 <Gamepad2 className="w-4 h-4 text-slate-400" />
@@ -220,7 +230,11 @@ export default function HeadToHeadComparison({
                     {deviceA.device_name}
                   </span>
                   <span className="text-xl font-bold font-mono text-slate-900 tabular-nums">
-                    {gameBenchA.sustained_avg_fps}
+                    {fpsA > 0 ? (
+                      <AnimatedNumber value={fpsA} suffix=" FPS" />
+                    ) : (
+                      gameBenchA.sustained_avg_fps
+                    )}
                   </span>
                 </div>
                 <div className="pl-1">
@@ -228,14 +242,22 @@ export default function HeadToHeadComparison({
                     {deviceB.device_name}
                   </span>
                   <span className="text-xl font-bold font-mono text-slate-900 tabular-nums">
-                    {gameBenchB.sustained_avg_fps}
+                    {fpsB > 0 ? (
+                      <AnimatedNumber value={fpsB} suffix=" FPS" />
+                    ) : (
+                      gameBenchB.sustained_avg_fps
+                    )}
                   </span>
                 </div>
               </div>
             ) : (
               <div className="pt-1">
                 <span className="text-2xl font-bold font-mono text-slate-900 tabular-nums">
-                  {gameBenchA.sustained_avg_fps}
+                  {fpsA > 0 ? (
+                    <AnimatedNumber value={fpsA} suffix=" FPS" />
+                  ) : (
+                    gameBenchA.sustained_avg_fps
+                  )}
                 </span>
                 <span className="block text-xs text-slate-400 font-medium mt-0.5">
                   Max: {gameBenchA.max_unlocked_setting}
@@ -249,7 +271,7 @@ export default function HeadToHeadComparison({
           </div>
 
           {/* Hero 2: Peak Thermals */}
-          <div className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs">
+          <div className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-colors">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-slate-600 flex items-center gap-1.5">
                 <Thermometer className="w-4 h-4 text-slate-400" />
@@ -273,7 +295,11 @@ export default function HeadToHeadComparison({
                       deviceA.peak_temp_celsius > 44.5 ? 'text-rose-600' : 'text-slate-900'
                     }`}
                   >
-                    {deviceA.peak_temp_celsius ? `${deviceA.peak_temp_celsius}°C` : 'N/A'}
+                    {deviceA.peak_temp_celsius ? (
+                      <AnimatedNumber value={deviceA.peak_temp_celsius} decimals={1} suffix="°C" />
+                    ) : (
+                      'N/A'
+                    )}
                   </span>
                 </div>
                 <div className="pl-1">
@@ -285,7 +311,11 @@ export default function HeadToHeadComparison({
                       deviceB.peak_temp_celsius > 44.5 ? 'text-rose-600' : 'text-slate-900'
                     }`}
                   >
-                    {deviceB.peak_temp_celsius ? `${deviceB.peak_temp_celsius}°C` : 'N/A'}
+                    {deviceB.peak_temp_celsius ? (
+                      <AnimatedNumber value={deviceB.peak_temp_celsius} decimals={1} suffix="°C" />
+                    ) : (
+                      'N/A'
+                    )}
                   </span>
                 </div>
               </div>
@@ -296,7 +326,11 @@ export default function HeadToHeadComparison({
                     deviceA.peak_temp_celsius > 44.5 ? 'text-rose-600' : 'text-slate-900'
                   }`}
                 >
-                  {deviceA.peak_temp_celsius ? `${deviceA.peak_temp_celsius}°C` : 'N/A'}
+                  {deviceA.peak_temp_celsius ? (
+                    <AnimatedNumber value={deviceA.peak_temp_celsius} decimals={1} suffix="°C" />
+                  ) : (
+                    'N/A'
+                  )}
                 </span>
                 <span className="block text-xs text-slate-400 font-medium mt-0.5">
                   {deviceA.peak_temp_celsius > 44.5 ? 'Heavy Heat Load' : 'Safe Operating Temperature'}
@@ -312,7 +346,7 @@ export default function HeadToHeadComparison({
           </div>
 
           {/* Hero 3: 3DMark Loop Stability */}
-          <div className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs">
+          <div className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-colors">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-slate-600 flex items-center gap-1.5">
                 <Activity className="w-4 h-4 text-slate-400" />
@@ -332,7 +366,11 @@ export default function HeadToHeadComparison({
                     {deviceA.device_name}
                   </span>
                   <span className="text-xl font-bold font-mono text-slate-900 tabular-nums">
-                    {deviceA.wildlife_stability_pct ? `${deviceA.wildlife_stability_pct}%` : 'N/A'}
+                    {deviceA.wildlife_stability_pct ? (
+                      <AnimatedNumber value={deviceA.wildlife_stability_pct} decimals={1} suffix="%" />
+                    ) : (
+                      'N/A'
+                    )}
                   </span>
                 </div>
                 <div className="pl-1">
@@ -340,14 +378,22 @@ export default function HeadToHeadComparison({
                     {deviceB.device_name}
                   </span>
                   <span className="text-xl font-bold font-mono text-slate-900 tabular-nums">
-                    {deviceB.wildlife_stability_pct ? `${deviceB.wildlife_stability_pct}%` : 'N/A'}
+                    {deviceB.wildlife_stability_pct ? (
+                      <AnimatedNumber value={deviceB.wildlife_stability_pct} decimals={1} suffix="%" />
+                    ) : (
+                      'N/A'
+                    )}
                   </span>
                 </div>
               </div>
             ) : (
               <div className="pt-1">
                 <span className="text-2xl font-bold font-mono text-slate-900 tabular-nums">
-                  {deviceA.wildlife_stability_pct ? `${deviceA.wildlife_stability_pct}%` : 'N/A'}
+                  {deviceA.wildlife_stability_pct ? (
+                    <AnimatedNumber value={deviceA.wildlife_stability_pct} decimals={1} suffix="%" />
+                  ) : (
+                    'N/A'
+                  )}
                 </span>
                 <span className="block text-xs text-slate-400 font-medium mt-0.5">
                   20-Minute Wild Life Stress Loop
@@ -408,22 +454,30 @@ export default function HeadToHeadComparison({
                         Thermal Stability (TSS)
                       </div>
                       <div className="col-span-8 sm:col-span-9 flex items-center justify-between gap-4 font-mono font-bold tabular-nums">
-                        <span className="text-slate-900 w-16">{bA.tss || 75.0}</span>
+                        <span className="text-slate-900 w-16">
+                          <AnimatedNumber value={bA.tss || 75.0} decimals={1} />
+                        </span>
                         <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden flex">
-                          <div
+                          <motion.div
                             className="h-full bg-slate-800 rounded-full"
-                            style={{ width: `${Math.min(bA.tss || 75, 100)}%` }}
+                            initial={{ width: 0 }}
+                            animate={{ width: `${Math.min(bA.tss || 75, 100)}%` }}
+                            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                           />
                         </div>
                         {isDualMode && deviceB && (
                           <>
                             <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden flex">
-                              <div
+                              <motion.div
                                 className="h-full bg-slate-400 rounded-full"
-                                style={{ width: `${Math.min(bB.tss || 75, 100)}%` }}
+                                initial={{ width: 0 }}
+                                animate={{ width: `${Math.min(bB.tss || 75, 100)}%` }}
+                                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                               />
                             </div>
-                            <span className="text-slate-500 w-16 text-right">{bB.tss || 75.0}</span>
+                            <span className="text-slate-500 w-16 text-right">
+                              <AnimatedNumber value={bB.tss || 75.0} decimals={1} />
+                            </span>
                           </>
                         )}
                       </div>
@@ -435,22 +489,30 @@ export default function HeadToHeadComparison({
                         FPS Pacing Efficiency (FPE)
                       </div>
                       <div className="col-span-8 sm:col-span-9 flex items-center justify-between gap-4 font-mono font-bold tabular-nums">
-                        <span className="text-slate-900 w-16">{bA.fpe || 88.0}%</span>
+                        <span className="text-slate-900 w-16">
+                          <AnimatedNumber value={bA.fpe || 88.0} decimals={1} suffix="%" />
+                        </span>
                         <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden flex">
-                          <div
+                          <motion.div
                             className="h-full bg-slate-800 rounded-full"
-                            style={{ width: `${Math.min(bA.fpe || 88, 100)}%` }}
+                            initial={{ width: 0 }}
+                            animate={{ width: `${Math.min(bA.fpe || 88, 100)}%` }}
+                            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                           />
                         </div>
                         {isDualMode && deviceB && (
                           <>
                             <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden flex">
-                              <div
+                              <motion.div
                                 className="h-full bg-slate-400 rounded-full"
-                                style={{ width: `${Math.min(bB.fpe || 88, 100)}%` }}
+                                initial={{ width: 0 }}
+                                animate={{ width: `${Math.min(bB.fpe || 88, 100)}%` }}
+                                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                               />
                             </div>
-                            <span className="text-slate-500 w-16 text-right">{bB.fpe || 88.0}%</span>
+                            <span className="text-slate-500 w-16 text-right">
+                              <AnimatedNumber value={bB.fpe || 88.0} decimals={1} suffix="%" />
+                            </span>
                           </>
                         )}
                       </div>
@@ -462,22 +524,30 @@ export default function HeadToHeadComparison({
                         Compute Index
                       </div>
                       <div className="col-span-8 sm:col-span-9 flex items-center justify-between gap-4 font-mono font-bold tabular-nums">
-                        <span className="text-slate-900 w-16">{bA.compute || 85.0}</span>
+                        <span className="text-slate-900 w-16">
+                          <AnimatedNumber value={bA.compute || 85.0} decimals={1} />
+                        </span>
                         <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden flex">
-                          <div
+                          <motion.div
                             className="h-full bg-slate-800 rounded-full"
-                            style={{ width: `${Math.min(bA.compute || 85, 100)}%` }}
+                            initial={{ width: 0 }}
+                            animate={{ width: `${Math.min(bA.compute || 85, 100)}%` }}
+                            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                           />
                         </div>
                         {isDualMode && deviceB && (
                           <>
                             <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden flex">
-                              <div
+                              <motion.div
                                 className="h-full bg-slate-400 rounded-full"
-                                style={{ width: `${Math.min(bB.compute || 85, 100)}%` }}
+                                initial={{ width: 0 }}
+                                animate={{ width: `${Math.min(bB.compute || 85, 100)}%` }}
+                                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                               />
                             </div>
-                            <span className="text-slate-500 w-16 text-right">{bB.compute || 85.0}</span>
+                            <span className="text-slate-500 w-16 text-right">
+                              <AnimatedNumber value={bB.compute || 85.0} decimals={1} />
+                            </span>
                           </>
                         )}
                       </div>
@@ -489,22 +559,30 @@ export default function HeadToHeadComparison({
                         Storage & Bus Bandwidth
                       </div>
                       <div className="col-span-8 sm:col-span-9 flex items-center justify-between gap-4 font-mono font-bold tabular-nums">
-                        <span className="text-slate-900 w-16">{bA.storage || 90.0}</span>
+                        <span className="text-slate-900 w-16">
+                          <AnimatedNumber value={bA.storage || 90.0} decimals={1} />
+                        </span>
                         <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden flex">
-                          <div
+                          <motion.div
                             className="h-full bg-slate-800 rounded-full"
-                            style={{ width: `${Math.min(bA.storage || 90, 100)}%` }}
+                            initial={{ width: 0 }}
+                            animate={{ width: `${Math.min(bA.storage || 90, 100)}%` }}
+                            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                           />
                         </div>
                         {isDualMode && deviceB && (
                           <>
                             <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden flex">
-                              <div
+                              <motion.div
                                 className="h-full bg-slate-400 rounded-full"
-                                style={{ width: `${Math.min(bB.storage || 90, 100)}%` }}
+                                initial={{ width: 0 }}
+                                animate={{ width: `${Math.min(bB.storage || 90, 100)}%` }}
+                                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                               />
                             </div>
-                            <span className="text-slate-500 w-16 text-right">{bB.storage || 90.0}</span>
+                            <span className="text-slate-500 w-16 text-right">
+                              <AnimatedNumber value={bB.storage || 90.0} decimals={1} />
+                            </span>
                           </>
                         )}
                       </div>
