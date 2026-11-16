@@ -178,3 +178,11 @@ python main.py "Motorola Edge 60 Pro BGMI 90fps stability"
 Every completed analysis automatically generates two persistent artifacts in your workspace:
 * **`latest_report.md`**: Clean, formatted Markdown technical report featuring specification comparison tables, benchmark matrices, thermal evaluations, PulseThrottle Index breakdowns, and an engineering verdict.
 * **`latest_report.json`**: Machine-readable JSON structured strictly against the `SiliconPulseReport` Pydantic schema, ready for dashboards, APIs, or database pipelines.
+---
+
+## 📅 Changelog
+
+### Nov 16, 2026
+- Implemented motion-primitives-inspired smooth animations across the dashboard
+- Added animated PTI score counters, stagger reveals, blur-fade transitions
+- Polished Navbar tab indicator, PhoneCard hover lift, and accordion reveals
