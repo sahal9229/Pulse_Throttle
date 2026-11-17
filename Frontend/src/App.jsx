@@ -101,7 +101,7 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen bg-[#EAF0F6] dark:bg-[#0B0612] text-slate-900 dark:text-slate-100 relative selection:bg-amber-500/25 selection:text-slate-900 dark:selection:text-slate-100 transition-colors duration-250">
+    <div className="min-h-screen bg-[#EAF0F6] dark:bg-[#08090E] text-slate-900 dark:text-slate-100 relative selection:bg-amber-500/25 selection:text-slate-900 dark:selection:text-slate-100 transition-colors duration-250">
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar
           activeTab={activeTab}
@@ -174,7 +174,7 @@ export default function App() {
 
                 {/* Filter Recovery Card */}
                 {((deviceA && !deviceAVisible) || (isDualMode && deviceB && !deviceBVisible)) && (
-                  <div className="bg-white dark:bg-[#140C22] border border-slate-200/90 dark:border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center text-center shadow-2xs space-y-3">
+                  <div className="bg-white dark:bg-[#0E1118] border border-slate-200/90 dark:border-white/[0.08] rounded-2xl p-8 flex flex-col items-center justify-center text-center shadow-2xs space-y-3">
                     <p className="text-slate-900 dark:text-white text-sm font-bold">
                       {(!deviceAVisible ? deviceA?.device_name : deviceB?.device_name)} is hidden by active hardware filters
                     </p>
@@ -212,7 +212,7 @@ export default function App() {
         </main>
 
         {/* High-Contrast Lab Footer */}
-        <footer className="border-t border-slate-200/90 dark:border-white/10 bg-white/80 dark:bg-[#0E0717]/80 backdrop-blur-sm mt-14">
+        <footer className="border-t border-slate-200/90 dark:border-white/[0.08] bg-white/80 dark:bg-[#08090E]/90 backdrop-blur-md mt-14">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-700 dark:text-slate-300">
             <p className="text-xs font-mono font-bold text-slate-800 dark:text-slate-200">
               © PulseThrottle — Hardware Telemetry Lab Engine

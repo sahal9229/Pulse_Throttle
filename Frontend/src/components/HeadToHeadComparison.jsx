@@ -60,19 +60,19 @@ export default function HeadToHeadComparison({
   const bB = deviceB?.score_breakdown || { tss: 75, fpe: 85, compute: 80, storage: 85 };
 
   return (
-    <div className="bg-white dark:bg-[#140C22] rounded-2xl border border-slate-200/90 dark:border-white/10 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] overflow-hidden transition-all relative">
+    <div className="bg-white dark:bg-[#0E1118] rounded-2xl border border-slate-200/90 dark:border-white/[0.08] shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] dark:shadow-[0_20px_45px_-10px_rgba(0,0,0,0.8)] overflow-hidden transition-all relative">
       {/* Motion Primitive: Ambient Spotlight */}
-      <Spotlight size={380} className="from-amber-400/8 via-amber-200/4 to-transparent dark:from-amber-500/10 dark:via-purple-500/5" />
+      <Spotlight size={380} className="from-amber-400/8 via-amber-200/4 to-transparent dark:from-amber-500/10 dark:via-amber-500/[0.02] to-transparent" />
 
       {/* 1. TOP HEADER: Clean Device A vs Device B Matchup with Prominent Scores */}
-      <div className="p-6 sm:p-8 lg:p-10 border-b border-slate-100 dark:border-white/5 bg-white dark:bg-[#140C22] relative z-10">
+      <div className="p-6 sm:p-8 lg:p-10 border-b border-slate-100 dark:border-white/[0.08] bg-white dark:bg-[#0E1118] relative z-10">
         {isDualMode && deviceB ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             {/* Device A Identity & Score */}
             <div className="lg:col-span-5 flex items-center justify-between gap-4">
               <div className="flex items-center gap-4 min-w-0">
                 <Tilt rotationFactor={8} className="flex-shrink-0">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-[#1B1228] border border-slate-200/90 dark:border-white/10 flex items-center justify-center p-1 shadow-2xs">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-[#141824] border border-slate-200/90 dark:border-white/10 flex items-center justify-center p-1 shadow-2xs">
                     <DeviceThumbnail
                       src={deviceA.image_url}
                       alt={deviceA.device_name}
@@ -87,7 +87,7 @@ export default function HeadToHeadComparison({
                       {deviceA.device_name}
                     </h3>
                     {winner === 'A' && (
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500 text-white shadow-2xs">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500 text-slate-950 shadow-sm">
                         Winner
                       </span>
                     )}
@@ -95,31 +95,31 @@ export default function HeadToHeadComparison({
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-0.5">
                     {deviceA.soc_chipset}
                   </p>
-                  <p className="text-[11px] text-slate-400 dark:text-slate-500 font-mono mt-0.5">
+                  <p className="text-[11px] text-slate-400 dark:text-slate-400 font-mono mt-0.5">
                     {deviceA.os || 'Mobile OS'} • {deviceA.release_year || 'Current'}
                   </p>
                 </div>
               </div>
 
               <div className="text-right flex-shrink-0 pl-2">
-                <span className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-900 dark:text-white tracking-tight tabular-nums">
+                <span className={`text-3xl sm:text-4xl font-extrabold font-mono tracking-tight tabular-nums ${winner === 'A' ? 'text-amber-500 dark:text-amber-400' : 'text-slate-900 dark:text-white'}`}>
                   <AnimatedNumber value={scoreA} decimals={1} />
                 </span>
-                <span className="block text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                <span className="block text-[10px] font-mono text-slate-400 dark:text-slate-400 uppercase tracking-wider font-semibold">
                   PTI Score
                 </span>
               </div>
             </div>
 
             {/* Matchup Center Delta Badge */}
-            <div className="lg:col-span-2 flex flex-col items-center justify-center py-2 lg:py-0 border-y lg:border-y-0 lg:border-x border-slate-100 dark:border-white/5">
-              <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-700/40 text-amber-700 dark:text-amber-400 font-mono text-xs font-bold shadow-2xs">
+            <div className="lg:col-span-2 flex flex-col items-center justify-center py-2 lg:py-0 border-y lg:border-y-0 lg:border-x border-slate-100 dark:border-white/[0.08]">
+              <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-500/10 border border-amber-200/80 dark:border-amber-500/30 text-amber-700 dark:text-amber-400 font-mono text-xs font-bold shadow-2xs dark:shadow-[0_0_12px_rgba(245,158,11,0.15)]">
                 <AnimatedNumber value={parseFloat(scoreDelta)} decimals={1} prefix="+" />
                 <span className="text-[10px] uppercase font-sans font-semibold text-amber-800 dark:text-amber-300 ml-1">
                   Advantage
                 </span>
               </div>
-              <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium mt-1">
+              <span className="text-[10px] text-slate-400 dark:text-slate-400 font-medium mt-1">
                 {winner === 'A' ? deviceA.device_name : deviceB.device_name} leads
               </span>
             </div>
@@ -127,10 +127,10 @@ export default function HeadToHeadComparison({
             {/* Device B Identity & Score */}
             <div className="lg:col-span-5 flex items-center justify-between gap-4">
               <div className="text-left lg:text-left flex-shrink-0 pr-2 order-2 lg:order-1">
-                <span className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-900 dark:text-white tracking-tight tabular-nums">
+                <span className={`text-3xl sm:text-4xl font-extrabold font-mono tracking-tight tabular-nums ${winner === 'B' ? 'text-amber-500 dark:text-amber-400' : 'text-slate-900 dark:text-white'}`}>
                   <AnimatedNumber value={scoreB} decimals={1} />
                 </span>
-                <span className="block text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                <span className="block text-[10px] font-mono text-slate-400 dark:text-slate-400 uppercase tracking-wider font-semibold">
                   PTI Score
                 </span>
               </div>
@@ -139,7 +139,7 @@ export default function HeadToHeadComparison({
                 <div className="min-w-0 text-left lg:text-right">
                   <div className="flex items-center gap-2 justify-start lg:justify-end">
                     {winner === 'B' && (
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500 text-white shadow-2xs">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500 text-slate-950 shadow-sm">
                         Winner
                       </span>
                     )}
@@ -150,12 +150,12 @@ export default function HeadToHeadComparison({
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-0.5">
                     {deviceB.soc_chipset}
                   </p>
-                  <p className="text-[11px] text-slate-400 dark:text-slate-500 font-mono mt-0.5">
+                  <p className="text-[11px] text-slate-400 dark:text-slate-400 font-mono mt-0.5">
                     {deviceB.os || 'Mobile OS'} • {deviceB.release_year || 'Current'}
                   </p>
                 </div>
                 <Tilt rotationFactor={8} className="flex-shrink-0">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-[#1B1228] border border-slate-200/90 dark:border-white/10 flex items-center justify-center p-1 shadow-2xs">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-[#141824] border border-slate-200/90 dark:border-white/10 flex items-center justify-center p-1 shadow-2xs">
                     <DeviceThumbnail
                       src={deviceB.image_url}
                       alt={deviceB.device_name}
@@ -172,7 +172,7 @@ export default function HeadToHeadComparison({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <Tilt rotationFactor={8} className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-[#1B1228] border border-slate-200/90 dark:border-white/10 flex items-center justify-center p-1">
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-[#141824] border border-slate-200/90 dark:border-white/10 flex items-center justify-center p-1">
                   <DeviceThumbnail
                     src={deviceA.image_url}
                     alt={deviceA.device_name}
@@ -196,7 +196,7 @@ export default function HeadToHeadComparison({
                 <span className="text-4xl font-extrabold font-mono text-slate-900 dark:text-white tabular-nums">
                   <AnimatedNumber value={scoreA} decimals={1} />
                 </span>
-                <span className="text-xs text-slate-400 dark:text-slate-500 font-mono ml-1">/ 100</span>
+                <span className="text-xs text-slate-400 dark:text-slate-400 font-mono ml-1">/ 100</span>
                 <span className="block text-[10px] text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">
                   PulseThrottle Index
                 </span>
@@ -207,13 +207,13 @@ export default function HeadToHeadComparison({
       </div>
 
       {/* 2. MIDDLE: KEY HERO METRICS (3-Column Comparative Summary) */}
-      <div className="p-6 sm:p-8 lg:p-10 bg-slate-50/50 dark:bg-[#0E0717]/60 relative z-10">
+      <div className="p-6 sm:p-8 lg:p-10 bg-slate-50/50 dark:bg-[#0A0C12] relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Hero 1: Sustained Gaming FPS */}
-          <div className="bg-white dark:bg-[#170F26] p-5 rounded-xl border border-slate-200/80 dark:border-white/10 space-y-3 shadow-2xs hover:border-slate-300 dark:hover:border-white/20 transition-colors">
+          <div className="bg-white dark:bg-[#0E1118] p-5 rounded-xl border border-slate-200/80 dark:border-white/[0.08] space-y-3 shadow-2xs dark:shadow-md hover:border-slate-300 dark:hover:border-white/20 transition-all">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
-                <Gamepad2 className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                <Gamepad2 className="w-4 h-4 text-slate-400 dark:text-slate-400" />
                 Sustained FPS ({selectedGame})
               </span>
               {isDualMode && deviceB && (
@@ -225,8 +225,8 @@ export default function HeadToHeadComparison({
 
             {isDualMode && deviceB ? (
               <div className="grid grid-cols-2 gap-3 pt-1">
-                <div className="border-r border-slate-100 dark:border-white/5 pr-2">
-                  <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate">
+                <div className="border-r border-slate-100 dark:border-white/[0.08] pr-2">
+                  <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate">
                     {deviceA.device_name}
                   </span>
                   <span className="text-xl font-bold font-mono text-slate-900 dark:text-white tabular-nums">
@@ -238,7 +238,7 @@ export default function HeadToHeadComparison({
                   </span>
                 </div>
                 <div className="pl-1">
-                  <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate">
+                  <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate">
                     {deviceB.device_name}
                   </span>
                   <span className="text-xl font-bold font-mono text-slate-900 dark:text-white tabular-nums">
@@ -259,22 +259,22 @@ export default function HeadToHeadComparison({
                     gameBenchA.sustained_avg_fps
                   )}
                 </span>
-                <span className="block text-xs text-slate-400 dark:text-slate-500 font-medium mt-0.5">
+                <span className="block text-xs text-slate-400 dark:text-slate-400 font-medium mt-0.5">
                   Max: {gameBenchA.max_unlocked_setting}
                 </span>
               </div>
             )}
 
-            <p className="text-[11px] text-slate-400 dark:text-slate-500 font-normal leading-relaxed truncate">
+            <p className="text-[11px] text-slate-400 dark:text-slate-400 font-normal leading-relaxed truncate">
               {gameBenchA.thermal_and_frame_drop_notes || 'Consistent shader pacing curve.'}
             </p>
           </div>
 
           {/* Hero 2: Peak Thermals */}
-          <div className="bg-white dark:bg-[#170F26] p-5 rounded-xl border border-slate-200/80 dark:border-white/10 space-y-3 shadow-2xs hover:border-slate-300 dark:hover:border-white/20 transition-colors">
+          <div className="bg-white dark:bg-[#0E1118] p-5 rounded-xl border border-slate-200/80 dark:border-white/[0.08] space-y-3 shadow-2xs dark:shadow-md hover:border-slate-300 dark:hover:border-white/20 transition-all">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
-                <Thermometer className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                <Thermometer className="w-4 h-4 text-slate-400 dark:text-slate-400" />
                 Peak Thermals
               </span>
               {isDualMode && deviceB && deviceA.peak_temp_celsius && deviceB.peak_temp_celsius && (
@@ -286,8 +286,8 @@ export default function HeadToHeadComparison({
 
             {isDualMode && deviceB ? (
               <div className="grid grid-cols-2 gap-3 pt-1">
-                <div className="border-r border-slate-100 dark:border-white/5 pr-2">
-                  <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate">
+                <div className="border-r border-slate-100 dark:border-white/[0.08] pr-2">
+                  <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate">
                     {deviceA.device_name}
                   </span>
                   <span
@@ -303,7 +303,7 @@ export default function HeadToHeadComparison({
                   </span>
                 </div>
                 <div className="pl-1">
-                  <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate">
+                  <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate">
                     {deviceB.device_name}
                   </span>
                   <span
@@ -332,13 +332,13 @@ export default function HeadToHeadComparison({
                     'N/A'
                   )}
                 </span>
-                <span className="block text-xs text-slate-400 dark:text-slate-500 font-medium mt-0.5">
+                <span className="block text-xs text-slate-400 dark:text-slate-400 font-medium mt-0.5">
                   {deviceA.peak_temp_celsius > 44.5 ? 'Heavy Heat Load' : 'Safe Operating Temperature'}
                 </span>
               </div>
             )}
 
-            <p className="text-[11px] text-slate-400 dark:text-slate-500 font-normal leading-relaxed">
+            <p className="text-[11px] text-slate-400 dark:text-slate-400 font-normal leading-relaxed">
               {deviceA.peak_temp_celsius > 44.5
                 ? 'Approaches thermal throttling limits under load.'
                 : 'Controlled heat dissipation curve.'}
@@ -346,10 +346,10 @@ export default function HeadToHeadComparison({
           </div>
 
           {/* Hero 3: 3DMark Loop Stability */}
-          <div className="bg-white dark:bg-[#170F26] p-5 rounded-xl border border-slate-200/80 dark:border-white/10 space-y-3 shadow-2xs hover:border-slate-300 dark:hover:border-white/20 transition-colors">
+          <div className="bg-white dark:bg-[#0E1118] p-5 rounded-xl border border-slate-200/80 dark:border-white/[0.08] space-y-3 shadow-2xs dark:shadow-md hover:border-slate-300 dark:hover:border-white/20 transition-all">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
-                <Activity className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                <Activity className="w-4 h-4 text-slate-400 dark:text-slate-400" />
                 3DMark Stability
               </span>
               {isDualMode && deviceB && deviceA.wildlife_stability_pct && deviceB.wildlife_stability_pct && (
@@ -361,8 +361,8 @@ export default function HeadToHeadComparison({
 
             {isDualMode && deviceB ? (
               <div className="grid grid-cols-2 gap-3 pt-1">
-                <div className="border-r border-slate-100 dark:border-white/5 pr-2">
-                  <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate">
+                <div className="border-r border-slate-100 dark:border-white/[0.08] pr-2">
+                  <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate">
                     {deviceA.device_name}
                   </span>
                   <span className="text-xl font-bold font-mono text-slate-900 dark:text-white tabular-nums">
@@ -374,7 +374,7 @@ export default function HeadToHeadComparison({
                   </span>
                 </div>
                 <div className="pl-1">
-                  <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate">
+                  <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate">
                     {deviceB.device_name}
                   </span>
                   <span className="text-xl font-bold font-mono text-slate-900 dark:text-white tabular-nums">
@@ -395,13 +395,13 @@ export default function HeadToHeadComparison({
                     'N/A'
                   )}
                 </span>
-                <span className="block text-xs text-slate-400 dark:text-slate-500 font-medium mt-0.5">
+                <span className="block text-xs text-slate-400 dark:text-slate-400 font-medium mt-0.5">
                   20-Minute Wild Life Stress Loop
                 </span>
               </div>
             )}
 
-            <p className="text-[11px] text-slate-400 dark:text-slate-500 font-normal leading-relaxed">
+            <p className="text-[11px] text-slate-400 dark:text-slate-400 font-normal leading-relaxed">
               Sustained 3D rendering resilience against heat-induced throttling.
             </p>
           </div>
@@ -409,14 +409,14 @@ export default function HeadToHeadComparison({
       </div>
 
       {/* 3. BOTTOM: PROGRESSIVE DISCLOSURE ACCORDION ("View Full Telemetry Breakdown") */}
-      <div className="border-t-2 border-amber-300/80 dark:border-amber-500/40 bg-gradient-to-r from-amber-500/[0.08] via-amber-500/[0.03] to-slate-50 dark:to-[#140C22] transition-colors">
+      <div className="border-t-2 border-amber-300/80 dark:border-amber-500/30 bg-gradient-to-r from-amber-500/[0.08] via-amber-500/[0.03] to-slate-50 dark:to-[#0A0C12] transition-colors">
         <button
           type="button"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full px-6 sm:px-8 py-4 flex items-center justify-between text-xs font-semibold transition-all cursor-pointer select-none group hover:bg-amber-500/[0.12] dark:hover:bg-amber-500/[0.08]"
+          className="w-full px-6 sm:px-8 py-4 flex items-center justify-between text-xs font-semibold transition-all cursor-pointer select-none group hover:bg-amber-500/[0.12] dark:hover:bg-white/[0.03]"
         >
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-amber-500 text-white shadow-2xs group-hover:scale-105 transition-transform">
+            <span className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-amber-500 text-slate-950 font-bold shadow-sm group-hover:scale-105 transition-transform">
               <Sparkles className="w-4 h-4" />
             </span>
             <div className="text-left">
@@ -437,7 +437,7 @@ export default function HeadToHeadComparison({
             <span className="hidden sm:inline-block text-xs font-bold text-amber-900/90 dark:text-amber-400 group-hover:text-amber-950 dark:group-hover:text-amber-300">
               {isExpanded ? 'Collapse' : 'Expand All Specs'}
             </span>
-            <div className="w-8 h-8 rounded-xl bg-white dark:bg-[#1B1228] border border-slate-200/90 dark:border-white/10 shadow-2xs flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:border-amber-400 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors">
+            <div className="w-8 h-8 rounded-xl bg-white dark:bg-[#141824] border border-slate-200/90 dark:border-white/10 shadow-2xs flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:border-amber-400 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors">
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-200 ${
                   isExpanded ? 'rotate-180 text-amber-800 dark:text-amber-400' : ''
@@ -456,12 +456,12 @@ export default function HeadToHeadComparison({
               transition={{ duration: 0.25, ease: 'easeInOut' }}
               className="overflow-hidden"
             >
-              <div className="p-6 sm:p-8 lg:p-10 space-y-8 border-t border-slate-100 dark:border-white/5 bg-slate-50/30 dark:bg-[#0E0717]/40">
+              <div className="p-6 sm:p-8 lg:p-10 space-y-8 border-t border-slate-100 dark:border-white/[0.08] bg-slate-50/30 dark:bg-[#0A0C12]/90">
                 {/* 4 Sub-Pillars Comparative Table */}
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     <span>Core Architectural Pillars</span>
-                    <span className="text-[11px] text-slate-400 dark:text-slate-500 font-normal normal-case">
+                    <span className="text-[11px] text-slate-400 dark:text-slate-400 font-normal normal-case">
                       Weighted: 35% Thermal • 30% Compute • 20% Storage • 15% OS
                     </span>
                   </div>
@@ -469,29 +469,29 @@ export default function HeadToHeadComparison({
                   {isDualMode && deviceB && (
                     <div className="flex items-center justify-between text-[11px] font-semibold text-slate-500 dark:text-slate-400 px-2 pt-0.5">
                       <span className="flex items-center gap-1.5 text-slate-900 dark:text-white font-bold">
-                        <span className="w-2.5 h-2.5 rounded-full bg-slate-800 dark:bg-amber-500 inline-block" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-slate-800 dark:bg-amber-400 inline-block" />
                         {deviceA.device_name}
                       </span>
-                      <span className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 font-bold">
+                      <span className="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 font-bold">
                         {deviceB.device_name}
-                        <span className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-500 inline-block" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-sky-400 inline-block" />
                       </span>
                     </div>
                   )}
 
-                  <div className="bg-white dark:bg-[#140C22] rounded-xl border border-slate-200/80 dark:border-white/10 divide-y divide-slate-100 dark:divide-white/5 shadow-2xs">
+                  <div className="bg-white dark:bg-[#0E1118] rounded-xl border border-slate-200/80 dark:border-white/[0.08] divide-y divide-slate-100 dark:divide-white/[0.06] shadow-sm">
                     {/* Pillar 1: TSS */}
                     <div className="p-4 grid grid-cols-12 gap-4 items-center text-xs">
                       <div className="col-span-4 sm:col-span-3 font-semibold text-slate-800 dark:text-slate-200">
                         Thermal Stability (TSS)
                       </div>
                       <div className="col-span-8 sm:col-span-9 flex items-center justify-between gap-4 font-mono font-bold tabular-nums">
-                        <span className="text-slate-900 dark:text-white w-16">
+                        <span className="text-slate-900 dark:text-amber-400 w-16">
                           <AnimatedNumber value={bA.tss || 75.0} decimals={1} />
                         </span>
                         <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden flex">
                           <motion.div
-                            className="h-full bg-slate-800 dark:bg-amber-500 rounded-full"
+                            className="h-full bg-slate-800 dark:bg-amber-400 rounded-full"
                             initial={{ width: 0 }}
                             animate={{ width: `${Math.min(bA.tss || 75, 100)}%` }}
                             transition={{ type: 'spring', stiffness: 100, damping: 20 }}
@@ -501,13 +501,13 @@ export default function HeadToHeadComparison({
                           <>
                             <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden flex">
                               <motion.div
-                                className="h-full bg-slate-400 dark:bg-slate-500 rounded-full"
+                                className="h-full bg-slate-400 dark:bg-sky-400 rounded-full"
                                 initial={{ width: 0 }}
                                 animate={{ width: `${Math.min(bB.tss || 75, 100)}%` }}
                                 transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                               />
                             </div>
-                            <span className="text-slate-500 dark:text-slate-400 w-16 text-right">
+                            <span className="text-slate-500 dark:text-sky-300 w-16 text-right">
                               <AnimatedNumber value={bB.tss || 75.0} decimals={1} />
                             </span>
                           </>
@@ -521,12 +521,12 @@ export default function HeadToHeadComparison({
                         FPS Pacing Efficiency (FPE)
                       </div>
                       <div className="col-span-8 sm:col-span-9 flex items-center justify-between gap-4 font-mono font-bold tabular-nums">
-                        <span className="text-slate-900 dark:text-white w-16">
+                        <span className="text-slate-900 dark:text-amber-400 w-16">
                           <AnimatedNumber value={bA.fpe || 88.0} decimals={1} suffix="%" />
                         </span>
                         <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden flex">
                           <motion.div
-                            className="h-full bg-slate-800 dark:bg-amber-500 rounded-full"
+                            className="h-full bg-slate-800 dark:bg-amber-400 rounded-full"
                             initial={{ width: 0 }}
                             animate={{ width: `${Math.min(bA.fpe || 88, 100)}%` }}
                             transition={{ type: 'spring', stiffness: 100, damping: 20 }}
@@ -536,13 +536,13 @@ export default function HeadToHeadComparison({
                           <>
                             <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden flex">
                               <motion.div
-                                className="h-full bg-slate-400 dark:bg-slate-500 rounded-full"
+                                className="h-full bg-slate-400 dark:bg-sky-400 rounded-full"
                                 initial={{ width: 0 }}
                                 animate={{ width: `${Math.min(bB.fpe || 88, 100)}%` }}
                                 transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                               />
                             </div>
-                            <span className="text-slate-500 dark:text-slate-400 w-16 text-right">
+                            <span className="text-slate-500 dark:text-sky-300 w-16 text-right">
                               <AnimatedNumber value={bB.fpe || 88.0} decimals={1} suffix="%" />
                             </span>
                           </>
@@ -556,12 +556,12 @@ export default function HeadToHeadComparison({
                         Compute Index
                       </div>
                       <div className="col-span-8 sm:col-span-9 flex items-center justify-between gap-4 font-mono font-bold tabular-nums">
-                        <span className="text-slate-900 dark:text-white w-16">
+                        <span className="text-slate-900 dark:text-amber-400 w-16">
                           <AnimatedNumber value={bA.compute || 85.0} decimals={1} />
                         </span>
                         <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden flex">
                           <motion.div
-                            className="h-full bg-slate-800 dark:bg-amber-500 rounded-full"
+                            className="h-full bg-slate-800 dark:bg-amber-400 rounded-full"
                             initial={{ width: 0 }}
                             animate={{ width: `${Math.min(bA.compute || 85, 100)}%` }}
                             transition={{ type: 'spring', stiffness: 100, damping: 20 }}
@@ -571,13 +571,13 @@ export default function HeadToHeadComparison({
                           <>
                             <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden flex">
                               <motion.div
-                                className="h-full bg-slate-400 dark:bg-slate-500 rounded-full"
+                                className="h-full bg-slate-400 dark:bg-sky-400 rounded-full"
                                 initial={{ width: 0 }}
                                 animate={{ width: `${Math.min(bB.compute || 85, 100)}%` }}
                                 transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                               />
                             </div>
-                            <span className="text-slate-500 dark:text-slate-400 w-16 text-right">
+                            <span className="text-slate-500 dark:text-sky-300 w-16 text-right">
                               <AnimatedNumber value={bB.compute || 85.0} decimals={1} />
                             </span>
                           </>
@@ -591,12 +591,12 @@ export default function HeadToHeadComparison({
                         Storage & Bus Bandwidth
                       </div>
                       <div className="col-span-8 sm:col-span-9 flex items-center justify-between gap-4 font-mono font-bold tabular-nums">
-                        <span className="text-slate-900 dark:text-white w-16">
+                        <span className="text-slate-900 dark:text-amber-400 w-16">
                           <AnimatedNumber value={bA.storage || 90.0} decimals={1} />
                         </span>
                         <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden flex">
                           <motion.div
-                            className="h-full bg-slate-800 dark:bg-amber-500 rounded-full"
+                            className="h-full bg-slate-800 dark:bg-amber-400 rounded-full"
                             initial={{ width: 0 }}
                             animate={{ width: `${Math.min(bA.storage || 90, 100)}%` }}
                             transition={{ type: 'spring', stiffness: 100, damping: 20 }}
@@ -606,13 +606,13 @@ export default function HeadToHeadComparison({
                           <>
                             <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden flex">
                               <motion.div
-                                className="h-full bg-slate-400 dark:bg-slate-500 rounded-full"
+                                className="h-full bg-slate-400 dark:bg-sky-400 rounded-full"
                                 initial={{ width: 0 }}
                                 animate={{ width: `${Math.min(bB.storage || 90, 100)}%` }}
                                 transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                               />
                             </div>
-                            <span className="text-slate-500 dark:text-slate-400 w-16 text-right">
+                            <span className="text-slate-500 dark:text-sky-300 w-16 text-right">
                               <AnimatedNumber value={bB.storage || 90.0} decimals={1} />
                             </span>
                           </>
@@ -629,7 +629,7 @@ export default function HeadToHeadComparison({
                       Synthetic Benchmarks & Hardware Specifications
                     </span>
                     {isDualMode && deviceB && (
-                      <span className="text-[11px] font-medium text-slate-400 dark:text-slate-500">
+                      <span className="text-[11px] font-medium text-slate-400 dark:text-slate-400">
                         Side-by-Side Architectural Audit
                       </span>
                     )}
@@ -637,10 +637,10 @@ export default function HeadToHeadComparison({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {/* AnTuTu v10 Total */}
-                    <div className="p-4 bg-white dark:bg-[#170F26] rounded-xl border border-slate-200/80 dark:border-white/10 space-y-3 shadow-2xs hover:border-slate-300 dark:hover:border-white/20 transition-colors">
+                    <div className="p-4 bg-white dark:bg-[#0E1118] rounded-xl border border-slate-200/80 dark:border-white/[0.08] space-y-3 shadow-2xs dark:shadow-md hover:border-slate-300 dark:hover:border-white/20 transition-all">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                          <Cpu className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+                          <Cpu className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400" />
                           AnTuTu v10 Total
                         </span>
                         {isDualMode && deviceB && deviceA.antutu_v10_score && deviceB.antutu_v10_score && deviceA.antutu_v10_score !== deviceB.antutu_v10_score && (
@@ -653,9 +653,9 @@ export default function HeadToHeadComparison({
                       </div>
 
                       {isDualMode && deviceB ? (
-                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100 dark:border-white/5">
-                          <div className="border-r border-slate-100 dark:border-white/5 pr-2">
-                            <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate mb-1">
+                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100 dark:border-white/[0.08]">
+                          <div className="border-r border-slate-100 dark:border-white/[0.08] pr-2">
+                            <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate mb-1">
                               {deviceA.device_name}
                             </span>
                             <span className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-white tabular-nums block">
@@ -663,7 +663,7 @@ export default function HeadToHeadComparison({
                             </span>
                           </div>
                           <div className="pl-1">
-                            <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate mb-1">
+                            <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate mb-1">
                               {deviceB.device_name}
                             </span>
                             <span className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-white tabular-nums block">
@@ -681,10 +681,10 @@ export default function HeadToHeadComparison({
                     </div>
 
                     {/* Geekbench 6 Multi */}
-                    <div className="p-4 bg-white dark:bg-[#170F26] rounded-xl border border-slate-200/80 dark:border-white/10 space-y-3 shadow-2xs hover:border-slate-300 dark:hover:border-white/20 transition-colors">
+                    <div className="p-4 bg-white dark:bg-[#0E1118] rounded-xl border border-slate-200/80 dark:border-white/[0.08] space-y-3 shadow-2xs dark:shadow-md hover:border-slate-300 dark:hover:border-white/20 transition-all">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                          <Activity className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+                          <Activity className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400" />
                           Geekbench 6 Multi
                         </span>
                         {isDualMode && deviceB && deviceA.geekbench_6_multi && deviceB.geekbench_6_multi && deviceA.geekbench_6_multi !== deviceB.geekbench_6_multi && (
@@ -697,9 +697,9 @@ export default function HeadToHeadComparison({
                       </div>
 
                       {isDualMode && deviceB ? (
-                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100 dark:border-white/5">
-                          <div className="border-r border-slate-100 dark:border-white/5 pr-2">
-                            <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate mb-1">
+                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100 dark:border-white/[0.08]">
+                          <div className="border-r border-slate-100 dark:border-white/[0.08] pr-2">
+                            <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate mb-1">
                               {deviceA.device_name}
                             </span>
                             <span className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-white tabular-nums block">
@@ -707,7 +707,7 @@ export default function HeadToHeadComparison({
                             </span>
                           </div>
                           <div className="pl-1">
-                            <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate mb-1">
+                            <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate mb-1">
                               {deviceB.device_name}
                             </span>
                             <span className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-white tabular-nums block">
@@ -725,18 +725,18 @@ export default function HeadToHeadComparison({
                     </div>
 
                     {/* Storage Standard */}
-                    <div className="p-4 bg-white dark:bg-[#170F26] rounded-xl border border-slate-200/80 dark:border-white/10 space-y-3 shadow-2xs hover:border-slate-300 dark:hover:border-white/20 transition-colors">
+                    <div className="p-4 bg-white dark:bg-[#0E1118] rounded-xl border border-slate-200/80 dark:border-white/[0.08] space-y-3 shadow-2xs dark:shadow-md hover:border-slate-300 dark:hover:border-white/20 transition-all">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                          <HardDrive className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+                          <HardDrive className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400" />
                           Storage Standard
                         </span>
                       </div>
 
                       {isDualMode && deviceB ? (
-                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100 dark:border-white/5">
-                          <div className="border-r border-slate-100 dark:border-white/5 pr-2">
-                            <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate mb-1">
+                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100 dark:border-white/[0.08]">
+                          <div className="border-r border-slate-100 dark:border-white/[0.08] pr-2">
+                            <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate mb-1">
                               {deviceA.device_name}
                             </span>
                             <span className="text-xs sm:text-sm font-bold font-mono text-slate-900 dark:text-white truncate block">
@@ -744,7 +744,7 @@ export default function HeadToHeadComparison({
                             </span>
                           </div>
                           <div className="pl-1">
-                            <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate mb-1">
+                            <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate mb-1">
                               {deviceB.device_name}
                             </span>
                             <span className="text-xs sm:text-sm font-bold font-mono text-slate-900 dark:text-white truncate block">
@@ -762,18 +762,18 @@ export default function HeadToHeadComparison({
                     </div>
 
                     {/* PWM Dimming */}
-                    <div className="p-4 bg-white dark:bg-[#170F26] rounded-xl border border-slate-200/80 dark:border-white/10 space-y-3 shadow-2xs hover:border-slate-300 dark:hover:border-white/20 transition-colors">
+                    <div className="p-4 bg-white dark:bg-[#0E1118] rounded-xl border border-slate-200/80 dark:border-white/[0.08] space-y-3 shadow-2xs dark:shadow-md hover:border-slate-300 dark:hover:border-white/20 transition-all">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                          <Eye className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+                          <Eye className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400" />
                           PWM Dimming (Eye Safety)
                         </span>
                       </div>
 
                       {isDualMode && deviceB ? (
-                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100 dark:border-white/5">
-                          <div className="border-r border-slate-100 dark:border-white/5 pr-2">
-                            <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate mb-1">
+                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100 dark:border-white/[0.08]">
+                          <div className="border-r border-slate-100 dark:border-white/[0.08] pr-2">
+                            <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate mb-1">
                               {deviceA.device_name}
                             </span>
                             <span className="text-xs sm:text-sm font-bold font-mono text-slate-900 dark:text-white truncate block" title={deviceA.pwm_dimming_hz}>
@@ -781,7 +781,7 @@ export default function HeadToHeadComparison({
                             </span>
                           </div>
                           <div className="pl-1">
-                            <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-medium truncate mb-1">
+                            <span className="block text-[10px] text-slate-400 dark:text-slate-400 font-medium truncate mb-1">
                               {deviceB.device_name}
                             </span>
                             <span className="text-xs sm:text-sm font-bold font-mono text-slate-900 dark:text-white truncate block" title={deviceB.pwm_dimming_hz}>

@@ -19,6 +19,13 @@ export default {
           400: '#94A3B8',
           500: '#64748B',
         },
+        obsidian: {
+          base: '#08090E',      /* Ultra-deep aerospace midnight base */
+          card: '#0E1118',      /* Precision-engineered dark card surface */
+          well: '#0B0D14',      /* Deep recessed wells and input troughs */
+          elevated: '#141824',  /* Hover & floating menus */
+          highlight: '#1C2234', /* Active segment controls */
+        },
         aubergine: {
           950: '#0E0717',
           900: '#140C22',
