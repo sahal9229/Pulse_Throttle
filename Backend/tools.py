@@ -113,41 +113,69 @@ def resolve_canonical_name(raw_name: str) -> Optional[str]:
     verified canonical phone name (e.g. "iphone 7" → "iPhone 7").
     Falls back to None if Supabase is unavailable or the name is not found.
     """
-    if not _SUPABASE_DB_PASSWORD:
-        return None
-    try:
-        import psycopg2
-        conn = psycopg2.connect(
-            host=_SUPABASE_HOST,
-            port=_SUPABASE_PORT,
-            user=f"postgres.{_SUPABASE_PROJECT_ID}",
-            password=_SUPABASE_DB_PASSWORD,
-            database="postgres",
-            connect_timeout=3,
-        )
-        with conn.cursor() as cur:
-            like_q = f"%{raw_name}%"
-            cur.execute(
-                """
-                SELECT canonical_name FROM devices_catalog
-                WHERE canonical_name ILIKE %s OR brand ILIKE %s OR series ILIKE %s
-                ORDER BY
-                    CASE
-                        WHEN LOWER(canonical_name) = LOWER(%s) THEN 1
-                        WHEN LOWER(canonical_name) LIKE LOWER(%s) THEN 2
-                        ELSE 3
-                    END,
-                    release_year DESC
-                LIMIT 1;
-                """,
-                (like_q, like_q, like_q, raw_name, f"{raw_name}%"),
+    # 1. Attempt Supabase lookup
+    if _SUPABASE_DB_PASSWORD:
+        try:
+            import psycopg2
+            conn = psycopg2.connect(
+                host=_SUPABASE_HOST,
+                port=_SUPABASE_PORT,
+                user=f"postgres.{_SUPABASE_PROJECT_ID}",
+                password=_SUPABASE_DB_PASSWORD,
+                database="postgres",
+                connect_timeout=3,
             )
-            row = cur.fetchone()
-        conn.close()
-        if row:
-            return row[0]
+            with conn.cursor() as cur:
+                like_q = f"%{raw_name}%"
+                cur.execute(
+                    """
+                    SELECT canonical_name FROM devices_catalog
+                    WHERE canonical_name ILIKE %s OR brand ILIKE %s OR series ILIKE %s
+                    ORDER BY
+                        CASE
+                            WHEN LOWER(canonical_name) = LOWER(%s) THEN 1
+                            WHEN LOWER(canonical_name) LIKE LOWER(%s) THEN 2
+                            ELSE 3
+                        END,
+                        release_year DESC
+                    LIMIT 1;
+                    """,
+                    (like_q, like_q, like_q, raw_name, f"{raw_name}%"),
+                )
+                row = cur.fetchone()
+            conn.close()
+            if row:
+                return row[0]
+        except Exception:
+            pass
+
+    # 2. Resilient SQLite Fallback (pulsethrottle.db)
+    try:
+        import sqlite3
+        for db_file in ["pulsethrottle.db", os.path.join(os.path.dirname(__file__), "pulsethrottle.db")]:
+            if os.path.exists(db_file):
+                with sqlite3.connect(db_file) as s_conn:
+                    s_cur = s_conn.cursor()
+                    s_cur.execute(
+                        """
+                        SELECT name FROM device_catalog
+                        WHERE LOWER(name) LIKE LOWER(?) OR LOWER(brand) LIKE LOWER(?)
+                        ORDER BY
+                            CASE
+                                WHEN LOWER(name) = LOWER(?) THEN 1
+                                WHEN LOWER(name) LIKE LOWER(?) THEN 2
+                                ELSE 3
+                            END
+                        LIMIT 1;
+                        """,
+                        (f"%{raw_name}%", f"%{raw_name}%", raw_name, f"{raw_name}%"),
+                    )
+                    s_row = s_cur.fetchone()
+                    if s_row:
+                        return s_row[0]
     except Exception:
         pass
+
     return None
 
 

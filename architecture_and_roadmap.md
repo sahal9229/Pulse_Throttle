@@ -111,6 +111,13 @@
 - [x] Mounted compiled React frontend (`Frontend/dist`) inside FastAPI `api_server.py` for seamless single-service web deployment on Render.
 - [x] End-to-end smoke tested server on dynamic port (`PORT=8080`), health check (`/api/health`), static frontend serving (`/`), Supabase search (`/api/catalog/search`), and MongoDB cloud cache (`/api/mongo/cache`).
 
+### 📍 Phase 6: Multi-Tier Resilient Storage & Offline Fallback (Active)
+- [x] **Client-Side Autonomous Bundle (`Frontend/src/data/deviceData.js`)**: Master catalog of 202 devices bundled into the frontend application. On Vercel, phone names, chips, scores, and images load instantly with 0ms network latency even when backend/Supabase is down.
+- [x] **Local Relational SQLite (`pulsethrottle.db` -> `device_catalog`)**: Embedded SQLite table automatically initialized and seeded from `master_catalog_data.py` (202 devices).
+- [x] **FastAPI Resilient Search Fallback (`api_server.py`)**: If Supabase PostgreSQL is paused/unreachable, `/api/catalog/search` and `/api/catalog` automatically fail over to `pulsethrottle.db` (`source: "sqlite_fallback"`).
+- [x] **Exact-Key Resolver Fallback (`Backend/tools.py`)**: `resolve_canonical_name()` tries Supabase, then automatically falls back to `pulsethrottle.db` so canonical naming works 100% offline.
+- [x] **Cloud Telemetry Cache (MongoDB Atlas `Cluster0`)**: New or unlisted scraped phone reports persist directly into MongoDB Atlas `telemetry_runs` collection, which remains continuously connected.
+
 ---
 
 ## 📊 Live Progress Tracker
@@ -123,3 +130,4 @@
 | **Phase 3** | Exact-Key Scraper Upgrade | ✅ **100% Verified** | Quoted canonical name resolution & live scrape |
 | **Phase 4** | Frontend Dropdown & UX | ✅ **100% Verified** | Autocomplete dropdown, 3-item visible viewport, brand badges |
 | **Phase 5** | Render Host Readiness | ✅ **100% Verified** | Dockerfile, render.yaml, start.sh, $PORT binding & smoke tested |
+| **Phase 6** | Multi-Tier Resilient Storage | ✅ **100% Verified** | Seamless SQLite + Frontend bundle failover when Supabase is paused |
