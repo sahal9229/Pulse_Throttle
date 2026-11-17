@@ -200,6 +200,28 @@ export const DETERMINISTIC_SOC_RESOLVER = [
     demanding_games_unsupported: false,
   },
   {
+    regex: /(oneplus\s*1[345]|snapdragon\s*8\s*elite|iqoo\s*1[345]|sm8750)/i,
+    device_name: 'OnePlus 15',
+    brand: 'OnePlus',
+    os: 'Android',
+    release_year: 2025,
+    soc_chipset: 'Qualcomm Snapdragon 8 Elite (3nm TSMC Oryon)',
+    gpu: 'Adreno 830',
+    ram: '16GB LPDDR5X',
+    storage_tier: 'UFS 4.0',
+    gpu_and_storage: 'Adreno 830, 16GB LPDDR5X, UFS 4.0',
+    antutu_v10_score: 2957000,
+    geekbench_6_single: 3580,
+    geekbench_6_multi: 10580,
+    wildlife_stability_pct: 84.5,
+    peak_temp_celsius: 43.5,
+    pwm_dimming_hz: '2160Hz',
+    pulse_throttle_index: 96.2,
+    score_breakdown: { tss: 82.0, fpe: 100.0, compute: 100.0, storage: 100.0 },
+    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg',
+    demanding_games_unsupported: false,
+  },
+  {
     regex: /(dimensity\s*8350|moto.*edge\s*60\s*pro|motorola\s*edge\s*60\s*pro)/i,
     device_name: 'Motorola Edge 60 Pro',
     brand: 'Motorola',
@@ -332,10 +354,18 @@ export function createCustomDevice(rawInput, addToDatabase = false) {
   const id = cleanName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
   if (customDeviceCache.has(id)) {
-    return customDeviceCache.get(id);
+    const cached = customDeviceCache.get(id);
+    if (cached && typeof cached.pulse_throttle_index === 'number' && !cached.is_extracting) {
+      return cached;
+    }
   }
 
-  const existing = deviceDatabase.find((d) => d.id === id || d.device_name.toLowerCase() === cleanName.toLowerCase());
+  const existing = deviceDatabase.find(
+    (d) =>
+      (d.id === id || d.device_name.toLowerCase() === cleanName.toLowerCase()) &&
+      typeof d.pulse_throttle_index === 'number' &&
+      !d.is_extracting
+  );
   if (existing) return existing;
 
   const anchor = resolveSiliconAnchor(cleanName);
