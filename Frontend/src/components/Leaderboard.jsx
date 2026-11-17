@@ -37,14 +37,14 @@ const PLATFORMS = [
 ];
 
 function getTempBadge(temp) {
-  if (!temp) return <span className="text-slate-500 font-mono">N/A</span>;
+  if (!temp) return <span className="text-slate-400 dark:text-slate-500 font-mono">N/A</span>;
   if (temp < 43.0) {
-    return <span className="font-mono font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">{temp}°C</span>;
+    return <span className="font-mono font-extrabold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-300 dark:border-emerald-700/50">{temp}°C</span>;
   }
   if (temp <= 44.5) {
-    return <span className="font-mono font-extrabold text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">{temp}°C</span>;
+    return <span className="font-mono font-extrabold text-amber-800 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/60 px-2 py-0.5 rounded border border-amber-300 dark:border-amber-700/50">{temp}°C</span>;
   }
-  return <span className="font-mono font-extrabold text-rose-800 bg-rose-100 px-2 py-0.5 rounded border border-rose-300">{temp}°C</span>;
+  return <span className="font-mono font-extrabold text-rose-800 dark:text-rose-300 bg-rose-100 dark:bg-rose-950/60 px-2 py-0.5 rounded border border-rose-300 dark:border-rose-700/50">{temp}°C</span>;
 }
 
 export default function Leaderboard({ onSelectDevice }) {
@@ -136,22 +136,22 @@ export default function Leaderboard({ onSelectDevice }) {
   }, [catalog]);
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] p-6 sm:p-8 space-y-6">
+    <div className="bg-white dark:bg-[#140C22] rounded-2xl border border-slate-200/90 dark:border-white/10 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] p-6 sm:p-8 space-y-6">
       {/* Top Header & View Mode Switch */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-white/5">
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-            <Trophy className="w-5 h-5 text-slate-800" />
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+            <Trophy className="w-5 h-5 text-slate-800 dark:text-amber-400" />
             Hardware Benchmark Leaderboard
           </h2>
         </div>
 
         <div className="flex items-center flex-wrap gap-2 self-start sm:self-auto">
           {/* Toggle Mode: Past Searches vs Complete Database with AnimatedBackground */}
-          <div className="flex items-center p-1 bg-slate-100 rounded-xl">
+          <div className="flex items-center p-1 bg-slate-100 dark:bg-[#1B1228] border border-slate-200/50 dark:border-white/10 rounded-xl">
             <AnimatedBackground
               defaultValue={activeCatalogMode}
-              className="bg-white rounded-lg shadow-2xs"
+              className="bg-white dark:bg-[#25183A] rounded-lg shadow-2xs"
               transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               onValueChange={(id) => {
                 if (id) setActiveCatalogMode(id);
@@ -162,13 +162,13 @@ export default function Leaderboard({ onSelectDevice }) {
                 type="button"
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer ${
                   activeCatalogMode === 'past_searches'
-                    ? 'text-slate-900 font-bold'
-                    : 'text-slate-500 hover:text-slate-800'
+                    ? 'text-slate-900 dark:text-white font-bold'
+                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
                 }`}
               >
                 <Flame className="w-3.5 h-3.5 text-amber-500" />
                 <span>Top Searches</span>
-                <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
+                <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 font-mono">
                   {pastSearchesCount}
                 </span>
               </button>
@@ -177,13 +177,13 @@ export default function Leaderboard({ onSelectDevice }) {
                 type="button"
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer ${
                   activeCatalogMode === 'all'
-                    ? 'text-slate-900 font-bold'
-                    : 'text-slate-500 hover:text-slate-800'
+                    ? 'text-slate-900 dark:text-white font-bold'
+                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
                 }`}
               >
-                <BookOpen className="w-3.5 h-3.5 text-slate-600" />
+                <BookOpen className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" />
                 <span>Complete Database</span>
-                <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
+                <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 font-mono">
                   {catalog.length}
                 </span>
               </button>
@@ -196,7 +196,7 @@ export default function Leaderboard({ onSelectDevice }) {
               type="button"
               onClick={clearLeaderboard}
               title="Clean all data from leaderboard"
-              className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 border border-slate-200 dark:border-white/10 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <Trash2 className="w-3.5 h-3.5" />
               <span>Clean Leaderboard</span>
@@ -206,7 +206,7 @@ export default function Leaderboard({ onSelectDevice }) {
               type="button"
               onClick={restoreDefaultCatalog}
               title="Restore default catalog"
-              className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-[#1B1228] hover:bg-slate-200 dark:hover:bg-[#25183A] border border-slate-200 dark:border-white/10 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Restore Catalog</span>
@@ -220,19 +220,19 @@ export default function Leaderboard({ onSelectDevice }) {
         {/* Row 1: Search Input & Sort Dropdown */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <div className="relative flex-1">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search phone name, chipset, or GPU architecture..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#F1F5F9] border border-slate-200 rounded-xl pl-10 pr-9 py-2.5 text-xs sm:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all shadow-2xs"
+              className="w-full bg-[#F1F5F9] dark:bg-[#1B1228] border border-slate-200 dark:border-white/10 rounded-xl pl-10 pr-9 py-2.5 text-xs sm:text-sm font-semibold text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:bg-white dark:focus:bg-[#140C22] focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all shadow-2xs"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 p-1 cursor-pointer"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 p-1 cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -241,17 +241,17 @@ export default function Leaderboard({ onSelectDevice }) {
 
           {/* Sort Dropdown */}
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Sort By:</span>
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Sort By:</span>
             <select
               value={SORT_OPTIONS.find((o) => o.key === sortKey && o.asc === sortAsc)?.label || ''}
               onChange={(e) => {
                 const opt = SORT_OPTIONS.find((o) => o.label === e.target.value);
                 if (opt) handleSortOptionSelect(opt);
               }}
-              className="bg-[#F1F5F9] border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 outline-none shadow-2xs cursor-pointer focus:border-amber-500 focus:bg-white"
+              className="bg-[#F1F5F9] dark:bg-[#1B1228] border border-slate-200 dark:border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 dark:text-slate-200 outline-none shadow-2xs cursor-pointer focus:border-amber-500 focus:bg-white dark:focus:bg-[#140C22]"
             >
               {SORT_OPTIONS.map((opt) => (
-                <option key={opt.label} value={opt.label}>
+                <option key={opt.label} value={opt.label} className="bg-white dark:bg-[#140C22] text-slate-900 dark:text-white">
                   {opt.label}
                 </option>
               ))}
@@ -262,10 +262,10 @@ export default function Leaderboard({ onSelectDevice }) {
         {/* Row 2: Platform Pills & Brand Pills with AnimatedBackground */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
           {/* Platform Pills */}
-          <div className="flex items-center p-0.5 bg-slate-100 rounded-lg">
+          <div className="flex items-center p-0.5 bg-slate-100 dark:bg-[#1B1228] border border-slate-200/50 dark:border-white/10 rounded-lg">
             <AnimatedBackground
               defaultValue={platformFilter}
-              className="bg-slate-900 rounded-md shadow-2xs"
+              className="bg-slate-900 dark:bg-amber-500 rounded-md shadow-2xs"
               transition={{ type: 'spring', stiffness: 420, damping: 30 }}
               onValueChange={(id) => {
                 if (id) setPlatformFilter(id);
@@ -280,8 +280,8 @@ export default function Leaderboard({ onSelectDevice }) {
                     type="button"
                     className={`px-3 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                       isSelected
-                        ? 'text-white'
-                        : 'text-slate-600 hover:text-slate-900'
+                        ? 'text-white dark:text-slate-950 font-bold'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                   >
                     {p.label}
@@ -292,10 +292,10 @@ export default function Leaderboard({ onSelectDevice }) {
           </div>
 
           {/* Brand Pills */}
-          <div className="flex items-center p-0.5 bg-slate-100 rounded-lg overflow-x-auto no-scrollbar">
+          <div className="flex items-center p-0.5 bg-slate-100 dark:bg-[#1B1228] border border-slate-200/50 dark:border-white/10 rounded-lg overflow-x-auto no-scrollbar">
             <AnimatedBackground
               defaultValue={brandFilter}
-              className="bg-slate-900 rounded-md shadow-2xs"
+              className="bg-slate-900 dark:bg-amber-500 rounded-md shadow-2xs"
               transition={{ type: 'spring', stiffness: 420, damping: 30 }}
               onValueChange={(id) => {
                 if (id) setBrandFilter(id);
@@ -310,8 +310,8 @@ export default function Leaderboard({ onSelectDevice }) {
                     type="button"
                     className={`px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                       isSelected
-                        ? 'text-white'
-                        : 'text-slate-600 hover:text-slate-900'
+                        ? 'text-white dark:text-slate-950 font-bold'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                   >
                     {brand === 'All' ? 'All Brands' : brand}
@@ -324,10 +324,10 @@ export default function Leaderboard({ onSelectDevice }) {
       </div>
 
       {/* Leaderboard Table with Clickable Sorting Headers */}
-      <div className="border border-slate-200/90 rounded-2xl overflow-hidden bg-white shadow-xs">
+      <div className="border border-slate-200/90 dark:border-white/10 rounded-2xl overflow-hidden bg-white dark:bg-[#140C22] shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-[#F1F5F9] border-b border-slate-200/90 text-slate-500 font-extrabold uppercase text-[11px] tracking-wider select-none">
+            <thead className="bg-[#F1F5F9] dark:bg-[#170F26] border-b border-slate-200/90 dark:border-white/10 text-slate-500 dark:text-slate-400 font-extrabold uppercase text-[11px] tracking-wider select-none">
               <tr>
                 <th className="py-3.5 px-4 w-16 text-center">Rank</th>
                 <th
@@ -400,17 +400,17 @@ export default function Leaderboard({ onSelectDevice }) {
               </tr>
             </thead>
 
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-white/5">
               {filteredDevices.length === 0 ? (
                 <tr>
                   <td colSpan={8} className="py-16 text-center">
-                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-3">
-                      <Sparkles className="w-5 h-5 text-slate-400" />
+                    <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-[#1B1228] flex items-center justify-center mx-auto mb-3">
+                      <Sparkles className="w-5 h-5 text-slate-400 dark:text-slate-500" />
                     </div>
-                    <p className="text-slate-800 font-extrabold text-sm">
+                    <p className="text-slate-800 dark:text-white font-extrabold text-sm">
                       {catalog.length === 0 ? 'Leaderboard is Clean & Empty' : 'No smartphones match the current filters or search query.'}
                     </p>
-                    <p className="text-slate-500 text-xs font-medium mt-1 max-w-md mx-auto">
+                    <p className="text-slate-500 dark:text-slate-400 text-xs font-medium mt-1 max-w-md mx-auto">
                       {catalog.length === 0
                         ? 'All database and cached benchmark records have been cleared. Run an analysis on the Hardware Telemetry tab to benchmark devices and populate the leaderboard.'
                         : 'Try clearing your search term, resetting brand filters, or switching to the Full Phone Database.'}
@@ -419,7 +419,7 @@ export default function Leaderboard({ onSelectDevice }) {
                       <button
                         type="button"
                         onClick={restoreDefaultCatalog}
-                        className="mt-4 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-white hover:bg-slate-800 transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-2xs"
+                        className="mt-4 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-amber-400 transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-2xs"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                         <span>Restore Default Benchmarks</span>
@@ -434,7 +434,7 @@ export default function Leaderboard({ onSelectDevice }) {
                     <tr
                       key={device.id}
                       onClick={() => onSelectDevice(device.id)}
-                      className="hover:bg-amber-50/40 transition-colors cursor-pointer group"
+                      className="hover:bg-amber-50/40 dark:hover:bg-white/[0.04] transition-colors cursor-pointer group"
                     >
                       {/* Rank Column */}
                       <td className="py-3 px-4 text-center">
@@ -443,10 +443,10 @@ export default function Leaderboard({ onSelectDevice }) {
                             rank === 1
                               ? 'bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white shadow-2xs'
                               : rank === 2
-                              ? 'bg-slate-200 text-slate-900'
+                              ? 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-200'
                               : rank === 3
-                              ? 'bg-amber-100 text-amber-900'
-                              : 'bg-slate-100 text-slate-600'
+                              ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-300'
+                              : 'bg-slate-100 dark:bg-[#1B1228] text-slate-600 dark:text-slate-400'
                           }`}
                         >
                           {rank}
@@ -456,7 +456,7 @@ export default function Leaderboard({ onSelectDevice }) {
                       {/* Smartphone Model & Image Thumbnail */}
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-100 border border-slate-200/90 flex-shrink-0 flex items-center justify-center shadow-2xs">
+                          <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-100 dark:bg-[#1B1228] border border-slate-200/90 dark:border-white/10 flex-shrink-0 flex items-center justify-center shadow-2xs">
                             <DeviceThumbnail
                               src={device.image_url}
                               alt={device.device_name}
@@ -466,16 +466,16 @@ export default function Leaderboard({ onSelectDevice }) {
                           </div>
                           <div className="min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className="font-extrabold text-slate-900 group-hover:text-[#D97706] transition-colors truncate">
+                              <span className="font-extrabold text-slate-900 dark:text-white group-hover:text-[#D97706] dark:group-hover:text-amber-400 transition-colors truncate">
                                 {device.device_name}
                               </span>
                               {device.is_past_search && (
-                                <span className="text-[10px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-1.5 py-0.2 rounded flex-shrink-0">
+                                <span className="text-[10px] font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-700/50 px-1.5 py-0.2 rounded flex-shrink-0">
                                   Synced Run
                                 </span>
                               )}
                             </div>
-                            <span className="text-xs text-slate-500 block truncate font-medium">
+                            <span className="text-xs text-slate-500 dark:text-slate-400 block truncate font-medium">
                               {device.soc_chipset}
                             </span>
                           </div>
@@ -485,25 +485,25 @@ export default function Leaderboard({ onSelectDevice }) {
                       {/* PulseThrottle Index */}
                       <td className="py-3 px-4">
                         <div className="flex items-baseline gap-1">
-                          <span className="font-mono font-extrabold text-sm sm:text-base text-slate-900 tabular-nums">
+                          <span className="font-mono font-extrabold text-sm sm:text-base text-slate-900 dark:text-white tabular-nums">
                             {device.pulse_throttle_index}
                           </span>
-                          <span className="text-[10px] font-bold text-slate-400">/100</span>
+                          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">/100</span>
                         </div>
                       </td>
 
                       {/* AnTuTu v10 */}
-                      <td className="py-3 px-4 font-mono font-bold text-slate-800 tabular-nums hidden md:table-cell">
+                      <td className="py-3 px-4 font-mono font-bold text-slate-800 dark:text-slate-200 tabular-nums hidden md:table-cell">
                         {device.antutu_v10_score ? device.antutu_v10_score.toLocaleString() : 'N/A'}
                       </td>
 
                       {/* Geekbench 6 Multi */}
-                      <td className="py-3 px-4 font-mono font-bold text-slate-800 tabular-nums hidden lg:table-cell">
+                      <td className="py-3 px-4 font-mono font-bold text-slate-800 dark:text-slate-200 tabular-nums hidden lg:table-cell">
                         {device.geekbench_6_multi ? device.geekbench_6_multi.toLocaleString() : 'N/A'}
                       </td>
 
                       {/* 3DMark Stability */}
-                      <td className="py-3 px-4 font-mono font-bold text-slate-800 tabular-nums hidden sm:table-cell">
+                      <td className="py-3 px-4 font-mono font-bold text-slate-800 dark:text-slate-200 tabular-nums hidden sm:table-cell">
                         {device.wildlife_stability_pct ? `${device.wildlife_stability_pct}%` : 'N/A'}
                       </td>
 
@@ -516,7 +516,7 @@ export default function Leaderboard({ onSelectDevice }) {
                       <td className="py-3 px-4 text-right">
                         <button
                           type="button"
-                          className="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#F1F5F9] text-slate-700 border border-slate-200 group-hover:bg-gradient-to-r group-hover:from-[#F59E0B] group-hover:to-[#D97706] group-hover:text-white group-hover:border-transparent transition-all shadow-2xs cursor-pointer"
+                          className="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#F1F5F9] dark:bg-[#1B1228] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 group-hover:bg-gradient-to-r group-hover:from-[#F59E0B] group-hover:to-[#D97706] group-hover:text-white group-hover:border-transparent transition-all shadow-2xs cursor-pointer"
                         >
                           Compare →
                         </button>

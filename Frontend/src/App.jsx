@@ -22,6 +22,31 @@ export default function App() {
   const [pwmFilter, setPwmFilter] = useState(0);
   const [analysisRun, setAnalysisRun] = useState(0);
 
+  // Optimized Dark Theme Persistence
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('pulsethrottle_theme');
+      if (saved) return saved === 'dark';
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add('dark');
+      localStorage.setItem('pulsethrottle_theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('pulsethrottle_theme', 'light');
+    }
+  }, [isDark]);
+
+  const toggleTheme = useCallback(() => {
+    setIsDark((prev) => !prev);
+  }, []);
+
   // Sync with FastAPI local bridge on mount
   useEffect(() => {
     syncCatalogWithBackend();
@@ -76,9 +101,14 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen bg-[#EAF0F6] text-slate-900 relative selection:bg-amber-500/25 selection:text-slate-900">
+    <div className="min-h-screen bg-[#EAF0F6] dark:bg-[#0B0612] text-slate-900 dark:text-slate-100 relative selection:bg-amber-500/25 selection:text-slate-900 dark:selection:text-slate-100 transition-colors duration-250">
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+        <Navbar
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          isDark={isDark}
+          toggleTheme={toggleTheme}
+        />
 
         <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-7 flex-1 w-full">
           <AnimatePresence mode="wait">
@@ -99,15 +129,15 @@ export default function App() {
                   className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2"
                 >
                   <div>
-                    <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                      Pulse<span className="text-[#D97706]">Throttle</span>
+                    <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                      Pulse<span className="text-[#D97706] dark:text-[#F59E0B]">Throttle</span>
                     </h1>
-                    <p className="text-slate-500 text-xs sm:text-sm mt-0.5 font-normal">
+                    <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-0.5 font-normal">
                       Deterministic hardware telemetry & sustained gaming benchmark analysis.
                     </p>
                   </div>
 
-                  <div className="hidden sm:block text-xs font-mono text-slate-400">
+                  <div className="hidden sm:block text-xs font-mono text-slate-400 dark:text-slate-500">
                     <span>Hardware Telemetry Lab • 2026 Physics Calibrated</span>
                   </div>
                 </motion.div>
@@ -144,11 +174,11 @@ export default function App() {
 
                 {/* Filter Recovery Card */}
                 {((deviceA && !deviceAVisible) || (isDualMode && deviceB && !deviceBVisible)) && (
-                  <div className="bg-white border border-slate-200/90 rounded-2xl p-8 flex flex-col items-center justify-center text-center shadow-2xs space-y-3">
-                    <p className="text-slate-900 text-sm font-bold">
+                  <div className="bg-white dark:bg-[#140C22] border border-slate-200/90 dark:border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center text-center shadow-2xs space-y-3">
+                    <p className="text-slate-900 dark:text-white text-sm font-bold">
                       {(!deviceAVisible ? deviceA?.device_name : deviceB?.device_name)} is hidden by active hardware filters
                     </p>
-                    <p className="text-slate-500 text-xs max-w-md font-normal">
+                    <p className="text-slate-500 dark:text-slate-400 text-xs max-w-md font-normal">
                       Relax your storage tier, thermal ceiling, or PWM dimming filter in Advanced Hardware Filters above to view this device.
                     </p>
                     <button
@@ -158,7 +188,7 @@ export default function App() {
                         setMaxTemp(48);
                         setPwmFilter(0);
                       }}
-                      className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 transition-colors cursor-pointer"
+                      className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-amber-400 transition-colors cursor-pointer"
                     >
                       Reset Filters
                     </button>
@@ -181,13 +211,13 @@ export default function App() {
           </AnimatePresence>
         </main>
 
-        {/* High-Contrast Ice Lab Footer */}
-        <footer className="border-t border-slate-200/90 bg-white/80 backdrop-blur-sm mt-14">
-          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-700">
-            <p className="text-xs font-mono font-bold text-slate-800">
+        {/* High-Contrast Lab Footer */}
+        <footer className="border-t border-slate-200/90 dark:border-white/10 bg-white/80 dark:bg-[#0E0717]/80 backdrop-blur-sm mt-14">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-700 dark:text-slate-300">
+            <p className="text-xs font-mono font-bold text-slate-800 dark:text-slate-200">
               © PulseThrottle — Hardware Telemetry Lab Engine
             </p>
-            <p className="text-[11px] font-mono font-medium text-slate-500">
+            <p className="text-[11px] font-mono font-medium text-slate-500 dark:text-slate-400">
               Deterministic Silicon Calibration • Grounded Hardware Generation Physics
             </p>
           </div>

@@ -201,12 +201,12 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
             setTimeout(() => inputRef.current?.focus(), 80);
           }
         }}
-        className={`w-full bg-white border ${
-          isOpen ? 'border-slate-800 ring-2 ring-slate-800/10' : 'border-slate-200/90'
-        } hover:border-slate-300 px-3.5 py-2.5 flex items-center justify-between gap-3 rounded-xl transition-all shadow-2xs text-left cursor-pointer`}
+        className={`w-full bg-white dark:bg-[#1B1228] border ${
+          isOpen ? 'border-slate-800 dark:border-amber-500/70 ring-2 ring-slate-800/10 dark:ring-amber-500/20' : 'border-slate-200/90 dark:border-white/10'
+        } hover:border-slate-300 dark:hover:border-white/20 px-3.5 py-2.5 flex items-center justify-between gap-3 rounded-xl transition-all shadow-2xs text-left cursor-pointer`}
       >
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-9 h-9 rounded-lg overflow-hidden bg-slate-100 border border-slate-200/80 flex-shrink-0 flex items-center justify-center">
+          <div className="w-9 h-9 rounded-lg overflow-hidden bg-slate-100 dark:bg-[#140C22] border border-slate-200/80 dark:border-white/10 flex-shrink-0 flex items-center justify-center">
             <DeviceThumbnail
               src={selectedDevice?.image_url}
               alt={selectedDevice?.device_name || 'Smartphone'}
@@ -217,24 +217,24 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
 
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
-              <span className="font-bold text-sm text-slate-900 truncate">
+              <span className="font-bold text-sm text-slate-900 dark:text-white truncate">
                 {selectedDevice ? selectedDevice.device_name : 'Select phone...'}
               </span>
               {selectedDevice?.release_year && (
-                <span className="text-[10px] text-slate-400 font-mono">
+                <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono">
                   ({selectedDevice.release_year})
                 </span>
               )}
             </div>
-            <p className="text-xs text-slate-500 font-normal truncate">
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-normal truncate">
               {selectedDevice ? selectedDevice.soc_chipset : 'Search catalog...'}
             </p>
           </div>
         </div>
 
         <ChevronDown
-          className={`w-4 h-4 text-slate-400 transition-transform flex-shrink-0 ${
-            isOpen ? 'rotate-180 text-slate-800' : ''
+          className={`w-4 h-4 text-slate-400 dark:text-slate-500 transition-transform flex-shrink-0 ${
+            isOpen ? 'rotate-180 text-slate-800 dark:text-slate-200' : ''
           }`}
         />
       </button>
@@ -247,14 +247,14 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.12 }}
-            className="absolute z-50 mt-1.5 w-full bg-white border border-slate-200/90 shadow-[0_12px_32px_rgba(15,23,42,0.12)] rounded-xl overflow-hidden flex flex-col"
+            className="absolute z-50 mt-1.5 w-full bg-white dark:bg-[#140C22] border border-slate-200/90 dark:border-white/10 shadow-[0_12px_32px_rgba(15,23,42,0.12)] dark:shadow-[0_16px_36px_rgba(0,0,0,0.6)] rounded-xl overflow-hidden flex flex-col"
           >
             {/* Search Input Box */}
-            <div className="p-2.5 border-b border-slate-100 bg-slate-50 flex items-center gap-2">
+            <div className="p-2.5 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-[#1B1228]/80 flex items-center gap-2">
               {isSearchingApi ? (
-                <Loader2 className="w-3.5 h-3.5 text-slate-600 animate-spin flex-shrink-0" />
+                <Loader2 className="w-3.5 h-3.5 text-slate-600 dark:text-amber-400 animate-spin flex-shrink-0" />
               ) : (
-                <Search className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+                <Search className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 flex-shrink-0" />
               )}
               <input
                 ref={inputRef}
@@ -262,13 +262,13 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
                 placeholder="Search phone name (e.g. iPhone 16, S24, iQOO)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-transparent text-xs text-slate-900 placeholder-slate-400 outline-none font-medium"
+                className="w-full bg-transparent text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none font-medium"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="text-slate-400 hover:text-slate-700 p-0.5"
+                  className="text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 p-0.5"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -276,7 +276,7 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
             </div>
 
             {/* Brand Filter Pills */}
-            <div className="px-2.5 py-1.5 border-b border-slate-100 bg-white flex items-center gap-1 overflow-x-auto no-scrollbar">
+            <div className="px-2.5 py-1.5 border-b border-slate-100 dark:border-white/5 bg-white dark:bg-[#140C22] flex items-center gap-1 overflow-x-auto no-scrollbar">
               {BRANDS.map((brand) => {
                 const isSelected = selectedBrand === brand;
                 return (
@@ -286,8 +286,8 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
                     onClick={() => setSelectedBrand(brand)}
                     className={`px-2 py-0.5 rounded text-[11px] font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                       isSelected
-                        ? 'bg-slate-900 text-white'
-                        : 'text-slate-600 hover:bg-slate-100'
+                        ? 'bg-slate-900 text-white dark:bg-amber-500 dark:text-slate-950 font-bold'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/[0.08]'
                     }`}
                   >
                     {brand === 'All' ? 'All' : brand}
@@ -298,34 +298,34 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
 
             {/* Live Extraction Card */}
             {canExtractLive && (
-              <div className="p-2 border-b border-slate-100 bg-slate-50">
+              <div className="p-2 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-[#1B1228]">
                 <button
                   type="button"
                   onClick={handleExtractLive}
                   disabled={isExtractingLive}
-                  className="w-full p-2 text-left rounded-lg bg-white border border-slate-200 hover:border-slate-300 flex items-center justify-between gap-2.5 transition-all cursor-pointer"
+                  className="w-full p-2 text-left rounded-lg bg-white dark:bg-[#140C22] border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 flex items-center justify-between gap-2.5 transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2 min-w-0">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+                    <Sparkles className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 flex-shrink-0" />
                     <div className="min-w-0">
                       {isExtractingLive ? (
                         <TextShimmer className="text-xs font-semibold">
                           {`Fetching telemetry for "${searchQuery.trim()}"...`}
                         </TextShimmer>
                       ) : (
-                        <p className="text-xs font-semibold text-slate-900 truncate">
+                        <p className="text-xs font-semibold text-slate-900 dark:text-white truncate">
                           Fetch telemetry for "{searchQuery.trim()}"
                         </p>
                       )}
-                      <p className="text-[10px] text-slate-500 font-normal">
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400 font-normal">
                         Queries GSMArena + benchmarks
                       </p>
                     </div>
                   </div>
                   {isExtractingLive ? (
-                    <Loader2 className="w-3.5 h-3.5 text-slate-500 animate-spin" />
+                    <Loader2 className="w-3.5 h-3.5 text-slate-500 dark:text-amber-400 animate-spin" />
                   ) : (
-                    <PlusCircle className="w-3.5 h-3.5 text-slate-400" />
+                    <PlusCircle className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                   )}
                 </button>
               </div>
@@ -334,10 +334,10 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
             {/* Device List Viewport */}
             <div
               ref={listContainerRef}
-              className="h-[216px] max-h-[216px] overflow-y-auto divide-y divide-slate-100 p-1 bg-white"
+              className="h-[216px] max-h-[216px] overflow-y-auto divide-y divide-slate-100 dark:divide-white/5 p-1 bg-white dark:bg-[#140C22]"
             >
               {displayDevices.length === 0 && !canExtractLive && (
-                <div className="h-full flex items-center justify-center p-4 text-center text-slate-400 text-xs">
+                <div className="h-full flex items-center justify-center p-4 text-center text-slate-400 dark:text-slate-500 text-xs">
                   No matching models. Type name to extract.
                 </div>
               )}
@@ -353,14 +353,14 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
                     onClick={() => handleDeviceSelect(device)}
                     className={`w-full p-2 rounded-lg flex items-center justify-between gap-3 text-left transition-colors cursor-pointer ${
                       isSelected
-                        ? 'bg-slate-100'
+                        ? 'bg-slate-100 dark:bg-white/10'
                         : isOther
                         ? 'opacity-40 hover:opacity-100'
-                        : 'hover:bg-slate-50'
+                        : 'hover:bg-slate-50 dark:hover:bg-white/[0.04]'
                     }`}
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-100 border border-slate-200/80 flex-shrink-0 flex items-center justify-center p-0.5">
+                      <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-100 dark:bg-[#1B1228] border border-slate-200/80 dark:border-white/10 flex-shrink-0 flex items-center justify-center p-0.5">
                         <DeviceThumbnail
                           src={device.image_url}
                           alt={device.device_name}
@@ -370,22 +370,22 @@ function SearchableDeviceSelector({ label, selectedDevice, onSelect, otherSelect
                       </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <span className="font-semibold text-xs text-slate-900 truncate">
+                          <span className="font-semibold text-xs text-slate-900 dark:text-white truncate">
                             {device.device_name}
                           </span>
                           {device.release_year && (
-                            <span className="text-[10px] text-slate-400 font-mono">
+                            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono">
                               ({device.release_year})
                             </span>
                           )}
                         </div>
-                        <p className="text-[11px] text-slate-500 font-normal truncate">
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 font-normal truncate">
                           {device.soc_chipset}
                         </p>
                       </div>
                     </div>
 
-                    <span className="text-xs font-mono font-bold text-slate-900 tabular-nums">
+                    <span className="text-xs font-mono font-bold text-slate-900 dark:text-amber-400 tabular-nums">
                       {device.pulse_throttle_index}
                     </span>
                   </button>
@@ -439,20 +439,20 @@ export default function ControlPanel({
   }, [storageTier, maxTemp, pwmFilter]);
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] p-6 sm:p-7 space-y-5">
+    <div className="bg-white dark:bg-[#140C22] rounded-2xl border border-slate-200/90 dark:border-white/10 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] p-6 sm:p-7 space-y-5">
       {/* 1. Top Bar: Header & Minimal Mode Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-white/5">
         <div>
-          <h2 className="text-base font-bold text-slate-900 tracking-tight">
+          <h2 className="text-base font-bold text-slate-900 dark:text-white tracking-tight">
             Telemetry Target & Workload Setup
           </h2>
         </div>
 
         {/* Minimal Mode Toggle with AnimatedBackground */}
-        <div className="flex items-center p-1 bg-slate-100 rounded-xl self-start sm:self-auto">
+        <div className="flex items-center p-1 bg-slate-100 dark:bg-[#1B1228] border border-slate-200/50 dark:border-white/10 rounded-xl self-start sm:self-auto">
           <AnimatedBackground
             defaultValue={isDualMode ? 'compare' : 'single'}
-            className="bg-white rounded-lg shadow-2xs"
+            className="bg-white dark:bg-[#25183A] rounded-lg shadow-2xs"
             transition={{ type: 'spring', stiffness: 420, damping: 30 }}
             onValueChange={(id) => {
               if (id) setIsDualMode(id === 'compare');
@@ -463,8 +463,8 @@ export default function ControlPanel({
               type="button"
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
                 isDualMode
-                  ? 'text-slate-900 font-bold'
-                  : 'text-slate-500 hover:text-slate-800'
+                  ? 'text-slate-900 dark:text-white font-bold'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
               }`}
             >
               Head-to-Head Compare
@@ -474,8 +474,8 @@ export default function ControlPanel({
               type="button"
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
                 !isDualMode
-                  ? 'text-slate-900 font-bold'
-                  : 'text-slate-500 hover:text-slate-800'
+                  ? 'text-slate-900 dark:text-white font-bold'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
               }`}
             >
               Single Device
@@ -499,7 +499,7 @@ export default function ControlPanel({
             <button
               type="button"
               onClick={handleSwap}
-              className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 text-slate-600 hover:text-slate-900 transition-colors shadow-2xs cursor-pointer active:scale-95 duration-150"
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-[#1B1228] hover:bg-slate-200 dark:hover:bg-[#25183A] border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors shadow-2xs cursor-pointer active:scale-95 duration-150"
               title="Swap Device A and Device B"
             >
               <ArrowLeftRight className="w-4 h-4" />
@@ -520,13 +520,13 @@ export default function ControlPanel({
 
       {/* 3. Compact Segment Control with AnimatedBackground: Gaming Workload Target */}
       <div className="space-y-1.5">
-        <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+        <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
           Gaming Workload Target
         </label>
-        <div className="flex items-center p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar">
+        <div className="flex items-center p-1 bg-slate-100 dark:bg-[#1B1228] border border-slate-200/50 dark:border-white/10 rounded-xl overflow-x-auto no-scrollbar">
           <AnimatedBackground
             defaultValue={selectedGame}
-            className="bg-white rounded-lg shadow-2xs"
+            className="bg-white dark:bg-[#25183A] rounded-lg shadow-2xs"
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
             onValueChange={(id) => {
               if (id) setSelectedGame(id);
@@ -541,12 +541,12 @@ export default function ControlPanel({
                   type="button"
                   className={`flex-1 min-w-[140px] px-3 py-2 rounded-lg text-xs transition-colors text-center cursor-pointer ${
                     isSelected
-                      ? 'text-slate-900 font-bold'
-                      : 'text-slate-500 hover:text-slate-800 font-medium'
+                      ? 'text-slate-900 dark:text-white font-bold'
+                      : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white font-medium'
                   }`}
                 >
                   <span>{game.label}</span>
-                  <span className="ml-1 text-[10px] text-slate-400 font-normal">({game.tag})</span>
+                  <span className="ml-1 text-[10px] text-slate-400 dark:text-slate-500 font-normal">({game.tag})</span>
                 </button>
               );
             })}
@@ -555,24 +555,24 @@ export default function ControlPanel({
       </div>
 
       {/* 4. Collapsible Advanced Hardware Filters */}
-      <div className="border-t border-slate-100 pt-3">
+      <div className="border-t border-slate-100 dark:border-white/5 pt-3">
         <button
           type="button"
           onClick={() => setShowFilters(!showFilters)}
-          className="flex items-center justify-between w-full text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors py-1 cursor-pointer"
+          className="flex items-center justify-between w-full text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors py-1 cursor-pointer"
         >
           <div className="flex items-center gap-2">
-            <SlidersHorizontal className="w-3.5 h-3.5 text-slate-400" />
+            <SlidersHorizontal className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
             <span>Advanced Hardware Filters</span>
             {activeFilterCount > 0 && (
-              <span className="px-2 py-0.2 rounded-full text-[10px] bg-amber-50 text-amber-700 font-bold border border-amber-200/80">
+              <span className="px-2 py-0.2 rounded-full text-[10px] bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 font-bold border border-amber-200/80 dark:border-amber-700/40">
                 {activeFilterCount} active
               </span>
             )}
           </div>
           <ChevronDown
-            className={`w-3.5 h-3.5 text-slate-400 transition-transform ${
-              showFilters ? 'rotate-180 text-slate-800' : ''
+            className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform ${
+              showFilters ? 'rotate-180 text-slate-800 dark:text-slate-200' : ''
             }`}
           />
         </button>
@@ -586,16 +586,16 @@ export default function ControlPanel({
               transition={{ duration: 0.18 }}
               className="overflow-hidden"
             >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 mt-2 border-t border-slate-100">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 mt-2 border-t border-slate-100 dark:border-white/5">
                 {/* Storage Speed Tier */}
                 <div className="space-y-1.5">
-                  <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                    <HardDrive className="w-3.5 h-3.5 text-slate-400" /> Minimum Storage Speed
+                  <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <HardDrive className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" /> Minimum Storage Speed
                   </label>
-                  <div className="flex items-center p-0.5 bg-slate-100 rounded-lg overflow-x-auto no-scrollbar">
+                  <div className="flex items-center p-0.5 bg-slate-100 dark:bg-[#1B1228] border border-slate-200/50 dark:border-white/10 rounded-lg overflow-x-auto no-scrollbar">
                     <AnimatedBackground
                       defaultValue={storageTier}
-                      className="bg-slate-900 rounded-md shadow-2xs"
+                      className="bg-slate-900 dark:bg-amber-500 rounded-md shadow-2xs"
                       transition={{ type: 'spring', stiffness: 450, damping: 30 }}
                       onValueChange={(id) => {
                         if (id) setStorageTier(id);
@@ -608,8 +608,8 @@ export default function ControlPanel({
                           type="button"
                           className={`px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                             storageTier === tier
-                              ? 'text-white'
-                              : 'text-slate-600 hover:text-slate-900'
+                              ? 'text-white dark:text-slate-950 font-bold'
+                              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                           }`}
                         >
                           {tier}
@@ -622,10 +622,10 @@ export default function ControlPanel({
                 {/* Thermal Throttling Ceiling */}
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between text-xs">
-                    <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                      <Thermometer className="w-3.5 h-3.5 text-slate-400" /> Thermal Throttling Ceiling
+                    <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <Thermometer className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" /> Thermal Throttling Ceiling
                     </label>
-                    <span className="font-mono font-bold text-slate-800 tabular-nums text-xs">
+                    <span className="font-mono font-bold text-slate-800 dark:text-white tabular-nums text-xs">
                       {maxTemp >= 48 ? 'No Limit' : `≤ ${maxTemp}°C`}
                     </span>
                   </div>
@@ -636,14 +636,14 @@ export default function ControlPanel({
                     step={0.5}
                     value={maxTemp}
                     onChange={(e) => setMaxTemp(parseFloat(e.target.value))}
-                    className="w-full accent-slate-800 cursor-pointer"
+                    className="w-full accent-slate-800 dark:accent-amber-500 cursor-pointer"
                   />
                 </div>
 
                 {/* Eye Safety (PWM Dimming) */}
                 <div className="space-y-1.5">
-                  <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                    <Eye className="w-3.5 h-3.5 text-slate-400" /> Display Flicker Safety (PWM)
+                  <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <Eye className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" /> Display Flicker Safety (PWM)
                   </label>
                   <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
                     {PWM_FILTERS.map((f) => (
@@ -653,8 +653,8 @@ export default function ControlPanel({
                         onClick={() => setPwmFilter(f.minHz)}
                         className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                           pwmFilter === f.minHz
-                            ? 'bg-slate-900 text-white'
-                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                            ? 'bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 font-bold'
+                            : 'bg-slate-100 dark:bg-[#1B1228] text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-[#25183A] border border-slate-200/50 dark:border-white/10'
                         }`}
                       >
                         {f.label}

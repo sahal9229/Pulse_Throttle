@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { Zap, BarChart3, Trophy, Github } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Zap, BarChart3, Trophy, Github, Sun, Moon } from 'lucide-react';
 import { AnimatedBackground } from './motion/index.js';
 
 const navItems = [
@@ -7,7 +7,7 @@ const navItems = [
   { id: 'leaderboard', label: 'Database & Leaderboard', icon: Trophy },
 ];
 
-export default function Navbar({ activeTab, setActiveTab }) {
+export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme }) {
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -81,13 +81,49 @@ export default function Navbar({ activeTab, setActiveTab }) {
           </div>
 
           {/* Right Status / Links */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <div className="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/12">
               <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
               <span className="text-emerald-400 text-xs font-mono font-bold tracking-tight">
                 ● Lab Engine Active
               </span>
             </div>
+
+            {/* Dark / Light Mode Switch */}
+            <motion.button
+              type="button"
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="p-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.16] border border-white/10 text-amber-400 hover:text-amber-300 transition-colors cursor-pointer relative"
+              title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {isDark ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ rotate: -90, opacity: 0, scale: 0.7 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.7 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Sun className="w-4 h-4 text-amber-400" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ rotate: 90, opacity: 0, scale: 0.7 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: -90, opacity: 0, scale: 0.7 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Moon className="w-4 h-4 text-amber-300" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
             <motion.a
               href="https://github.com"
               target="_blank"

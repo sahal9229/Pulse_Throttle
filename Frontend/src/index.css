@@ -16,12 +16,22 @@
     color-scheme: light;
   }
 
+  html.dark {
+    color-scheme: dark;
+  }
+
   body {
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     background-color: #EAF0F6; /* Impeccable Cool Ice Silver Base */
     color: #0F172A; /* text-slate-900 */
     min-height: 100vh;
     overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  html.dark body {
+    background-color: #0B0612; /* Deep Obsidian Purple-Black matching Navbar */
+    color: #F8FAFC;
   }
 
   /* Accessible High-Contrast Focus Ring */
@@ -45,13 +55,25 @@
     background: #EAF0F6;
   }
 
+  html.dark ::-webkit-scrollbar-track {
+    background: #0B0612;
+  }
+
   ::-webkit-scrollbar-thumb {
     background: #CBD5E1;
     border-radius: 4px;
   }
 
+  html.dark ::-webkit-scrollbar-thumb {
+    background: #25163C;
+  }
+
   ::-webkit-scrollbar-thumb:hover {
     background: #94A3B8;
+  }
+
+  html.dark ::-webkit-scrollbar-thumb:hover {
+    background: #3D2460;
   }
 }
 
@@ -62,6 +84,13 @@
     border: 1px solid rgba(226, 232, 240, 0.9);
     box-shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.06), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
     border-radius: 1rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+
+  html.dark .tactile-card {
+    background-color: #140C22;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.45), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
   }
 
   .tactile-card-sm {
@@ -69,6 +98,13 @@
     border: 1px solid rgba(226, 232, 240, 0.9);
     box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
     border-radius: 0.75rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+
+  html.dark .tactile-card-sm {
+    background-color: #140C22;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.4);
   }
 
   /* Recessed Wells (Inputs, Search, Filter Bars) */
@@ -76,12 +112,24 @@
     background-color: #F1F5F9;
     border: 1px solid #E2E8F0;
     border-radius: 0.75rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+
+  html.dark .tactile-well {
+    background-color: #1B1228;
+    border-color: rgba(255, 255, 255, 0.08);
   }
 
   .tactile-well-sm {
     background-color: #F1F5F9;
     border: 1px solid #E2E8F0;
     border-radius: 0.5rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+
+  html.dark .tactile-well-sm {
+    background-color: #1B1228;
+    border-color: rgba(255, 255, 255, 0.08);
   }
 
   /* Solid Crisp Action Buttons */
@@ -93,11 +141,24 @@
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  html.dark .tactile-btn {
+    background-color: #1B1228;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #F8FAFC;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
   .tactile-btn:hover {
     background-color: #F8FAFC;
     border-color: #CBD5E1;
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
     transform: translateY(-1px);
+  }
+
+  html.dark .tactile-btn:hover {
+    background-color: #231438;
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
   }
 
   .tactile-btn:active,
