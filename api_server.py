@@ -72,40 +72,19 @@ app.add_middleware(
 
 SYNC_INTERVAL_SECONDS = 12 * 3600  # 12 Hours
 
-# Seed catalog so typing "iphone", "xs", "samsung", "moto", "iqoo", "poco" works at 0ms
-MASTER_SEED_CATALOG: List[Dict[str, Any]] = [
-    # Apple (iOS)
-    {"id": "iphone_16_pro_max", "name": "iPhone 16 Pro Max", "brand": "Apple", "os": "iOS", "soc": "Apple A18 Pro (3nm TSMC)", "gpuStorage": "Apple 6-core GPU, NVMe", "antutu": 1780000, "gbSingle": 3400, "gbMulti": 8500, "stability": 82.5, "temp": 43.8, "pwm": "480Hz", "score": 92.4, "tss": 74.0, "fpe": 98.5, "compute": 98.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg"},
-    {"id": "iphone_16_pro", "name": "iPhone 16 Pro", "brand": "Apple", "os": "iOS", "soc": "Apple A18 Pro (3nm TSMC)", "gpuStorage": "Apple 6-core GPU, NVMe", "antutu": 1720000, "gbSingle": 3380, "gbMulti": 8400, "stability": 80.0, "temp": 44.2, "pwm": "480Hz", "score": 90.8, "tss": 71.2, "fpe": 97.5, "compute": 97.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro.jpg"},
-    {"id": "iphone_15_pro_max", "name": "iPhone 15 Pro Max", "brand": "Apple", "os": "iOS", "soc": "Apple A17 Pro (3nm TSMC)", "gpuStorage": "Apple 6-core GPU, NVMe", "antutu": 1540000, "gbSingle": 2950, "gbMulti": 7250, "stability": 74.5, "temp": 45.4, "pwm": "480Hz", "score": 86.2, "tss": 63.0, "fpe": 94.0, "compute": 94.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg"},
-    {"id": "iphone_15", "name": "iPhone 15", "brand": "Apple", "os": "iOS", "soc": "Apple A16 Bionic (4nm TSMC)", "gpuStorage": "Apple 5-core GPU, NVMe", "antutu": 1350000, "gbSingle": 2600, "gbMulti": 6500, "stability": 78.0, "temp": 43.5, "pwm": "480Hz", "score": 82.0, "tss": 71.0, "fpe": 88.0, "compute": 88.5, "storageScore": 95, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg"},
-    {"id": "iphone_14_pro_max", "name": "iPhone 14 Pro Max", "brand": "Apple", "os": "iOS", "soc": "Apple A16 Bionic (4nm TSMC)", "gpuStorage": "Apple 5-core GPU, NVMe", "antutu": 1420000, "gbSingle": 2640, "gbMulti": 6750, "stability": 81.0, "temp": 43.2, "pwm": "480Hz", "score": 87.1, "tss": 75.0, "fpe": 95.0, "compute": 90.0, "storageScore": 95, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro-max-.jpg"},
-    {"id": "iphone_13_pro_max", "name": "iPhone 13 Pro Max", "brand": "Apple", "os": "iOS", "soc": "Apple A15 Bionic (5nm TSMC)", "gpuStorage": "Apple 5-core GPU, NVMe", "antutu": 1250000, "gbSingle": 2380, "gbMulti": 5950, "stability": 86.5, "temp": 41.8, "pwm": "480Hz", "score": 86.8, "tss": 82.5, "fpe": 95.5, "compute": 84.0, "storageScore": 90, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg"},
-    {"id": "iphone_13", "name": "iPhone 13", "brand": "Apple", "os": "iOS", "soc": "Apple A15 Bionic (5nm TSMC)", "gpuStorage": "Apple 4-core GPU, NVMe", "antutu": 1120000, "gbSingle": 2290, "gbMulti": 5500, "stability": 79.0, "temp": 42.9, "pwm": "610Hz", "score": 78.5, "tss": 74.0, "fpe": 86.0, "compute": 79.0, "storageScore": 85, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg"},
-    {"id": "iphone_12", "name": "iPhone 12", "brand": "Apple", "os": "iOS", "soc": "Apple A14 Bionic (5nm TSMC)", "gpuStorage": "Apple 4-core GPU, NVMe", "antutu": 920000, "gbSingle": 2050, "gbMulti": 4750, "stability": 72.0, "temp": 44.1, "pwm": "480Hz", "score": 71.4, "tss": 66.0, "fpe": 80.0, "compute": 68.0, "storageScore": 80, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg"},
-    {"id": "iphone_11", "name": "iPhone 11", "brand": "Apple", "os": "iOS", "soc": "Apple A13 Bionic (7nm+ TSMC)", "gpuStorage": "Apple 4-core GPU, NVMe", "antutu": 795000, "gbSingle": 1720, "gbMulti": 3950, "stability": 76.0, "temp": 43.0, "pwm": "DC Dimming (LCD)", "score": 68.2, "tss": 71.0, "fpe": 78.0, "compute": 58.0, "storageScore": 75, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg"},
-    {"id": "iphone_xs_max", "name": "iPhone XS Max", "brand": "Apple", "os": "iOS", "soc": "Apple A12 Bionic (7nm TSMC)", "gpuStorage": "Apple 4-core GPU, NVMe", "antutu": 615000, "gbSingle": 1320, "gbMulti": 2980, "stability": 69.5, "temp": 44.5, "pwm": "240Hz", "score": 59.8, "tss": 61.0, "fpe": 72.0, "compute": 46.0, "storageScore": 70, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-max-new1.jpg"},
-    {"id": "iphone_xs", "name": "iPhone XS", "brand": "Apple", "os": "iOS", "soc": "Apple A12 Bionic (7nm TSMC)", "gpuStorage": "Apple 4-core GPU, NVMe", "antutu": 595000, "gbSingle": 1310, "gbMulti": 2890, "stability": 68.0, "temp": 44.8, "pwm": "240Hz", "score": 58.2, "tss": 59.0, "fpe": 70.0, "compute": 44.5, "storageScore": 70, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-new.jpg"},
-    {"id": "iphone_xr", "name": "iPhone XR", "brand": "Apple", "os": "iOS", "soc": "Apple A12 Bionic (7nm TSMC)", "gpuStorage": "Apple 4-core GPU, NVMe", "antutu": 580000, "gbSingle": 1295, "gbMulti": 2820, "stability": 73.0, "temp": 43.4, "pwm": "DC Dimming (LCD)", "score": 59.0, "tss": 65.0, "fpe": 72.0, "compute": 43.5, "storageScore": 70, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xr-new.jpg"},
-    {"id": "iphone_7", "name": "iPhone 7", "brand": "Apple", "os": "iOS", "soc": "Apple A10 Fusion (16nm TSMC)", "gpuStorage": "PowerVR Series7XT Plus, NVMe (Gen 1)", "antutu": 285000, "gbSingle": 780, "gbMulti": 1410, "stability": 71.0, "temp": 42.0, "pwm": "DC Dimming (LCD)", "score": 29.8, "tss": 50.0, "fpe": 45.0, "compute": 22.0, "storageScore": 82.5, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-7-r1.jpg"},
-    {"id": "iphone_5s", "name": "iPhone 5s", "brand": "Apple", "os": "iOS", "soc": "Apple A7 (28nm Samsung)", "gpuStorage": "PowerVR G6430, eMMC 4.5", "antutu": 65000, "gbSingle": 255, "gbMulti": 470, "stability": 65.0, "temp": 39.5, "pwm": "DC Dimming (LCD)", "score": 13.0, "tss": 33.6, "fpe": 25.0, "compute": 8.0, "storageScore": 22.0, "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-5s-ofic.jpg"},
-    # Motorola (Android)
-    {"id": "motorola_edge_60_pro", "name": "Motorola Edge 60 Pro", "brand": "Motorola", "os": "Android", "soc": "MediaTek Dimensity 8350 Extreme (4nm TSMC)", "gpuStorage": "ARM Mali-G615 MC6, LPDDR5X, UFS 4.0", "antutu": 1385000, "gbSingle": 1429, "gbMulti": 4476, "stability": 84.5, "temp": 43.2, "pwm": "720Hz", "score": 87.5, "tss": 70.6, "fpe": 95.6, "compute": 90.4, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-60-pro.jpg"},
-    {"id": "motorola_edge_60_fusion", "name": "Motorola Edge 60 Fusion", "brand": "Motorola", "os": "Android", "soc": "MediaTek Dimensity 7400 (4nm TSMC)", "gpuStorage": "ARM Mali-G615 MC2, LPDDR4X, UFS 2.2", "antutu": 655000, "gbSingle": 1050, "gbMulti": 2980, "stability": 97.6, "temp": 42.4, "pwm": "720Hz", "score": 73.9, "tss": 83.2, "fpe": 96.7, "compute": 43.7, "storageScore": 60, "image": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-60-fusion.jpg"},
-    # iQOO / Vivo (Android)
-    {"id": "iqoo_neo_9_pro", "name": "iQOO Neo 9 Pro", "brand": "iQOO", "os": "Android", "soc": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)", "gpuStorage": "Adreno 740, LPDDR5X, UFS 4.0", "antutu": 1580410, "gbSingle": 2015, "gbMulti": 5420, "stability": 91.0, "temp": 44.1, "pwm": "1440Hz", "score": 91.2, "tss": 85.0, "fpe": 98.2, "compute": 95.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-neo9-pro.jpg"},
-    {"id": "iqoo_12", "name": "iQOO 12", "brand": "iQOO", "os": "Android", "soc": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)", "gpuStorage": "Adreno 750, LPDDR5X, UFS 4.0", "antutu": 2080000, "gbSingle": 2230, "gbMulti": 6850, "stability": 86.0, "temp": 44.0, "pwm": "2160Hz", "score": 94.1, "tss": 81.0, "fpe": 99.0, "compute": 99.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-12.jpg"},
-    # Xiaomi / Poco (Android)
-    {"id": "poco_f6", "name": "Poco F6", "brand": "Xiaomi", "os": "Android", "soc": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC)", "gpuStorage": "Adreno 735, LPDDR5X, UFS 4.0", "antutu": 1485000, "gbSingle": 1930, "gbMulti": 5010, "stability": 86.2, "temp": 43.8, "pwm": "1920Hz", "score": 88.4, "tss": 74.2, "fpe": 94.0, "compute": 92.1, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f6.jpg"},
-    {"id": "poco_x6_pro", "name": "Poco X6 Pro", "brand": "Xiaomi", "os": "Android", "soc": "MediaTek Dimensity 8300 Ultra (4nm TSMC)", "gpuStorage": "Mali-G615 MC6, LPDDR5X, UFS 4.0", "antutu": 1396000, "gbSingle": 1415, "gbMulti": 4420, "stability": 83.0, "temp": 43.9, "pwm": "1920Hz", "score": 86.5, "tss": 72.0, "fpe": 93.5, "compute": 90.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg"},
-    # Samsung (Android)
-    {"id": "samsung_s24_ultra", "name": "Samsung Galaxy S24 Ultra", "brand": "Samsung", "os": "Android", "soc": "Snapdragon 8 Gen 3 for Galaxy (4nm TSMC)", "gpuStorage": "Adreno 750, LPDDR5X, UFS 4.0", "antutu": 1950000, "gbSingle": 2280, "gbMulti": 7100, "stability": 68.5, "temp": 45.1, "pwm": "492Hz", "score": 86.4, "tss": 62.0, "fpe": 94.0, "compute": 98.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g-sm-s928-stylus.jpg"},
-    {"id": "samsung_s22_exynos", "name": "Samsung Galaxy S22 (Exynos)", "brand": "Samsung", "os": "Android", "soc": "Samsung Exynos 2200 (4nm Samsung)", "gpuStorage": "Samsung Xclipse 920, UFS 3.1", "antutu": 980000, "gbSingle": 1510, "gbMulti": 3780, "stability": 58.5, "temp": 45.8, "pwm": "240Hz", "score": 70.0, "tss": 56.0, "fpe": 82.0, "compute": 68.0, "storageScore": 80.0, "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg"},
-    {"id": "samsung_a55", "name": "Samsung Galaxy A55 5G", "brand": "Samsung", "os": "Android", "soc": "Exynos 1480 (4nm Samsung)", "gpuStorage": "Xclipse 530 GPU, LPDDR5, UFS 3.1", "antutu": 725000, "gbSingle": 1150, "gbMulti": 3450, "stability": 91.5, "temp": 41.2, "pwm": "240Hz", "score": 74.8, "tss": 86.0, "fpe": 88.0, "compute": 52.0, "storageScore": 80, "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a55.jpg"},
-    # OnePlus (Android)
-    {"id": "oneplus_12", "name": "OnePlus 12", "brand": "OnePlus", "os": "Android", "soc": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)", "gpuStorage": "Adreno 750, LPDDR5X, UFS 4.0", "antutu": 2040000, "gbSingle": 2210, "gbMulti": 6720, "stability": 88.5, "temp": 43.4, "pwm": "2160Hz", "score": 93.8, "tss": 84.0, "fpe": 98.0, "compute": 98.5, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg"},
-    {"id": "oneplus_nord_4", "name": "OnePlus Nord 4", "brand": "OnePlus", "os": "Android", "soc": "Qualcomm Snapdragon 7+ Gen 3 (4nm TSMC)", "gpuStorage": "Adreno 732, LPDDR5X, UFS 4.0", "antutu": 1280000, "gbSingle": 1820, "gbMulti": 4650, "stability": 89.5, "temp": 41.9, "pwm": "2160Hz", "score": 84.2, "tss": 82.1, "fpe": 91.0, "compute": 82.0, "storageScore": 100, "image": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-4.jpg"},
-]
+# Load 200+ phone master seed catalog
+try:
+    from master_catalog_data import MASTER_SEED_CATALOG
+except ImportError:
+    backend_data = os.path.join(backend_dir, "master_catalog_data.py")
+    if os.path.exists(backend_data):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("master_catalog_data", backend_data)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        MASTER_SEED_CATALOG = mod.MASTER_SEED_CATALOG
+    else:
+        MASTER_SEED_CATALOG = []
 
 
 def ensure_catalog_tables() -> None:
@@ -147,43 +126,47 @@ def ensure_catalog_tables() -> None:
                 )
                 """
             )
-            # Seed catalog into SQLite
-            for p in MASTER_SEED_CATALOG:
-                conn.execute(
-                    """
-                    INSERT INTO device_catalog (
-                        id, name, brand, os, soc, gpu_storage, antutu, gb_single, gb_multi,
-                        stability, temp, pwm, score, tss, fpe, compute, storage_score, image
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    ON CONFLICT(id) DO UPDATE SET
-                        name = excluded.name,
-                        brand = excluded.brand,
-                        os = excluded.os,
-                        soc = excluded.soc,
-                        gpu_storage = excluded.gpu_storage,
-                        antutu = excluded.antutu,
-                        gb_single = excluded.gb_single,
-                        gb_multi = excluded.gb_multi,
-                        stability = excluded.stability,
-                        temp = excluded.temp,
-                        pwm = excluded.pwm,
-                        score = excluded.score,
-                        tss = excluded.tss,
-                        fpe = excluded.fpe,
-                        compute = excluded.compute,
-                        storage_score = excluded.storage_score,
-                        image = excluded.image
-                    """,
-                    (
-                        p["id"], p["name"], p["brand"], p["os"], p["soc"], p["gpuStorage"],
-                        p["antutu"], p["gbSingle"], p["gbMulti"], p["stability"], p["temp"],
-                        p["pwm"], p["score"], p["tss"], p["fpe"], p["compute"],
-                        p["storageScore"], p["image"],
-                    ),
-                )
             conn.commit()
     except Exception as e:
         print(f"[SQLite Notice] Running in cloud-only mode without local SQLite cache: {e}")
+
+
+def seed_catalog_tables(conn) -> None:
+    """Manually seeds the master catalog into SQLite."""
+    for p in MASTER_SEED_CATALOG:
+        conn.execute(
+            """
+            INSERT INTO device_catalog (
+                id, name, brand, os, soc, gpu_storage, antutu, gb_single, gb_multi,
+                stability, temp, pwm, score, tss, fpe, compute, storage_score, image
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(id) DO UPDATE SET
+                name = excluded.name,
+                brand = excluded.brand,
+                os = excluded.os,
+                soc = excluded.soc,
+                gpu_storage = excluded.gpu_storage,
+                antutu = excluded.antutu,
+                gb_single = excluded.gb_single,
+                gb_multi = excluded.gb_multi,
+                stability = excluded.stability,
+                temp = excluded.temp,
+                pwm = excluded.pwm,
+                score = excluded.score,
+                tss = excluded.tss,
+                fpe = excluded.fpe,
+                compute = excluded.compute,
+                storage_score = excluded.storage_score,
+                image = excluded.image
+            """,
+            (
+                p["id"], p["name"], p["brand"], p["os"], p["soc"], p["gpuStorage"],
+                p["antutu"], p["gbSingle"], p["gbMulti"], p["stability"], p["temp"],
+                p["pwm"], p["score"], p["tss"], p["fpe"], p["compute"],
+                p["storageScore"], p["image"],
+            ),
+        )
+    conn.commit()
 
 
 @app.on_event("startup")
@@ -372,6 +355,32 @@ def get_catalog(q: Optional[str] = None, brand: Optional[str] = None, os_filter:
         sql += " ORDER BY score DESC"
         rows = conn.execute(sql, params).fetchall()
         return {"count": len(rows), "devices": [dict(row) for row in rows]}
+
+
+@app.post("/api/catalog/clear")
+def clear_catalog():
+    """Wipes all rows from local SQLite device_catalog, telemetry_runs, and devices tables."""
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            conn.execute("DELETE FROM device_catalog")
+            conn.execute("DELETE FROM telemetry_runs")
+            conn.execute("DELETE FROM devices")
+            conn.commit()
+        return {"status": "ok", "message": "Leaderboard catalog and SQLite telemetry wiped successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/catalog/seed")
+def seed_catalog():
+    """Seeds the master catalog back into SQLite."""
+    try:
+        ensure_catalog_tables()
+        with sqlite3.connect(DB_PATH) as conn:
+            seed_catalog_tables(conn)
+        return {"status": "ok", "message": "Master catalog seeded successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/api/catalog/search")

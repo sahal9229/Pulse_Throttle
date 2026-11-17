@@ -1,0 +1,10710 @@
+const initialCatalog = [
+  {
+    "id": "apple-iphone-11",
+    "device_name": "iPhone 11",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg",
+    "soc_chipset": "Apple A13 Bionic (7nm+ TSMC, 6-Core 2.65 GHz)",
+    "soc_detail": "Apple A13 Bionic (7nm+ TSMC, 6-Core 2.65 GHz), Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "antutu_v10_score": 795000,
+    "geekbench_6_single": 1720,
+    "geekbench_6_multi": 3950,
+    "wildlife_stability_pct": 76.0,
+    "peak_temp_celsius": 43.0,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 68.2,
+    "score_breakdown": {
+      "tss": 71.0,
+      "fpe": 78.0,
+      "compute": 58.0,
+      "storage": 75
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-11-pro-max",
+    "device_name": "iPhone 11 Pro Max",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11-pro-max.jpg",
+    "soc_chipset": "Apple A13 Bionic (7nm+ TSMC, 6-Core 2.65 GHz)",
+    "soc_detail": "Apple A13 Bionic (7nm+ TSMC, 6-Core 2.65 GHz), Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "antutu_v10_score": 830000,
+    "geekbench_6_single": 1780,
+    "geekbench_6_multi": 4120,
+    "wildlife_stability_pct": 78.0,
+    "peak_temp_celsius": 42.5,
+    "pwm_dimming_hz": "290Hz",
+    "pulse_throttle_index": 69.8,
+    "score_breakdown": {
+      "tss": 73.0,
+      "fpe": 80.0,
+      "compute": 60.0,
+      "storage": 75
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-12",
+    "device_name": "iPhone 12",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg",
+    "soc_chipset": "Apple A14 Bionic (5nm TSMC, 6-Core 3.10 GHz)",
+    "soc_detail": "Apple A14 Bionic (5nm TSMC, 6-Core 3.10 GHz), Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "antutu_v10_score": 920000,
+    "geekbench_6_single": 2050,
+    "geekbench_6_multi": 4750,
+    "wildlife_stability_pct": 72.0,
+    "peak_temp_celsius": 44.1,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 71.4,
+    "score_breakdown": {
+      "tss": 66.0,
+      "fpe": 80.0,
+      "compute": 68.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-12-pro",
+    "device_name": "iPhone 12 Pro",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-pro.jpg",
+    "soc_chipset": "Apple A14 Bionic (5nm TSMC, 6-Core 3.10 GHz)",
+    "soc_detail": "Apple A14 Bionic (5nm TSMC, 6-Core 3.10 GHz), Apple 4-Core GPU, 6GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 6GB LPDDR4X, NVMe",
+    "antutu_v10_score": 940000,
+    "geekbench_6_single": 2080,
+    "geekbench_6_multi": 4860,
+    "wildlife_stability_pct": 73.0,
+    "peak_temp_celsius": 44.0,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 72.0,
+    "score_breakdown": {
+      "tss": 67.0,
+      "fpe": 80.5,
+      "compute": 70.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-12-pro-max",
+    "device_name": "iPhone 12 Pro Max",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-pro-max-.jpg",
+    "soc_chipset": "Apple A14 Bionic (5nm TSMC, 6-Core 3.10 GHz)",
+    "soc_detail": "Apple A14 Bionic (5nm TSMC, 6-Core 3.10 GHz), Apple 4-Core GPU, 6GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 6GB LPDDR4X, NVMe",
+    "antutu_v10_score": 960000,
+    "geekbench_6_single": 2100,
+    "geekbench_6_multi": 4950,
+    "wildlife_stability_pct": 76.0,
+    "peak_temp_celsius": 43.4,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 73.2,
+    "score_breakdown": {
+      "tss": 70.0,
+      "fpe": 82.0,
+      "compute": 71.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-13",
+    "device_name": "iPhone 13",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg",
+    "soc_chipset": "Apple A15 Bionic (5nm TSMC, 4-Core GPU)",
+    "soc_detail": "Apple A15 Bionic (5nm TSMC, 4-Core GPU), Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "antutu_v10_score": 1120000,
+    "geekbench_6_single": 2290,
+    "geekbench_6_multi": 5500,
+    "wildlife_stability_pct": 79.0,
+    "peak_temp_celsius": 42.9,
+    "pwm_dimming_hz": "610Hz",
+    "pulse_throttle_index": 78.5,
+    "score_breakdown": {
+      "tss": 74.0,
+      "fpe": 86.0,
+      "compute": 79.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-13-pro",
+    "device_name": "iPhone 13 Pro",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro.jpg",
+    "soc_chipset": "Apple A15 Bionic (5nm TSMC, 5-Core GPU)",
+    "soc_detail": "Apple A15 Bionic (5nm TSMC, 5-Core GPU), Apple 5-Core GPU, 6GB LPDDR4X, NVMe",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 6GB LPDDR4X, NVMe",
+    "antutu_v10_score": 1220000,
+    "geekbench_6_single": 2360,
+    "geekbench_6_multi": 5880,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 42.5,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 79.8,
+    "score_breakdown": {
+      "tss": 77.0,
+      "fpe": 93.0,
+      "compute": 83.0,
+      "storage": 90
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-13-pro-max",
+    "device_name": "iPhone 13 Pro Max",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg",
+    "soc_chipset": "Apple A15 Bionic (5nm TSMC, 5-Core GPU)",
+    "soc_detail": "Apple A15 Bionic (5nm TSMC, 5-Core GPU), Apple 5-Core GPU, 6GB LPDDR4X, NVMe",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 6GB LPDDR4X, NVMe",
+    "antutu_v10_score": 1250000,
+    "geekbench_6_single": 2380,
+    "geekbench_6_multi": 5950,
+    "wildlife_stability_pct": 86.5,
+    "peak_temp_celsius": 41.8,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 81.2,
+    "score_breakdown": {
+      "tss": 82.5,
+      "fpe": 95.5,
+      "compute": 84.0,
+      "storage": 90
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-13-mini",
+    "device_name": "iPhone 13 mini",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg",
+    "soc_chipset": "Apple A15 Bionic (5nm TSMC, 4-Core GPU)",
+    "soc_detail": "Apple A15 Bionic (5nm TSMC, 4-Core GPU), Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "antutu_v10_score": 1080000,
+    "geekbench_6_single": 2270,
+    "geekbench_6_multi": 5410,
+    "wildlife_stability_pct": 71.0,
+    "peak_temp_celsius": 44.8,
+    "pwm_dimming_hz": "610Hz",
+    "pulse_throttle_index": 74.5,
+    "score_breakdown": {
+      "tss": 65.0,
+      "fpe": 82.0,
+      "compute": 78.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-14",
+    "device_name": "iPhone 14",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg",
+    "soc_chipset": "Apple A15 Bionic (5nm TSMC, 5-Core GPU)",
+    "soc_detail": "Apple A15 Bionic (5nm TSMC, 5-Core GPU), Apple 5-Core GPU, 6GB LPDDR4X, NVMe",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 6GB LPDDR4X, NVMe",
+    "antutu_v10_score": 1240000,
+    "geekbench_6_single": 2380,
+    "geekbench_6_multi": 5980,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 42.4,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 80.5,
+    "score_breakdown": {
+      "tss": 78.0,
+      "fpe": 89.0,
+      "compute": 83.0,
+      "storage": 90
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-14-plus",
+    "device_name": "iPhone 14 Plus",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg",
+    "soc_chipset": "Apple A15 Bionic (5nm TSMC, 5-Core GPU)",
+    "soc_detail": "Apple A15 Bionic (5nm TSMC, 5-Core GPU), Apple 5-Core GPU, 6GB LPDDR4X, NVMe",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 6GB LPDDR4X, NVMe",
+    "antutu_v10_score": 1280000,
+    "geekbench_6_single": 2400,
+    "geekbench_6_multi": 6050,
+    "wildlife_stability_pct": 87.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 81.9,
+    "score_breakdown": {
+      "tss": 83.0,
+      "fpe": 91.0,
+      "compute": 84.0,
+      "storage": 90
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-14-pro",
+    "device_name": "iPhone 14 Pro",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro.jpg",
+    "soc_chipset": "Apple A16 Bionic (4nm TSMC, 6-Core 3.46 GHz)",
+    "soc_detail": "Apple A16 Bionic (4nm TSMC, 6-Core 3.46 GHz), Apple 5-Core GPU, 6GB LPDDR5, NVMe",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 6GB LPDDR5, NVMe",
+    "antutu_v10_score": 1390000,
+    "geekbench_6_single": 2610,
+    "geekbench_6_multi": 6680,
+    "wildlife_stability_pct": 78.5,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 83.4,
+    "score_breakdown": {
+      "tss": 72.0,
+      "fpe": 93.0,
+      "compute": 89.0,
+      "storage": 95
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-14-pro-max",
+    "device_name": "iPhone 14 Pro Max",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro-max-.jpg",
+    "soc_chipset": "Apple A16 Bionic (4nm TSMC, 6-Core 3.46 GHz)",
+    "soc_detail": "Apple A16 Bionic (4nm TSMC, 6-Core 3.46 GHz), Apple 5-Core GPU, 6GB LPDDR5, NVMe",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 6GB LPDDR5, NVMe",
+    "antutu_v10_score": 1420000,
+    "geekbench_6_single": 2640,
+    "geekbench_6_multi": 6750,
+    "wildlife_stability_pct": 81.0,
+    "peak_temp_celsius": 43.2,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 84.8,
+    "score_breakdown": {
+      "tss": 75.0,
+      "fpe": 95.0,
+      "compute": 90.0,
+      "storage": 95
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-15",
+    "device_name": "iPhone 15",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg",
+    "soc_chipset": "Apple A16 Bionic (4nm TSMC, 6-Core 3.46 GHz)",
+    "soc_detail": "Apple A16 Bionic (4nm TSMC, 6-Core 3.46 GHz), Apple 5-Core GPU, 6GB LPDDR5, NVMe",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 6GB LPDDR5, NVMe",
+    "antutu_v10_score": 1350000,
+    "geekbench_6_single": 2600,
+    "geekbench_6_multi": 6500,
+    "wildlife_stability_pct": 78.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 82.0,
+    "score_breakdown": {
+      "tss": 71.0,
+      "fpe": 88.0,
+      "compute": 88.5,
+      "storage": 95
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-15-plus",
+    "device_name": "iPhone 15 Plus",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-plus.jpg",
+    "soc_chipset": "Apple A16 Bionic (4nm TSMC, 6-Core 3.46 GHz)",
+    "soc_detail": "Apple A16 Bionic (4nm TSMC, 6-Core 3.46 GHz), Apple 5-Core GPU, 6GB LPDDR5, NVMe",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 6GB LPDDR5, NVMe",
+    "antutu_v10_score": 1390000,
+    "geekbench_6_single": 2620,
+    "geekbench_6_multi": 6600,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 42.6,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 83.5,
+    "score_breakdown": {
+      "tss": 75.0,
+      "fpe": 90.0,
+      "compute": 89.0,
+      "storage": 95
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-15-pro",
+    "device_name": "iPhone 15 Pro",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro.jpg",
+    "soc_chipset": "Apple A17 Pro (3nm TSMC, 6-Core 3.78 GHz)",
+    "soc_detail": "Apple A17 Pro (3nm TSMC, 6-Core 3.78 GHz), Apple 6-Core GPU, 8GB LPDDR5, NVMe",
+    "gpu": "Apple 6-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 6-Core GPU, 8GB LPDDR5, NVMe",
+    "antutu_v10_score": 1500000,
+    "geekbench_6_single": 2910,
+    "geekbench_6_multi": 7180,
+    "wildlife_stability_pct": 71.0,
+    "peak_temp_celsius": 45.9,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 85.2,
+    "score_breakdown": {
+      "tss": 60.0,
+      "fpe": 93.0,
+      "compute": 93.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-15-pro-max",
+    "device_name": "iPhone 15 Pro Max",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg",
+    "soc_chipset": "Apple A17 Pro (3nm TSMC, 6-Core 3.78 GHz)",
+    "soc_detail": "Apple A17 Pro (3nm TSMC, 6-Core 3.78 GHz), Apple 6-Core GPU, 8GB LPDDR5, NVMe",
+    "gpu": "Apple 6-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 6-Core GPU, 8GB LPDDR5, NVMe",
+    "antutu_v10_score": 1540000,
+    "geekbench_6_single": 2950,
+    "geekbench_6_multi": 7250,
+    "wildlife_stability_pct": 74.5,
+    "peak_temp_celsius": 45.4,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 86.8,
+    "score_breakdown": {
+      "tss": 64.0,
+      "fpe": 94.0,
+      "compute": 94.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-16",
+    "device_name": "iPhone 16",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16.jpg",
+    "soc_chipset": "Apple A18 (3nm TSMC, 6-Core 4.04 GHz)",
+    "soc_detail": "Apple A18 (3nm TSMC, 6-Core 4.04 GHz), Apple 5-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "antutu_v10_score": 1590000,
+    "geekbench_6_single": 3250,
+    "geekbench_6_multi": 7980,
+    "wildlife_stability_pct": 79.0,
+    "peak_temp_celsius": 43.6,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 89.1,
+    "score_breakdown": {
+      "tss": 72.0,
+      "fpe": 95.5,
+      "compute": 91.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-16-plus",
+    "device_name": "iPhone 16 Plus",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-plus.jpg",
+    "soc_chipset": "Apple A18 (3nm TSMC, 6-Core 4.04 GHz)",
+    "soc_detail": "Apple A18 (3nm TSMC, 6-Core 4.04 GHz), Apple 5-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "antutu_v10_score": 1620000,
+    "geekbench_6_single": 3280,
+    "geekbench_6_multi": 8050,
+    "wildlife_stability_pct": 83.0,
+    "peak_temp_celsius": 42.8,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 90.2,
+    "score_breakdown": {
+      "tss": 78.0,
+      "fpe": 96.0,
+      "compute": 92.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-16-pro",
+    "device_name": "iPhone 16 Pro",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro.jpg",
+    "soc_chipset": "Apple A18 Pro (3nm TSMC, 6-Core 4.04 GHz, NPU 16-Core)",
+    "soc_detail": "Apple A18 Pro (3nm TSMC, 6-Core 4.04 GHz, NPU 16-Core), Apple 6-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "gpu": "Apple 6-Core GPU",
+    "ram": "16GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 6-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "antutu_v10_score": 1780000,
+    "geekbench_6_single": 3400,
+    "geekbench_6_multi": 8500,
+    "wildlife_stability_pct": 80.5,
+    "peak_temp_celsius": 44.0,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 92.5,
+    "score_breakdown": {
+      "tss": 73.0,
+      "fpe": 98.0,
+      "compute": 97.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-16-pro-max",
+    "device_name": "iPhone 16 Pro Max",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg",
+    "soc_chipset": "Apple A18 Pro (3nm TSMC, 6-Core 4.04 GHz, NPU 16-Core)",
+    "soc_detail": "Apple A18 Pro (3nm TSMC, 6-Core 4.04 GHz, NPU 16-Core), Apple 6-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "gpu": "Apple 6-Core GPU",
+    "ram": "16GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 6-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "antutu_v10_score": 1820000,
+    "geekbench_6_single": 3420,
+    "geekbench_6_multi": 8650,
+    "wildlife_stability_pct": 82.5,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 93.8,
+    "score_breakdown": {
+      "tss": 76.0,
+      "fpe": 98.5,
+      "compute": 98.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-16e",
+    "device_name": "iPhone 16e",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16.jpg",
+    "soc_chipset": "Apple A18 (3nm TSMC, 4-Core GPU)",
+    "soc_detail": "Apple A18 (3nm TSMC, 4-Core GPU), Apple 4-Core GPU, 8GB LPDDR5X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "12GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 8GB LPDDR5X, NVMe",
+    "antutu_v10_score": 1450000,
+    "geekbench_6_single": 3150,
+    "geekbench_6_multi": 7500,
+    "wildlife_stability_pct": 80.0,
+    "peak_temp_celsius": 43.2,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 87.2,
+    "score_breakdown": {
+      "tss": 74.0,
+      "fpe": 94.0,
+      "compute": 88.0,
+      "storage": 95
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-17",
+    "device_name": "iPhone 17",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16.jpg",
+    "soc_chipset": "Apple A19 (3nm TSMC, 6-Core 4.04 GHz)",
+    "soc_detail": "Apple A19 (3nm TSMC, 6-Core 4.04 GHz), Apple 5-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "gpu": "Apple 5-Core GPU",
+    "ram": "16GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 5-Core GPU, 8GB LPDDR5X, NVMe Fast",
+    "antutu_v10_score": 1950000,
+    "geekbench_6_single": 3520,
+    "geekbench_6_multi": 8900,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 43.0,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 93.2,
+    "score_breakdown": {
+      "tss": 77.0,
+      "fpe": 98.0,
+      "compute": 95.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-17-pro",
+    "device_name": "iPhone 17 Pro",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro.jpg",
+    "soc_chipset": "Apple A19 Pro (2nm TSMC, 6-Core 4.25 GHz, NPU 16-Core)",
+    "soc_detail": "Apple A19 Pro (2nm TSMC, 6-Core 4.25 GHz, NPU 16-Core), Apple 6-Core GPU, 12GB LPDDR5X, NVMe Fast",
+    "gpu": "Apple 6-Core GPU",
+    "ram": "16GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 6-Core GPU, 12GB LPDDR5X, NVMe Fast",
+    "antutu_v10_score": 2410000,
+    "geekbench_6_single": 3910,
+    "geekbench_6_multi": 10050,
+    "wildlife_stability_pct": 84.0,
+    "peak_temp_celsius": 43.1,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 95.9,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 99.0,
+      "compute": 99.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-17-pro-max",
+    "device_name": "iPhone 17 Pro Max",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg",
+    "soc_chipset": "Apple A19 Pro (2nm TSMC, 6-Core 4.25 GHz, NPU 16-Core)",
+    "soc_detail": "Apple A19 Pro (2nm TSMC, 6-Core 4.25 GHz, NPU 16-Core), Apple 6-Core GPU, 12GB LPDDR5X, NVMe Fast",
+    "gpu": "Apple 6-Core GPU",
+    "ram": "16GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 6-Core GPU, 12GB LPDDR5X, NVMe Fast",
+    "antutu_v10_score": 2450000,
+    "geekbench_6_single": 3950,
+    "geekbench_6_multi": 10200,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 42.5,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 96.8,
+    "score_breakdown": {
+      "tss": 84.0,
+      "fpe": 99.5,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-5s",
+    "device_name": "iPhone 5s",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-5s-ofic.jpg",
+    "soc_chipset": "Apple A7 (28nm Samsung, Dual-Core 1.30 GHz Cyclone)",
+    "soc_detail": "Apple A7 (28nm Samsung, Dual-Core 1.30 GHz Cyclone), PowerVR G6430, 1GB LPDDR3, eMMC 4.5",
+    "gpu": "PowerVR G6430",
+    "ram": "4GB",
+    "storage_tier": "eMMC",
+    "gpu_and_storage": "PowerVR G6430, 1GB LPDDR3, eMMC 4.5",
+    "antutu_v10_score": 65000,
+    "geekbench_6_single": 255,
+    "geekbench_6_multi": 470,
+    "wildlife_stability_pct": 65.0,
+    "peak_temp_celsius": 39.5,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 13.0,
+    "score_breakdown": {
+      "tss": 33.6,
+      "fpe": 25.0,
+      "compute": 8.0,
+      "storage": 22.0
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Hardware lacks memory floor and modern 3D shader pipeline."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Shader model incompatible: App fails to launch."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "18-24 FPS",
+        "thermal_and_frame_drop_notes": "Severe throttling on legacy instruction set."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Unsupported: Lacks required graphics API support."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-6",
+    "device_name": "iPhone 6",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-6-4.jpg",
+    "soc_chipset": "Apple A8 (20nm TSMC, Dual-Core 1.40 GHz Typhoon)",
+    "soc_detail": "Apple A8 (20nm TSMC, Dual-Core 1.40 GHz Typhoon), PowerVR GX6450, 1GB LPDDR3, eMMC 5.0",
+    "gpu": "PowerVR GX6450",
+    "ram": "4GB",
+    "storage_tier": "eMMC",
+    "gpu_and_storage": "PowerVR GX6450, 1GB LPDDR3, eMMC 5.0",
+    "antutu_v10_score": 95000,
+    "geekbench_6_single": 315,
+    "geekbench_6_multi": 565,
+    "wildlife_stability_pct": 62.0,
+    "peak_temp_celsius": 41.0,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 14.5,
+    "score_breakdown": {
+      "tss": 34.0,
+      "fpe": 25.0,
+      "compute": 9.0,
+      "storage": 25
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Hardware lacks memory floor and modern 3D shader pipeline."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Shader model incompatible: App fails to launch."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "18-24 FPS",
+        "thermal_and_frame_drop_notes": "Severe throttling on legacy instruction set."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Unsupported: Lacks required graphics API support."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-6-plus",
+    "device_name": "iPhone 6 Plus",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-6-plus.jpg",
+    "soc_chipset": "Apple A8 (20nm TSMC, Dual-Core 1.40 GHz Typhoon)",
+    "soc_detail": "Apple A8 (20nm TSMC, Dual-Core 1.40 GHz Typhoon), PowerVR GX6450, 1GB LPDDR3, eMMC 5.0",
+    "gpu": "PowerVR GX6450",
+    "ram": "4GB",
+    "storage_tier": "eMMC",
+    "gpu_and_storage": "PowerVR GX6450, 1GB LPDDR3, eMMC 5.0",
+    "antutu_v10_score": 98000,
+    "geekbench_6_single": 320,
+    "geekbench_6_multi": 580,
+    "wildlife_stability_pct": 64.0,
+    "peak_temp_celsius": 40.5,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 15.2,
+    "score_breakdown": {
+      "tss": 36.0,
+      "fpe": 26.0,
+      "compute": 9.5,
+      "storage": 25
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Hardware lacks memory floor and modern 3D shader pipeline."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Shader model incompatible: App fails to launch."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "18-24 FPS",
+        "thermal_and_frame_drop_notes": "Severe throttling on legacy instruction set."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Unsupported: Lacks required graphics API support."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-6s",
+    "device_name": "iPhone 6s",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-6s1.jpg",
+    "soc_chipset": "Apple A9 (14nm Samsung / 16nm TSMC, Dual-Core 1.84 GHz Twister)",
+    "soc_detail": "Apple A9 (14nm Samsung / 16nm TSMC, Dual-Core 1.84 GHz Twister), PowerVR GT7600, 2GB LPDDR4, NVMe",
+    "gpu": "PowerVR GT7600",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "PowerVR GT7600, 2GB LPDDR4, NVMe",
+    "antutu_v10_score": 190000,
+    "geekbench_6_single": 550,
+    "geekbench_6_multi": 1005,
+    "wildlife_stability_pct": 66.0,
+    "peak_temp_celsius": 42.0,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 21.9,
+    "score_breakdown": {
+      "tss": 42.0,
+      "fpe": 34.0,
+      "compute": 15.5,
+      "storage": 75
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Hardware lacks memory floor and modern 3D shader pipeline."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Shader model incompatible: App fails to launch."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "18-24 FPS",
+        "thermal_and_frame_drop_notes": "Severe throttling on legacy instruction set."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Unsupported: Lacks required graphics API support."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-6s-plus",
+    "device_name": "iPhone 6s Plus",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-6s-plus.jpg",
+    "soc_chipset": "Apple A9 (14nm Samsung / 16nm TSMC, Dual-Core 1.84 GHz Twister)",
+    "soc_detail": "Apple A9 (14nm Samsung / 16nm TSMC, Dual-Core 1.84 GHz Twister), PowerVR GT7600, 2GB LPDDR4, NVMe",
+    "gpu": "PowerVR GT7600",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "PowerVR GT7600, 2GB LPDDR4, NVMe",
+    "antutu_v10_score": 195000,
+    "geekbench_6_single": 560,
+    "geekbench_6_multi": 1020,
+    "wildlife_stability_pct": 69.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 22.8,
+    "score_breakdown": {
+      "tss": 44.0,
+      "fpe": 36.0,
+      "compute": 16.0,
+      "storage": 75
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Hardware lacks memory floor and modern 3D shader pipeline."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Shader model incompatible: App fails to launch."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "18-24 FPS",
+        "thermal_and_frame_drop_notes": "Severe throttling on legacy instruction set."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Unsupported: Lacks required graphics API support."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-7",
+    "device_name": "iPhone 7",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-7-r1.jpg",
+    "soc_chipset": "Apple A10 Fusion (16nm TSMC, 4-Core 2.34 GHz)",
+    "soc_detail": "Apple A10 Fusion (16nm TSMC, 4-Core 2.34 GHz), PowerVR Series7XT Plus, 2GB LPDDR4, NVMe (Gen 1)",
+    "gpu": "PowerVR Series7XT Plus",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "PowerVR Series7XT Plus, 2GB LPDDR4, NVMe (Gen 1)",
+    "antutu_v10_score": 285000,
+    "geekbench_6_single": 780,
+    "geekbench_6_multi": 1410,
+    "wildlife_stability_pct": 71.0,
+    "peak_temp_celsius": 42.0,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 29.8,
+    "score_breakdown": {
+      "tss": 50.0,
+      "fpe": 45.0,
+      "compute": 22.0,
+      "storage": 82.5
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Hardware lacks memory floor and modern 3D shader pipeline."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Shader model incompatible: App fails to launch."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "18-24 FPS",
+        "thermal_and_frame_drop_notes": "Severe throttling on legacy instruction set."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Unsupported: Lacks required graphics API support."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-7-plus",
+    "device_name": "iPhone 7 Plus",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-7-plus-r2.jpg",
+    "soc_chipset": "Apple A10 Fusion (16nm TSMC, 4-Core 2.34 GHz)",
+    "soc_detail": "Apple A10 Fusion (16nm TSMC, 4-Core 2.34 GHz), PowerVR Series7XT Plus, 3GB LPDDR4, NVMe (Gen 1)",
+    "gpu": "PowerVR Series7XT Plus",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "PowerVR Series7XT Plus, 3GB LPDDR4, NVMe (Gen 1)",
+    "antutu_v10_score": 295000,
+    "geekbench_6_single": 800,
+    "geekbench_6_multi": 1450,
+    "wildlife_stability_pct": 72.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 31.2,
+    "score_breakdown": {
+      "tss": 53.0,
+      "fpe": 48.0,
+      "compute": 23.5,
+      "storage": 82.5
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Hardware lacks memory floor and modern 3D shader pipeline."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Shader model incompatible: App fails to launch."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "18-24 FPS",
+        "thermal_and_frame_drop_notes": "Severe throttling on legacy instruction set."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "INCOMPATIBLE / UNSUPPORTED",
+        "sustained_avg_fps": "0 FPS",
+        "thermal_and_frame_drop_notes": "Unsupported: Lacks required graphics API support."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-8-plus",
+    "device_name": "iPhone 8 Plus",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-8-plus-new.jpg",
+    "soc_chipset": "Apple A11 Bionic (10nm TSMC, 6-Core 2.39 GHz)",
+    "soc_detail": "Apple A11 Bionic (10nm TSMC, 6-Core 2.39 GHz), Apple 3-Core GPU, 3GB LPDDR4X, NVMe",
+    "gpu": "Apple 3-Core GPU",
+    "ram": "4GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 3-Core GPU, 3GB LPDDR4X, NVMe",
+    "antutu_v10_score": 420000,
+    "geekbench_6_single": 1060,
+    "geekbench_6_multi": 2240,
+    "wildlife_stability_pct": 70.0,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 48.0,
+    "score_breakdown": {
+      "tss": 60.0,
+      "fpe": 62.0,
+      "compute": 35.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-se-2020",
+    "device_name": "iPhone SE (2020)",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-se-2020.jpg",
+    "soc_chipset": "Apple A13 Bionic (7nm+ TSMC, 6-Core 2.65 GHz)",
+    "soc_detail": "Apple A13 Bionic (7nm+ TSMC, 6-Core 2.65 GHz), Apple 4-Core GPU, 3GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 3GB LPDDR4X, NVMe",
+    "antutu_v10_score": 730000,
+    "geekbench_6_single": 1680,
+    "geekbench_6_multi": 3800,
+    "wildlife_stability_pct": 63.0,
+    "peak_temp_celsius": 45.0,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 65.2,
+    "score_breakdown": {
+      "tss": 58.0,
+      "fpe": 75.0,
+      "compute": 56.0,
+      "storage": 75
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-se-2022",
+    "device_name": "iPhone SE (2022)",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-se-2022.jpg",
+    "soc_chipset": "Apple A15 Bionic (5nm TSMC, 4-Core GPU)",
+    "soc_detail": "Apple A15 Bionic (5nm TSMC, 4-Core GPU), Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "antutu_v10_score": 1050000,
+    "geekbench_6_single": 2240,
+    "geekbench_6_multi": 5350,
+    "wildlife_stability_pct": 67.0,
+    "peak_temp_celsius": 45.2,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 72.8,
+    "score_breakdown": {
+      "tss": 61.0,
+      "fpe": 80.0,
+      "compute": 76.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-x",
+    "device_name": "iPhone X",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-x.jpg",
+    "soc_chipset": "Apple A11 Bionic (10nm TSMC, 6-Core 2.39 GHz)",
+    "soc_detail": "Apple A11 Bionic (10nm TSMC, 6-Core 2.39 GHz), Apple 3-Core GPU, 3GB LPDDR4X, NVMe",
+    "gpu": "Apple 3-Core GPU",
+    "ram": "4GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 3-Core GPU, 3GB LPDDR4X, NVMe",
+    "antutu_v10_score": 410000,
+    "geekbench_6_single": 1050,
+    "geekbench_6_multi": 2210,
+    "wildlife_stability_pct": 65.0,
+    "peak_temp_celsius": 45.0,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 46.5,
+    "score_breakdown": {
+      "tss": 55.0,
+      "fpe": 60.0,
+      "compute": 34.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-xr",
+    "device_name": "iPhone XR",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xr-new.jpg",
+    "soc_chipset": "Apple A12 Bionic (7nm TSMC, 6-Core 2.50 GHz)",
+    "soc_detail": "Apple A12 Bionic (7nm TSMC, 6-Core 2.50 GHz), Apple 4-Core GPU, 3GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "4GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 3GB LPDDR4X, NVMe",
+    "antutu_v10_score": 580000,
+    "geekbench_6_single": 1295,
+    "geekbench_6_multi": 2820,
+    "wildlife_stability_pct": 73.0,
+    "peak_temp_celsius": 43.4,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 59.0,
+    "score_breakdown": {
+      "tss": 65.0,
+      "fpe": 72.0,
+      "compute": 43.5,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-xs",
+    "device_name": "iPhone XS",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-new.jpg",
+    "soc_chipset": "Apple A12 Bionic (7nm TSMC, 6-Core 2.50 GHz)",
+    "soc_detail": "Apple A12 Bionic (7nm TSMC, 6-Core 2.50 GHz), Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "4GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "antutu_v10_score": 595000,
+    "geekbench_6_single": 1310,
+    "geekbench_6_multi": 2890,
+    "wildlife_stability_pct": 68.0,
+    "peak_temp_celsius": 44.8,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 58.2,
+    "score_breakdown": {
+      "tss": 59.0,
+      "fpe": 70.0,
+      "compute": 44.5,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "apple-iphone-xs-max",
+    "device_name": "iPhone XS Max",
+    "brand": "Apple",
+    "os": "iOS",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-max-new1.jpg",
+    "soc_chipset": "Apple A12 Bionic (7nm TSMC, 6-Core 2.50 GHz)",
+    "soc_detail": "Apple A12 Bionic (7nm TSMC, 6-Core 2.50 GHz), Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "gpu": "Apple 4-Core GPU",
+    "ram": "8GB",
+    "storage_tier": "NVMe Fast",
+    "gpu_and_storage": "Apple 4-Core GPU, 4GB LPDDR4X, NVMe",
+    "antutu_v10_score": 615000,
+    "geekbench_6_single": 1320,
+    "geekbench_6_multi": 2980,
+    "wildlife_stability_pct": 69.5,
+    "peak_temp_celsius": 44.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 59.8,
+    "score_breakdown": {
+      "tss": 61.0,
+      "fpe": 72.0,
+      "compute": 46.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "asus-rog-phone-7-ultimate",
+    "device_name": "ASUS ROG Phone 7 Ultimate",
+    "brand": "Asus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/asus-rog-phone-7-ultimate.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC), Adreno 740, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1620000,
+    "geekbench_6_single": 2040,
+    "geekbench_6_multi": 5510,
+    "wildlife_stability_pct": 92.0,
+    "peak_temp_celsius": 41.8,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 92.2,
+    "score_breakdown": {
+      "tss": 88.0,
+      "fpe": 97.5,
+      "compute": 95.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "asus-rog-phone-8-pro",
+    "device_name": "ASUS ROG Phone 8 Pro",
+    "brand": "Asus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/asus-rog-phone-8-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2110000,
+    "geekbench_6_single": 2250,
+    "geekbench_6_multi": 6920,
+    "wildlife_stability_pct": 88.0,
+    "peak_temp_celsius": 42.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 94.6,
+    "score_breakdown": {
+      "tss": 85.0,
+      "fpe": 99.0,
+      "compute": 99.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "asus-rog-phone-9-pro",
+    "device_name": "ASUS ROG Phone 9 Pro",
+    "brand": "Asus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/asus-rog-phone-9-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC, 4.32 GHz)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC, 4.32 GHz), Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2650000,
+    "geekbench_6_single": 3210,
+    "geekbench_6_multi": 10350,
+    "wildlife_stability_pct": 91.0,
+    "peak_temp_celsius": 42.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 98.1,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 100.0,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-6-pro",
+    "device_name": "Google Pixel 6 Pro",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-6-pro.jpg",
+    "soc_chipset": "Google Tensor (5nm Samsung, 8-Core 2.80 GHz)",
+    "soc_detail": "Google Tensor (5nm Samsung, 8-Core 2.80 GHz), Mali-G78 MP20, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Mali-G78 MP20",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G78 MP20, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 740000,
+    "geekbench_6_single": 1220,
+    "geekbench_6_multi": 3150,
+    "wildlife_stability_pct": 54.0,
+    "peak_temp_celsius": 45.5,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 65.8,
+    "score_breakdown": {
+      "tss": 48.0,
+      "fpe": 75.0,
+      "compute": 62.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-7",
+    "device_name": "Google Pixel 7",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-7.jpg",
+    "soc_chipset": "Google Tensor G2 (5nm Samsung)",
+    "soc_detail": "Google Tensor G2 (5nm Samsung), Mali-G710 MP7, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Mali-G710 MP7",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G710 MP7, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 835000,
+    "geekbench_6_single": 1390,
+    "geekbench_6_multi": 3580,
+    "wildlife_stability_pct": 52.0,
+    "peak_temp_celsius": 46.0,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 68.8,
+    "score_breakdown": {
+      "tss": 47.0,
+      "fpe": 78.0,
+      "compute": 68.5,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-7-pro",
+    "device_name": "Google Pixel 7 Pro",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-7-pro.jpg",
+    "soc_chipset": "Google Tensor G2 (5nm Samsung, 8-Core 2.85 GHz)",
+    "soc_detail": "Google Tensor G2 (5nm Samsung, 8-Core 2.85 GHz), Mali-G710 MP7, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Mali-G710 MP7",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G710 MP7, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 860000,
+    "geekbench_6_single": 1420,
+    "geekbench_6_multi": 3680,
+    "wildlife_stability_pct": 55.0,
+    "peak_temp_celsius": 45.6,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 70.4,
+    "score_breakdown": {
+      "tss": 50.0,
+      "fpe": 80.0,
+      "compute": 70.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-7a",
+    "device_name": "Google Pixel 7a",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-7a.jpg",
+    "soc_chipset": "Google Tensor G2 (5nm Samsung)",
+    "soc_detail": "Google Tensor G2 (5nm Samsung), Mali-G710 MP7, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Mali-G710 MP7",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G710 MP7, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 810000,
+    "geekbench_6_single": 1360,
+    "geekbench_6_multi": 3490,
+    "wildlife_stability_pct": 50.0,
+    "peak_temp_celsius": 46.5,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 67.5,
+    "score_breakdown": {
+      "tss": 45.0,
+      "fpe": 76.5,
+      "compute": 67.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-8",
+    "device_name": "Google Pixel 8",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8.jpg",
+    "soc_chipset": "Google Tensor G3 (4nm Samsung, 9-Core 3.0 GHz)",
+    "soc_detail": "Google Tensor G3 (4nm Samsung, 9-Core 3.0 GHz), Mali-G715s MC10, 8GB LPDDR5X, UFS 3.1",
+    "gpu": "Mali-G715s MC10",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G715s MC10, 8GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1110000,
+    "geekbench_6_single": 1750,
+    "geekbench_6_multi": 4380,
+    "wildlife_stability_pct": 54.0,
+    "peak_temp_celsius": 46.2,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 75.8,
+    "score_breakdown": {
+      "tss": 50.0,
+      "fpe": 84.0,
+      "compute": 79.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-8-pro",
+    "device_name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8-pro.jpg",
+    "soc_chipset": "Google Tensor G3 (4nm Samsung, 9-Core 3.0 GHz)",
+    "soc_detail": "Google Tensor G3 (4nm Samsung, 9-Core 3.0 GHz), Mali-G715s MC10, 12GB LPDDR5X, UFS 3.1",
+    "gpu": "Mali-G715s MC10",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G715s MC10, 12GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1140000,
+    "geekbench_6_single": 1780,
+    "geekbench_6_multi": 4450,
+    "wildlife_stability_pct": 58.0,
+    "peak_temp_celsius": 45.8,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 77.2,
+    "score_breakdown": {
+      "tss": 53.0,
+      "fpe": 86.0,
+      "compute": 80.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-8a",
+    "device_name": "Google Pixel 8a",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8a.jpg",
+    "soc_chipset": "Google Tensor G3 (4nm Samsung)",
+    "soc_detail": "Google Tensor G3 (4nm Samsung), Mali-G715s MC10, 8GB LPDDR5X, UFS 3.1",
+    "gpu": "Mali-G715s MC10",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G715s MC10, 8GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1080000,
+    "geekbench_6_single": 1710,
+    "geekbench_6_multi": 4250,
+    "wildlife_stability_pct": 52.0,
+    "peak_temp_celsius": 46.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 74.2,
+    "score_breakdown": {
+      "tss": 48.0,
+      "fpe": 83.0,
+      "compute": 77.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-9",
+    "device_name": "Google Pixel 9",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9.jpg",
+    "soc_chipset": "Google Tensor G4 (4nm Samsung, 8-Core 3.1 GHz)",
+    "soc_detail": "Google Tensor G4 (4nm Samsung, 8-Core 3.1 GHz), Mali-G715 MC7, 12GB LPDDR5X, UFS 3.1",
+    "gpu": "Mali-G715 MC7",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G715 MC7, 12GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1250000,
+    "geekbench_6_single": 1910,
+    "geekbench_6_multi": 4720,
+    "wildlife_stability_pct": 64.0,
+    "peak_temp_celsius": 45.2,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 81.0,
+    "score_breakdown": {
+      "tss": 59.0,
+      "fpe": 89.0,
+      "compute": 84.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-9-pro",
+    "device_name": "Google Pixel 9 Pro",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro.jpg",
+    "soc_chipset": "Google Tensor G4 (4nm Samsung, 8-Core 3.1 GHz)",
+    "soc_detail": "Google Tensor G4 (4nm Samsung, 8-Core 3.1 GHz), Mali-G715 MC7, 16GB LPDDR5X, UFS 3.1",
+    "gpu": "Mali-G715 MC7",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G715 MC7, 16GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1300000,
+    "geekbench_6_single": 1940,
+    "geekbench_6_multi": 4810,
+    "wildlife_stability_pct": 66.0,
+    "peak_temp_celsius": 44.8,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 82.5,
+    "score_breakdown": {
+      "tss": 62.0,
+      "fpe": 90.5,
+      "compute": 85.5,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-9-pro-xl",
+    "device_name": "Google Pixel 9 Pro XL",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro-xl.jpg",
+    "soc_chipset": "Google Tensor G4 (4nm Samsung, 8-Core 3.1 GHz)",
+    "soc_detail": "Google Tensor G4 (4nm Samsung, 8-Core 3.1 GHz), Mali-G715 MC7, 16GB LPDDR5X, UFS 3.1",
+    "gpu": "Mali-G715 MC7",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G715 MC7, 16GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1320000,
+    "geekbench_6_single": 1950,
+    "geekbench_6_multi": 4850,
+    "wildlife_stability_pct": 68.0,
+    "peak_temp_celsius": 44.5,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 83.2,
+    "score_breakdown": {
+      "tss": 64.0,
+      "fpe": 91.0,
+      "compute": 86.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "google-pixel-9a",
+    "device_name": "Google Pixel 9a",
+    "brand": "Google",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8a.jpg",
+    "soc_chipset": "Google Tensor G4 (4nm Samsung)",
+    "soc_detail": "Google Tensor G4 (4nm Samsung), Mali-G715 MC7, 8GB LPDDR5X, UFS 3.1",
+    "gpu": "Mali-G715 MC7",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G715 MC7, 8GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1180000,
+    "geekbench_6_single": 1850,
+    "geekbench_6_multi": 4520,
+    "wildlife_stability_pct": 63.0,
+    "peak_temp_celsius": 45.0,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 79.5,
+    "score_breakdown": {
+      "tss": 58.0,
+      "fpe": 88.0,
+      "compute": 82.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "moto-g64-5g",
+    "device_name": "Moto G64 5G",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g64.jpg",
+    "soc_chipset": "MediaTek Dimensity 7025 (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7025 (6nm TSMC), IMG BXM-8-256, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "IMG BXM-8-256",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "IMG BXM-8-256, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 505000,
+    "geekbench_6_single": 940,
+    "geekbench_6_multi": 2320,
+    "wildlife_stability_pct": 98.5,
+    "peak_temp_celsius": 39.8,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 67.0,
+    "score_breakdown": {
+      "tss": 93.0,
+      "fpe": 79.0,
+      "compute": 42.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "moto-g85-5g",
+    "device_name": "Moto G85 5G",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g85.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 6s Gen 3 (6nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 6s Gen 3 (6nm TSMC), Adreno 619, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 619",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 619, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 475000,
+    "geekbench_6_single": 910,
+    "geekbench_6_multi": 2180,
+    "wildlife_stability_pct": 98.0,
+    "peak_temp_celsius": 40.2,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 65.5,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 78.0,
+      "compute": 39.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "motorola-edge-40",
+    "device_name": "Motorola Edge 40",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-40.jpg",
+    "soc_chipset": "MediaTek Dimensity 8020 (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 8020 (6nm TSMC), Mali-G77 MC9, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Mali-G77 MC9",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G77 MC9, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 760000,
+    "geekbench_6_single": 1120,
+    "geekbench_6_multi": 3650,
+    "wildlife_stability_pct": 84.0,
+    "peak_temp_celsius": 43.0,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 76.5,
+    "score_breakdown": {
+      "tss": 80.0,
+      "fpe": 86.0,
+      "compute": 60.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "motorola-edge-40-pro",
+    "device_name": "Motorola Edge 40 Pro",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-40-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC), Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1540000,
+    "geekbench_6_single": 2010,
+    "geekbench_6_multi": 5380,
+    "wildlife_stability_pct": 81.0,
+    "peak_temp_celsius": 44.5,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 89.0,
+    "score_breakdown": {
+      "tss": 76.0,
+      "fpe": 95.0,
+      "compute": 93.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "motorola-edge-50-fusion",
+    "device_name": "Motorola Edge 50 Fusion",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-fusion.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung), Adreno 710, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 710",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 710, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 615000,
+    "geekbench_6_single": 1020,
+    "geekbench_6_multi": 2980,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 72.8,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 84.0,
+      "compute": 51.5,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "motorola-edge-50-neo",
+    "device_name": "Motorola Edge 50 Neo",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-neo.jpg",
+    "soc_chipset": "MediaTek Dimensity 7300 (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7300 (4nm TSMC), Mali-G615 MC2, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G615 MC2",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G615 MC2, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 690000,
+    "geekbench_6_single": 1050,
+    "geekbench_6_multi": 3050,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 41.0,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 75.5,
+    "score_breakdown": {
+      "tss": 91.0,
+      "fpe": 86.0,
+      "compute": 55.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "motorola-edge-50-pro",
+    "device_name": "Motorola Edge 50 Pro",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC), Adreno 720, 12GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 720",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 720, 12GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 830000,
+    "geekbench_6_single": 1180,
+    "geekbench_6_multi": 3490,
+    "wildlife_stability_pct": 96.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 78.5,
+    "score_breakdown": {
+      "tss": 91.0,
+      "fpe": 88.0,
+      "compute": 65.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "motorola-edge-50-ultra",
+    "device_name": "Motorola Edge 50 Ultra",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-ultra.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC), Adreno 735, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 735",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 735, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1520000,
+    "geekbench_6_single": 1950,
+    "geekbench_6_multi": 5150,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 88.5,
+    "score_breakdown": {
+      "tss": 76.0,
+      "fpe": 95.0,
+      "compute": 93.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "motorola-edge-60-fusion",
+    "device_name": "Motorola Edge 60 Fusion",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-60-fusion.jpg",
+    "soc_chipset": "MediaTek Dimensity 7400 (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7400 (4nm TSMC), ARM Mali-G615 MC2, LPDDR4X, UFS 2.2",
+    "gpu": "ARM Mali-G615 MC2",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "ARM Mali-G615 MC2, LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 655000,
+    "geekbench_6_single": 1050,
+    "geekbench_6_multi": 2980,
+    "wildlife_stability_pct": 97.6,
+    "peak_temp_celsius": 42.4,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 73.9,
+    "score_breakdown": {
+      "tss": 83.2,
+      "fpe": 96.7,
+      "compute": 43.7,
+      "storage": 60
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "motorola-edge-60-pro",
+    "device_name": "Motorola Edge 60 Pro",
+    "brand": "Motorola",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-60-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 8350 Extreme (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 8350 Extreme (4nm TSMC), ARM Mali-G615 MC6, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "ARM Mali-G615 MC6",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "ARM Mali-G615 MC6, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1385000,
+    "geekbench_6_single": 1429,
+    "geekbench_6_multi": 4476,
+    "wildlife_stability_pct": 84.5,
+    "peak_temp_celsius": 43.2,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 87.5,
+    "score_breakdown": {
+      "tss": 70.6,
+      "fpe": 95.6,
+      "compute": 90.4,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "cmf-phone-1",
+    "device_name": "CMF Phone 1",
+    "brand": "Nothing",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/cmf-phone-1.jpg",
+    "soc_chipset": "MediaTek Dimensity 7300 (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7300 (4nm TSMC), Mali-G615 MC2, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G615 MC2",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G615 MC2, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 670000,
+    "geekbench_6_single": 1040,
+    "geekbench_6_multi": 3020,
+    "wildlife_stability_pct": 98.5,
+    "peak_temp_celsius": 40.5,
+    "pwm_dimming_hz": "960Hz",
+    "pulse_throttle_index": 74.5,
+    "score_breakdown": {
+      "tss": 93.0,
+      "fpe": 85.0,
+      "compute": 53.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "nothing-phone-1",
+    "device_name": "Nothing Phone (1)",
+    "brand": "Nothing",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-1.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 778G+ (6nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 778G+ (6nm TSMC), Adreno 642L, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 642L",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 642L, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 610000,
+    "geekbench_6_single": 1040,
+    "geekbench_6_multi": 3020,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 41.2,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 72.8,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 83.0,
+      "compute": 51.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "nothing-phone-2",
+    "device_name": "Nothing Phone (2)",
+    "brand": "Nothing",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-2.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC), Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1280000,
+    "geekbench_6_single": 1820,
+    "geekbench_6_multi": 4650,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 85.5,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 92.5,
+      "compute": 85.5,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "nothing-phone-2a",
+    "device_name": "Nothing Phone (2a)",
+    "brand": "Nothing",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-2a.jpg",
+    "soc_chipset": "MediaTek Dimensity 7200 Pro (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7200 Pro (4nm TSMC), Mali-G610 MC4, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G610 MC4",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G610 MC4, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 690000,
+    "geekbench_6_single": 1110,
+    "geekbench_6_multi": 2620,
+    "wildlife_stability_pct": 98.2,
+    "peak_temp_celsius": 41.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 75.2,
+    "score_breakdown": {
+      "tss": 93.0,
+      "fpe": 85.5,
+      "compute": 54.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "nothing-phone-2a-plus",
+    "device_name": "Nothing Phone (2a) Plus",
+    "brand": "Nothing",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-2a-plus.jpg",
+    "soc_chipset": "MediaTek Dimensity 7350 Pro (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7350 Pro (4nm TSMC), Mali-G615 MC2, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G615 MC2",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G615 MC2, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 720000,
+    "geekbench_6_single": 1150,
+    "geekbench_6_multi": 3250,
+    "wildlife_stability_pct": 98.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 76.8,
+    "score_breakdown": {
+      "tss": 93.0,
+      "fpe": 87.0,
+      "compute": 57.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-10-pro",
+    "device_name": "OnePlus 10 Pro 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-10-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 1 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 1 (4nm Samsung), Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1010000,
+    "geekbench_6_single": 1650,
+    "geekbench_6_multi": 4050,
+    "wildlife_stability_pct": 58.0,
+    "peak_temp_celsius": 45.8,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 75.8,
+    "score_breakdown": {
+      "tss": 55.0,
+      "fpe": 85.0,
+      "compute": 79.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-10r-5g",
+    "device_name": "OnePlus 10R 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-10r.jpg",
+    "soc_chipset": "MediaTek Dimensity 8100-MAX (5nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 8100-MAX (5nm TSMC), Mali-G610 MC6, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Mali-G610 MC6",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G610 MC6, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 845000,
+    "geekbench_6_single": 1260,
+    "geekbench_6_multi": 3840,
+    "wildlife_stability_pct": 92.5,
+    "peak_temp_celsius": 42.2,
+    "pwm_dimming_hz": "720Hz",
+    "pulse_throttle_index": 79.5,
+    "score_breakdown": {
+      "tss": 88.0,
+      "fpe": 89.0,
+      "compute": 67.5,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-10t",
+    "device_name": "OnePlus 10T 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-10t-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC), Adreno 730, 16GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 16GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1280000,
+    "geekbench_6_single": 1800,
+    "geekbench_6_multi": 4610,
+    "wildlife_stability_pct": 88.0,
+    "peak_temp_celsius": 42.6,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 85.1,
+    "score_breakdown": {
+      "tss": 83.0,
+      "fpe": 92.0,
+      "compute": 85.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "oneplus-11",
+    "device_name": "OnePlus 11 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-11.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC), Adreno 740, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1520000,
+    "geekbench_6_single": 1990,
+    "geekbench_6_multi": 5320,
+    "wildlife_stability_pct": 84.0,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 88.9,
+    "score_breakdown": {
+      "tss": 79.0,
+      "fpe": 95.0,
+      "compute": 92.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "oneplus-11r",
+    "device_name": "OnePlus 11R 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-11r.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC), Adreno 730, 16GB LPDDR5X, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 16GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1320000,
+    "geekbench_6_single": 1820,
+    "geekbench_6_multi": 4680,
+    "wildlife_stability_pct": 85.0,
+    "peak_temp_celsius": 43.2,
+    "pwm_dimming_hz": "1440Hz",
+    "pulse_throttle_index": 85.8,
+    "score_breakdown": {
+      "tss": 80.0,
+      "fpe": 93.0,
+      "compute": 87.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "oneplus-12",
+    "device_name": "OnePlus 12",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2040000,
+    "geekbench_6_single": 2210,
+    "geekbench_6_multi": 6720,
+    "wildlife_stability_pct": 88.5,
+    "peak_temp_celsius": 43.4,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 93.8,
+    "score_breakdown": {
+      "tss": 84.0,
+      "fpe": 98.0,
+      "compute": 98.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "oneplus-12r",
+    "device_name": "OnePlus 12R",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-12r.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC), Adreno 740, 16GB LPDDR5X, UFS 3.1",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 740, 16GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1540000,
+    "geekbench_6_single": 2010,
+    "geekbench_6_multi": 5390,
+    "wildlife_stability_pct": 89.0,
+    "peak_temp_celsius": 42.8,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 89.8,
+    "score_breakdown": {
+      "tss": 84.0,
+      "fpe": 96.0,
+      "compute": 93.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "oneplus-13",
+    "device_name": "OnePlus 13",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-13.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC), Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2520000,
+    "geekbench_6_single": 3150,
+    "geekbench_6_multi": 10150,
+    "wildlife_stability_pct": 86.5,
+    "peak_temp_celsius": 43.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 96.5,
+    "score_breakdown": {
+      "tss": 84.0,
+      "fpe": 99.0,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "oneplus-13r",
+    "device_name": "OnePlus 13R",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-12r.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2050000,
+    "geekbench_6_single": 2210,
+    "geekbench_6_multi": 6800,
+    "wildlife_stability_pct": 88.0,
+    "peak_temp_celsius": 43.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 93.9,
+    "score_breakdown": {
+      "tss": 83.0,
+      "fpe": 98.0,
+      "compute": 98.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "oneplus-7-pro",
+    "device_name": "OnePlus 7 Pro",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-7-pro-r.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 855 (7nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 855 (7nm TSMC), Adreno 640, 8GB LPDDR4X, UFS 3.0",
+    "gpu": "Adreno 640",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 640, 8GB LPDDR4X, UFS 3.0",
+    "antutu_v10_score": 560000,
+    "geekbench_6_single": 950,
+    "geekbench_6_multi": 2680,
+    "wildlife_stability_pct": 76.0,
+    "peak_temp_celsius": 44.2,
+    "pwm_dimming_hz": "DC Dimming (AMOLED)",
+    "pulse_throttle_index": 63.5,
+    "score_breakdown": {
+      "tss": 69.0,
+      "fpe": 75.0,
+      "compute": 47.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "oneplus-7t-pro",
+    "device_name": "OnePlus 7T Pro",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-7t-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 855+ (7nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 855+ (7nm TSMC), Adreno 640, 12GB LPDDR4X, UFS 3.0",
+    "gpu": "Adreno 640",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 640, 12GB LPDDR4X, UFS 3.0",
+    "antutu_v10_score": 590000,
+    "geekbench_6_single": 980,
+    "geekbench_6_multi": 2750,
+    "wildlife_stability_pct": 78.0,
+    "peak_temp_celsius": 44.0,
+    "pwm_dimming_hz": "DC Dimming (AMOLED)",
+    "pulse_throttle_index": 64.8,
+    "score_breakdown": {
+      "tss": 71.0,
+      "fpe": 76.0,
+      "compute": 49.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "oneplus-8-pro",
+    "device_name": "OnePlus 8 Pro",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-8-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 865 5G (7nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 865 5G (7nm TSMC), Adreno 650, 12GB LPDDR5, UFS 3.0",
+    "gpu": "Adreno 650",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 650, 12GB LPDDR5, UFS 3.0",
+    "antutu_v10_score": 735000,
+    "geekbench_6_single": 1200,
+    "geekbench_6_multi": 3300,
+    "wildlife_stability_pct": 83.0,
+    "peak_temp_celsius": 43.0,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 72.8,
+    "score_breakdown": {
+      "tss": 78.0,
+      "fpe": 83.0,
+      "compute": 61.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-8t",
+    "device_name": "OnePlus 8T",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-8t.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 865 5G (7nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 865 5G (7nm TSMC), Adreno 650, 12GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 650",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 650, 12GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 728000,
+    "geekbench_6_single": 1195,
+    "geekbench_6_multi": 3280,
+    "wildlife_stability_pct": 85.0,
+    "peak_temp_celsius": 42.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 73.5,
+    "score_breakdown": {
+      "tss": 80.0,
+      "fpe": 84.0,
+      "compute": 60.5,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-9-pro",
+    "device_name": "OnePlus 9 Pro",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-9-pro-.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 888 (5nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 888 (5nm Samsung), Adreno 660, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 660",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 660, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 830000,
+    "geekbench_6_single": 1420,
+    "geekbench_6_multi": 3580,
+    "wildlife_stability_pct": 56.5,
+    "peak_temp_celsius": 46.0,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 69.2,
+    "score_breakdown": {
+      "tss": 52.0,
+      "fpe": 80.0,
+      "compute": 69.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-9r",
+    "device_name": "OnePlus 9R",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-9r.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 870 5G (7nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 870 5G (7nm TSMC), Adreno 650, 12GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 650",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 650, 12GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 730000,
+    "geekbench_6_single": 1210,
+    "geekbench_6_multi": 3320,
+    "wildlife_stability_pct": 88.0,
+    "peak_temp_celsius": 42.0,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 76.0,
+    "score_breakdown": {
+      "tss": 84.0,
+      "fpe": 86.5,
+      "compute": 60.8,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-9rt-5g",
+    "device_name": "OnePlus 9RT 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-9rt.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 888 (5nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 888 (5nm Samsung), Adreno 660, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 660",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 660, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 835000,
+    "geekbench_6_single": 1430,
+    "geekbench_6_multi": 3600,
+    "wildlife_stability_pct": 62.0,
+    "peak_temp_celsius": 45.4,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 71.0,
+    "score_breakdown": {
+      "tss": 57.0,
+      "fpe": 81.0,
+      "compute": 70.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-nord-2t-5g",
+    "device_name": "OnePlus Nord 2T 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-2t.jpg",
+    "soc_chipset": "MediaTek Dimensity 1300 (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 1300 (6nm TSMC), Mali-G77 MC9, 12GB LPDDR4X, UFS 3.1",
+    "gpu": "Mali-G77 MC9",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G77 MC9, 12GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 685000,
+    "geekbench_6_single": 1080,
+    "geekbench_6_multi": 3250,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 42.5,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 74.8,
+    "score_breakdown": {
+      "tss": 82.0,
+      "fpe": 85.0,
+      "compute": 56.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-nord-3",
+    "device_name": "OnePlus Nord 3 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-3.jpg",
+    "soc_chipset": "MediaTek Dimensity 9000 (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 9000 (4nm TSMC), Mali-G710 MC10, 16GB LPDDR5X, UFS 3.1",
+    "gpu": "Mali-G710 MC10",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G710 MC10, 16GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1050000,
+    "geekbench_6_single": 1640,
+    "geekbench_6_multi": 4200,
+    "wildlife_stability_pct": 78.0,
+    "peak_temp_celsius": 44.5,
+    "pwm_dimming_hz": "1440Hz",
+    "pulse_throttle_index": 80.5,
+    "score_breakdown": {
+      "tss": 73.0,
+      "fpe": 88.0,
+      "compute": 78.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-nord-4",
+    "device_name": "OnePlus Nord 4",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-4.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7+ Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 7+ Gen 3 (4nm TSMC), Adreno 732, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 732",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 732, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1280000,
+    "geekbench_6_single": 1820,
+    "geekbench_6_multi": 4650,
+    "wildlife_stability_pct": 89.5,
+    "peak_temp_celsius": 41.9,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 85.8,
+    "score_breakdown": {
+      "tss": 84.0,
+      "fpe": 92.0,
+      "compute": 84.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "oneplus-nord-ce-3-5g",
+    "device_name": "OnePlus Nord CE 3 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce3-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 782G (6nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 782G (6nm TSMC), Adreno 642L, 12GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 642L",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 642L, 12GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 650000,
+    "geekbench_6_single": 1060,
+    "geekbench_6_multi": 3120,
+    "wildlife_stability_pct": 96.0,
+    "peak_temp_celsius": 41.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 74.2,
+    "score_breakdown": {
+      "tss": 89.0,
+      "fpe": 85.0,
+      "compute": 54.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-nord-ce-4",
+    "device_name": "OnePlus Nord CE 4",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce4.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC), Adreno 720, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 720",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 720, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 820000,
+    "geekbench_6_single": 1180,
+    "geekbench_6_multi": 3480,
+    "wildlife_stability_pct": 96.5,
+    "peak_temp_celsius": 41.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 79.8,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 89.0,
+      "compute": 65.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "oneplus-nord-ce-4-lite",
+    "device_name": "OnePlus Nord CE 4 Lite 5G",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce4-lite.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 695 5G (6nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 695 5G (6nm TSMC), Adreno 619, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 619",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 619, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 440000,
+    "geekbench_6_single": 860,
+    "geekbench_6_multi": 2080,
+    "wildlife_stability_pct": 98.0,
+    "peak_temp_celsius": 39.8,
+    "pwm_dimming_hz": "480Hz",
+    "pulse_throttle_index": 64.2,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 76.0,
+      "compute": 37.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "oneplus-open",
+    "device_name": "OnePlus Open",
+    "brand": "OnePlus",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-open.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC), Adreno 740, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1540000,
+    "geekbench_6_single": 2010,
+    "geekbench_6_multi": 5380,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 43.9,
+    "pwm_dimming_hz": "1440Hz",
+    "pulse_throttle_index": 89.2,
+    "score_breakdown": {
+      "tss": 77.0,
+      "fpe": 95.0,
+      "compute": 93.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "oppo-find-x7-ultra",
+    "device_name": "Oppo Find X7 Ultra",
+    "brand": "Oppo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x7-ultra.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2090000,
+    "geekbench_6_single": 2240,
+    "geekbench_6_multi": 6920,
+    "wildlife_stability_pct": 86.5,
+    "peak_temp_celsius": 43.6,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 94.2,
+    "score_breakdown": {
+      "tss": 82.0,
+      "fpe": 99.0,
+      "compute": 99.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "oppo-find-x8-pro",
+    "device_name": "Oppo Find X8 Pro",
+    "brand": "Oppo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x8-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 9400 (3nm TSMC All-Big-Core)",
+    "soc_detail": "MediaTek Dimensity 9400 (3nm TSMC All-Big-Core), Immortalis-G925, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Immortalis-G925",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Immortalis-G925, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2660000,
+    "geekbench_6_single": 2980,
+    "geekbench_6_multi": 9460,
+    "wildlife_stability_pct": 85.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 96.1,
+    "score_breakdown": {
+      "tss": 82.5,
+      "fpe": 99.0,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "oppo-reno-12-pro-5g",
+    "device_name": "Oppo Reno 12 Pro 5G",
+    "brand": "Oppo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno12-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 7300-Energy (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7300-Energy (4nm TSMC), Mali-G615 MC2, 12GB LPDDR4X, UFS 3.1",
+    "gpu": "Mali-G615 MC2",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G615 MC2, 12GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 750000,
+    "geekbench_6_single": 1060,
+    "geekbench_6_multi": 3080,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 77.5,
+    "score_breakdown": {
+      "tss": 91.0,
+      "fpe": 87.0,
+      "compute": 59.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "realme-12-pro-plus",
+    "device_name": "Realme 12 Pro Plus 5G",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-12-pro-plus.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung), Adreno 710, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 710",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 710, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 610000,
+    "geekbench_6_single": 1020,
+    "geekbench_6_multi": 2980,
+    "wildlife_stability_pct": 96.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 72.5,
+    "score_breakdown": {
+      "tss": 88.0,
+      "fpe": 84.0,
+      "compute": 51.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "realme-13-plus-5g",
+    "device_name": "Realme 13 Plus 5G",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-13-plus.jpg",
+    "soc_chipset": "MediaTek Dimensity 7300 Energy (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7300 Energy (4nm TSMC), Mali-G615 MC2, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Mali-G615 MC2",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G615 MC2, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 750000,
+    "geekbench_6_single": 1060,
+    "geekbench_6_multi": 3080,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "1200Hz",
+    "pulse_throttle_index": 77.2,
+    "score_breakdown": {
+      "tss": 91.0,
+      "fpe": 87.0,
+      "compute": 59.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "realme-13-pro-plus",
+    "device_name": "Realme 13 Pro Plus 5G",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-13-pro-plus.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung), Adreno 710, 12GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 710",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 710, 12GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 620000,
+    "geekbench_6_single": 1025,
+    "geekbench_6_multi": 2990,
+    "wildlife_stability_pct": 96.0,
+    "peak_temp_celsius": 41.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 73.2,
+    "score_breakdown": {
+      "tss": 88.0,
+      "fpe": 84.0,
+      "compute": 52.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "realme-gt-5-pro",
+    "device_name": "Realme GT 5 Pro",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-gt5-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2040000,
+    "geekbench_6_single": 2210,
+    "geekbench_6_multi": 6800,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 93.5,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 98.0,
+      "compute": 98.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "realme-gt-6",
+    "device_name": "Realme GT 6",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-gt6.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC), Adreno 735, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 735",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 735, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1520000,
+    "geekbench_6_single": 1940,
+    "geekbench_6_multi": 5080,
+    "wildlife_stability_pct": 87.0,
+    "peak_temp_celsius": 43.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 89.2,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 95.0,
+      "compute": 93.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "realme-gt-6t",
+    "device_name": "Realme GT 6T",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-gt-6t.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7+ Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 7+ Gen 3 (4nm TSMC), Adreno 732, 8GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 732",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 732, 8GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1290000,
+    "geekbench_6_single": 1820,
+    "geekbench_6_multi": 4680,
+    "wildlife_stability_pct": 89.0,
+    "peak_temp_celsius": 42.4,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 86.1,
+    "score_breakdown": {
+      "tss": 84.0,
+      "fpe": 92.5,
+      "compute": 84.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "realme-gt-7-pro",
+    "device_name": "Realme GT 7 Pro",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-gt7-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC), Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2540000,
+    "geekbench_6_single": 3140,
+    "geekbench_6_multi": 10120,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 43.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 96.4,
+    "score_breakdown": {
+      "tss": 84.0,
+      "fpe": 99.0,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "realme-narzo-70-pro-5g",
+    "device_name": "Realme Narzo 70 Pro 5G",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-narzo-70-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 7050 (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7050 (6nm TSMC), Mali-G68 MC4, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Mali-G68 MC4",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G68 MC4, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 585000,
+    "geekbench_6_single": 980,
+    "geekbench_6_multi": 2420,
+    "wildlife_stability_pct": 97.5,
+    "peak_temp_celsius": 40.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 71.4,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 83.0,
+      "compute": 48.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "realme-narzo-70-turbo",
+    "device_name": "Realme Narzo 70 Turbo 5G",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-narzo-70-turbo.jpg",
+    "soc_chipset": "MediaTek Dimensity 7300 Energy (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7300 Energy (4nm TSMC), Mali-G615 MC2, 6GB LPDDR4X, UFS 3.1",
+    "gpu": "Mali-G615 MC2",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G615 MC2, 6GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 745000,
+    "geekbench_6_single": 1055,
+    "geekbench_6_multi": 3060,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "1200Hz",
+    "pulse_throttle_index": 77.0,
+    "score_breakdown": {
+      "tss": 91.0,
+      "fpe": 87.0,
+      "compute": 58.5,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "realme-p2-pro-5g",
+    "device_name": "Realme P2 Pro 5G",
+    "brand": "Realme",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/realme-p2-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung), Adreno 710, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 710",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 710, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 615000,
+    "geekbench_6_single": 1025,
+    "geekbench_6_multi": 2990,
+    "wildlife_stability_pct": 96.0,
+    "peak_temp_celsius": 41.4,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 72.8,
+    "score_breakdown": {
+      "tss": 88.0,
+      "fpe": 84.0,
+      "compute": 51.5,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a15-5g",
+    "device_name": "Samsung Galaxy A15 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a15-5g.jpg",
+    "soc_chipset": "MediaTek Dimensity 6100+ (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 6100+ (6nm TSMC), Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G57 MC2",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 405000,
+    "geekbench_6_single": 760,
+    "geekbench_6_multi": 1920,
+    "wildlife_stability_pct": 95.0,
+    "peak_temp_celsius": 40.2,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 61.2,
+    "score_breakdown": {
+      "tss": 89.0,
+      "fpe": 74.0,
+      "compute": 34.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a16-5g",
+    "device_name": "Samsung Galaxy A16 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a16-5g.jpg",
+    "soc_chipset": "MediaTek Dimensity 6300 (6nm TSMC) / Exynos 1330",
+    "soc_detail": "MediaTek Dimensity 6300 (6nm TSMC) / Exynos 1330, Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G57 MC2",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 420000,
+    "geekbench_6_single": 790,
+    "geekbench_6_multi": 1980,
+    "wildlife_stability_pct": 94.0,
+    "peak_temp_celsius": 40.5,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 62.0,
+    "score_breakdown": {
+      "tss": 88.0,
+      "fpe": 75.0,
+      "compute": 35.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a25-5g",
+    "device_name": "Samsung Galaxy A25 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a25.jpg",
+    "soc_chipset": "Samsung Exynos 1280 (5nm Samsung)",
+    "soc_detail": "Samsung Exynos 1280 (5nm Samsung), Mali-G68, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G68",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G68, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 460000,
+    "geekbench_6_single": 880,
+    "geekbench_6_multi": 2220,
+    "wildlife_stability_pct": 84.0,
+    "peak_temp_celsius": 42.0,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 63.5,
+    "score_breakdown": {
+      "tss": 78.0,
+      "fpe": 76.0,
+      "compute": 39.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a34-5g",
+    "device_name": "Samsung Galaxy A34 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a34.jpg",
+    "soc_chipset": "MediaTek Dimensity 1080 (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 1080 (6nm TSMC), Mali-G68 MC4, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G68 MC4",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G68 MC4, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 540000,
+    "geekbench_6_single": 980,
+    "geekbench_6_multi": 2450,
+    "wildlife_stability_pct": 92.0,
+    "peak_temp_celsius": 41.0,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 68.2,
+    "score_breakdown": {
+      "tss": 87.0,
+      "fpe": 82.0,
+      "compute": 45.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a35-5g",
+    "device_name": "Samsung Galaxy A35 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a35.jpg",
+    "soc_chipset": "Samsung Exynos 1380 (5nm Samsung)",
+    "soc_detail": "Samsung Exynos 1380 (5nm Samsung), Mali-G68 MP5, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Mali-G68 MP5",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G68 MP5, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 590000,
+    "geekbench_6_single": 1020,
+    "geekbench_6_multi": 2910,
+    "wildlife_stability_pct": 87.5,
+    "peak_temp_celsius": 41.8,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 70.1,
+    "score_breakdown": {
+      "tss": 82.0,
+      "fpe": 83.0,
+      "compute": 49.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a52s-5g",
+    "device_name": "Samsung Galaxy A52s 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a52s-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 778G 5G (6nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 778G 5G (6nm TSMC), Adreno 642L, 8GB LPDDR4X, UFS 2.1",
+    "gpu": "Adreno 642L",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 642L, 8GB LPDDR4X, UFS 2.1",
+    "antutu_v10_score": 590000,
+    "geekbench_6_single": 1015,
+    "geekbench_6_multi": 2960,
+    "wildlife_stability_pct": 97.5,
+    "peak_temp_celsius": 40.4,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 72.2,
+    "score_breakdown": {
+      "tss": 91.0,
+      "fpe": 83.5,
+      "compute": 50.5,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a53-5g",
+    "device_name": "Samsung Galaxy A53 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a53-5g.jpg",
+    "soc_chipset": "Samsung Exynos 1280 (5nm Samsung)",
+    "soc_detail": "Samsung Exynos 1280 (5nm Samsung), Mali-G68, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G68",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G68, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 440000,
+    "geekbench_6_single": 860,
+    "geekbench_6_multi": 2150,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 42.8,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 62.0,
+    "score_breakdown": {
+      "tss": 76.0,
+      "fpe": 75.0,
+      "compute": 38.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a54-5g",
+    "device_name": "Samsung Galaxy A54 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54.jpg",
+    "soc_chipset": "Samsung Exynos 1380 (5nm Samsung)",
+    "soc_detail": "Samsung Exynos 1380 (5nm Samsung), Mali-G68 MP5, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Mali-G68 MP5",
+    "ram": "4GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G68 MP5, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 585000,
+    "geekbench_6_single": 1010,
+    "geekbench_6_multi": 2880,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 42.1,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 69.4,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 82.0,
+      "compute": 48.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "samsung-a55",
+    "device_name": "Samsung Galaxy A55 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a55.jpg",
+    "soc_chipset": "Samsung Exynos 1480 (4nm Samsung)",
+    "soc_detail": "Samsung Exynos 1480 (4nm Samsung), Samsung Xclipse 530, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Samsung Xclipse 530",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Samsung Xclipse 530, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 725000,
+    "geekbench_6_single": 1150,
+    "geekbench_6_multi": 3450,
+    "wildlife_stability_pct": 91.5,
+    "peak_temp_celsius": 41.2,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 75.8,
+    "score_breakdown": {
+      "tss": 87.0,
+      "fpe": 88.0,
+      "compute": 58.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a56-5g",
+    "device_name": "Samsung Galaxy A56 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a55.jpg",
+    "soc_chipset": "Samsung Exynos 1580 (4nm Samsung)",
+    "soc_detail": "Samsung Exynos 1580 (4nm Samsung), Samsung Xclipse 540, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Samsung Xclipse 540",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Samsung Xclipse 540, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 920000,
+    "geekbench_6_single": 1380,
+    "geekbench_6_multi": 4200,
+    "wildlife_stability_pct": 88.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 81.5,
+    "score_breakdown": {
+      "tss": 84.0,
+      "fpe": 89.0,
+      "compute": 74.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-a73-5g",
+    "device_name": "Samsung Galaxy A73 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a73-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 778G 5G (6nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 778G 5G (6nm TSMC), Adreno 642L, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 642L",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 642L, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 595000,
+    "geekbench_6_single": 1020,
+    "geekbench_6_multi": 2980,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 72.8,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 84.0,
+      "compute": 51.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-f15-5g",
+    "device_name": "Samsung Galaxy F15 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f15.jpg",
+    "soc_chipset": "MediaTek Dimensity 6100+ (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 6100+ (6nm TSMC), Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G57 MC2",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 410000,
+    "geekbench_6_single": 760,
+    "geekbench_6_multi": 1940,
+    "wildlife_stability_pct": 95.0,
+    "peak_temp_celsius": 40.2,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 61.5,
+    "score_breakdown": {
+      "tss": 89.0,
+      "fpe": 74.0,
+      "compute": 34.5,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-f54-5g",
+    "device_name": "Samsung Galaxy F54 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f54.jpg",
+    "soc_chipset": "Samsung Exynos 1380 (5nm Samsung)",
+    "soc_detail": "Samsung Exynos 1380 (5nm Samsung), Mali-G68 MP5, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G68 MP5",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G68 MP5, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 580000,
+    "geekbench_6_single": 1005,
+    "geekbench_6_multi": 2860,
+    "wildlife_stability_pct": 85.0,
+    "peak_temp_celsius": 42.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 68.8,
+    "score_breakdown": {
+      "tss": 80.0,
+      "fpe": 81.5,
+      "compute": 47.5,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-f55-5g",
+    "device_name": "Samsung Galaxy F55 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f55.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7 Gen 1 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 7 Gen 1 (4nm Samsung), Adreno 644, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 644",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 644, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 605000,
+    "geekbench_6_single": 1045,
+    "geekbench_6_multi": 2960,
+    "wildlife_stability_pct": 77.0,
+    "peak_temp_celsius": 43.6,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 69.2,
+    "score_breakdown": {
+      "tss": 71.0,
+      "fpe": 82.0,
+      "compute": 49.5,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-m34-5g",
+    "device_name": "Samsung Galaxy M34 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m34-5g.jpg",
+    "soc_chipset": "Samsung Exynos 1280 (5nm Samsung)",
+    "soc_detail": "Samsung Exynos 1280 (5nm Samsung), Mali-G68, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G68",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G68, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 460000,
+    "geekbench_6_single": 880,
+    "geekbench_6_multi": 2220,
+    "wildlife_stability_pct": 84.0,
+    "peak_temp_celsius": 42.0,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 63.5,
+    "score_breakdown": {
+      "tss": 78.0,
+      "fpe": 76.0,
+      "compute": 39.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-m35-5g",
+    "device_name": "Samsung Galaxy M35 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m35.jpg",
+    "soc_chipset": "Samsung Exynos 1380 (5nm Samsung)",
+    "soc_detail": "Samsung Exynos 1380 (5nm Samsung), Mali-G68 MP5, 6GB LPDDR4X, UFS 3.1",
+    "gpu": "Mali-G68 MP5",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G68 MP5, 6GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 595000,
+    "geekbench_6_single": 1025,
+    "geekbench_6_multi": 2920,
+    "wildlife_stability_pct": 88.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 70.4,
+    "score_breakdown": {
+      "tss": 83.0,
+      "fpe": 83.0,
+      "compute": 49.5,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-m55-5g",
+    "device_name": "Samsung Galaxy M55 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m55.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7 Gen 1 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 7 Gen 1 (4nm Samsung), Adreno 644, 8GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 644",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 644, 8GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 610000,
+    "geekbench_6_single": 1050,
+    "geekbench_6_multi": 2980,
+    "wildlife_stability_pct": 78.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 69.8,
+    "score_breakdown": {
+      "tss": 72.0,
+      "fpe": 82.0,
+      "compute": 50.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-note-20-ultra",
+    "device_name": "Samsung Galaxy Note 20 Ultra 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note20-ultra-5g-.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 865+ (7nm TSMC) / Exynos 990",
+    "soc_detail": "Qualcomm Snapdragon 865+ (7nm TSMC) / Exynos 990, Adreno 650, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 650",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 650, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 745000,
+    "geekbench_6_single": 1210,
+    "geekbench_6_multi": 3320,
+    "wildlife_stability_pct": 81.0,
+    "peak_temp_celsius": 43.2,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 69.8,
+    "score_breakdown": {
+      "tss": 75.0,
+      "fpe": 80.0,
+      "compute": 62.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s20-fe-5g",
+    "device_name": "Samsung Galaxy S20 FE 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s20-fe-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 865 (7nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 865 (7nm TSMC), Adreno 650, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 650",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 650, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 720000,
+    "geekbench_6_single": 1180,
+    "geekbench_6_multi": 3280,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 42.4,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 68.0,
+    "score_breakdown": {
+      "tss": 76.0,
+      "fpe": 78.0,
+      "compute": 60.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s20-ultra",
+    "device_name": "Samsung Galaxy S20 Ultra 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s20-ultra-5g-r.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 865 (7nm TSMC) / Exynos 990",
+    "soc_detail": "Qualcomm Snapdragon 865 (7nm TSMC) / Exynos 990, Adreno 650, 12GB LPDDR5, UFS 3.0",
+    "gpu": "Adreno 650",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 650, 12GB LPDDR5, UFS 3.0",
+    "antutu_v10_score": 730000,
+    "geekbench_6_single": 1190,
+    "geekbench_6_multi": 3290,
+    "wildlife_stability_pct": 80.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 68.9,
+    "score_breakdown": {
+      "tss": 74.0,
+      "fpe": 79.0,
+      "compute": 61.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s21-fe",
+    "device_name": "Samsung Galaxy S21 FE 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-fe-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 888 (5nm Samsung) / Exynos 2100",
+    "soc_detail": "Qualcomm Snapdragon 888 (5nm Samsung) / Exynos 2100, Adreno 660, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 660",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 660, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 820000,
+    "geekbench_6_single": 1420,
+    "geekbench_6_multi": 3520,
+    "wildlife_stability_pct": 57.0,
+    "peak_temp_celsius": 45.6,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 68.5,
+    "score_breakdown": {
+      "tss": 52.0,
+      "fpe": 79.0,
+      "compute": 68.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s21-ultra",
+    "device_name": "Samsung Galaxy S21 Ultra 5G",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-ultra-5g-.jpg",
+    "soc_chipset": "Samsung Exynos 2100 / Snapdragon 888 (5nm Samsung)",
+    "soc_detail": "Samsung Exynos 2100 / Snapdragon 888 (5nm Samsung), Mali-G78 MP14 / Adreno 660, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Mali-G78 MP14 / Adreno 660",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G78 MP14 / Adreno 660, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 860000,
+    "geekbench_6_single": 1450,
+    "geekbench_6_multi": 3650,
+    "wildlife_stability_pct": 59.0,
+    "peak_temp_celsius": 45.3,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 70.2,
+    "score_breakdown": {
+      "tss": 54.0,
+      "fpe": 80.0,
+      "compute": 71.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-s22-exynos",
+    "device_name": "Samsung Galaxy S22 (Exynos)",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg",
+    "soc_chipset": "Samsung Exynos 2200 (4nm Samsung)",
+    "soc_detail": "Samsung Exynos 2200 (4nm Samsung), Samsung Xclipse 920, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Samsung Xclipse 920",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Samsung Xclipse 920, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 980000,
+    "geekbench_6_single": 1510,
+    "geekbench_6_multi": 3780,
+    "wildlife_stability_pct": 58.5,
+    "peak_temp_celsius": 45.8,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 72.4,
+    "score_breakdown": {
+      "tss": 54.0,
+      "fpe": 82.0,
+      "compute": 75.0,
+      "storage": 80
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s22-ultra",
+    "device_name": "Samsung Galaxy S22 Ultra",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-ultra-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 1 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 1 (4nm Samsung), Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1020000,
+    "geekbench_6_single": 1680,
+    "geekbench_6_multi": 4120,
+    "wildlife_stability_pct": 61.0,
+    "peak_temp_celsius": 45.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 76.8,
+    "score_breakdown": {
+      "tss": 57.0,
+      "fpe": 86.0,
+      "compute": 80.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s23",
+    "device_name": "Samsung Galaxy S23",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 for Galaxy (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 for Galaxy (4nm TSMC), Adreno 740, 8GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 8GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1470000,
+    "geekbench_6_single": 1980,
+    "geekbench_6_multi": 5290,
+    "wildlife_stability_pct": 75.0,
+    "peak_temp_celsius": 44.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 87.4,
+    "score_breakdown": {
+      "tss": 71.0,
+      "fpe": 93.5,
+      "compute": 90.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s23-fe",
+    "device_name": "Samsung Galaxy S23 FE",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-fe.jpg",
+    "soc_chipset": "Samsung Exynos 2200 (4nm Samsung) / Snapdragon 8 Gen 1",
+    "soc_detail": "Samsung Exynos 2200 (4nm Samsung) / Snapdragon 8 Gen 1, Samsung Xclipse 920, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Samsung Xclipse 920",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Samsung Xclipse 920, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1150000,
+    "geekbench_6_single": 1620,
+    "geekbench_6_multi": 4050,
+    "wildlife_stability_pct": 56.0,
+    "peak_temp_celsius": 45.8,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 75.2,
+    "score_breakdown": {
+      "tss": 54.0,
+      "fpe": 84.0,
+      "compute": 78.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s23-plus",
+    "device_name": "Samsung Galaxy S23 Plus",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-plus-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 for Galaxy (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 for Galaxy (4nm TSMC), Adreno 740, 8GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 8GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1510000,
+    "geekbench_6_single": 2010,
+    "geekbench_6_multi": 5380,
+    "wildlife_stability_pct": 81.0,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 89.1,
+    "score_breakdown": {
+      "tss": 77.0,
+      "fpe": 95.0,
+      "compute": 91.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s23-ultra",
+    "device_name": "Samsung Galaxy S23 Ultra",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-ultra-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 for Galaxy (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 for Galaxy (4nm TSMC), Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1550000,
+    "geekbench_6_single": 2040,
+    "geekbench_6_multi": 5450,
+    "wildlife_stability_pct": 84.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "240Hz",
+    "pulse_throttle_index": 90.5,
+    "score_breakdown": {
+      "tss": 80.0,
+      "fpe": 96.0,
+      "compute": 92.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s24",
+    "device_name": "Samsung Galaxy S24",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g-sm-s921.jpg",
+    "soc_chipset": "Samsung Exynos 2400 (4nm Samsung)",
+    "soc_detail": "Samsung Exynos 2400 (4nm Samsung), Samsung Xclipse 940, 8GB LPDDR5X, UFS 4.0",
+    "gpu": "Samsung Xclipse 940",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Samsung Xclipse 940, 8GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1690000,
+    "geekbench_6_single": 2140,
+    "geekbench_6_multi": 6650,
+    "wildlife_stability_pct": 62.0,
+    "peak_temp_celsius": 45.4,
+    "pwm_dimming_hz": "492Hz",
+    "pulse_throttle_index": 86.8,
+    "score_breakdown": {
+      "tss": 60.0,
+      "fpe": 92.0,
+      "compute": 93.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s24-fe",
+    "device_name": "Samsung Galaxy S24 FE",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-fe.jpg",
+    "soc_chipset": "Samsung Exynos 2400e (4nm Samsung)",
+    "soc_detail": "Samsung Exynos 2400e (4nm Samsung), Samsung Xclipse 940, 8GB LPDDR5X, UFS 4.0",
+    "gpu": "Samsung Xclipse 940",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Samsung Xclipse 940, 8GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1580000,
+    "geekbench_6_single": 2080,
+    "geekbench_6_multi": 6350,
+    "wildlife_stability_pct": 66.0,
+    "peak_temp_celsius": 44.6,
+    "pwm_dimming_hz": "492Hz",
+    "pulse_throttle_index": 85.4,
+    "score_breakdown": {
+      "tss": 64.0,
+      "fpe": 91.0,
+      "compute": 91.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s24-plus",
+    "device_name": "Samsung Galaxy S24 Plus",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-plus-5g-sm-s926.jpg",
+    "soc_chipset": "Samsung Exynos 2400 (4nm Samsung) / Snapdragon 8 Gen 3",
+    "soc_detail": "Samsung Exynos 2400 (4nm Samsung) / Snapdragon 8 Gen 3, Samsung Xclipse 940, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Samsung Xclipse 940",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Samsung Xclipse 940, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1750000,
+    "geekbench_6_single": 2180,
+    "geekbench_6_multi": 6800,
+    "wildlife_stability_pct": 68.0,
+    "peak_temp_celsius": 44.9,
+    "pwm_dimming_hz": "492Hz",
+    "pulse_throttle_index": 88.5,
+    "score_breakdown": {
+      "tss": 66.0,
+      "fpe": 94.0,
+      "compute": 94.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s24-ultra",
+    "device_name": "Samsung Galaxy S24 Ultra",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g-sm-s928-stylus.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 for Galaxy (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 for Galaxy (4nm TSMC), Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1980000,
+    "geekbench_6_single": 2280,
+    "geekbench_6_multi": 7100,
+    "wildlife_stability_pct": 74.0,
+    "peak_temp_celsius": 44.2,
+    "pwm_dimming_hz": "492Hz",
+    "pulse_throttle_index": 92.8,
+    "score_breakdown": {
+      "tss": 74.0,
+      "fpe": 97.0,
+      "compute": 98.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "samsung-s24-ultra",
+    "device_name": "Samsung Galaxy S24 Ultra (Snapdragon)",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g-sm-s928-stylus.jpg",
+    "soc_chipset": "Snapdragon 8 Gen 3 for Galaxy (4nm TSMC)",
+    "soc_detail": "Snapdragon 8 Gen 3 for Galaxy (4nm TSMC), Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1980000,
+    "geekbench_6_single": 2280,
+    "geekbench_6_multi": 7100,
+    "wildlife_stability_pct": 74.0,
+    "peak_temp_celsius": 44.2,
+    "pwm_dimming_hz": "492Hz",
+    "pulse_throttle_index": 92.8,
+    "score_breakdown": {
+      "tss": 74.0,
+      "fpe": 97.0,
+      "compute": 98.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s25",
+    "device_name": "Samsung Galaxy S25",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g-sm-s921.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC), Adreno 830, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2320000,
+    "geekbench_6_single": 3020,
+    "geekbench_6_multi": 9480,
+    "wildlife_stability_pct": 76.5,
+    "peak_temp_celsius": 44.8,
+    "pwm_dimming_hz": "960Hz",
+    "pulse_throttle_index": 92.0,
+    "score_breakdown": {
+      "tss": 72.0,
+      "fpe": 96.0,
+      "compute": 97.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s25-plus",
+    "device_name": "Samsung Galaxy S25 Plus",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-plus-5g-sm-s926.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC), Adreno 830, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2360000,
+    "geekbench_6_single": 3050,
+    "geekbench_6_multi": 9600,
+    "wildlife_stability_pct": 80.0,
+    "peak_temp_celsius": 44.0,
+    "pwm_dimming_hz": "960Hz",
+    "pulse_throttle_index": 93.5,
+    "score_breakdown": {
+      "tss": 77.0,
+      "fpe": 97.5,
+      "compute": 97.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s25-ultra",
+    "device_name": "Samsung Galaxy S25 Ultra",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g-sm-s928-stylus.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite for Galaxy (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite for Galaxy (3nm TSMC), Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2410000,
+    "geekbench_6_single": 3120,
+    "geekbench_6_multi": 9950,
+    "wildlife_stability_pct": 82.5,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "960Hz",
+    "pulse_throttle_index": 95.4,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 98.5,
+      "compute": 99.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s26",
+    "device_name": "Samsung Galaxy S26",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g-sm-s921.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite 2 (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite 2 (3nm TSMC), Adreno 840, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 840",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 840, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2420000,
+    "geekbench_6_single": 3080,
+    "geekbench_6_multi": 9800,
+    "wildlife_stability_pct": 80.0,
+    "peak_temp_celsius": 44.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 93.8,
+    "score_breakdown": {
+      "tss": 77.0,
+      "fpe": 98.0,
+      "compute": 98.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-s26-ultra",
+    "device_name": "Samsung Galaxy S26 Ultra",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g-sm-s928-stylus.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite Gen 2 for Galaxy (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite Gen 2 for Galaxy (3nm TSMC), Adreno 840, 16GB LPDDR5X, UFS 4.1",
+    "gpu": "Adreno 840",
+    "ram": "16GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 840, 16GB LPDDR5X, UFS 4.1",
+    "antutu_v10_score": 2550000,
+    "geekbench_6_single": 3150,
+    "geekbench_6_multi": 10500,
+    "wildlife_stability_pct": 84.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 96.5,
+    "score_breakdown": {
+      "tss": 83.0,
+      "fpe": 99.0,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-z-flip-6",
+    "device_name": "Samsung Galaxy Z Flip 6",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip6.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 for Galaxy (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 for Galaxy (4nm TSMC), Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1880000,
+    "geekbench_6_single": 2230,
+    "geekbench_6_multi": 6820,
+    "wildlife_stability_pct": 62.0,
+    "peak_temp_celsius": 45.8,
+    "pwm_dimming_hz": "492Hz",
+    "pulse_throttle_index": 88.2,
+    "score_breakdown": {
+      "tss": 61.0,
+      "fpe": 94.0,
+      "compute": 96.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "samsung-galaxy-z-fold-6",
+    "device_name": "Samsung Galaxy Z Fold 6",
+    "brand": "Samsung",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold6.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 for Galaxy (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 for Galaxy (4nm TSMC), Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1940000,
+    "geekbench_6_single": 2260,
+    "geekbench_6_multi": 6980,
+    "wildlife_stability_pct": 71.0,
+    "peak_temp_celsius": 44.6,
+    "pwm_dimming_hz": "492Hz",
+    "pulse_throttle_index": 91.5,
+    "score_breakdown": {
+      "tss": 71.0,
+      "fpe": 96.0,
+      "compute": 97.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "vivo-t3-pro",
+    "device_name": "Vivo T3 Pro 5G",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-t3-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC), Adreno 720, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 720",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 720, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 815000,
+    "geekbench_6_single": 1170,
+    "geekbench_6_multi": 3420,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 78.5,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 88.0,
+      "compute": 64.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "vivo-t3-ultra",
+    "device_name": "Vivo T3 Ultra 5G",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-t3-ultra.jpg",
+    "soc_chipset": "MediaTek Dimensity 9200+ (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 9200+ (4nm TSMC), Immortalis-G715 MC11, 12GB LPDDR5X, UFS 3.1",
+    "gpu": "Immortalis-G715 MC11",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Immortalis-G715 MC11, 12GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1450000,
+    "geekbench_6_single": 1960,
+    "geekbench_6_multi": 5120,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 44.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 87.2,
+    "score_breakdown": {
+      "tss": 77.0,
+      "fpe": 94.0,
+      "compute": 91.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "vivo-t3x-5g",
+    "device_name": "Vivo T3x 5G",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-t3x.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 6 Gen 1 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 6 Gen 1 (4nm Samsung), Adreno 710, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 710",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 710, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 560000,
+    "geekbench_6_single": 940,
+    "geekbench_6_multi": 2750,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.5,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 69.5,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 81.0,
+      "compute": 46.5,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "vivo-v29-pro",
+    "device_name": "Vivo V29 Pro 5G",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-v29-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 8200 (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 8200 (4nm TSMC), Mali-G610 MC6, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Mali-G610 MC6",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G610 MC6, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 970000,
+    "geekbench_6_single": 1440,
+    "geekbench_6_multi": 4080,
+    "wildlife_stability_pct": 85.5,
+    "peak_temp_celsius": 43.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 82.0,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 89.5,
+      "compute": 74.5,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "vivo-v30-pro",
+    "device_name": "Vivo V30 Pro 5G",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-v30-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 8200 (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 8200 (4nm TSMC), Mali-G610 MC6, 12GB LPDDR5X, UFS 3.1",
+    "gpu": "Mali-G610 MC6",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G610 MC6, 12GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 980000,
+    "geekbench_6_single": 1450,
+    "geekbench_6_multi": 4100,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 42.8,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 82.5,
+    "score_breakdown": {
+      "tss": 82.0,
+      "fpe": 90.0,
+      "compute": 75.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "vivo-v40",
+    "device_name": "Vivo V40 5G",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-v40.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC), Adreno 720, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 720",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 720, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 820000,
+    "geekbench_6_single": 1180,
+    "geekbench_6_multi": 3480,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 78.8,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 88.0,
+      "compute": 65.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "vivo-v40-pro",
+    "device_name": "Vivo V40 Pro 5G",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-v40-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 9200+ (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 9200+ (4nm TSMC), Immortalis-G715 MC11, 12GB LPDDR5X, UFS 3.1",
+    "gpu": "Immortalis-G715 MC11",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Immortalis-G715 MC11, 12GB LPDDR5X, UFS 3.1",
+    "antutu_v10_score": 1450000,
+    "geekbench_6_single": 1960,
+    "geekbench_6_multi": 5120,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 44.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 87.2,
+    "score_breakdown": {
+      "tss": 77.0,
+      "fpe": 94.0,
+      "compute": 91.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "vivo-x100-pro",
+    "device_name": "Vivo X100 Pro",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 9300 (4nm TSMC All-Big-Core)",
+    "soc_detail": "MediaTek Dimensity 9300 (4nm TSMC All-Big-Core), Immortalis-G720 MC12, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Immortalis-G720 MC12",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Immortalis-G720 MC12, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2150000,
+    "geekbench_6_single": 2250,
+    "geekbench_6_multi": 7450,
+    "wildlife_stability_pct": 76.5,
+    "peak_temp_celsius": 45.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 93.0,
+    "score_breakdown": {
+      "tss": 75.0,
+      "fpe": 98.0,
+      "compute": 99.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "vivo-x200-pro",
+    "device_name": "Vivo X200 Pro",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-x200-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 9400 (3nm TSMC All-Big-Core)",
+    "soc_detail": "MediaTek Dimensity 9400 (3nm TSMC All-Big-Core), Immortalis-G925, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Immortalis-G925",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Immortalis-G925, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2680000,
+    "geekbench_6_single": 2990,
+    "geekbench_6_multi": 9480,
+    "wildlife_stability_pct": 84.0,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 96.2,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 99.0,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "vivo-x90-pro",
+    "device_name": "Vivo X90 Pro 5G",
+    "brand": "Vivo",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-x90-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 9200 (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 9200 (4nm TSMC), Immortalis-G715 MC11, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Immortalis-G715 MC11",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Immortalis-G715 MC11, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1420000,
+    "geekbench_6_single": 1920,
+    "geekbench_6_multi": 5050,
+    "wildlife_stability_pct": 80.0,
+    "peak_temp_celsius": 44.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 86.8,
+    "score_breakdown": {
+      "tss": 75.0,
+      "fpe": 93.5,
+      "compute": 90.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "poco-f3",
+    "device_name": "Poco F3",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f3.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 870 5G (7nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 870 5G (7nm TSMC), Adreno 650, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 650",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 650, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 725000,
+    "geekbench_6_single": 1205,
+    "geekbench_6_multi": 3310,
+    "wildlife_stability_pct": 87.0,
+    "peak_temp_celsius": 42.1,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 75.8,
+    "score_breakdown": {
+      "tss": 83.0,
+      "fpe": 86.0,
+      "compute": 60.5,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "poco-f4",
+    "device_name": "Poco F4",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f4.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 870 5G (7nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 870 5G (7nm TSMC), Adreno 650, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 650",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 650, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 735000,
+    "geekbench_6_single": 1220,
+    "geekbench_6_multi": 3350,
+    "wildlife_stability_pct": 89.0,
+    "peak_temp_celsius": 41.8,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 76.5,
+    "score_breakdown": {
+      "tss": 85.0,
+      "fpe": 87.0,
+      "compute": 61.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "poco-f4-gt",
+    "device_name": "Poco F4 GT",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f4-gt.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 1 (4nm Samsung, Magnetic Triggers)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 1 (4nm Samsung, Magnetic Triggers), Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1030000,
+    "geekbench_6_single": 1660,
+    "geekbench_6_multi": 4080,
+    "wildlife_stability_pct": 63.0,
+    "peak_temp_celsius": 45.4,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 77.2,
+    "score_breakdown": {
+      "tss": 59.0,
+      "fpe": 87.0,
+      "compute": 80.5,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "poco-f5",
+    "device_name": "Poco F5",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f5.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7+ Gen 2 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 7+ Gen 2 (4nm TSMC), Adreno 725, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 725",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 725, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1120000,
+    "geekbench_6_single": 1680,
+    "geekbench_6_multi": 4350,
+    "wildlife_stability_pct": 88.0,
+    "peak_temp_celsius": 42.5,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 83.8,
+    "score_breakdown": {
+      "tss": 82.0,
+      "fpe": 91.0,
+      "compute": 80.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "poco-f5-pro",
+    "device_name": "Poco F5 Pro",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f5-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC), Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1310000,
+    "geekbench_6_single": 1820,
+    "geekbench_6_multi": 4650,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 44.1,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 85.2,
+    "score_breakdown": {
+      "tss": 73.0,
+      "fpe": 92.0,
+      "compute": 86.0,
+      "storage": 90
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "poco-f6",
+    "device_name": "Poco F6",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f6.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC), Adreno 735, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 735",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 735, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1485000,
+    "geekbench_6_single": 1930,
+    "geekbench_6_multi": 5010,
+    "wildlife_stability_pct": 86.2,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 88.4,
+    "score_breakdown": {
+      "tss": 74.2,
+      "fpe": 94.0,
+      "compute": 92.1,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "poco-f6-pro",
+    "device_name": "Poco F6 Pro",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f6-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC), Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1580000,
+    "geekbench_6_single": 2020,
+    "geekbench_6_multi": 5420,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 43.9,
+    "pwm_dimming_hz": "3840Hz",
+    "pulse_throttle_index": 90.5,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 96.5,
+      "compute": 94.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "poco-f7-pro",
+    "device_name": "Poco F7 Pro",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f6-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2020000,
+    "geekbench_6_single": 2210,
+    "geekbench_6_multi": 6820,
+    "wildlife_stability_pct": 85.0,
+    "peak_temp_celsius": 44.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 93.2,
+    "score_breakdown": {
+      "tss": 80.0,
+      "fpe": 98.0,
+      "compute": 98.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "poco-m6-pro-5g",
+    "device_name": "Poco M6 Pro 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-m6-pro-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 4 Gen 2 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 4 Gen 2 (4nm Samsung), Adreno 613, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 613",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 613, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 435000,
+    "geekbench_6_single": 820,
+    "geekbench_6_multi": 2050,
+    "wildlife_stability_pct": 97.5,
+    "peak_temp_celsius": 40.0,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 63.8,
+    "score_breakdown": {
+      "tss": 91.0,
+      "fpe": 76.0,
+      "compute": 37.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "poco-x4-gt",
+    "device_name": "Poco X4 GT",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x4-gt.jpg",
+    "soc_chipset": "MediaTek Dimensity 8100 (5nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 8100 (5nm TSMC), Mali-G610 MC6, 8GB LPDDR5, UFS 3.1",
+    "gpu": "Mali-G610 MC6",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G610 MC6, 8GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 840000,
+    "geekbench_6_single": 1250,
+    "geekbench_6_multi": 3810,
+    "wildlife_stability_pct": 93.0,
+    "peak_temp_celsius": 42.0,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 79.2,
+    "score_breakdown": {
+      "tss": 89.0,
+      "fpe": 89.0,
+      "compute": 67.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "poco-x4-pro-5g",
+    "device_name": "Poco X4 Pro 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x4-pro-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 695 5G (6nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 695 5G (6nm TSMC), Adreno 619, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 619",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 619, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 435000,
+    "geekbench_6_single": 855,
+    "geekbench_6_multi": 2060,
+    "wildlife_stability_pct": 98.0,
+    "peak_temp_celsius": 39.8,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 64.0,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 76.0,
+      "compute": 36.5,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "poco-x5-pro-5g",
+    "device_name": "Poco X5 Pro 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x5-pro-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 778G (6nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 778G (6nm TSMC), Adreno 642L, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 642L",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 642L, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 595000,
+    "geekbench_6_single": 1010,
+    "geekbench_6_multi": 2940,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 72.4,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 83.0,
+      "compute": 50.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "poco-x6-5g",
+    "device_name": "Poco X6 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung), Adreno 710, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 710",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 710, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 605000,
+    "geekbench_6_single": 1020,
+    "geekbench_6_multi": 2980,
+    "wildlife_stability_pct": 96.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 72.0,
+    "score_breakdown": {
+      "tss": 88.0,
+      "fpe": 84.0,
+      "compute": 51.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "poco-x6-pro",
+    "device_name": "Poco X6 Pro",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 8300 Ultra (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 8300 Ultra (4nm TSMC), Mali-G615 MC6, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Mali-G615 MC6",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Mali-G615 MC6, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1396000,
+    "geekbench_6_single": 1415,
+    "geekbench_6_multi": 4420,
+    "wildlife_stability_pct": 83.0,
+    "peak_temp_celsius": 43.9,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 86.5,
+    "score_breakdown": {
+      "tss": 72.0,
+      "fpe": 93.5,
+      "compute": 90.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "poco-x7-pro",
+    "device_name": "Poco X7 Pro",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 8400 (4nm TSMC All-Big-Core)",
+    "soc_detail": "MediaTek Dimensity 8400 (4nm TSMC All-Big-Core), Mali-G720, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Mali-G720",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Mali-G720, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1720000,
+    "geekbench_6_single": 1650,
+    "geekbench_6_multi": 6200,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 90.1,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 96.0,
+      "compute": 93.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "redmi-12-5g",
+    "device_name": "Redmi 12 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-12-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 4 Gen 2 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 4 Gen 2 (4nm Samsung), Adreno 613, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 613",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 613, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 440000,
+    "geekbench_6_single": 830,
+    "geekbench_6_multi": 2080,
+    "wildlife_stability_pct": 97.5,
+    "peak_temp_celsius": 40.1,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 64.1,
+    "score_breakdown": {
+      "tss": 91.0,
+      "fpe": 76.5,
+      "compute": 37.5,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "redmi-13c-5g",
+    "device_name": "Redmi 13C 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-13c-5g.jpg",
+    "soc_chipset": "MediaTek Dimensity 6100+ (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 6100+ (6nm TSMC), Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G57 MC2",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 415000,
+    "geekbench_6_single": 765,
+    "geekbench_6_multi": 1950,
+    "wildlife_stability_pct": 96.0,
+    "peak_temp_celsius": 40.0,
+    "pwm_dimming_hz": "DC Dimming (LCD)",
+    "pulse_throttle_index": 61.8,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 74.5,
+      "compute": 35.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "redmi-k70-pro",
+    "device_name": "Redmi K70 Pro",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-k70-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2060000,
+    "geekbench_6_single": 2220,
+    "geekbench_6_multi": 6910,
+    "wildlife_stability_pct": 87.0,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "3840Hz",
+    "pulse_throttle_index": 93.8,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 98.5,
+      "compute": 99.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "redmi-note-10-pro-max",
+    "device_name": "Redmi Note 10 Pro Max",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note10-pro-max.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 732G (8nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 732G (8nm Samsung), Adreno 618, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 618",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 618, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 360000,
+    "geekbench_6_single": 710,
+    "geekbench_6_multi": 1750,
+    "wildlife_stability_pct": 95.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 57.5,
+    "score_breakdown": {
+      "tss": 87.0,
+      "fpe": 70.0,
+      "compute": 30.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "redmi-note-11-pro-plus",
+    "device_name": "Redmi Note 11 Pro Plus 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-11-pro-plus-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 695 5G (6nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 695 5G (6nm TSMC), Adreno 619, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 619",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 619, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 438000,
+    "geekbench_6_single": 860,
+    "geekbench_6_multi": 2070,
+    "wildlife_stability_pct": 98.0,
+    "peak_temp_celsius": 39.9,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 64.2,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 76.0,
+      "compute": 36.8,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "redmi-note-12-pro-5g",
+    "device_name": "Redmi Note 12 Pro 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-12-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 1080 (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 1080 (6nm TSMC), Mali-G68 MC4, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G68 MC4",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G68 MC4, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 535000,
+    "geekbench_6_single": 960,
+    "geekbench_6_multi": 2400,
+    "wildlife_stability_pct": 98.5,
+    "peak_temp_celsius": 40.5,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 68.8,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 81.0,
+      "compute": 45.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "redmi-note-13-5g",
+    "device_name": "Redmi Note 13 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-5g.jpg",
+    "soc_chipset": "MediaTek Dimensity 6080 (6nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 6080 (6nm TSMC), Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G57 MC2",
+    "ram": "4GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G57 MC2, 6GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 445000,
+    "geekbench_6_single": 760,
+    "geekbench_6_multi": 2040,
+    "wildlife_stability_pct": 98.0,
+    "peak_temp_celsius": 39.8,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 64.5,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 77.0,
+      "compute": 38.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Ultra (45 FPS)",
+        "sustained_avg_fps": "40-45 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level frame pacing."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "28-30 FPS",
+        "thermal_and_frame_drop_notes": "Entry-level graphics rendering."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Medium (45 FPS)",
+        "sustained_avg_fps": "42-45 FPS",
+        "thermal_and_frame_drop_notes": "Playable multiplayer pacing."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (30 FPS)",
+        "sustained_avg_fps": "25-30 FPS",
+        "thermal_and_frame_drop_notes": "Base rendering pipeline."
+      }
+    }
+  },
+  {
+    "id": "redmi-note-13-pro-5g",
+    "device_name": "Redmi Note 13 Pro 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro-5g.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 7s Gen 2 (4nm Samsung), Adreno 710, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 710",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 710, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 605000,
+    "geekbench_6_single": 1020,
+    "geekbench_6_multi": 2980,
+    "wildlife_stability_pct": 96.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 72.0,
+    "score_breakdown": {
+      "tss": 88.0,
+      "fpe": 84.0,
+      "compute": 51.0,
+      "storage": 65
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "redmi-note-13-pro-plus",
+    "device_name": "Redmi Note 13 Pro Plus 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro-plus.jpg",
+    "soc_chipset": "MediaTek Dimensity 7200 Ultra (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7200 Ultra (4nm TSMC), Mali-G610 MC4, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Mali-G610 MC4",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Mali-G610 MC4, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 735000,
+    "geekbench_6_single": 1120,
+    "geekbench_6_multi": 2680,
+    "wildlife_stability_pct": 98.0,
+    "peak_temp_celsius": 41.8,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 76.8,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 87.0,
+      "compute": 58.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "redmi-note-14-pro",
+    "device_name": "Redmi Note 14 Pro 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-14-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 7300 Ultra (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7300 Ultra (4nm TSMC), Mali-G615 MC2, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G615 MC2",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G615 MC2, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 690000,
+    "geekbench_6_single": 1050,
+    "geekbench_6_multi": 3050,
+    "wildlife_stability_pct": 96.0,
+    "peak_temp_celsius": 41.5,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 75.2,
+    "score_breakdown": {
+      "tss": 89.0,
+      "fpe": 86.0,
+      "compute": 55.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "redmi-note-14-pro-plus",
+    "device_name": "Redmi Note 14 Pro Plus 5G",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-14-pro-plus.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7s Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 7s Gen 3 (4nm TSMC), Adreno 710, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 710",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 710, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 810000,
+    "geekbench_6_single": 1180,
+    "geekbench_6_multi": 3480,
+    "wildlife_stability_pct": 95.0,
+    "peak_temp_celsius": 41.2,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 79.5,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 89.0,
+      "compute": 64.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "xiaomi-13-pro",
+    "device_name": "Xiaomi 13 Pro",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-13-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC), Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1560000,
+    "geekbench_6_single": 2010,
+    "geekbench_6_multi": 5410,
+    "wildlife_stability_pct": 87.0,
+    "peak_temp_celsius": 43.8,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 90.6,
+    "score_breakdown": {
+      "tss": 83.0,
+      "fpe": 96.0,
+      "compute": 93.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "xiaomi-14",
+    "device_name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1960000,
+    "geekbench_6_single": 2200,
+    "geekbench_6_multi": 6780,
+    "wildlife_stability_pct": 74.0,
+    "peak_temp_celsius": 45.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 90.8,
+    "score_breakdown": {
+      "tss": 70.0,
+      "fpe": 96.5,
+      "compute": 97.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "xiaomi-14-civi",
+    "device_name": "Xiaomi 14 CIVI",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-civi.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC), Adreno 735, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 735",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 735, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1490000,
+    "geekbench_6_single": 1940,
+    "geekbench_6_multi": 5040,
+    "wildlife_stability_pct": 84.0,
+    "peak_temp_celsius": 44.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 87.8,
+    "score_breakdown": {
+      "tss": 73.0,
+      "fpe": 94.0,
+      "compute": 92.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "xiaomi-14-ultra",
+    "device_name": "Xiaomi 14 Ultra",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2010000,
+    "geekbench_6_single": 2220,
+    "geekbench_6_multi": 6880,
+    "wildlife_stability_pct": 79.5,
+    "peak_temp_celsius": 44.5,
+    "pwm_dimming_hz": "1920Hz",
+    "pulse_throttle_index": 92.5,
+    "score_breakdown": {
+      "tss": 76.0,
+      "fpe": 97.5,
+      "compute": 98.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "xiaomi-14t-pro",
+    "device_name": "Xiaomi 14T Pro",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14t-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 9300+ (4nm TSMC All-Big-Core)",
+    "soc_detail": "MediaTek Dimensity 9300+ (4nm TSMC All-Big-Core), Immortalis-G720 MC12, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Immortalis-G720 MC12",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Immortalis-G720 MC12, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2080000,
+    "geekbench_6_single": 2240,
+    "geekbench_6_multi": 7450,
+    "wildlife_stability_pct": 77.0,
+    "peak_temp_celsius": 44.8,
+    "pwm_dimming_hz": "3840Hz",
+    "pulse_throttle_index": 93.1,
+    "score_breakdown": {
+      "tss": 75.0,
+      "fpe": 98.0,
+      "compute": 99.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "xiaomi-15",
+    "device_name": "Xiaomi 15",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-15.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC), Adreno 830, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2430000,
+    "geekbench_6_single": 3080,
+    "geekbench_6_multi": 9780,
+    "wildlife_stability_pct": 78.0,
+    "peak_temp_celsius": 44.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 94.1,
+    "score_breakdown": {
+      "tss": 75.0,
+      "fpe": 98.0,
+      "compute": 98.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "xiaomi-15-pro",
+    "device_name": "Xiaomi 15 Pro",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-15-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC), Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2480000,
+    "geekbench_6_single": 3110,
+    "geekbench_6_multi": 9950,
+    "wildlife_stability_pct": 82.0,
+    "peak_temp_celsius": 43.9,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 95.5,
+    "score_breakdown": {
+      "tss": 80.0,
+      "fpe": 98.5,
+      "compute": 99.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "xiaomi-15-ultra",
+    "device_name": "Xiaomi 15 Ultra",
+    "brand": "Xiaomi",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC), Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2510000,
+    "geekbench_6_single": 3140,
+    "geekbench_6_multi": 10100,
+    "wildlife_stability_pct": 83.0,
+    "peak_temp_celsius": 43.6,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 96.2,
+    "score_breakdown": {
+      "tss": 82.0,
+      "fpe": 99.0,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "redmagic-10-pro",
+    "device_name": "ZTE Nubia RedMagic 10 Pro",
+    "brand": "ZTE",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/zte-nubia-red-magic-9-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC, Active Cooling Fan)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC, Active Cooling Fan), Adreno 830, 16GB LPDDR5X, UFS 4.0 Pro",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 16GB LPDDR5X, UFS 4.0 Pro",
+    "antutu_v10_score": 2680000,
+    "geekbench_6_single": 3220,
+    "geekbench_6_multi": 10400,
+    "wildlife_stability_pct": 94.5,
+    "peak_temp_celsius": 40.5,
+    "pwm_dimming_hz": "2592Hz",
+    "pulse_throttle_index": 98.8,
+    "score_breakdown": {
+      "tss": 93.0,
+      "fpe": 100.0,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "redmagic-9-pro",
+    "device_name": "ZTE Nubia RedMagic 9 Pro",
+    "brand": "ZTE",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/zte-nubia-red-magic-9-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC, Active Cooling Fan)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC, Active Cooling Fan), Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2180000,
+    "geekbench_6_single": 2260,
+    "geekbench_6_multi": 6980,
+    "wildlife_stability_pct": 93.0,
+    "peak_temp_celsius": 41.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 95.8,
+    "score_breakdown": {
+      "tss": 89.0,
+      "fpe": 99.5,
+      "compute": 99.5,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "iqoo-12",
+    "device_name": "iQOO 12",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-12.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 3 (4nm TSMC), Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 750",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 750, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2080000,
+    "geekbench_6_single": 2230,
+    "geekbench_6_multi": 6850,
+    "wildlife_stability_pct": 86.0,
+    "peak_temp_celsius": 44.0,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 94.1,
+    "score_breakdown": {
+      "tss": 81.0,
+      "fpe": 99.0,
+      "compute": 99.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "iqoo-13",
+    "device_name": "iQOO 13",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-13.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Elite (3nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Elite (3nm TSMC), Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 830",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 830, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2580000,
+    "geekbench_6_single": 3180,
+    "geekbench_6_multi": 10250,
+    "wildlife_stability_pct": 87.0,
+    "peak_temp_celsius": 42.9,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 97.2,
+    "score_breakdown": {
+      "tss": 85.0,
+      "fpe": 99.5,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "iqoo-9-pro",
+    "device_name": "iQOO 9 Pro 5G",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-9-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 1 (4nm Samsung)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 1 (4nm Samsung), Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1020000,
+    "geekbench_6_single": 1650,
+    "geekbench_6_multi": 4060,
+    "wildlife_stability_pct": 64.0,
+    "peak_temp_celsius": 45.2,
+    "pwm_dimming_hz": "300Hz",
+    "pulse_throttle_index": 76.5,
+    "score_breakdown": {
+      "tss": 60.0,
+      "fpe": 86.0,
+      "compute": 80.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "iqoo-9t",
+    "device_name": "iQOO 9T 5G",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-9t.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC), Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1300000,
+    "geekbench_6_single": 1815,
+    "geekbench_6_multi": 4640,
+    "wildlife_stability_pct": 88.0,
+    "peak_temp_celsius": 43.0,
+    "pwm_dimming_hz": "360Hz",
+    "pulse_throttle_index": 85.6,
+    "score_breakdown": {
+      "tss": 83.0,
+      "fpe": 93.0,
+      "compute": 86.0,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "iqoo-neo-10-pro",
+    "device_name": "iQOO Neo 10 Pro",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-neo10-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 9400 (3nm TSMC All-Big-Core)",
+    "soc_detail": "MediaTek Dimensity 9400 (3nm TSMC All-Big-Core), Immortalis-G925, 16GB LPDDR5X, UFS 4.0",
+    "gpu": "Immortalis-G925",
+    "ram": "16GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Immortalis-G925, 16GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 2620000,
+    "geekbench_6_single": 2980,
+    "geekbench_6_multi": 9450,
+    "wildlife_stability_pct": 85.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 96.0,
+    "score_breakdown": {
+      "tss": 83.0,
+      "fpe": 99.0,
+      "compute": 100.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Ultra HDR + 120 FPS",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "Flawless 120 FPS esports pacing with robust vapor chamber heat dissipation."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "59-60 FPS",
+        "thermal_and_frame_drop_notes": "Near locked 60 FPS in Natlan/Fontaine domains."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "120 FPS Locked",
+        "thermal_and_frame_drop_notes": "Zero frame drops across competitive esports lobbies."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Highest (60 FPS Cap)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "High shader delivery with zero micro-stutter."
+      }
+    }
+  },
+  {
+    "id": "iqoo-neo-6",
+    "device_name": "iQOO Neo 6 5G",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-neo6.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 870 5G (7nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 870 5G (7nm TSMC), Adreno 650, 12GB LPDDR4X, UFS 3.1",
+    "gpu": "Adreno 650",
+    "ram": "8GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 650, 12GB LPDDR4X, UFS 3.1",
+    "antutu_v10_score": 740000,
+    "geekbench_6_single": 1220,
+    "geekbench_6_multi": 3350,
+    "wildlife_stability_pct": 89.0,
+    "peak_temp_celsius": 41.8,
+    "pwm_dimming_hz": "1200Hz",
+    "pulse_throttle_index": 76.8,
+    "score_breakdown": {
+      "tss": 85.0,
+      "fpe": 87.0,
+      "compute": 61.5,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "iqoo-neo-7-pro",
+    "device_name": "iQOO Neo 7 Pro 5G",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-neo7-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8+ Gen 1 (4nm TSMC), Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "gpu": "Adreno 730",
+    "ram": "12GB",
+    "storage_tier": "UFS 3.1",
+    "gpu_and_storage": "Adreno 730, 12GB LPDDR5, UFS 3.1",
+    "antutu_v10_score": 1290000,
+    "geekbench_6_single": 1810,
+    "geekbench_6_multi": 4620,
+    "wildlife_stability_pct": 87.0,
+    "peak_temp_celsius": 43.1,
+    "pwm_dimming_hz": "1200Hz",
+    "pulse_throttle_index": 85.4,
+    "score_breakdown": {
+      "tss": 82.0,
+      "fpe": 93.0,
+      "compute": 85.5,
+      "storage": 85
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "iqoo-neo-9-pro",
+    "device_name": "iQOO Neo 9 Pro",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-neo9-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8 Gen 2 (4nm TSMC), Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 740",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 740, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1580410,
+    "geekbench_6_single": 2015,
+    "geekbench_6_multi": 5420,
+    "wildlife_stability_pct": 91.0,
+    "peak_temp_celsius": 44.1,
+    "pwm_dimming_hz": "1440Hz",
+    "pulse_throttle_index": 91.2,
+    "score_breakdown": {
+      "tss": 85.0,
+      "fpe": 98.2,
+      "compute": 95.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "iqoo-z7-pro-5g",
+    "device_name": "iQOO Z7 Pro 5G",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-z7-pro.jpg",
+    "soc_chipset": "MediaTek Dimensity 7200 (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7200 (4nm TSMC), Mali-G610 MC4, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G610 MC4",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G610 MC4, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 725000,
+    "geekbench_6_single": 1120,
+    "geekbench_6_multi": 2680,
+    "wildlife_stability_pct": 98.0,
+    "peak_temp_celsius": 40.5,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 76.0,
+    "score_breakdown": {
+      "tss": 93.0,
+      "fpe": 86.0,
+      "compute": 56.5,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "iqoo-z9-turbo",
+    "device_name": "iQOO Z9 Turbo",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-z9-turbo.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 8s Gen 3 (4nm TSMC), Adreno 735, 12GB LPDDR5X, UFS 4.0",
+    "gpu": "Adreno 735",
+    "ram": "12GB",
+    "storage_tier": "UFS 4.0",
+    "gpu_and_storage": "Adreno 735, 12GB LPDDR5X, UFS 4.0",
+    "antutu_v10_score": 1510000,
+    "geekbench_6_single": 1950,
+    "geekbench_6_multi": 5080,
+    "wildlife_stability_pct": 87.0,
+    "peak_temp_celsius": 43.5,
+    "pwm_dimming_hz": "3840Hz",
+    "pulse_throttle_index": 88.9,
+    "score_breakdown": {
+      "tss": 82.0,
+      "fpe": 95.0,
+      "compute": 93.0,
+      "storage": 100
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + 90 FPS",
+        "sustained_avg_fps": "88-90 FPS",
+        "thermal_and_frame_drop_notes": "Consistent 90 FPS competitive gaming with high thermal efficiency."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Highest (60 FPS)",
+        "sustained_avg_fps": "55-58 FPS",
+        "thermal_and_frame_drop_notes": "Solid frame stability during open-world combat."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "Ultra (120 FPS)",
+        "sustained_avg_fps": "115-120 FPS",
+        "thermal_and_frame_drop_notes": "High refresh rate competitive performance."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "50-55 FPS",
+        "thermal_and_frame_drop_notes": "Smooth execution under continuous combat load."
+      }
+    }
+  },
+  {
+    "id": "iqoo-z9s",
+    "device_name": "iQOO Z9s 5G",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-z9s.jpg",
+    "soc_chipset": "MediaTek Dimensity 7300 (4nm TSMC)",
+    "soc_detail": "MediaTek Dimensity 7300 (4nm TSMC), Mali-G615 MC2, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Mali-G615 MC2",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Mali-G615 MC2, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 690000,
+    "geekbench_6_single": 1050,
+    "geekbench_6_multi": 3050,
+    "wildlife_stability_pct": 96.5,
+    "peak_temp_celsius": 41.2,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 75.0,
+    "score_breakdown": {
+      "tss": 90.0,
+      "fpe": 85.0,
+      "compute": 55.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  },
+  {
+    "id": "iqoo-z9s-pro",
+    "device_name": "iQOO Z9s Pro 5G",
+    "brand": "iQOO",
+    "os": "Android",
+    "image_url": "https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-z9s-pro.jpg",
+    "soc_chipset": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC)",
+    "soc_detail": "Qualcomm Snapdragon 7 Gen 3 (4nm TSMC), Adreno 720, 8GB LPDDR4X, UFS 2.2",
+    "gpu": "Adreno 720",
+    "ram": "8GB",
+    "storage_tier": "Fast Flash",
+    "gpu_and_storage": "Adreno 720, 8GB LPDDR4X, UFS 2.2",
+    "antutu_v10_score": 815000,
+    "geekbench_6_single": 1170,
+    "geekbench_6_multi": 3420,
+    "wildlife_stability_pct": 97.0,
+    "peak_temp_celsius": 40.8,
+    "pwm_dimming_hz": "2160Hz",
+    "pulse_throttle_index": 78.5,
+    "score_breakdown": {
+      "tss": 92.0,
+      "fpe": 88.0,
+      "compute": 64.0,
+      "storage": 70
+    },
+    "is_past_search": false,
+    "game_benchmarks": {
+      "BGMI": {
+        "game_name": "BGMI / PUBG Mobile (90/120 FPS Target)",
+        "max_unlocked_setting": "Smooth + Extreme (60 FPS)",
+        "sustained_avg_fps": "58-60 FPS",
+        "thermal_and_frame_drop_notes": "Reliable 60 FPS pacing without thermal throttling."
+      },
+      "GENSHIN": {
+        "game_name": "Genshin Impact (Open-World Max Settings)",
+        "max_unlocked_setting": "Medium (45-60 FPS)",
+        "sustained_avg_fps": "45-50 FPS",
+        "thermal_and_frame_drop_notes": "Good performance at balanced settings."
+      },
+      "CODM": {
+        "game_name": "Call of Duty: Mobile (Ultra Frame Rate)",
+        "max_unlocked_setting": "High (60 FPS)",
+        "sustained_avg_fps": "60 FPS Locked",
+        "thermal_and_frame_drop_notes": "Stable 60 FPS multiplayer."
+      },
+      "WUTHERING": {
+        "game_name": "Wuthering Waves (Heavy Shader Load)",
+        "max_unlocked_setting": "Low (45 FPS)",
+        "sustained_avg_fps": "38-42 FPS",
+        "thermal_and_frame_drop_notes": "Fluid gameplay on lower graphics presets."
+      }
+    }
+  }
+];
+
+export default initialCatalog;

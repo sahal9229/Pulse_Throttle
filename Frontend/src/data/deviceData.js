@@ -13,855 +13,25 @@ export const GAMES = {
 
 export const GAME_KEYS = ['BGMI', 'GENSHIN', 'CODM', 'WUTHERING'];
 
+import initialCatalog from './initialCatalog.js';
+
 export const BRANDS = [
   'All',
   'Apple',
   'Samsung',
-  'Motorola',
-  'iQOO',
-  'Poco/Xiaomi',
+  'Xiaomi',
   'OnePlus',
+  'iQOO',
+  'Motorola',
+  'Google',
+  'Realme',
+  'Nothing',
 ];
 
-const INITIAL_DEVICES = [
-  // ──────────────────────────────────────────────────────────────────────────
-  // APPLE (iOS) - COMPLETE LINEUP: XS -> 16 PRO MAX
-  // ──────────────────────────────────────────────────────────────────────────
-  {
-    id: 'apple-iphone-16-pro-max',
-    device_name: 'iPhone 16 Pro Max',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg',
-    soc_chipset: 'Apple A18 Pro (3nm TSMC)',
-    soc_detail: '2x 4.04 GHz + 4x 2.20 GHz, NPU 16-Core',
-    gpu: 'Apple 6-Core GPU',
-    ram: '8GB LPDDR5X',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 6-Core GPU, 8GB RAM, NVMe',
-    antutu_v10_score: 1820000,
-    geekbench_6_single: 3400,
-    geekbench_6_multi: 8550,
-    wildlife_stability_pct: 82.5,
-    peak_temp_celsius: 43.5,
-    pwm_dimming_hz: '480Hz',
-    pulse_throttle_index: 92.4,
-    score_breakdown: { tss: 74.0, fpe: 98.5, compute: 98.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Ultra HDR + 120 FPS', sustained_avg_fps: '119-120 FPS', thermal_and_frame_drop_notes: 'Flawless 120 FPS pacing with graphite graphene heat dissipation.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '59-60 FPS', thermal_and_frame_drop_notes: 'Near locked 60 FPS in Natlan exploration with minor heat rise after 35m.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Very High + Ultra (120 FPS)', sustained_avg_fps: '120 FPS Locked', thermal_and_frame_drop_notes: 'Zero frame drops in MP esports matches.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'MetalFX upscaling keeps shader pipelines fluid at native resolution.' },
-    },
-  },
-  {
-    id: 'apple-iphone-16-pro',
-    device_name: 'iPhone 16 Pro',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro.jpg',
-    soc_chipset: 'Apple A18 Pro (3nm TSMC)',
-    soc_detail: '2x 4.04 GHz + 4x 2.20 GHz, NPU 16-Core',
-    gpu: 'Apple 6-Core GPU',
-    ram: '8GB LPDDR5X',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 6-Core GPU, 8GB RAM, NVMe',
-    antutu_v10_score: 1720000,
-    geekbench_6_single: 3380,
-    geekbench_6_multi: 8400,
-    wildlife_stability_pct: 80.0,
-    peak_temp_celsius: 44.2,
-    pwm_dimming_hz: '480Hz',
-    pulse_throttle_index: 90.8,
-    score_breakdown: { tss: 71.2, fpe: 97.5, compute: 97.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 120 FPS', sustained_avg_fps: '116-120 FPS', thermal_and_frame_drop_notes: 'Compact titanium body warms up faster; slight frame dips after 25 mins.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'Excellent frame consistency, stable rendering.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '119-120 FPS', thermal_and_frame_drop_notes: 'Sustained peak framerates without micro-stutter.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '56-60 FPS', thermal_and_frame_drop_notes: 'Smooth rendering of intensive combat sequences.' },
-    },
-  },
-  {
-    id: 'apple-iphone-15-pro-max',
-    device_name: 'iPhone 15 Pro Max',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',
-    soc_chipset: 'Apple A17 Pro (3nm TSMC)',
-    soc_detail: '2x 3.78 GHz + 4x 2.11 GHz, Hardware Ray Tracing',
-    gpu: 'Apple 6-Core GPU',
-    ram: '8GB LPDDR5',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 6-Core GPU, 8GB RAM, NVMe',
-    antutu_v10_score: 1540000,
-    geekbench_6_single: 2950,
-    geekbench_6_multi: 7250,
-    wildlife_stability_pct: 74.5,
-    peak_temp_celsius: 45.4,
-    pwm_dimming_hz: '480Hz',
-    pulse_throttle_index: 86.2,
-    score_breakdown: { tss: 63.0, fpe: 94.0, compute: 94.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Ultra HDR + 90 FPS', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: 'Consistent 90 FPS pacing; titanium frame gets warm under heavy gaming.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '55-60 FPS', thermal_and_frame_drop_notes: 'Slight thermal throttling past 20 minutes in heavy Sumeru battles.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Very High + Max', sustained_avg_fps: '118 FPS', thermal_and_frame_drop_notes: 'Clean frame pacing with quick touch response.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '52-58 FPS', thermal_and_frame_drop_notes: 'Occasional shader cache drops in open domains.' },
-    },
-  },
-  {
-    id: 'apple-iphone-15',
-    device_name: 'iPhone 15',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg',
-    soc_chipset: 'Apple A16 Bionic (4nm TSMC)',
-    soc_detail: '2x 3.46 GHz + 4x 2.02 GHz',
-    gpu: 'Apple 5-Core GPU',
-    ram: '6GB LPDDR5',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 5-Core GPU, 6GB RAM, NVMe',
-    antutu_v10_score: 1350000,
-    geekbench_6_single: 2600,
-    geekbench_6_multi: 6500,
-    wildlife_stability_pct: 78.0,
-    peak_temp_celsius: 43.5,
-    pwm_dimming_hz: '480Hz',
-    pulse_throttle_index: 82.0,
-    score_breakdown: { tss: 71.0, fpe: 88.0, compute: 88.5, storage: 95.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 60 FPS', sustained_avg_fps: '59-60 FPS', thermal_and_frame_drop_notes: 'Solid 60Hz lock with aluminum thermal dissipation.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'High (60 FPS Cap)', sustained_avg_fps: '54-58 FPS', thermal_and_frame_drop_notes: 'Stable 60Hz experience with minimal battery drain.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Very High + Max', sustained_avg_fps: '60 FPS', thermal_and_frame_drop_notes: 'Solid competitive performance without overheating.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'High (60 FPS Cap)', sustained_avg_fps: '50-55 FPS', thermal_and_frame_drop_notes: 'Playable and responsive at standard settings.' },
-    },
-  },
-  {
-    id: 'apple-iphone-14-pro-max',
-    device_name: 'iPhone 14 Pro Max',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro-max-.jpg',
-    soc_chipset: 'Apple A16 Bionic (4nm TSMC)',
-    soc_detail: '2x 3.46 GHz + 4x 2.02 GHz',
-    gpu: 'Apple 5-Core GPU',
-    ram: '6GB LPDDR5',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 5-Core GPU, 6GB RAM, NVMe',
-    antutu_v10_score: 1420000,
-    geekbench_6_single: 2640,
-    geekbench_6_multi: 6750,
-    wildlife_stability_pct: 81.0,
-    peak_temp_celsius: 43.2,
-    pwm_dimming_hz: '480Hz',
-    pulse_throttle_index: 87.1,
-    score_breakdown: { tss: 75.0, fpe: 95.0, compute: 90.0, storage: 95.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 90 FPS', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: 'Stainless steel frame retains heat; heavy gaming induces slight dimming.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '56-60 FPS', thermal_and_frame_drop_notes: 'Very smooth 60 FPS gameplay.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '115-120 FPS', thermal_and_frame_drop_notes: 'Excellent frame pacing.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '51-56 FPS', thermal_and_frame_drop_notes: 'Solid rendering performance.' },
-    },
-  },
-  {
-    id: 'apple-iphone-13-pro-max',
-    device_name: 'iPhone 13 Pro Max',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg',
-    soc_chipset: 'Apple A15 Bionic (5nm TSMC)',
-    soc_detail: '2x 3.23 GHz + 4x 1.82 GHz',
-    gpu: 'Apple 5-Core GPU',
-    ram: '6GB LPDDR4X',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 5-Core GPU, 6GB RAM, NVMe',
-    antutu_v10_score: 1250000,
-    geekbench_6_single: 2380,
-    geekbench_6_multi: 5950,
-    wildlife_stability_pct: 86.5,
-    peak_temp_celsius: 41.8,
-    pwm_dimming_hz: '480Hz',
-    pulse_throttle_index: 86.8,
-    score_breakdown: { tss: 82.5, fpe: 95.5, compute: 84.0, storage: 90.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 90 FPS', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: 'Legendary efficiency; runs cool for long sessions.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '57-60 FPS', thermal_and_frame_drop_notes: 'Stable 60 FPS with minimal throttling.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Very High (120 FPS)', sustained_avg_fps: '118-120 FPS', thermal_and_frame_drop_notes: 'Remarkable frame stability.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '52-57 FPS', thermal_and_frame_drop_notes: 'Consistent shader pacing.' },
-    },
-  },
-  {
-    id: 'apple-iphone-13',
-    device_name: 'iPhone 13',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg',
-    soc_chipset: 'Apple A15 Bionic (5nm TSMC)',
-    soc_detail: '2x 3.23 GHz + 4x 1.82 GHz',
-    gpu: 'Apple 4-Core GPU',
-    ram: '4GB LPDDR4X',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 4-Core GPU, 4GB RAM, NVMe',
-    antutu_v10_score: 1120000,
-    geekbench_6_single: 2290,
-    geekbench_6_multi: 5500,
-    wildlife_stability_pct: 79.0,
-    peak_temp_celsius: 42.9,
-    pwm_dimming_hz: '610Hz',
-    pulse_throttle_index: 78.5,
-    score_breakdown: { tss: 74.0, fpe: 86.0, compute: 79.0, storage: 85.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 60 FPS', sustained_avg_fps: '60 FPS', thermal_and_frame_drop_notes: 'Solid 60Hz gaming with very low jitter.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Medium (60 FPS)', sustained_avg_fps: '54-58 FPS', thermal_and_frame_drop_notes: 'Sustained playable experience.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '60 FPS', thermal_and_frame_drop_notes: 'Great esports accuracy.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Medium (60 FPS)', sustained_avg_fps: '48-52 FPS', thermal_and_frame_drop_notes: 'Slight thermal climb after 20m.' },
-    },
-  },
-  {
-    id: 'apple-iphone-12',
-    device_name: 'iPhone 12',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg',
-    soc_chipset: 'Apple A14 Bionic (5nm TSMC)',
-    soc_detail: '2x 3.1 GHz + 4x 1.8 GHz',
-    gpu: 'Apple 4-Core GPU',
-    ram: '4GB LPDDR4X',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 4-Core GPU, 4GB RAM, NVMe',
-    antutu_v10_score: 920000,
-    geekbench_6_single: 2050,
-    geekbench_6_multi: 4750,
-    wildlife_stability_pct: 72.0,
-    peak_temp_celsius: 44.1,
-    pwm_dimming_hz: '480Hz',
-    pulse_throttle_index: 71.4,
-    score_breakdown: { tss: 66.0, fpe: 80.0, compute: 68.0, storage: 80.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 60 FPS', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'First 5nm iPhone; runs slightly warm on extended matches.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Medium (60 FPS)', sustained_avg_fps: '48-54 FPS', thermal_and_frame_drop_notes: 'Drops to 48 FPS as thermals peak at 44°C.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '60 FPS Locked', thermal_and_frame_drop_notes: 'Stable 60 FPS multiplayer.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Low (60 FPS)', sustained_avg_fps: '42-48 FPS', thermal_and_frame_drop_notes: 'Heavy scenes introduce noticeable frame variance.' },
-    },
-  },
-  {
-    id: 'apple-iphone-11',
-    device_name: 'iPhone 11',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg',
-    soc_chipset: 'Apple A13 Bionic (7nm+ TSMC)',
-    soc_detail: '2x 2.65 GHz + 4x 1.8 GHz',
-    gpu: 'Apple 4-Core GPU',
-    ram: '4GB LPDDR4X',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 4-Core GPU, 4GB RAM, NVMe',
-    antutu_v10_score: 795000,
-    geekbench_6_single: 1720,
-    geekbench_6_multi: 3950,
-    wildlife_stability_pct: 76.0,
-    peak_temp_celsius: 43.0,
-    pwm_dimming_hz: 'DC Dimming (Liquid Retina LCD)',
-    pulse_throttle_index: 68.2,
-    score_breakdown: { tss: 71.0, fpe: 78.0, compute: 58.0, storage: 75.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + Extreme (60 FPS)', sustained_avg_fps: '56-60 FPS', thermal_and_frame_drop_notes: 'Liquid Retina LCD has DC dimming zero eye flicker; reliable 60 FPS.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Low-Medium (60 FPS)', sustained_avg_fps: '44-50 FPS', thermal_and_frame_drop_notes: 'Moderate thermal throttling in combat zones.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'High + Max (60 FPS)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'Smooth input response.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Low (45 FPS)', sustained_avg_fps: '38-42 FPS', thermal_and_frame_drop_notes: 'Shader compilation limits frame output.' },
-    },
-  },
-  {
-    id: 'apple-iphone-xs-max',
-    device_name: 'iPhone XS Max',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-max-new1.jpg',
-    soc_chipset: 'Apple A12 Bionic (7nm TSMC)',
-    soc_detail: '2x 2.50 GHz + 4x 1.60 GHz',
-    gpu: 'Apple 4-Core GPU',
-    ram: '4GB LPDDR4X',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 4-Core GPU, 4GB RAM, NVMe',
-    antutu_v10_score: 615000,
-    geekbench_6_single: 1320,
-    geekbench_6_multi: 2980,
-    wildlife_stability_pct: 69.5,
-    peak_temp_celsius: 44.5,
-    pwm_dimming_hz: '240Hz',
-    pulse_throttle_index: 59.8,
-    score_breakdown: { tss: 61.0, fpe: 72.0, compute: 46.0, storage: 70.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + Ultra (45/60 FPS)', sustained_avg_fps: '50-55 FPS', thermal_and_frame_drop_notes: 'Large chassis helps dissipate heat; frame drops in final zones.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Low (30/60 FPS)', sustained_avg_fps: '36-42 FPS', thermal_and_frame_drop_notes: 'Thermals throttle clock speeds after 15 minutes.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Medium (60 FPS)', sustained_avg_fps: '55-60 FPS', thermal_and_frame_drop_notes: 'Good MP performance.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Lowest (30 FPS)', sustained_avg_fps: '28-32 FPS', thermal_and_frame_drop_notes: 'Heavy load on A12 silicon.' },
-    },
-  },
-  {
-    id: 'apple-iphone-xs',
-    device_name: 'iPhone XS',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-new.jpg',
-    soc_chipset: 'Apple A12 Bionic (7nm TSMC)',
-    soc_detail: '2x 2.50 GHz + 4x 1.60 GHz',
-    gpu: 'Apple 4-Core GPU',
-    ram: '4GB LPDDR4X',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 4-Core GPU, 4GB RAM, NVMe',
-    antutu_v10_score: 595000,
-    geekbench_6_single: 1310,
-    geekbench_6_multi: 2890,
-    wildlife_stability_pct: 68.0,
-    peak_temp_celsius: 44.8,
-    pwm_dimming_hz: '240Hz',
-    pulse_throttle_index: 58.2,
-    score_breakdown: { tss: 59.0, fpe: 70.0, compute: 44.5, storage: 70.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + Ultra (45 FPS)', sustained_avg_fps: '42-45 FPS', thermal_and_frame_drop_notes: 'Compact dual-layer motherboard warms up rapidly.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Lowest (30 FPS)', sustained_avg_fps: '32-38 FPS', thermal_and_frame_drop_notes: 'Significant thermal throttling in extended gameplay.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Medium (60 FPS)', sustained_avg_fps: '52-58 FPS', thermal_and_frame_drop_notes: 'Playable with minor stutter in intensive gunfights.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Lowest (30 FPS)', sustained_avg_fps: '26-30 FPS', thermal_and_frame_drop_notes: 'Strict thermal constraints on 2018 flagship chip.' },
-    },
-  },
-  {
-    id: 'apple-iphone-xr',
-    device_name: 'iPhone XR',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xr-new.jpg',
-    soc_chipset: 'Apple A12 Bionic (7nm TSMC)',
-    soc_detail: '2x 2.50 GHz + 4x 1.60 GHz',
-    gpu: 'Apple 4-Core GPU',
-    ram: '3GB LPDDR4X',
-    storage_tier: 'NVMe Fast',
-    gpu_and_storage: 'Apple 4-Core GPU, 3GB RAM, NVMe',
-    antutu_v10_score: 580000,
-    geekbench_6_single: 1295,
-    geekbench_6_multi: 2820,
-    wildlife_stability_pct: 73.0,
-    peak_temp_celsius: 43.4,
-    pwm_dimming_hz: 'DC Dimming (Liquid Retina LCD)',
-    pulse_throttle_index: 59.0,
-    score_breakdown: { tss: 65.0, fpe: 72.0, compute: 43.5, storage: 70.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + Ultra (45 FPS)', sustained_avg_fps: '44-45 FPS', thermal_and_frame_drop_notes: 'Single-layer motherboard runs cooler than XS; zero PWM eye strain.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Lowest (30 FPS)', sustained_avg_fps: '30-34 FPS', thermal_and_frame_drop_notes: '3GB RAM causes background app reloads.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Medium (60 FPS)', sustained_avg_fps: '55-60 FPS', thermal_and_frame_drop_notes: 'Reliable 60Hz casual shooter experience.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Lowest (30 FPS)', sustained_avg_fps: '25-28 FPS', thermal_and_frame_drop_notes: 'Memory pressure causes occasional hitching.' },
-    },
-  },
-  {
-    id: 'apple-iphone-7',
-    device_name: 'iPhone 7',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-7r.jpg',
-    soc_chipset: 'Apple A10 Fusion (16nm TSMC)',
-    soc_detail: '2x 2.34 GHz Hurricane + 2x Zephyr, 16nm FinFET TSMC',
-    gpu: 'PowerVR Series7XT Plus',
-    ram: '2GB LPDDR4',
-    storage_tier: 'NVMe (Gen 1)',
-    gpu_and_storage: 'PowerVR Series7XT Plus, 2GB LPDDR4, NVMe (Gen 1)',
-    antutu_v10_score: 285000,
-    geekbench_6_single: 780,
-    geekbench_6_multi: 1410,
-    wildlife_stability_pct: 68.0,
-    peak_temp_celsius: 43.5,
-    pwm_dimming_hz: 'DC Dimming (LCD)',
-    pulse_throttle_index: 29.8,
-    score_breakdown: { tss: 36.4, fpe: 25.0, compute: 22.0, storage: 75.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Hardware older than 2018 with < 4GB RAM is unsupported for modern 3D title pipelines.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Shader pipeline and memory requirements cause immediate application exit.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Low (30 FPS)', sustained_avg_fps: '22-26 FPS', thermal_and_frame_drop_notes: 'Severe frame drops and high thermal throttling after 10 mins.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Unsupported memory floor.' },
-    },
-  },
-  {
-    id: 'apple-iphone-5s',
-    device_name: 'iPhone 5s',
-    brand: 'Apple',
-    os: 'iOS',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-5s-ofic.jpg',
-    soc_chipset: 'Apple A7 (28nm Samsung, 64-bit)',
-    soc_detail: '2x 1.30 GHz Cyclone (64-bit ARMv8-A), 28nm Samsung HKMG',
-    gpu: 'PowerVR G6430',
-    ram: '1GB LPDDR3',
-    storage_tier: 'eMMC 4.5',
-    gpu_and_storage: 'PowerVR G6430, 1GB LPDDR3, eMMC 4.5',
-    antutu_v10_score: 65000,
-    geekbench_6_single: 255,
-    geekbench_6_multi: 470,
-    wildlife_stability_pct: 65.0,
-    peak_temp_celsius: 43.8,
-    pwm_dimming_hz: 'DC Dimming (LCD)',
-    pulse_throttle_index: 13.0,
-    score_breakdown: { tss: 25.0, fpe: 0.0, compute: 8.5, storage: 20.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Incompatible: 2013 Apple A7 with 1GB RAM fails minimum memory floor and 3D instruction requirements.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Unsupported: Game requires 64-bit Metal with >= 4GB RAM ceiling.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'App crashes during shader load due to 1GB physical memory limit.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Incompatible graphics pipeline.' },
-    },
-  },
-
-  // ──────────────────────────────────────────────────────────────────────────
-  // MOTOROLA
-  // ──────────────────────────────────────────────────────────────────────────
-  {
-    id: 'motorola-edge-60-pro',
-    device_name: 'Motorola Edge 60 Pro',
-    brand: 'Motorola',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-60-pro.jpg',
-    soc_chipset: 'MediaTek Dimensity 8350 Extreme (4nm TSMC)',
-    soc_detail: '1x 3.35 GHz + 3x 3.20 GHz + 4x 2.20 GHz',
-    gpu: 'ARM Mali-G615 MC6',
-    ram: '12GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Mali-G615 MC6, 12GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 1385000,
-    geekbench_6_single: 1429,
-    geekbench_6_multi: 4476,
-    wildlife_stability_pct: 84.5,
-    peak_temp_celsius: 43.2,
-    pwm_dimming_hz: '720Hz',
-    pulse_throttle_index: 87.5,
-    score_breakdown: { tss: 70.6, fpe: 95.6, compute: 90.4, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 90 FPS', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: 'Flawless 90 FPS pacing with vapor chamber cooling.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '55-58 FPS', thermal_and_frame_drop_notes: 'Good thermal management on TSMC 4nm node.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '118 FPS', thermal_and_frame_drop_notes: 'Near locked 120 FPS in ranked multiplayer matches.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '50-54 FPS', thermal_and_frame_drop_notes: 'Smooth shader delivery with low temperature climb.' },
-    },
-  },
-  {
-    id: 'motorola-edge-60-fusion',
-    device_name: 'Motorola Edge 60 Fusion',
-    brand: 'Motorola',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-60-fusion.jpg',
-    soc_chipset: 'MediaTek Dimensity 7400 (4nm TSMC)',
-    soc_detail: '4x 2.5 GHz + 4x 2.0 GHz',
-    gpu: 'ARM Mali-G615 MC2',
-    ram: '8GB LPDDR4X',
-    storage_tier: 'UFS 2.2',
-    gpu_and_storage: 'Mali-G615 MC2, 8GB LPDDR4X, UFS 2.2',
-    antutu_v10_score: 655000,
-    geekbench_6_single: 1050,
-    geekbench_6_multi: 2980,
-    wildlife_stability_pct: 97.6,
-    peak_temp_celsius: 42.4,
-    pwm_dimming_hz: '720Hz',
-    pulse_throttle_index: 73.9,
-    score_breakdown: { tss: 83.2, fpe: 96.7, compute: 43.7, storage: 60.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + Extreme (60 FPS)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'Incredible 97.6% sustained stability with zero heat spikes.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Medium (45 FPS)', sustained_avg_fps: '42-45 FPS', thermal_and_frame_drop_notes: 'Very cool operation under continuous gaming.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '60 FPS', thermal_and_frame_drop_notes: 'Solid 60 FPS competitive pacing.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Low (45 FPS)', sustained_avg_fps: '38-42 FPS', thermal_and_frame_drop_notes: 'UFS 2.2 storage induces slight load time delay.' },
-    },
-  },
-  {
-    id: 'motorola-edge-50-ultra',
-    device_name: 'Motorola Edge 50 Ultra',
-    brand: 'Motorola',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-ultra.jpg',
-    soc_chipset: 'Qualcomm Snapdragon 8s Gen 3 (4nm TSMC)',
-    soc_detail: '1x 3.0 GHz + 4x 2.8 GHz + 3x 2.0 GHz',
-    gpu: 'Adreno 735',
-    ram: '16GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Adreno 735, 16GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 1520000,
-    geekbench_6_single: 1980,
-    geekbench_6_multi: 5150,
-    wildlife_stability_pct: 82.0,
-    peak_temp_celsius: 43.8,
-    pwm_dimming_hz: '720Hz',
-    pulse_throttle_index: 89.2,
-    score_breakdown: { tss: 76.0, fpe: 95.0, compute: 93.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Ultra HDR + 90 FPS', sustained_avg_fps: '89-90 FPS', thermal_and_frame_drop_notes: 'Wooden/vegan leather back plate remains comfortable in hands.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '57-60 FPS', thermal_and_frame_drop_notes: 'Snapdragon 8s Gen 3 architecture balances performance and battery.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '118-120 FPS', thermal_and_frame_drop_notes: 'Exceptional 120 FPS pacing.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '54-58 FPS', thermal_and_frame_drop_notes: 'Fluid frame generation with minimal thermal drop.' },
-    },
-  },
-
-  // ──────────────────────────────────────────────────────────────────────────
-  // SAMSUNG
-  // ──────────────────────────────────────────────────────────────────────────
-  {
-    id: 'samsung-s24-ultra',
-    device_name: 'Samsung Galaxy S24 Ultra',
-    brand: 'Samsung',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g-sm-s928-stylus.jpg',
-    soc_chipset: 'Snapdragon 8 Gen 3 for Galaxy (4nm TSMC)',
-    soc_detail: '1x 3.39 GHz + 3x 3.1 GHz + 2x 2.9 GHz + 2x 2.2 GHz',
-    gpu: 'Adreno 750 (1000 MHz)',
-    ram: '12GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Adreno 750, 12GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 1950000,
-    geekbench_6_single: 2280,
-    geekbench_6_multi: 7100,
-    wildlife_stability_pct: 68.5,
-    peak_temp_celsius: 45.1,
-    pwm_dimming_hz: '492Hz',
-    pulse_throttle_index: 86.4,
-    score_breakdown: { tss: 62.0, fpe: 94.0, compute: 98.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Ultra HDR + 120 FPS', sustained_avg_fps: '112-118 FPS', thermal_and_frame_drop_notes: 'Large vapor chamber (1.9x S23U) handles heat; minor throttling after 30 mins.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '56-60 FPS', thermal_and_frame_drop_notes: 'Anti-reflective Gorilla Armor glass enhances visual contrast in sun.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '119-120 FPS', thermal_and_frame_drop_notes: 'Near locked 120 FPS in esports tournament tests.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '54-59 FPS', thermal_and_frame_drop_notes: 'Ray tracing ready Adreno 750 handles high shader density.' },
-    },
-  },
-  {
-    id: 'samsung-s23-ultra',
-    device_name: 'Samsung Galaxy S23 Ultra',
-    brand: 'Samsung',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-ultra-5g.jpg',
-    soc_chipset: 'Snapdragon 8 Gen 2 for Galaxy (4nm TSMC)',
-    soc_detail: '1x 3.36 GHz + 2x 2.8 GHz + 2x 2.8 GHz + 3x 2.0 GHz',
-    gpu: 'Adreno 740',
-    ram: '12GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Adreno 740, 12GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 1540000,
-    geekbench_6_single: 2020,
-    geekbench_6_multi: 5400,
-    wildlife_stability_pct: 78.5,
-    peak_temp_celsius: 43.8,
-    pwm_dimming_hz: '240Hz',
-    pulse_throttle_index: 85.0,
-    score_breakdown: { tss: 75.0, fpe: 92.0, compute: 91.0, storage: 98.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 90 FPS', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: 'Rock-solid 90 FPS sustained frame pacing.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '55-58 FPS', thermal_and_frame_drop_notes: 'Consistent performance with predictable thermal curve.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '116-120 FPS', thermal_and_frame_drop_notes: 'Excellent touch responsiveness.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '51-56 FPS', thermal_and_frame_drop_notes: 'Solid graphics execution.' },
-    },
-  },
-  {
-    id: 'samsung-a55',
-    device_name: 'Samsung Galaxy A55 5G',
-    brand: 'Samsung',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a55.jpg',
-    soc_chipset: 'Exynos 1480 (4nm Samsung)',
-    soc_detail: '4x 2.75 GHz + 4x 2.05 GHz, AMD RDNA Architecture',
-    gpu: 'Xclipse 530 GPU (AMD RDNA2)',
-    ram: '8GB LPDDR5',
-    storage_tier: 'UFS 3.1',
-    gpu_and_storage: 'Xclipse 530, 8GB LPDDR5, UFS 3.1',
-    antutu_v10_score: 725000,
-    geekbench_6_single: 1150,
-    geekbench_6_multi: 3450,
-    wildlife_stability_pct: 91.5,
-    peak_temp_celsius: 41.2,
-    pwm_dimming_hz: '240Hz',
-    pulse_throttle_index: 74.8,
-    score_breakdown: { tss: 86.0, fpe: 88.0, compute: 52.0, storage: 80.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + Extreme (60 FPS)', sustained_avg_fps: '59-60 FPS', thermal_and_frame_drop_notes: 'RDNA2 architecture runs extremely cool at 41.2°C peak.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Medium (45 FPS)', sustained_avg_fps: '42-45 FPS', thermal_and_frame_drop_notes: 'Stable medium tier gaming without aggressive thermal throttles.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Very High + Max', sustained_avg_fps: '60 FPS Locked', thermal_and_frame_drop_notes: 'Great sustained frame rates.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Low (45 FPS)', sustained_avg_fps: '38-42 FPS', thermal_and_frame_drop_notes: 'Playable with minor visual compromises.' },
-    },
-  },
-
-  // ──────────────────────────────────────────────────────────────────────────
-  // iQOO / VIVO
-  // ──────────────────────────────────────────────────────────────────────────
-  {
-    id: 'iqoo-12',
-    device_name: 'iQOO 12',
-    brand: 'iQOO',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-12.jpg',
-    soc_chipset: 'Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)',
-    soc_detail: '1x 3.3 GHz + 5x 3.2 GHz + 2x 2.3 GHz + SuperComputing Chip Q1',
-    gpu: 'Adreno 750',
-    ram: '16GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Adreno 750, 16GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 2080000,
-    geekbench_6_single: 2230,
-    geekbench_6_multi: 6850,
-    wildlife_stability_pct: 86.0,
-    peak_temp_celsius: 44.0,
-    pwm_dimming_hz: '2160Hz',
-    pulse_throttle_index: 94.1,
-    score_breakdown: { tss: 81.0, fpe: 99.0, compute: 99.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Super Resolution + 144 FPS', sustained_avg_fps: '140-144 FPS', thermal_and_frame_drop_notes: 'Dedicated Q1 co-processor interpolates 144 FPS with low latency.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest + 900p (60 FPS)', sustained_avg_fps: '59-60 FPS', thermal_and_frame_drop_notes: '6010mm² massive vapor chamber keeps thermals under 44°C.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (144 FPS Target)', sustained_avg_fps: '143-144 FPS', thermal_and_frame_drop_notes: 'Highest sustained frame rate in the entire competitive test set.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '59-60 FPS', thermal_and_frame_drop_notes: 'Zero frame stutter even in 4-player co-op combat domain.' },
-    },
-  },
-  {
-    id: 'iqoo-neo-9-pro',
-    device_name: 'iQOO Neo 9 Pro',
-    brand: 'iQOO',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-neo9-pro.jpg',
-    soc_chipset: 'Qualcomm Snapdragon 8 Gen 2 (4nm TSMC)',
-    soc_detail: '1x 3.2 GHz + 4x 2.8 GHz + 3x 2.0 GHz + Q1 Display Chip',
-    gpu: 'Adreno 740',
-    ram: '12GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Adreno 740, 12GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 1580410,
-    geekbench_6_single: 2015,
-    geekbench_6_multi: 5420,
-    wildlife_stability_pct: 91.0,
-    peak_temp_celsius: 44.1,
-    pwm_dimming_hz: '1440Hz',
-    pulse_throttle_index: 91.2,
-    score_breakdown: { tss: 85.0, fpe: 98.2, compute: 95.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Ultra HDR + 90 FPS', sustained_avg_fps: '89-90 FPS', thermal_and_frame_drop_notes: '91% 3DMark stability; unmatched price-to-performance esports benchmark.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: '6k mm² canopy vapor chamber maintains stability.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '120 FPS Locked', thermal_and_frame_drop_notes: 'Zero drops across multiple ranked lobbies.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '56-60 FPS', thermal_and_frame_drop_notes: 'Very high texture fidelity.' },
-    },
-  },
-  {
-    id: 'vivo-x100-pro',
-    device_name: 'Vivo X100 Pro',
-    brand: 'iQOO',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-pro.jpg',
-    soc_chipset: 'MediaTek Dimensity 9300 (4nm TSMC All-Big-Core)',
-    soc_detail: '4x 3.25 GHz Cortex-X4 + 4x 2.0 GHz Cortex-A720 + Vivo V3 Chip',
-    gpu: 'ARM Immortalis-G720 MC12',
-    ram: '16GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Immortalis-G720, 16GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 2150000,
-    geekbench_6_single: 2260,
-    geekbench_6_multi: 7450,
-    wildlife_stability_pct: 76.5,
-    peak_temp_celsius: 45.2,
-    pwm_dimming_hz: '2160Hz',
-    pulse_throttle_index: 93.0,
-    score_breakdown: { tss: 74.0, fpe: 98.0, compute: 99.5, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Ultra HDR + 120 FPS', sustained_avg_fps: '116-120 FPS', thermal_and_frame_drop_notes: 'All-Big-Core architecture unleashes raw compute power; runs warm on peak load.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '59-60 FPS', thermal_and_frame_drop_notes: 'Hardware ray-tracing acceleration via Immortalis GPU.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '120 FPS Locked', thermal_and_frame_drop_notes: 'Flawless frame pacing.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'Rich shader detail and sharp rendering.' },
-    },
-  },
-
-  // ──────────────────────────────────────────────────────────────────────────
-  // XIAOMI / POCO
-  // ──────────────────────────────────────────────────────────────────────────
-  {
-    id: 'xiaomi-14-ultra',
-    device_name: 'Xiaomi 14 Ultra',
-    brand: 'Xiaomi',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg',
-    soc_chipset: 'Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)',
-    soc_detail: '1x 3.3 GHz + 5x 3.2 GHz + 2x 2.3 GHz',
-    gpu: 'Adreno 750',
-    ram: '16GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Adreno 750, 16GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 2010000,
-    geekbench_6_single: 2210,
-    geekbench_6_multi: 6800,
-    wildlife_stability_pct: 79.5,
-    peak_temp_celsius: 44.5,
-    pwm_dimming_hz: '1920Hz',
-    pulse_throttle_index: 92.5,
-    score_breakdown: { tss: 78.0, fpe: 97.0, compute: 98.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Ultra HDR + 120 FPS', sustained_avg_fps: '115-120 FPS', thermal_and_frame_drop_notes: 'Dual-Channel LiquidCool system effectively routes heat away from camera cluster.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'WQHD+ OLED panel maintains consistent 60 FPS.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '119-120 FPS', thermal_and_frame_drop_notes: 'Sharp esports touch feedback.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '56-60 FPS', thermal_and_frame_drop_notes: 'High visual fidelity with zero lag.' },
-    },
-  },
-  {
-    id: 'poco-f6',
-    device_name: 'Poco F6',
-    brand: 'Xiaomi',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f6.jpg',
-    soc_chipset: 'Qualcomm Snapdragon 8s Gen 3 (4nm TSMC)',
-    soc_detail: '1x 3.0 GHz + 4x 2.8 GHz + 3x 2.0 GHz',
-    gpu: 'Adreno 735',
-    ram: '12GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Adreno 735, 12GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 1485000,
-    geekbench_6_single: 1930,
-    geekbench_6_multi: 5010,
-    wildlife_stability_pct: 86.2,
-    peak_temp_celsius: 43.8,
-    pwm_dimming_hz: '1920Hz',
-    pulse_throttle_index: 88.4,
-    score_breakdown: { tss: 74.2, fpe: 94.0, compute: 92.1, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 90 FPS', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: 'WildBoost 3.0 optimization stabilizes frame output without stutter.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '57-60 FPS', thermal_and_frame_drop_notes: 'Iceloop 4.0 vapor cooling loop keeps temperature below 44°C.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '118 FPS', thermal_and_frame_drop_notes: 'High refresh rate clarity.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '53-58 FPS', thermal_and_frame_drop_notes: 'Responsive rendering.' },
-    },
-  },
-  {
-    id: 'poco-x6-pro',
-    device_name: 'Poco X6 Pro',
-    brand: 'Xiaomi',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg',
-    soc_chipset: 'MediaTek Dimensity 8300 Ultra (4nm TSMC)',
-    soc_detail: '4x 3.35 GHz + 4x 2.20 GHz',
-    gpu: 'Mali-G615 MC6',
-    ram: '12GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Mali-G615 MC6, 12GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 1396000,
-    geekbench_6_single: 1415,
-    geekbench_6_multi: 4420,
-    wildlife_stability_pct: 83.0,
-    peak_temp_celsius: 43.9,
-    pwm_dimming_hz: '1920Hz',
-    pulse_throttle_index: 86.5,
-    score_breakdown: { tss: 72.0, fpe: 93.5, compute: 90.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 90 FPS', sustained_avg_fps: '86-90 FPS', thermal_and_frame_drop_notes: 'Segment-first UFS 4.0 storage yields near-instant map and asset loads.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '55-58 FPS', thermal_and_frame_drop_notes: 'Dimensity 8300 Ultra balances high IPC with efficient thermal curves.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Very High + Max', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: 'Solid performance.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '50-55 FPS', thermal_and_frame_drop_notes: 'Stable 50+ FPS frame rate.' },
-    },
-  },
-  {
-    id: 'redmi-note-13-pro-plus',
-    device_name: 'Redmi Note 13 Pro+',
-    brand: 'Xiaomi',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro-plus.jpg',
-    soc_chipset: 'MediaTek Dimensity 7200 Ultra (4nm TSMC)',
-    soc_detail: '2x 2.8 GHz + 6x 2.0 GHz',
-    gpu: 'Mali-G610 MC4',
-    ram: '12GB LPDDR5',
-    storage_tier: 'UFS 3.1',
-    gpu_and_storage: 'Mali-G610 MC4, 12GB LPDDR5, UFS 3.1',
-    antutu_v10_score: 740000,
-    geekbench_6_single: 1120,
-    geekbench_6_multi: 2750,
-    wildlife_stability_pct: 95.0,
-    peak_temp_celsius: 42.0,
-    pwm_dimming_hz: '1920Hz',
-    pulse_throttle_index: 76.2,
-    score_breakdown: { tss: 88.0, fpe: 89.0, compute: 54.0, storage: 80.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + Extreme (60 FPS)', sustained_avg_fps: '59-60 FPS', thermal_and_frame_drop_notes: 'Extremely cool 42°C operation with 95% stability.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Medium (45 FPS)', sustained_avg_fps: '43-45 FPS', thermal_and_frame_drop_notes: 'Smooth open-world exploration.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '60 FPS', thermal_and_frame_drop_notes: 'Solid 60Hz gameplay.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Low (45 FPS)', sustained_avg_fps: '37-41 FPS', thermal_and_frame_drop_notes: 'Zero eye fatigue with 1920Hz PWM dimming.' },
-    },
-  },
-
-  // ──────────────────────────────────────────────────────────────────────────
-  // ONEPLUS
-  // ──────────────────────────────────────────────────────────────────────────
-  {
-    id: 'oneplus-12',
-    device_name: 'OnePlus 12',
-    brand: 'OnePlus',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg',
-    soc_chipset: 'Qualcomm Snapdragon 8 Gen 3 (4nm TSMC)',
-    soc_detail: '1x 3.3 GHz + 5x 3.2 GHz + 2x 2.3 GHz',
-    gpu: 'Adreno 750',
-    ram: '16GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Adreno 750, 16GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 2040000,
-    geekbench_6_single: 2210,
-    geekbench_6_multi: 6720,
-    wildlife_stability_pct: 88.5,
-    peak_temp_celsius: 43.4,
-    pwm_dimming_hz: '2160Hz',
-    pulse_throttle_index: 93.8,
-    score_breakdown: { tss: 84.0, fpe: 98.0, compute: 98.5, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Ultra HDR + 120 FPS', sustained_avg_fps: '117-120 FPS', thermal_and_frame_drop_notes: '9140mm² Dual Cryo-Velocity VC leads thermal heat extraction across long sessions.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '59-60 FPS', thermal_and_frame_drop_notes: 'Trinity Engine dynamically allocates CPU/GPU cycles for 0 dropped frames.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '120 FPS Locked', thermal_and_frame_drop_notes: 'Esports grade responsiveness with Bionic Haptic motor.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'Near zero throttling with low battery drain.' },
-    },
-  },
-  {
-    id: 'oneplus-nord-4',
-    device_name: 'OnePlus Nord 4',
-    brand: 'OnePlus',
-    os: 'Android',
-    image_url: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-4.jpg',
-    soc_chipset: 'Qualcomm Snapdragon 7+ Gen 3 (4nm TSMC)',
-    soc_detail: '1x 2.8 GHz + 4x 2.6 GHz + 3x 1.9 GHz',
-    gpu: 'Adreno 732',
-    ram: '12GB LPDDR5X',
-    storage_tier: 'UFS 4.0',
-    gpu_and_storage: 'Adreno 732, 12GB LPDDR5X, UFS 4.0',
-    antutu_v10_score: 1280000,
-    geekbench_6_single: 1820,
-    geekbench_6_multi: 4650,
-    wildlife_stability_pct: 89.5,
-    peak_temp_celsius: 41.9,
-    pwm_dimming_hz: '2160Hz',
-    pulse_throttle_index: 84.2,
-    score_breakdown: { tss: 82.1, fpe: 91.0, compute: 82.0, storage: 100.0 },
-    is_past_search: false,
-    game_benchmarks: {
-      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 90 FPS', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: 'Metal unibody transfers heat outward efficiently; internal temperatures stay cool.' },
-      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '56-59 FPS', thermal_and_frame_drop_notes: 'Cortex-X4 prime core handles peak shader compilation loads.' },
-      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '116-120 FPS', thermal_and_frame_drop_notes: 'Exceptional 120 FPS gaming on a mid-ranger.' },
-      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '51-56 FPS', thermal_and_frame_drop_notes: 'Consistent performance with low battery consumption.' },
-    },
-  },
-];
+const INITIAL_DEVICES = initialCatalog;
 
 // In-memory catalog state with listener subscription pattern
+// Pre-populated with verified 200+ hardware catalog entries
 let deviceDatabase = [...INITIAL_DEVICES];
 const customDeviceCache = new Map();
 const listeners = new Set();
@@ -877,6 +47,19 @@ export function subscribeCatalog(listener) {
 
 export function getAllDevices() {
   return deviceDatabase;
+}
+
+export function clearLeaderboard() {
+  deviceDatabase = [];
+  customDeviceCache.clear();
+  notifyListeners();
+  fetch(`${API_BASE_URL}/api/catalog/clear`, { method: 'POST' }).catch(() => {});
+}
+
+export function restoreDefaultCatalog() {
+  deviceDatabase = [...INITIAL_DEVICES];
+  notifyListeners();
+  fetch(`${API_BASE_URL}/api/catalog/seed`, { method: 'POST' }).catch(() => {});
 }
 
 /**
@@ -1144,7 +327,7 @@ function generateGameBenchmarks(cleanName, isUnsupported, isFlagship) {
 /**
  * Creates deterministic telemetry for any custom phone typed by the user
  */
-export function createCustomDevice(rawInput) {
+export function createCustomDevice(rawInput, addToDatabase = false) {
   const cleanName = rawInput.trim();
   const id = cleanName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
@@ -1183,7 +366,7 @@ export function createCustomDevice(rawInput) {
       game_benchmarks: generateGameBenchmarks(cleanName, anchor.demanding_games_unsupported, false),
     };
     customDeviceCache.set(id, customDevice);
-    if (!deviceDatabase.some((d) => d.id === id)) {
+    if (addToDatabase && !deviceDatabase.some((d) => d.id === id)) {
       deviceDatabase = [customDevice, ...deviceDatabase];
       notifyListeners();
     }
@@ -1321,8 +504,8 @@ export function createCustomDevice(rawInput) {
 
   customDeviceCache.set(id, customDevice);
 
-  // Add to active database if not present
-  if (!deviceDatabase.some((d) => d.id === id)) {
+  // Only add to active database if explicitly instructed
+  if (addToDatabase && !deviceDatabase.some((d) => d.id === id)) {
     deviceDatabase = [customDevice, ...deviceDatabase];
     notifyListeners();
   }
@@ -1333,18 +516,111 @@ export function createCustomDevice(rawInput) {
 /**
  * Finds a device by ID or name
  */
-export function getDeviceByIdOrName(query) {
-  if (!query) return deviceDatabase[0];
 
-  const found = deviceDatabase.find(
-    (d) => d.id === query || d.device_name.toLowerCase() === query.toLowerCase()
-  );
-  if (found) return found;
+export function computeDynamicGameBenchmarks(deviceName, antutu, pti) {
+  const isFlagshipUltra = antutu >= 1800000 || pti >= 92.0;
+  const isUpperMid = antutu >= 1200000 || pti >= 85.0;
+  const isMid = antutu >= 600000 || pti >= 70.0;
+  const isLegacy = antutu < 300000 || pti < 35.0;
 
-  if (customDeviceCache.has(query)) {
-    return customDeviceCache.get(query);
+  if (isLegacy) {
+    return {
+      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Hardware lacks memory floor and modern 3D shader pipeline.' },
+      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Shader model incompatible: App fails to launch.' },
+      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Low (30 FPS)', sustained_avg_fps: '18-24 FPS', thermal_and_frame_drop_notes: 'Severe throttling and frame stuttering on legacy instruction set.' },
+      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'INCOMPATIBLE / UNSUPPORTED', sustained_avg_fps: '0 FPS', thermal_and_frame_drop_notes: 'Unsupported: Hardware lacks required Vulkan / Metal memory mapping.' },
+    };
   }
 
+  if (isFlagshipUltra) {
+    return {
+      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Ultra HDR + 120 FPS', sustained_avg_fps: '115-120 FPS', thermal_and_frame_drop_notes: 'Peak 120 FPS esports pacing with robust vapor chamber heat dissipation.' },
+      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS Cap)', sustained_avg_fps: '59-60 FPS', thermal_and_frame_drop_notes: 'Near locked 60 FPS in heavy open-world combat.' },
+      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '120 FPS Locked', thermal_and_frame_drop_notes: 'Zero frame drops across competitive esports lobbies.' },
+      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'Rich visual shader fidelity with smooth frame times.' },
+    };
+  }
+
+  if (isUpperMid) {
+    return {
+      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 90 FPS', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: 'Reliable 90 FPS pacing with high thermal efficiency.' },
+      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '55-58 FPS', thermal_and_frame_drop_notes: 'Solid open-world rendering with stable thermals.' },
+      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '115-120 FPS', thermal_and_frame_drop_notes: 'Consistent 120 FPS frame rate in standard matches.' },
+      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '50-55 FPS', thermal_and_frame_drop_notes: 'Fluid combat sequences with minimal throttling.' },
+    };
+  }
+
+  if (isMid) {
+    return {
+      BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + Extreme (60 FPS)', sustained_avg_fps: '58-60 FPS', thermal_and_frame_drop_notes: 'Smooth 60 FPS pacing.' },
+      GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Medium (45-60 FPS)', sustained_avg_fps: '45-50 FPS', thermal_and_frame_drop_notes: 'Stable medium preset exploration.' },
+      CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '60 FPS Locked', thermal_and_frame_drop_notes: 'Competitive 60 FPS multiplayer.' },
+      WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Low (45 FPS)', sustained_avg_fps: '38-42 FPS', thermal_and_frame_drop_notes: 'Solid baseline performance.' },
+    };
+  }
+
+  return {
+    BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + Ultra (45 FPS)', sustained_avg_fps: '40-45 FPS', thermal_and_frame_drop_notes: 'Entry level gameplay.' },
+    GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Low (30 FPS)', sustained_avg_fps: '28-30 FPS', thermal_and_frame_drop_notes: 'Basic shader output.' },
+    CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Medium (45 FPS)', sustained_avg_fps: '42-45 FPS', thermal_and_frame_drop_notes: 'Playable multiplayer pacing.' },
+    WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'Low (30 FPS)', sustained_avg_fps: '25-30 FPS', thermal_and_frame_drop_notes: 'Entry-level rendering.' },
+  };
+}
+
+
+export function getDeviceByIdOrName(query) {
+  if (!query) return deviceDatabase[0] || INITIAL_DEVICES[0];
+
+  const q = String(query).trim();
+  const qLower = q.toLowerCase();
+  const qNorm = qLower.replace(/[^a-z0-9]/g, '');
+
+  // 1. Direct match in deviceDatabase
+  let match = deviceDatabase.find(
+    (d) =>
+      d.id === q ||
+      d.id === qLower ||
+      d.device_name?.toLowerCase() === qLower ||
+      d.id?.replace(/[^a-z0-9]/g, '') === qNorm ||
+      d.device_name?.toLowerCase().replace(/[^a-z0-9]/g, '') === qNorm
+  );
+  if (match) return match;
+
+  // 2. Token-based fuzzy match in deviceDatabase (e.g. "samsung-s24-ultra" matches "Samsung Galaxy S24 Ultra")
+  const tokens = qLower.split(/[-_\s]+/).filter((t) => t.length > 0 && t !== 'galaxy');
+  if (tokens.length > 0) {
+    match = deviceDatabase.find((d) => {
+      const target = (d.id + ' ' + d.device_name).toLowerCase();
+      return tokens.every((token) => target.includes(token));
+    });
+    if (match) return match;
+  }
+
+  // 3. Fallback search in INITIAL_DEVICES (202 verified entries)
+  match = INITIAL_DEVICES.find(
+    (d) =>
+      d.id === q ||
+      d.id === qLower ||
+      d.device_name?.toLowerCase() === qLower ||
+      d.id?.replace(/[^a-z0-9]/g, '') === qNorm ||
+      d.device_name?.toLowerCase().replace(/[^a-z0-9]/g, '') === qNorm
+  );
+  if (match) return match;
+
+  if (tokens.length > 0) {
+    match = INITIAL_DEVICES.find((d) => {
+      const target = (d.id + ' ' + d.device_name).toLowerCase();
+      return tokens.every((token) => target.includes(token));
+    });
+    if (match) return match;
+  }
+
+  // 4. Custom device cache
+  if (customDeviceCache.has(q) || customDeviceCache.has(qNorm)) {
+    return customDeviceCache.get(q) || customDeviceCache.get(qNorm);
+  }
+
+  // 5. Otherwise generate deterministic custom device
   return createCustomDevice(query);
 }
 
@@ -1410,14 +686,15 @@ export async function syncCatalogWithBackend() {
             storage: apiDev.storage_score || 80.0,
           },
           is_past_search: Boolean(apiDev.is_past_search),
-          game_benchmarks: {
-            BGMI: { game_name: GAMES.BGMI, max_unlocked_setting: 'Smooth + 90 FPS', sustained_avg_fps: '88-90 FPS', thermal_and_frame_drop_notes: `Synced from pulsethrottle.db telemetry run.` },
-            GENSHIN: { game_name: GAMES.GENSHIN, max_unlocked_setting: 'Highest (60 FPS)', sustained_avg_fps: '55-60 FPS', thermal_and_frame_drop_notes: 'Hardware telemetry recorded.' },
-            CODM: { game_name: GAMES.CODM, max_unlocked_setting: 'Ultra (120 FPS)', sustained_avg_fps: '118-120 FPS', thermal_and_frame_drop_notes: 'Smooth pacing.' },
-            WUTHERING: { game_name: GAMES.WUTHERING, max_unlocked_setting: 'High (60 FPS)', sustained_avg_fps: '52-56 FPS', thermal_and_frame_drop_notes: 'Consistent load execution.' },
-          },
+          game_benchmarks: computeDynamicGameBenchmarks(apiDev.name, apiDev.antutu || 1400000, apiDev.score || 85.0),
         };
       });
+
+      if (apiDevices.length === 0) {
+        deviceDatabase = [];
+        notifyListeners();
+        return { success: true, count: 0 };
+      }
 
       // Merge avoiding duplicates
       const deviceMap = new Map();

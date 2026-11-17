@@ -409,23 +409,42 @@ export default function HeadToHeadComparison({
       </div>
 
       {/* 3. BOTTOM: PROGRESSIVE DISCLOSURE ACCORDION ("View Full Telemetry Breakdown") */}
-      <div className="border-t border-slate-100 bg-white">
+      <div className="border-t-2 border-amber-300/80 bg-gradient-to-r from-amber-500/[0.08] via-amber-500/[0.03] to-slate-50 transition-colors">
         <button
           type="button"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full px-6 sm:px-8 py-4 flex items-center justify-between text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50/80 transition-colors cursor-pointer select-none"
+          className="w-full px-6 sm:px-8 py-4 flex items-center justify-between text-xs font-semibold transition-all cursor-pointer select-none group hover:bg-amber-500/[0.12]"
         >
-          <span className="flex items-center gap-2">
-            <span>{isExpanded ? 'Hide Detailed Telemetry & Benchmarks' : 'View Full Telemetry Breakdown'}</span>
-            <span className="text-[11px] text-slate-400 font-normal">
-              (Sub-Pillars, AnTuTu v10, Geekbench 6, Storage & PWM)
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-amber-500 text-white shadow-2xs group-hover:scale-105 transition-transform">
+              <Sparkles className="w-4 h-4" />
             </span>
-          </span>
-          <ChevronDown
-            className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${
-              isExpanded ? 'rotate-180 text-slate-800' : ''
-            }`}
-          />
+            <div className="text-left">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-slate-900 tracking-tight">
+                  {isExpanded ? 'Hide Detailed Telemetry & Benchmarks' : 'View Full Telemetry Breakdown'}
+                </span>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-900 border border-amber-400/50 uppercase tracking-wider">
+                  Hardware Deep Dive
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 font-medium mt-0.5">
+                Sub-Pillars, AnTuTu v10 Total, Geekbench 6, Storage Tier & PWM Eye Safety
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <span className="hidden sm:inline-block text-xs font-bold text-amber-900/90 group-hover:text-amber-950">
+              {isExpanded ? 'Collapse' : 'Expand All Specs'}
+            </span>
+            <div className="w-8 h-8 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex items-center justify-center text-slate-600 group-hover:border-amber-400 group-hover:text-amber-800 transition-colors">
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  isExpanded ? 'rotate-180 text-amber-800' : ''
+                }`}
+              />
+            </div>
+          </div>
         </button>
 
         <AnimatePresence>
@@ -446,6 +465,19 @@ export default function HeadToHeadComparison({
                       Weighted: 35% Thermal • 30% Compute • 20% Storage • 15% OS
                     </span>
                   </div>
+
+                  {isDualMode && deviceB && (
+                    <div className="flex items-center justify-between text-[11px] font-semibold text-slate-500 px-2 pt-0.5">
+                      <span className="flex items-center gap-1.5 text-slate-900 font-bold">
+                        <span className="w-2.5 h-2.5 rounded-full bg-slate-800 inline-block" />
+                        {deviceA.device_name}
+                      </span>
+                      <span className="flex items-center gap-1.5 text-slate-600 font-bold">
+                        {deviceB.device_name}
+                        <span className="w-2.5 h-2.5 rounded-full bg-slate-400 inline-block" />
+                      </span>
+                    </div>
+                  )}
 
                   <div className="bg-white rounded-xl border border-slate-200/80 divide-y divide-slate-100 shadow-2xs">
                     {/* Pillar 1: TSS */}
@@ -592,67 +624,176 @@ export default function HeadToHeadComparison({
 
                 {/* Synthetic Benchmarks & Hardware Specifications Grid */}
                 <div className="space-y-4">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
-                    Synthetic Benchmarks & Hardware Specifications
-                  </span>
-
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    {/* AnTuTu v10 */}
-                    <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-1 shadow-2xs">
-                      <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">
-                        AnTuTu v10 Total
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
+                      Synthetic Benchmarks & Hardware Specifications
+                    </span>
+                    {isDualMode && deviceB && (
+                      <span className="text-[11px] font-medium text-slate-400">
+                        Side-by-Side Architectural Audit
                       </span>
-                      <div className="font-mono font-bold text-sm text-slate-900 tabular-nums">
-                        {deviceA.antutu_v10_score ? deviceA.antutu_v10_score.toLocaleString() : 'N/A'}
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {/* AnTuTu v10 Total */}
+                    <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                          <Cpu className="w-3.5 h-3.5 text-slate-400" />
+                          AnTuTu v10 Total
+                        </span>
+                        {isDualMode && deviceB && deviceA.antutu_v10_score && deviceB.antutu_v10_score && deviceA.antutu_v10_score !== deviceB.antutu_v10_score && (
+                          <span className="text-[10px] font-mono font-bold text-slate-500">
+                            {deviceA.antutu_v10_score > deviceB.antutu_v10_score
+                              ? `+${(deviceA.antutu_v10_score - deviceB.antutu_v10_score).toLocaleString()} pts`
+                              : `+${(deviceB.antutu_v10_score - deviceA.antutu_v10_score).toLocaleString()} pts`}
+                          </span>
+                        )}
                       </div>
-                      {isDualMode && deviceB && (
-                        <div className="text-[11px] font-mono text-slate-400 tabular-nums pt-0.5">
-                          vs {deviceB.antutu_v10_score ? deviceB.antutu_v10_score.toLocaleString() : 'N/A'}
+
+                      {isDualMode && deviceB ? (
+                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100">
+                          <div className="border-r border-slate-100 pr-2">
+                            <span className="block text-[10px] text-slate-400 font-medium truncate mb-1">
+                              {deviceA.device_name}
+                            </span>
+                            <span className="text-base sm:text-lg font-bold font-mono text-slate-900 tabular-nums block">
+                              {deviceA.antutu_v10_score ? deviceA.antutu_v10_score.toLocaleString() : 'N/A'}
+                            </span>
+                          </div>
+                          <div className="pl-1">
+                            <span className="block text-[10px] text-slate-400 font-medium truncate mb-1">
+                              {deviceB.device_name}
+                            </span>
+                            <span className="text-base sm:text-lg font-bold font-mono text-slate-900 tabular-nums block">
+                              {deviceB.antutu_v10_score ? deviceB.antutu_v10_score.toLocaleString() : 'N/A'}
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="pt-1">
+                          <span className="text-xl font-bold font-mono text-slate-900 tabular-nums block">
+                            {deviceA.antutu_v10_score ? deviceA.antutu_v10_score.toLocaleString() : 'N/A'}
+                          </span>
                         </div>
                       )}
                     </div>
 
                     {/* Geekbench 6 Multi */}
-                    <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-1 shadow-2xs">
-                      <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">
-                        Geekbench 6 Multi
-                      </span>
-                      <div className="font-mono font-bold text-sm text-slate-900 tabular-nums">
-                        {deviceA.geekbench_6_multi ? deviceA.geekbench_6_multi.toLocaleString() : 'N/A'}
+                    <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                          <Activity className="w-3.5 h-3.5 text-slate-400" />
+                          Geekbench 6 Multi
+                        </span>
+                        {isDualMode && deviceB && deviceA.geekbench_6_multi && deviceB.geekbench_6_multi && deviceA.geekbench_6_multi !== deviceB.geekbench_6_multi && (
+                          <span className="text-[10px] font-mono font-bold text-slate-500">
+                            {deviceA.geekbench_6_multi > deviceB.geekbench_6_multi
+                              ? `+${(deviceA.geekbench_6_multi - deviceB.geekbench_6_multi).toLocaleString()}`
+                              : `+${(deviceB.geekbench_6_multi - deviceA.geekbench_6_multi).toLocaleString()}`}
+                          </span>
+                        )}
                       </div>
-                      {isDualMode && deviceB && (
-                        <div className="text-[11px] font-mono text-slate-400 tabular-nums pt-0.5">
-                          vs {deviceB.geekbench_6_multi ? deviceB.geekbench_6_multi.toLocaleString() : 'N/A'}
+
+                      {isDualMode && deviceB ? (
+                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100">
+                          <div className="border-r border-slate-100 pr-2">
+                            <span className="block text-[10px] text-slate-400 font-medium truncate mb-1">
+                              {deviceA.device_name}
+                            </span>
+                            <span className="text-base sm:text-lg font-bold font-mono text-slate-900 tabular-nums block">
+                              {deviceA.geekbench_6_multi ? deviceA.geekbench_6_multi.toLocaleString() : 'N/A'}
+                            </span>
+                          </div>
+                          <div className="pl-1">
+                            <span className="block text-[10px] text-slate-400 font-medium truncate mb-1">
+                              {deviceB.device_name}
+                            </span>
+                            <span className="text-base sm:text-lg font-bold font-mono text-slate-900 tabular-nums block">
+                              {deviceB.geekbench_6_multi ? deviceB.geekbench_6_multi.toLocaleString() : 'N/A'}
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="pt-1">
+                          <span className="text-xl font-bold font-mono text-slate-900 tabular-nums block">
+                            {deviceA.geekbench_6_multi ? deviceA.geekbench_6_multi.toLocaleString() : 'N/A'}
+                          </span>
                         </div>
                       )}
                     </div>
 
-                    {/* Storage Tier */}
-                    <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-1 shadow-2xs">
-                      <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">
-                        Storage Standard
-                      </span>
-                      <div className="font-mono font-bold text-sm text-slate-900 truncate">
-                        {deviceA.storage_tier || 'UFS 4.0'}
+                    {/* Storage Standard */}
+                    <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                          <HardDrive className="w-3.5 h-3.5 text-slate-400" />
+                          Storage Standard
+                        </span>
                       </div>
-                      {isDualMode && deviceB && (
-                        <div className="text-[11px] font-mono text-slate-400 truncate pt-0.5">
-                          vs {deviceB.storage_tier || 'UFS 4.0'}
+
+                      {isDualMode && deviceB ? (
+                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100">
+                          <div className="border-r border-slate-100 pr-2">
+                            <span className="block text-[10px] text-slate-400 font-medium truncate mb-1">
+                              {deviceA.device_name}
+                            </span>
+                            <span className="text-xs sm:text-sm font-bold font-mono text-slate-900 truncate block">
+                              {deviceA.storage_tier || 'UFS 4.0'}
+                            </span>
+                          </div>
+                          <div className="pl-1">
+                            <span className="block text-[10px] text-slate-400 font-medium truncate mb-1">
+                              {deviceB.device_name}
+                            </span>
+                            <span className="text-xs sm:text-sm font-bold font-mono text-slate-900 truncate block">
+                              {deviceB.storage_tier || 'UFS 4.0'}
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="pt-1">
+                          <span className="text-base font-bold font-mono text-slate-900 truncate block">
+                            {deviceA.storage_tier || 'UFS 4.0'}
+                          </span>
                         </div>
                       )}
                     </div>
 
                     {/* PWM Dimming */}
-                    <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-1 shadow-2xs">
-                      <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">
-                        PWM Dimming (Eye Safety)
-                      </span>
-                      <div className="font-mono font-bold text-sm text-slate-900 truncate">
-                        {deviceA.pwm_dimming_hz || 'Standard'}
+                    <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                          <Eye className="w-3.5 h-3.5 text-slate-400" />
+                          PWM Dimming (Eye Safety)
+                        </span>
                       </div>
-                      {isDualMode && deviceB && (
-                        <div className="text-[11px] font-mono text-slate-400 truncate pt-0.5">
-                          vs {deviceB.pwm_dimming_hz || 'Standard'}
+
+                      {isDualMode && deviceB ? (
+                        <div className="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100">
+                          <div className="border-r border-slate-100 pr-2">
+                            <span className="block text-[10px] text-slate-400 font-medium truncate mb-1">
+                              {deviceA.device_name}
+                            </span>
+                            <span className="text-xs sm:text-sm font-bold font-mono text-slate-900 truncate block" title={deviceA.pwm_dimming_hz}>
+                              {deviceA.pwm_dimming_hz || 'Standard'}
+                            </span>
+                          </div>
+                          <div className="pl-1">
+                            <span className="block text-[10px] text-slate-400 font-medium truncate mb-1">
+                              {deviceB.device_name}
+                            </span>
+                            <span className="text-xs sm:text-sm font-bold font-mono text-slate-900 truncate block" title={deviceB.pwm_dimming_hz}>
+                              {deviceB.pwm_dimming_hz || 'Standard'}
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="pt-1">
+                          <span className="text-base font-bold font-mono text-slate-900 truncate block">
+                            {deviceA.pwm_dimming_hz || 'Standard'}
+                          </span>
                         </div>
                       )}
                     </div>

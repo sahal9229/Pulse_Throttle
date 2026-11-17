@@ -14,8 +14,10 @@ import {
   Cpu,
   Layers,
   Sparkles,
+  Trash2,
+  RotateCcw,
 } from 'lucide-react';
-import { BRANDS, getAllDevices, subscribeCatalog } from '../data/deviceData.js';
+import { BRANDS, getAllDevices, subscribeCatalog, clearLeaderboard, restoreDefaultCatalog } from '../data/deviceData.js';
 import DeviceThumbnail from './DeviceThumbnail.jsx';
 import { AnimatedBackground } from './motion/index.js';
 
@@ -144,47 +146,72 @@ export default function Leaderboard({ onSelectDevice }) {
           </h2>
         </div>
 
-        {/* Toggle Mode: Past Searches vs Complete Database with AnimatedBackground */}
-        <div className="flex items-center p-1 bg-slate-100 rounded-xl self-start sm:self-auto">
-          <AnimatedBackground
-            defaultValue={activeCatalogMode}
-            className="bg-white rounded-lg shadow-2xs"
-            transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            onValueChange={(id) => {
-              if (id) setActiveCatalogMode(id);
-            }}
-          >
-            <button
-              data-id="past_searches"
-              type="button"
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer ${
-                activeCatalogMode === 'past_searches'
-                  ? 'text-slate-900 font-bold'
-                  : 'text-slate-500 hover:text-slate-800'
-              }`}
+        <div className="flex items-center flex-wrap gap-2 self-start sm:self-auto">
+          {/* Toggle Mode: Past Searches vs Complete Database with AnimatedBackground */}
+          <div className="flex items-center p-1 bg-slate-100 rounded-xl">
+            <AnimatedBackground
+              defaultValue={activeCatalogMode}
+              className="bg-white rounded-lg shadow-2xs"
+              transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              onValueChange={(id) => {
+                if (id) setActiveCatalogMode(id);
+              }}
             >
-              <Flame className="w-3.5 h-3.5 text-amber-500" />
-              <span>Top Searches</span>
-              <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
-                {pastSearchesCount}
-              </span>
-            </button>
+              <button
+                data-id="past_searches"
+                type="button"
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer ${
+                  activeCatalogMode === 'past_searches'
+                    ? 'text-slate-900 font-bold'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                <Flame className="w-3.5 h-3.5 text-amber-500" />
+                <span>Top Searches</span>
+                <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
+                  {pastSearchesCount}
+                </span>
+              </button>
+              <button
+                data-id="all"
+                type="button"
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer ${
+                  activeCatalogMode === 'all'
+                    ? 'text-slate-900 font-bold'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                <BookOpen className="w-3.5 h-3.5 text-slate-600" />
+                <span>Complete Database</span>
+                <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
+                  {catalog.length}
+                </span>
+              </button>
+            </AnimatedBackground>
+          </div>
+
+          {/* Action Buttons: Clear & Restore */}
+          {catalog.length > 0 ? (
             <button
-              data-id="all"
               type="button"
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer ${
-                activeCatalogMode === 'all'
-                  ? 'text-slate-900 font-bold'
-                  : 'text-slate-500 hover:text-slate-800'
-              }`}
+              onClick={clearLeaderboard}
+              title="Clean all data from leaderboard"
+              className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
-              <BookOpen className="w-3.5 h-3.5 text-slate-600" />
-              <span>Complete Database</span>
-              <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-mono">
-                {catalog.length}
-              </span>
+              <Trash2 className="w-3.5 h-3.5" />
+              <span>Clean Leaderboard</span>
             </button>
-          </AnimatedBackground>
+          ) : (
+            <button
+              type="button"
+              onClick={restoreDefaultCatalog}
+              title="Restore default catalog"
+              className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors flex items-center gap-1.5 cursor-pointer"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span>Restore Catalog</span>
+            </button>
+          )}
         </div>
       </div>
 
@@ -376,13 +403,28 @@ export default function Leaderboard({ onSelectDevice }) {
             <tbody className="divide-y divide-slate-100">
               {filteredDevices.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="py-14 text-center">
+                  <td colSpan={8} className="py-16 text-center">
+                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-3">
+                      <Sparkles className="w-5 h-5 text-slate-400" />
+                    </div>
                     <p className="text-slate-800 font-extrabold text-sm">
-                      No smartphones match the current filters or search query.
+                      {catalog.length === 0 ? 'Leaderboard is Clean & Empty' : 'No smartphones match the current filters or search query.'}
                     </p>
-                    <p className="text-slate-500 text-xs font-medium mt-1">
-                      Try clearing your search term, resetting brand filters, or switching to the Full Phone Database.
+                    <p className="text-slate-500 text-xs font-medium mt-1 max-w-md mx-auto">
+                      {catalog.length === 0
+                        ? 'All database and cached benchmark records have been cleared. Run an analysis on the Hardware Telemetry tab to benchmark devices and populate the leaderboard.'
+                        : 'Try clearing your search term, resetting brand filters, or switching to the Full Phone Database.'}
                     </p>
+                    {catalog.length === 0 && (
+                      <button
+                        type="button"
+                        onClick={restoreDefaultCatalog}
+                        className="mt-4 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-white hover:bg-slate-800 transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-2xs"
+                      >
+                        <RotateCcw className="w-3.5 h-3.5" />
+                        <span>Restore Default Benchmarks</span>
+                      </button>
+                    )}
                   </td>
                 </tr>
               ) : (
