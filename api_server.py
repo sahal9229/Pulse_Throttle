@@ -126,6 +126,12 @@ def ensure_catalog_tables() -> None:
                 )
                 """
             )
+            cur = conn.cursor()
+            cur.execute("SELECT COUNT(*) FROM device_catalog")
+            count = cur.fetchone()[0]
+            if count == 0 and MASTER_SEED_CATALOG:
+                print(f"[Startup] device_catalog empty; auto-seeding {len(MASTER_SEED_CATALOG)} devices into SQLite...")
+                seed_catalog_tables(conn)
             conn.commit()
     except Exception as e:
         print(f"[SQLite Notice] Running in cloud-only mode without local SQLite cache: {e}")
