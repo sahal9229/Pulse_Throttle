@@ -53,13 +53,13 @@ export function clearLeaderboard() {
   deviceDatabase = [];
   customDeviceCache.clear();
   notifyListeners();
-  fetch(`${API_BASE_URL}/api/catalog/clear`, { method: 'POST' }).catch(() => {});
+  fetch(`${API_BASE_URL}/api/catalog/clear`, { method: 'POST' }).catch(() => { });
 }
 
 export function restoreDefaultCatalog() {
   deviceDatabase = [...INITIAL_DEVICES];
   notifyListeners();
-  fetch(`${API_BASE_URL}/api/catalog/seed`, { method: 'POST' }).catch(() => {});
+  fetch(`${API_BASE_URL}/api/catalog/seed`, { method: 'POST' }).catch(() => { });
 }
 
 /**
@@ -658,7 +658,7 @@ const API_BASE_URL =
   (typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_API_BASE_URL : null) ||
   (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     ? 'http://localhost:8000'
-    : '');
+    : 'https://pulse-throttle.onrender.com');
 
 /**
  * Syncs the catalog with the FastAPI backend
@@ -687,8 +687,8 @@ export async function syncCatalogWithBackend() {
 
         // New device found from past CLI search or database
         const isIos = (apiDev.os === 'iOS') || (apiDev.name?.toLowerCase().includes('iphone')) || (apiDev.name?.toLowerCase().includes('apple'));
-        const safeFallback = isIos 
-          ? 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg' 
+        const safeFallback = isIos
+          ? 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg'
           : 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g-sm-s921.jpg';
         return {
           id,
@@ -879,8 +879,8 @@ export async function extractCustomPhoneTelemetry(deviceName) {
           brand: pd.device_name?.split(' ')[0] || existing?.brand || (refAnchor?.brand || 'Custom'),
           os: (pd.device_name?.toLowerCase().includes('iphone') || pd.device_name?.toLowerCase().includes('apple')) ? 'iOS' : 'Android',
           release_year: releaseYear,
-          image_url: (existing?.image_url && !existing.image_url.includes('unsplash')) 
-            ? existing.image_url 
+          image_url: (existing?.image_url && !existing.image_url.includes('unsplash'))
+            ? existing.image_url
             : (pd.image_url || refAnchor?.image_url || existing?.image_url || ((pd.device_name?.toLowerCase().includes('iphone') || pd.device_name?.toLowerCase().includes('apple')) ? 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg' : 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g-sm-s921.jpg')),
           soc_chipset: pd.soc_chipset || refAnchor?.soc_chipset || existing?.soc_chipset || 'Extracted Silicon',
           soc_detail: 'Live Web Scraping & Telemetry Extraction',
